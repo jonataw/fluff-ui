@@ -10,11 +10,10 @@ import { terser } from 'rollup-plugin-terser';
 import minimist from 'minimist';
 
 // Get browserslist config and remove ie from es build targets
-const esbrowserslist = fs
-  .readFileSync('./.browserslistrc')
+const esbrowserslist = fs.readFileSync('./.browserslistrc')
   .toString()
   .split('\n')
-  .filter(entry => entry && entry.substring(0, 2) !== 'ie');
+  .filter((entry) => entry && entry.substring(0, 2) !== 'ie');
 
 const argv = minimist(process.argv.slice(2));
 
@@ -27,25 +26,25 @@ const baseConfig = {
       alias({
         resolve: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
         entries: {
-          '~': path.resolve(projectRoot, 'src')
-        }
-      })
+          '@': path.resolve(projectRoot, 'src'),
+        },
+      }),
     ],
     replace: {
       'process.env.NODE_ENV': JSON.stringify('production'),
-      'process.env.ES_BUILD': JSON.stringify('false')
+      'process.env.ES_BUILD': JSON.stringify('false'),
     },
     vue: {
       css: true,
       template: {
-        isProduction: true
-      }
+        isProduction: true,
+      },
     },
     babel: {
       exclude: 'node_modules/**',
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue']
-    }
-  }
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
+    },
+  },
 };
 
 // ESM/UMD/IIFE shared settings: externals
@@ -53,7 +52,7 @@ const baseConfig = {
 const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
-  'vue'
+  'vue',
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -61,7 +60,7 @@ const external = [
 const globals = {
   // Provide global variable names to replace your external imports
   // eg. jquery: '$'
-  vue: 'Vue'
+  vue: 'Vue',
 };
 
 // Customize configs for individual targets
@@ -73,12 +72,12 @@ if (!argv.format || argv.format === 'es') {
     output: {
       file: 'dist/fluff-ui.esm.js',
       format: 'esm',
-      exports: 'named'
+      exports: 'named',
     },
     plugins: [
       replace({
         ...baseConfig.plugins.replace,
-        'process.env.ES_BUILD': JSON.stringify('true')
+        'process.env.ES_BUILD': JSON.stringify('true'),
       }),
       ...baseConfig.plugins.preVue,
       vue(baseConfig.plugins.vue),
@@ -88,13 +87,13 @@ if (!argv.format || argv.format === 'es') {
           [
             '@babel/preset-env',
             {
-              targets: esbrowserslist
-            }
-          ]
-        ]
+              targets: esbrowserslist,
+            },
+          ],
+        ],
       }),
-      commonjs()
-    ]
+      commonjs(),
+    ],
   };
   buildFormats.push(esConfig);
 }
@@ -109,7 +108,7 @@ if (!argv.format || argv.format === 'cjs') {
       format: 'cjs',
       name: 'FluffUi',
       exports: 'named',
-      globals
+      globals,
     },
     plugins: [
       replace(baseConfig.plugins.replace),
@@ -118,12 +117,12 @@ if (!argv.format || argv.format === 'cjs') {
         ...baseConfig.plugins.vue,
         template: {
           ...baseConfig.plugins.vue.template,
-          optimizeSSR: true
-        }
+          optimizeSSR: true,
+        },
       }),
       babel(baseConfig.plugins.babel),
-      commonjs()
-    ]
+      commonjs(),
+    ],
   };
   buildFormats.push(umdConfig);
 }
@@ -138,7 +137,7 @@ if (!argv.format || argv.format === 'iife') {
       format: 'iife',
       name: 'FluffUi',
       exports: 'named',
-      globals
+      globals,
     },
     plugins: [
       replace(baseConfig.plugins.replace),
@@ -148,10 +147,10 @@ if (!argv.format || argv.format === 'iife') {
       commonjs(),
       terser({
         output: {
-          ecma: 5
-        }
-      })
-    ]
+          ecma: 5,
+        },
+      }),
+    ],
   };
   buildFormats.push(unpkgConfig);
 }

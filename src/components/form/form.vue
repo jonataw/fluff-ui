@@ -10,11 +10,10 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-
-import Icon from '@/components/icon/icon.vue';
+import { FLIcon } from '@/components';
 
 @Component({
-  components: { Icon }
+  components: { FLIcon }
 })
 export default class extends Vue {
   @Prop({ type: String, required: true }) readonly name!: string;

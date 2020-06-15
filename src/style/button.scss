@@ -1,0 +1,41 @@
+$button--background: rgb(226, 226, 226);
+$button--hover-background: rgb(209, 209, 209);
+$button--active-background: rgb(199, 199, 199);
+
+.button--root {
+  display: flex;
+  justify-content: right;
+  background: transparent;
+
+  .button {
+    border-radius: 3px;
+    background-color: $button--background;
+    line-height: 1;
+    &.button--small {
+      padding: 6px 14px;
+    }
+    &.button--default {
+      padding: 10px 20px;
+    }
+    &.button--large {
+      padding: 14px 26px;
+    }
+
+    &.button--fill-always {
+      width: 100%;
+    }
+    &.button--fill-auto {
+      @media screen and(max-width: 760px) {
+        width: 100%;
+      }
+    }
+
+    &:hover {
+      background-color: $button--hover-background;
+    }
+
+    &:active {
+      background-color: $button--active-background;
+    }
+  }
+}

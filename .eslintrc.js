@@ -5,18 +5,18 @@ module.exports = {
     node: true
   },
   extends: [
-    "plugin:vue-libs/recommended",
     'plugin:vue/essential',
-    'eslint:recommended',
-    '@vue/typescript'
+    '@vue/typescript',
+    '@vue/eslint-config-typescript'
   ],
   rules: {
     'import/order': 'off',
     'arrow-parens': 'off',
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['error', 'unix'],
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'vue/no-v-html': 'off',
     'vue/html-self-closing': 'off',
+    'no-unused-vars-experimental': 'off',
     'space-before-function-paren': [
       'error',
       {

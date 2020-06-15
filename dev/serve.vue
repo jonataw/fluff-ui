@@ -1,17 +1,25 @@
-<script lang="ts">
-import Vue from 'vue';
-import { FluffUiSample } from '@/entry';
-
-export default Vue.extend({
-  name: 'ServeDev',
-  components: {
-    FluffUiSample
-  }
-});
-</script>
-
 <template>
   <div id="app">
-    <fluff-ui-sample />
+    <FLForm name="form" v-slot:form="{ form }">
+      <FLInput
+        :form="form"
+        label="Hello world!"
+        type="email"
+        v-model="a"
+        :errors="{ invalid_email_address: 'Invalid email address' }"
+      />
+    </FLForm>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import { FLForm, FLInput } from '@/entry';
+import '@/entry/../style/_combined.scss';
+import './global.scss';
+
+@Component({ components: { FLForm, FLInput } })
+export default class extends Vue {
+  a: string = '';
+}
+</script>
