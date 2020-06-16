@@ -1,79 +1,88 @@
 $button--background: rgb(226, 226, 226);
+$button--disabled-background: rgb(236, 236, 236);
+$button--disabled-color: rgb(168, 168, 168);
 $button--hover-background: rgb(209, 209, 209);
 $button--active-background: rgb(199, 199, 199);
 
 .button {
   display: flex;
+  align-items: center;
   justify-content: right;
   background: transparent;
 
-  &.button--small {
+  &.button--size-small {
     .button__element {
-      font-size: 14px;
-      padding: 6px 14px;
+      font-size: 15px;
+      padding: 6px 12px;
     }
-  }
-  &.button--default {
-    .button__element {
-      padding: 10px 20px;
+    &.button--icon-align-left {
+      .button__text {
+        padding-left: 8px;
+      }
     }
-  }
-  &.button--large {
-    .button__element {
-      font-size: 17px;
-      padding: 14px 26px;
+    &.button--icon-align-right {
+      .button__text {
+        padding-right: 8px;
+      }
     }
   }
 
-  &.button--icon-align-left {
-    &.button--default {
+  &.button--size-default {
+    .button__element {
+      padding: 12px 24px;
+    }
+    &.button--icon-align-left {
       .button__text {
-        margin-left: 6px;
+        padding-left: 8px;
       }
     }
-    &.button--large {
+    &.button--icon-align-right {
       .button__text {
-        margin-left: 10px;
+        padding-right: 8px;
       }
     }
   }
+
+  &.button--size-large {
+    .button__element {
+      font-size: 18px;
+      padding: 14px 32px;
+    }
+    &.button--icon-align-left {
+      .button__text {
+        padding-left: 8px;
+      }
+    }
+    &.button--icon-align-right {
+      .button__text {
+        padding-right: 8px;
+      }
+    }
+  }
+
   &.button--icon-align-right {
-    &.button--default {
-      .button__text {
-        margin-right: 6px;
-      }
-    }
-    &.button--large {
-      .button__text {
-        margin-right: 10px;
-      }
-    }
     .button__element {
       flex-direction: row-reverse;
     }
   }
 
-  &.button--fill-always {
-    width: 100%;
+  .button__text {
+    display: block;
   }
-  &.button--fill-auto {
-    @media screen and(max-width: 760px) {
-      width: 100%;
+
+  .button__loading {
+    position: absolute;
+  }
+
+  &.button--loading {
+    .button__text,
+    .button__icon {
+      opacity: 0;
     }
   }
 
-  .button__icon,
-  .button__loading {
-    width: 100%;
-    height: 100%;
-  }
-
-  .loading {
-    position: absolute;
-    padding: 6px;
-  }
-
   .button__element {
+    justify-content: center;
     align-items: center;
     position: relative;
     display: flex;
@@ -87,6 +96,12 @@ $button--active-background: rgb(199, 199, 199);
 
     &:active {
       background-color: $button--active-background;
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: $button--disabled-background;
+      color: $button--disabled-color;
     }
   }
 }
