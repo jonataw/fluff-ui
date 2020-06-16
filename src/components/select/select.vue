@@ -1,0 +1,94 @@
+<template>
+  <div class="select--root">
+    <div class="select" :class="{ 'select--has-error': !!error }">
+      <!-- Select label -->
+      <label v-if="label" :for="id" class="select--label" v-text="label" />
+
+      <!-- Description above select field -->
+      <p v-if="upperDescription" class="select--description" v-text="upperDescription" />
+
+      <!-- Needs this div wrapper here to keep icon inside the <select> field -->
+      <div class="select--html-element">
+        <select
+          :id="id"
+          :value="value"
+          :disabled="disabled"
+          :autofocus="autofocus"
+          :readonly="readonly"
+          @change="onInput($event.target.value)"
+          @blur="$emit('blur')"
+          @focus="$emit('focus')"
+        >
+          <option
+            v-for="(option, i) in options"
+            :key="i"
+            :value="option.value"
+            class="select--option"
+            :class="{
+              '--is-selected': option.value === value
+            }"
+            v-text="option.text"
+          />
+        </select>
+
+        <span v-if="error" class="select--error-icon">
+          <svg>
+            <path
+              d="M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z"
+            />
+          </svg>
+        </span>
+
+        <span class="select--icon">
+          <svg>
+            <path
+              d="M11.9,10c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4L9,15.7c-0.4,0.4-1,0.4-1.4,0l-4.3-4.3c-0.4-0.4-0.4-1,0-1.4
+s1-0.4,1.4,0l3.6,3.6C8.3,13.6,11.9,10,11.9,10z M11.9,6L8.3,2.4L4.7,6c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l4.3-4.3
+c0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z"
+            />
+          </svg>
+        </span>
+      </div>
+
+      <!-- Error -->
+      <span v-if="error" class="select--error">{{ error }}</span>
+
+      <!-- Description below select field -->
+      <p v-if="lowerDescription" class="select--description-below" v-html="lowerDescription"></p>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Prop } from 'vue-property-decorator';
+import Input from '../input/input.vue';
+import Icon from '../icon/icon.vue';
+
+interface OptionItem {
+  text: string;
+  value: unknown;
+}
+
+@Component({
+  components: { Icon }
+})
+export default class extends Input {
+  @Prop({ type: Array, required: true }) readonly options!: OptionItem[];
+
+  protected onInput(value: string | boolean | number | null) {
+    if (this.disabled) {
+      return;
+    }
+    if (value === 'false') {
+      value = false;
+    }
+    if (value === 'true') {
+      value = true;
+    }
+    if (value === '') {
+      value = null;
+    }
+    this.$emit('input', value);
+  }
+}
+</script>
