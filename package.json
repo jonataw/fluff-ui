@@ -7,14 +7,15 @@
     "name": "Jonatan Wackström (jonataw)",
     "url": "https://jonatan.net"
   },
+  "license": "MIT",
   "homepage": "https://github.com/jonataw/fluff-ui",
   "bugs": {
     "url": "https://github.com/jonataw/fluff-ui/issues",
     "email": "jonatan.wackstrom@gmail.com"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/jonataw/fluff-ui.git"
+    "type": "git",
+    "url": "https://github.com/jonataw/fluff-ui.git"
   },
   "main": "dist/fluff-ui.ssr.js",
   "browser": "dist/fluff-ui.esm.js",
