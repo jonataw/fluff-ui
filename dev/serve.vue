@@ -22,7 +22,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import '@/entry/../style/main.scss';
+import '@/entry/../scss/main.scss';
+import '@/entry/../fluff-icons/fluff-icons.scss';
 import './global.scss';
 
 @Component({})

@@ -1,11 +1,20 @@
 {
   "name": "fluff-ui",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Fluff UI - A component library for Vue.js.",
   "author": {
     "email": "jonatan.wackstrom@gmail.com",
     "name": "Jonatan Wackström (jonataw)",
     "url": "https://jonatan.net"
+  },
+  "homepage": "https://github.com/jonataw/fluff-ui",
+  "bugs": {
+    "url": "https://github.com/jonataw/fluff-ui/issues",
+    "email": "jonatan.wackstrom@gmail.com"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/jonataw/fluff-ui.git"
   },
   "main": "dist/fluff-ui.ssr.js",
   "browser": "dist/fluff-ui.esm.js",
@@ -19,7 +28,8 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.ts",
-    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js && npm run build:css",
+    "build:css": "node-sass --recursive -o dist src/scss/ --output-style compressed && ncp src/fluff-icons dist/ && node-sass -o dist dist/fluff-icons.scss --output-style compressed && rimraf dist/fluff-icons.scss",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
@@ -44,7 +54,9 @@
     "eslint": "^6.0.0",
     "eslint-plugin-vue": "^6.0.0",
     "minimist": "^1.2.5",
+    "ncp": "^2.0.0",
     "node-sass": "^4.14.1",
+    "rimraf": "^3.0.2",
     "rollup": "^2.7.3",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-terser": "^5.3.0",

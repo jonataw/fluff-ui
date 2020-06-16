@@ -1,5 +1,5 @@
 $loading--border: rgb(117, 117, 117);
-$loading--border-background: rgb(117, 117, 117, 0.25);
+$loading--border-background: rgba(117, 117, 117, 0.25);
 
 .loading {
   border-left: 3px solid $loading--border;
