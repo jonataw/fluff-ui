@@ -10,9 +10,10 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { FLIcon } from '@/components';
+import FLIcon from '@/components/icon/icon.vue';
 
 @Component({
+  name: 'FLForm',
   components: { FLIcon }
 })
 export default class extends Vue {

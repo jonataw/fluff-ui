@@ -1,0 +1,30 @@
+$loading--border: rgb(117, 117, 117);
+$loading--border-background: rgb(117, 117, 117, 0.25);
+
+.loading {
+  border-left: 3px solid $loading--border;
+  border-top: 3px solid $loading--border;
+
+  border-bottom: 3px solid $loading--border-background;
+  border-right: 3px solid $loading--border-background;
+  width: 20px;
+  height: 20px;
+
+  border-radius: 32px;
+
+  animation: loading 0.75s linear infinite;
+
+  &.loading--size-xl {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

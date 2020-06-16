@@ -1,45 +1,43 @@
 <template>
-  <div class="input--root">
-    <div class="input" :class="{ 'input--has-error': !!error }">
-      <!-- Input label -->
-      <label v-if="label" :for="id" class="input--label" v-text="label" />
+  <div class="input" :class="{ 'input--has-error': !!error }">
+    <!-- Input label -->
+    <label v-if="label" :for="id" class="input--label" v-text="label" />
 
-      <!-- Description above input field -->
-      <p v-if="upperDescription" class="input--description" v-text="upperDescription" />
+    <!-- Description above input field -->
+    <p v-if="upperDescription" class="input--description" v-text="upperDescription" />
 
-      <div class="input--html-element">
-        <input
-          :id="id"
-          :value="value"
-          :type="type || 'text'"
-          :disabled="disabled"
-          :placeholder="placeholder === undefined ? label : placeholder"
-          :autocomplete="autocomplete"
-          :autofocus="autofocus"
-          :readonly="readonly"
-          @input="onInput($event.target.value)"
-          @blur="onBlur"
-          @focus="$emit('focus')"
-          @keydown="$emit('keydown')"
-          @keyup="$emit('keyup')"
-          @keypress="$emit('keypress')"
-        />
+    <div class="input--html-element">
+      <input
+        :id="id"
+        :value="value"
+        :type="type || 'text'"
+        :disabled="disabled"
+        :placeholder="placeholder === undefined ? label : placeholder"
+        :autocomplete="autocomplete"
+        :autofocus="autofocus"
+        :readonly="readonly"
+        @input="onInput($event.target.value)"
+        @blur="onBlur"
+        @focus="$emit('focus')"
+        @keydown="$emit('keydown')"
+        @keyup="$emit('keyup')"
+        @keypress="$emit('keypress')"
+      />
 
-        <span v-if="error" class="input--error-icon">
-          <svg>
-            <path
-              d="M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z"
-            />
-          </svg>
-        </span>
-      </div>
-
-      <!-- Error -->
-      <span v-if="error" class="input--error">{{ error }}</span>
-
-      <!-- Description below input field -->
-      <p v-if="lowerDescription" class="input--description-below" v-html="lowerDescription"></p>
+      <span v-if="error" class="input--error-icon">
+        <svg>
+          <path
+            d="M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z"
+          />
+        </svg>
+      </span>
     </div>
+
+    <!-- Error -->
+    <span v-if="error" class="input--error">{{ error }}</span>
+
+    <!-- Description below input field -->
+    <p v-if="lowerDescription" class="input--description-below" v-html="lowerDescription"></p>
   </div>
 </template>
 
@@ -50,6 +48,7 @@ import { Form } from '@/components/form/form.vue';
 export type InputType = 'text' | 'email' | 'number' | 'password';
 
 @Component({
+  name: 'FLInput',
   components: {}
 })
 export default class extends Vue {
@@ -73,6 +72,8 @@ export default class extends Vue {
   @Prop() disabled?: boolean;
   @Prop() autofocus?: boolean;
   @Prop() readonly?: boolean;
+  @Prop(Number) stagger?: number;
+  timeout = setTimeout(() => {}, 0);
 
   protected get upperDescription() {
     return this.description || this.descriptionAbove;
@@ -90,6 +91,13 @@ export default class extends Vue {
 
     if (this.type === 'number') {
       value = parseInt(value);
+    }
+
+    if (this.stagger) {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        this.$emit('staggered-input', value, this.id);
+      }, this.stagger);
     }
 
     this.$emit('input', value, this.id);

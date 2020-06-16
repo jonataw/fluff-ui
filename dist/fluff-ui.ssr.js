@@ -192,19 +192,13 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
   }
 
   return desc;
-}var _dec, _dec2, _dec3, _class2, _class3, _descriptor, _descriptor2, _temp;
+}var _dec, _dec2, _class2, _class3, _descriptor, _temp;
 
 var _class = (_dec = vuePropertyDecorator.Component({
-  components: {
-    FLIcon: __vue_component__$1
-  }
+  name: 'FLIcon'
 }), _dec2 = vuePropertyDecorator.Prop({
   type: String,
   required: true
-}), _dec3 = vuePropertyDecorator.Prop({
-  type: Boolean,
-  required: false,
-  default: false
 }), _dec(_class2 = (_class3 = (_temp = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
 
@@ -221,58 +215,13 @@ var _class = (_dec = vuePropertyDecorator.Component({
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _initializerDefineProperty(_this, "name", _descriptor, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "i", _descriptor, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "showError", _descriptor2, _assertThisInitialized(_this));
-
-    _this.form = null;
     return _this;
   }
 
-  _createClass(_class3, [{
-    key: "onSubmit",
-    value: function onSubmit() {
-      var _this2 = this;
-
-      if (!this.form) {
-        return;
-      }
-
-      this.form.error = null;
-      this.form.childErrors = [];
-      this.form.loading = true;
-      this.$emit('submit', function (callback) {
-        if (callback.error && _this2.form) {
-          _this2.form.error = callback.error.type;
-          _this2.form.childErrors = callback.error.fields;
-        }
-      });
-      this.form.loading = false;
-    }
-  }, {
-    key: "mounted",
-    value: function mounted() {
-      this.form = this.generateForm();
-    }
-  }, {
-    key: "generateForm",
-    value: function generateForm() {
-      return {
-        loading: false,
-        done: false,
-        error: null,
-        childErrors: []
-      };
-    }
-  }]);
-
   return _class3;
-}(vuePropertyDecorator.Vue), _temp), (_descriptor = _applyDecoratedDescriptor(_class3.prototype, "name", [_dec2], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class3.prototype, "showError", [_dec3], {
+}(vuePropertyDecorator.Vue), _temp), (_descriptor = _applyDecoratedDescriptor(_class3.prototype, "i", [_dec2], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -402,10 +351,8 @@ var __vue_render__ = function __vue_render__() {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
-    staticClass: "form--root"
-  }, [_vm._ssrNode("<form novalidate=\"novalidate\" class=\"form\" data-v-77004631>", "</form>", [_vm._ssrNode((_vm.showError && _vm.form.error ? "<div class=\"form--error\" data-v-77004631>" + _vm._ssrEscape(_vm._s(_vm.form.error)) + "</div>" : "<!---->") + " "), _vm.form ? _vm._t("form", null, {
-    "form": _vm.form
-  }) : _vm._e()], 2)]);
+    staticClass: "icon--root"
+  }, [_vm._ssrNode("<i" + _vm._ssrClass("icon", "icon-" + _vm.i) + " data-v-ea381110></i>")]);
 };
 
 var __vue_staticRenderFns__ = [];
@@ -413,8 +360,8 @@ var __vue_staticRenderFns__ = [];
 
 var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-77004631_0", {
-    source: ".form-error[data-v-77004631]{display:flex;align-items:center}.form-error .icon--root[data-v-77004631]{font-size:20px}.form-error>span[data-v-77004631]{margin-left:6px}",
+  inject("data-v-ea381110_0", {
+    source: ".icon-root[data-v-ea381110]{display:inline-block}",
     map: undefined,
     media: undefined
   });
@@ -422,10 +369,10 @@ var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
 /* scoped */
 
 
-var __vue_scope_id__ = "data-v-77004631";
+var __vue_scope_id__ = "data-v-ea381110";
 /* module identifier */
 
-var __vue_module_identifier__ = "data-v-77004631";
+var __vue_module_identifier__ = "data-v-ea381110";
 /* functional template */
 
 var __vue_is_functional_template__ = false;
@@ -434,11 +381,20 @@ var __vue_is_functional_template__ = false;
 var __vue_component__ = /*#__PURE__*/normalizeComponent({
   render: __vue_render__,
   staticRenderFns: __vue_staticRenderFns__
-}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, createInjectorSSR, undefined);var _dec$1, _dec2$1, _class2$1, _class3$1, _descriptor$1, _temp$1;
+}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, createInjectorSSR, undefined);var _dec$1, _dec2$1, _dec3, _class2$1, _class3$1, _descriptor$1, _descriptor2, _temp$1;
 
-var _class$1 = (_dec$1 = vuePropertyDecorator.Component({}), _dec2$1 = vuePropertyDecorator.Prop({
+var _class$1 = (_dec$1 = vuePropertyDecorator.Component({
+  name: 'FLForm',
+  components: {
+    FLIcon: __vue_component__
+  }
+}), _dec2$1 = vuePropertyDecorator.Prop({
   type: String,
   required: true
+}), _dec3 = vuePropertyDecorator.Prop({
+  type: Boolean,
+  required: false,
+  default: false
 }), _dec$1(_class2$1 = (_class3$1 = (_temp$1 = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
 
@@ -455,13 +411,58 @@ var _class$1 = (_dec$1 = vuePropertyDecorator.Component({}), _dec2$1 = vueProper
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _initializerDefineProperty(_this, "i", _descriptor$1, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "name", _descriptor$1, _assertThisInitialized(_this));
 
+    _initializerDefineProperty(_this, "showError", _descriptor2, _assertThisInitialized(_this));
+
+    _this.form = null;
     return _this;
   }
 
+  _createClass(_class3, [{
+    key: "onSubmit",
+    value: function onSubmit() {
+      var _this2 = this;
+
+      if (!this.form) {
+        return;
+      }
+
+      this.form.error = null;
+      this.form.childErrors = [];
+      this.form.loading = true;
+      this.$emit('submit', function (callback) {
+        if (callback.error && _this2.form) {
+          _this2.form.error = callback.error.type;
+          _this2.form.childErrors = callback.error.fields;
+        }
+      });
+      this.form.loading = false;
+    }
+  }, {
+    key: "mounted",
+    value: function mounted() {
+      this.form = this.generateForm();
+    }
+  }, {
+    key: "generateForm",
+    value: function generateForm() {
+      return {
+        loading: false,
+        done: false,
+        error: null,
+        childErrors: []
+      };
+    }
+  }]);
+
   return _class3;
-}(vuePropertyDecorator.Vue), _temp$1), (_descriptor$1 = _applyDecoratedDescriptor(_class3$1.prototype, "i", [_dec2$1], {
+}(vuePropertyDecorator.Vue), _temp$1), (_descriptor$1 = _applyDecoratedDescriptor(_class3$1.prototype, "name", [_dec2$1], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor2 = _applyDecoratedDescriptor(_class3$1.prototype, "showError", [_dec3], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -478,8 +479,10 @@ var __vue_render__$1 = function __vue_render__() {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
-    staticClass: "icon--root"
-  }, [_vm._ssrNode("<i" + _vm._ssrClass("icon", "icon-" + _vm.i) + " data-v-26963bda></i>")]);
+    staticClass: "form--root"
+  }, [_vm._ssrNode("<form novalidate=\"novalidate\" class=\"form\" data-v-22e7c974>", "</form>", [_vm._ssrNode((_vm.showError && _vm.form.error ? "<div class=\"form--error\" data-v-22e7c974>" + _vm._ssrEscape(_vm._s(_vm.form.error)) + "</div>" : "<!---->") + " "), _vm.form ? _vm._t("form", null, {
+    "form": _vm.form
+  }) : _vm._e()], 2)]);
 };
 
 var __vue_staticRenderFns__$1 = [];
@@ -487,8 +490,8 @@ var __vue_staticRenderFns__$1 = [];
 
 var __vue_inject_styles__$1 = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-26963bda_0", {
-    source: ".icon-root[data-v-26963bda]{display:inline-block}",
+  inject("data-v-22e7c974_0", {
+    source: ".form-error[data-v-22e7c974]{display:flex;align-items:center}.form-error .icon--root[data-v-22e7c974]{font-size:20px}.form-error>span[data-v-22e7c974]{margin-left:6px}",
     map: undefined,
     media: undefined
   });
@@ -496,10 +499,10 @@ var __vue_inject_styles__$1 = function __vue_inject_styles__(inject) {
 /* scoped */
 
 
-var __vue_scope_id__$1 = "data-v-26963bda";
+var __vue_scope_id__$1 = "data-v-22e7c974";
 /* module identifier */
 
-var __vue_module_identifier__$1 = "data-v-26963bda";
+var __vue_module_identifier__$1 = "data-v-22e7c974";
 /* functional template */
 
 var __vue_is_functional_template__$1 = false;
@@ -511,6 +514,7 @@ var __vue_component__$1 = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, createInjectorSSR, undefined);var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _temp$2;
 
 var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
+  name: 'FLInput',
   components: {}
 }), _dec2$2 = vuePropertyDecorator.Prop(), _dec3$1 = vuePropertyDecorator.Prop(), _dec4 = vuePropertyDecorator.Prop({
   required: true
@@ -735,7 +739,7 @@ var __vue_inject_styles__$2 = undefined;
 var __vue_scope_id__$2 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$2 = "data-v-d9b59d02";
+var __vue_module_identifier__$2 = "data-v-a1b15914";
 /* functional template */
 
 var __vue_is_functional_template__$2 = false;
@@ -748,7 +752,7 @@ var __vue_is_functional_template__$2 = false;
 var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$2,
   staticRenderFns: __vue_staticRenderFns__$2
-}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,FLForm: __vue_component__,FLIcon: __vue_component__$1,FLInput: __vue_component__$2});// eslint-disable-next-line @typescript-eslint/no-explicit-any
+}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,FLForm: __vue_component__$1,FLIcon: __vue_component__,FLInput: __vue_component__$2});// eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 // install function executed by Vue.use()
 var install = function installFluffUi(Vue) {
@@ -785,4 +789,4 @@ var plugin = {
     GlobalVue.use(plugin);
   }
 } // Default export is library as a whole, registered via Vue.use()
-exports.FLForm=__vue_component__;exports.FLIcon=__vue_component__$1;exports.FLInput=__vue_component__$2;exports.default=plugin;
+exports.FLForm=__vue_component__$1;exports.FLIcon=__vue_component__;exports.FLInput=__vue_component__$2;exports.default=plugin;

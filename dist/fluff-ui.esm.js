@@ -39,66 +39,21 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
   return desc;
 }
 
-var _dec, _dec2, _dec3, _class2, _class3, _descriptor, _descriptor2, _temp;
+var _dec, _dec2, _class2, _class3, _descriptor, _temp;
 
 let _class = (_dec = Component({
-  components: {
-    FLIcon: __vue_component__$1
-  }
+  name: 'FLIcon'
 }), _dec2 = Prop({
   type: String,
   required: true
-}), _dec3 = Prop({
-  type: Boolean,
-  required: false,
-  default: false
 }), _dec(_class2 = (_class3 = (_temp = class _class3 extends Vue {
   constructor(...args) {
     super(...args);
 
-    _initializerDefineProperty(this, "name", _descriptor, this);
-
-    _initializerDefineProperty(this, "showError", _descriptor2, this);
-
-    this.form = null;
+    _initializerDefineProperty(this, "i", _descriptor, this);
   }
 
-  onSubmit() {
-    if (!this.form) {
-      return;
-    }
-
-    this.form.error = null;
-    this.form.childErrors = [];
-    this.form.loading = true;
-    this.$emit('submit', callback => {
-      if (callback.error && this.form) {
-        this.form.error = callback.error.type;
-        this.form.childErrors = callback.error.fields;
-      }
-    });
-    this.form.loading = false;
-  }
-
-  mounted() {
-    this.form = this.generateForm();
-  }
-
-  generateForm() {
-    return {
-      loading: false,
-      done: false,
-      error: null,
-      childErrors: []
-    };
-  }
-
-}, _temp), (_descriptor = _applyDecoratedDescriptor(_class3.prototype, "name", [_dec2], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class3.prototype, "showError", [_dec3], {
+}, _temp), (_descriptor = _applyDecoratedDescriptor(_class3.prototype, "i", [_dec2], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -245,6 +200,122 @@ var __vue_render__ = function () {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
+    staticClass: "icon--root"
+  }, [_c('i', {
+    staticClass: "icon",
+    class: "icon-" + _vm.i
+  })]);
+};
+
+var __vue_staticRenderFns__ = [];
+/* style */
+
+const __vue_inject_styles__ = function (inject) {
+  if (!inject) return;
+  inject("data-v-ea381110_0", {
+    source: ".icon-root[data-v-ea381110]{display:inline-block}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__ = "data-v-ea381110";
+/* module identifier */
+
+const __vue_module_identifier__ = undefined;
+/* functional template */
+
+const __vue_is_functional_template__ = false;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__ = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__,
+  staticRenderFns: __vue_staticRenderFns__
+}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, createInjector, undefined, undefined);
+
+var _dec$1, _dec2$1, _dec3, _class2$1, _class3$1, _descriptor$1, _descriptor2, _temp$1;
+
+let _class$1 = (_dec$1 = Component({
+  name: 'FLForm',
+  components: {
+    FLIcon: __vue_component__
+  }
+}), _dec2$1 = Prop({
+  type: String,
+  required: true
+}), _dec3 = Prop({
+  type: Boolean,
+  required: false,
+  default: false
+}), _dec$1(_class2$1 = (_class3$1 = (_temp$1 = class _class3 extends Vue {
+  constructor(...args) {
+    super(...args);
+
+    _initializerDefineProperty(this, "name", _descriptor$1, this);
+
+    _initializerDefineProperty(this, "showError", _descriptor2, this);
+
+    this.form = null;
+  }
+
+  onSubmit() {
+    if (!this.form) {
+      return;
+    }
+
+    this.form.error = null;
+    this.form.childErrors = [];
+    this.form.loading = true;
+    this.$emit('submit', callback => {
+      if (callback.error && this.form) {
+        this.form.error = callback.error.type;
+        this.form.childErrors = callback.error.fields;
+      }
+    });
+    this.form.loading = false;
+  }
+
+  mounted() {
+    this.form = this.generateForm();
+  }
+
+  generateForm() {
+    return {
+      loading: false,
+      done: false,
+      error: null,
+      childErrors: []
+    };
+  }
+
+}, _temp$1), (_descriptor$1 = _applyDecoratedDescriptor(_class3$1.prototype, "name", [_dec2$1], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor2 = _applyDecoratedDescriptor(_class3$1.prototype, "showError", [_dec3], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$1)) || _class2$1);
+
+/* script */
+const __vue_script__$1 = _class$1;
+/* template */
+
+var __vue_render__$1 = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
     staticClass: "form--root"
   }, [_c('form', {
     staticClass: "form",
@@ -267,81 +338,13 @@ var __vue_render__ = function () {
   }) : _vm._e()], 2)]);
 };
 
-var __vue_staticRenderFns__ = [];
-/* style */
-
-const __vue_inject_styles__ = function (inject) {
-  if (!inject) return;
-  inject("data-v-77004631_0", {
-    source: ".form-error[data-v-77004631]{display:flex;align-items:center}.form-error .icon--root[data-v-77004631]{font-size:20px}.form-error>span[data-v-77004631]{margin-left:6px}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
-const __vue_scope_id__ = "data-v-77004631";
-/* module identifier */
-
-const __vue_module_identifier__ = undefined;
-/* functional template */
-
-const __vue_is_functional_template__ = false;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__ = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__,
-  staticRenderFns: __vue_staticRenderFns__
-}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, createInjector, undefined, undefined);
-
-var _dec$1, _dec2$1, _class2$1, _class3$1, _descriptor$1, _temp$1;
-
-let _class$1 = (_dec$1 = Component({}), _dec2$1 = Prop({
-  type: String,
-  required: true
-}), _dec$1(_class2$1 = (_class3$1 = (_temp$1 = class _class3 extends Vue {
-  constructor(...args) {
-    super(...args);
-
-    _initializerDefineProperty(this, "i", _descriptor$1, this);
-  }
-
-}, _temp$1), (_descriptor$1 = _applyDecoratedDescriptor(_class3$1.prototype, "i", [_dec2$1], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-})), _class3$1)) || _class2$1);
-
-/* script */
-const __vue_script__$1 = _class$1;
-/* template */
-
-var __vue_render__$1 = function () {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('div', {
-    staticClass: "icon--root"
-  }, [_c('i', {
-    staticClass: "icon",
-    class: "icon-" + _vm.i
-  })]);
-};
-
 var __vue_staticRenderFns__$1 = [];
 /* style */
 
 const __vue_inject_styles__$1 = function (inject) {
   if (!inject) return;
-  inject("data-v-26963bda_0", {
-    source: ".icon-root[data-v-26963bda]{display:inline-block}",
+  inject("data-v-22e7c974_0", {
+    source: ".form-error[data-v-22e7c974]{display:flex;align-items:center}.form-error .icon--root[data-v-22e7c974]{font-size:20px}.form-error>span[data-v-22e7c974]{margin-left:6px}",
     map: undefined,
     media: undefined
   });
@@ -349,7 +352,7 @@ const __vue_inject_styles__$1 = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$1 = "data-v-26963bda";
+const __vue_scope_id__$1 = "data-v-22e7c974";
 /* module identifier */
 
 const __vue_module_identifier__$1 = undefined;
@@ -368,6 +371,7 @@ const __vue_component__$1 = /*#__PURE__*/normalizeComponent({
 var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _temp$2;
 
 let _class$2 = (_dec$2 = Component({
+  name: 'FLInput',
   components: {}
 }), _dec2$2 = Prop(), _dec3$1 = Prop(), _dec4 = Prop({
   required: true
@@ -646,8 +650,8 @@ const __vue_component__$2 = /*#__PURE__*/normalizeComponent({
 
 var components = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  FLForm: __vue_component__,
-  FLIcon: __vue_component__$1,
+  FLForm: __vue_component__$1,
+  FLIcon: __vue_component__,
   FLInput: __vue_component__$2
 });
 
@@ -669,4 +673,4 @@ const plugin = {
 }; // To auto-install on non-es builds, when vue is found
 
 export default plugin;
-export { __vue_component__ as FLForm, __vue_component__$1 as FLIcon, __vue_component__$2 as FLInput };
+export { __vue_component__$1 as FLForm, __vue_component__ as FLIcon, __vue_component__$2 as FLInput };
