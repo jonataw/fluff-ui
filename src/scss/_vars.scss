@@ -1,0 +1,20 @@
+$error_color: rgb(214, 39, 77);
+$text_color: #000;
+$primary_color: rgb(15, 209, 96);
+
+// Form
+$input__shadow: inset 0 2px 4px 0 #ced1e033;
+$input__border: 1px solid rgb(226, 226, 226);
+$input__border--hover: rgb(209, 209, 209);
+$input__border--focus: $primary_color;
+$input__text--placeholder: gray;
+$input__text: $text_color;
+$input__text--disabled: lightgray;
+$input__checkbox_fill: $input__border--focus;
+
+$button__color: rgb(255, 255, 255);
+$button__background: $primary_color;
+$button__color--disabled: $button__color;
+$button__background--disabled: lighten($primary_color, 10%);
+$button__background--hover: darken($primary_color, 5%);
+$button__background--active: darken($primary_color, 10%);

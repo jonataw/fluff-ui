@@ -22,24 +22,24 @@
 
       cursor: pointer;
 
-      box-shadow: $input--shadow;
+      box-shadow: $input__shadow;
 
       border-radius: 3px;
-      border: $input--border;
+      border: $input__border;
       &:disabled {
-        color: $input--disabled-text;
+        color: $input__text--disabled;
       }
 
       &::placeholder {
-        color: $input--placeholder-text;
+        color: $input__text--placeholder;
       }
 
       &:hover {
-        border-color: $input--hover-border;
+        border-color: $input__border--hover;
       }
 
       &:focus {
-        border-color: $input--focus-border;
+        border-color: $input__border--focus;
       }
     }
 
@@ -54,16 +54,17 @@
       right: 0;
       top: 1px;
       height: calc(100% - 2px);
-      border-left: $input--border;
+      border-left: $input__border;
       pointer-events: none;
       svg {
-        fill: $input--focus-border;
+        fill: $input__text--placeholder;
         max-width: 16px;
         height: 100%;
       }
     }
 
-    .select__error_icon {
+    .datepicker__error_icon,
+    .timepicker__error_icon {
       position: absolute;
       align-items: center;
       padding: 14px 14px;
@@ -72,7 +73,7 @@
       top: 1px;
       pointer-events: none;
       svg {
-        fill: $red;
+        fill: $error_color;
         max-width: 16px;
         height: 100%;
       }
@@ -118,11 +119,11 @@ $namespace: 'mx';
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  color: lightgray;
+  color: $input__text--placeholder;
   white-space: nowrap;
   &:hover {
-    border-color: $input--focus-border;
-    color: $input--focus-border;
+    border-color: $input__border--focus;
+    color: $input__border--focus;
   }
 }
 
@@ -135,25 +136,25 @@ $namespace: 'mx';
 
 .#{$namespace}-datepicker-header {
   padding: 6px 8px;
-  border-bottom: $input--border;
+  border-bottom: $input__border;
 }
 
 .#{$namespace}-datepicker-footer {
   padding: 6px 8px;
   text-align: right;
-  border-top: $input--border;
+  border-top: $input__border;
 }
 
 .#{$namespace}-calendar {
   background-color: #fff;
   box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -2px #0000000d;
-  border: $input--border;
+  border: $input__border;
   font-size: 14px;
   box-sizing: border-box;
   width: 248px;
   padding: 6px 12px;
   & + & {
-    border-left: $input--border;
+    border-left: $input__border;
   }
 }
 
@@ -192,11 +193,11 @@ $namespace: 'mx';
   .cell {
     cursor: pointer;
     &:hover {
-      background-color: $input--hover-border;
+      background-color: $input__border--hover;
     }
     &.active {
       color: #fff;
-      background-color: $input--focus-border;
+      background-color: $input__border--focus;
     }
     &.disabled {
       cursor: not-allowed;
@@ -209,10 +210,10 @@ $namespace: 'mx';
   .#{$namespace}-date-row {
     cursor: pointer;
     &:hover {
-      background-color: $input--hover-border;
+      background-color: $input__border--hover;
     }
     &.#{$namespace}-active-week {
-      background-color: $input--hover-border;
+      background-color: $input__border--hover;
     }
     .cell {
       &:hover {
@@ -257,7 +258,7 @@ $namespace: 'mx';
   }
 
   .today {
-    color: blue;
+    color: $primary_color;
   }
   .cell.not-current-month {
     opacity: 0.25;
@@ -268,8 +269,10 @@ $namespace: 'mx';
   flex: 1;
   width: 224px;
   background: #fff;
+  border: $input__border;
+  box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -2px #0000000d;
   & + & {
-    border-left: $input--border;
+    border-left: $input__border;
   }
 }
 .#{$namespace}-calendar-time {
@@ -281,7 +284,7 @@ $namespace: 'mx';
 }
 .#{$namespace}-time-header {
   @extend .#{$namespace}-calendar-header;
-  border-bottom: $input--border;
+  border-bottom: $input__border;
 }
 
 .#{$namespace}-time-content {
@@ -300,7 +303,7 @@ $namespace: 'mx';
 .#{$namespace}-time-column {
   flex: 1;
   position: relative;
-  border-left: $input--border;
+  border-left: $input__border;
   text-align: center;
 
   &:first-child {
@@ -322,11 +325,11 @@ $namespace: 'mx';
     height: 32px;
     line-height: 32px;
     &:hover {
-      background-color: $input--hover-border;
+      background-color: $input__border--hover;
     }
     &.active {
       color: #fff;
-      background-color: $input--focus-border;
+      background-color: $input__border--focus;
     }
     &.disabled {
       cursor: not-allowed;
@@ -341,11 +344,11 @@ $namespace: 'mx';
   font-size: 14px;
   line-height: 20px;
   &:hover {
-    background-color: $input--hover-border;
+    background-color: $input__border--hover;
   }
   &.active {
     color: #fff;
-    background-color: $input--focus-border;
+    background-color: $input__border--focus;
   }
   &.disabled {
     cursor: not-allowed;

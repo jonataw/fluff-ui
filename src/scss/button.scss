@@ -1,14 +1,11 @@
-$button--background: rgb(226, 226, 226);
-$button--disabled-background: rgb(236, 236, 236);
-$button--disabled-color: rgb(168, 168, 168);
-$button--hover-background: rgb(209, 209, 209);
-$button--active-background: rgb(199, 199, 199);
+@import './_vars.scss';
 
 .button {
   display: flex;
   align-items: center;
   justify-content: right;
   background: transparent;
+  color: $button__color;
 
   &.button--size-small {
     .button__element {
@@ -68,6 +65,7 @@ $button--active-background: rgb(199, 199, 199);
 
   .button__text {
     display: block;
+    font-weight: 500;
   }
 
   .button__loading {
@@ -87,21 +85,21 @@ $button--active-background: rgb(199, 199, 199);
     position: relative;
     display: flex;
     border-radius: 3px;
-    background-color: $button--background;
+    background-color: $button__background;
     line-height: 1;
 
     &:hover {
-      background-color: $button--hover-background;
+      background-color: $button__background--hover;
     }
 
     &:active {
-      background-color: $button--active-background;
+      background-color: $button__background--active;
     }
 
     &:disabled {
       cursor: default;
-      background-color: $button--disabled-background;
-      color: $button--disabled-color;
+      background-color: $button__background--disabled;
+      color: $button__color--disabled;
     }
   }
 }

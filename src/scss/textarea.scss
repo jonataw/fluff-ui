@@ -18,25 +18,24 @@
       margin: 0;
       padding: 12px;
 
-      box-shadow: $input--shadow;
+      box-shadow: $input__shadow;
 
       border-radius: 3px;
-      border: $input--border;
-
+      border: $input__border;
       &:disabled {
-        color: $input--disabled-text;
+        color: $input__text--disabled;
       }
 
       &::placeholder {
-        color: $input--placeholder-text;
+        color: $input__text--placeholder;
       }
 
       &:hover {
-        border-color: $input--hover-border;
+        border-color: $input__border--hover;
       }
 
       &:focus {
-        border-color: $input--focus-border;
+        border-color: $input__border--focus;
       }
     }
 
@@ -49,7 +48,7 @@
       top: 1px;
       pointer-events: none;
       svg {
-        fill: $red;
+        fill: $error_color;
         max-width: 18px;
         height: 100%;
       }

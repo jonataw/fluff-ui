@@ -8,6 +8,7 @@
     display: inline-flex;
     align-items: center;
     .checkbox__label {
+      user-select: none;
       line-height: 1.35;
       display: flex;
       align-items: center;
@@ -22,8 +23,8 @@
     .checkbox__fill_box {
       display: flex;
       justify-content: center;
-      box-shadow: $input--shadow;
-      border: $input--border;
+      box-shadow: $input__shadow;
+      border: $input__border;
       min-height: 26px;
       min-width: 26px;
       max-height: 26px;
@@ -54,7 +55,7 @@
       }
       &:checked {
         + .checkbox__fill_box {
-          background: $input--focus-border;
+          background: $input__checkbox_fill;
           svg {
             fill: #fff;
           }
@@ -62,6 +63,4 @@
       }
     }
   }
-
-  user-select: none;
 }

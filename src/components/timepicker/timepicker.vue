@@ -30,11 +30,10 @@
           @blur="$emit('blur')"
           @focus="$emit('focus')"
         >
-          <slot name="icon-calendar" />
         </date-picker>
       </client-only>
 
-      <span v-if="error" class="select__error_icon">
+      <span v-if="error" class="timepicker__error_icon">
         <svg>
           <path
             d="M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z"
@@ -45,10 +44,10 @@
       <span class="timepicker__icon">
         <div style="height: 16px;">
           <svg>
-            <rect x="3" y="4" width="10" height="10" rx="2" ry="2" />
-            <line x1="16" y1="2" x2="10" y2="6" />
-            <line x1="8" y1="2" x2="8" y2="6" />
-            <line x1="3" y1="10" x2="12" y2="10" />
+            <path
+              d="M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M8,14.5c-3.6,0-6.5-2.9-6.5-6.5c0-3.6,2.9-6.5,6.5-6.5
+	c3.6,0,6.5,2.9,6.5,6.5C14.5,11.6,11.6,14.5,8,14.5z M8.8,7.7l3,3l-1.1,1.1L7.3,8.3l0,0H7.2V3.4h1.5V7.7z"
+            />
           </svg>
         </div>
       </span>
