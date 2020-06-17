@@ -1,27 +1,17 @@
 @import './form.scss';
 
 .checkbox {
-  display: block;
   position: relative;
   width: 100%;
   margin: 4px 0 12px 0;
-
-  .checkbox--label {
-    /* Label */
-    line-height: 1.35;
-    display: flex;
-    font-weight: 500;
-    margin: 2px 0 0 0;
-    padding-bottom: 4px;
-  }
-
-  &.checkbox {
+  .checkbox__inner {
     display: inline-flex;
-    user-select: none;
-    .checkbox--label {
+    align-items: center;
+    .checkbox__label {
+      line-height: 1.35;
+      display: flex;
       align-items: center;
-      padding: 2px 0;
-      margin: 0;
+      font-weight: 500;
       height: 100%;
       cursor: pointer;
       &:last-of-type {
@@ -29,7 +19,7 @@
       }
     }
 
-    .checkbox--handle-box {
+    .checkbox__fill_box {
       display: flex;
       justify-content: center;
       box-shadow: $input--shadow;
@@ -41,19 +31,10 @@
       position: relative;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
-      border-radius: var(--border-radius);
+      border-radius: 3px;
       svg {
-        transition: all 0.1s ease;
         fill: transparent;
         width: 18px;
-      }
-    }
-
-    &:hover:not(.--checked) {
-      .checkbox--handle-box {
-        svg {
-          fill: var(--gray200);
-        }
       }
     }
 
@@ -63,8 +44,16 @@
       opacity: 0;
       position: absolute;
       top: 0;
+      &:hover:not(:checked) {
+        + .checkbox__fill_box {
+          svg {
+            opacity: 0.25;
+            fill: inherit;
+          }
+        }
+      }
       &:checked {
-        + .checkbox--handle-box {
+        + .checkbox__fill_box {
           background: $input--focus-border;
           svg {
             fill: #fff;
@@ -73,4 +62,6 @@
       }
     }
   }
+
+  user-select: none;
 }

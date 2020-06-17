@@ -1,17 +1,18 @@
 <template>
-  <div class="checkbox--root">
+  <div class="checkbox" :class="{ 'checkbox--error': !!error, 'checkbox--checked': value }">
     <!-- Description above input field -->
-    <p v-if="upperDescription" class="input--description" v-text="upperDescription" />
-    <div class="checkbox" :class="{ 'input--has-error': !!error, '--checked': value }">
+    <p v-if="upperDescription" class="input__description" v-text="upperDescription" />
+    <div class="checkbox__inner">
       <input
         :id="id"
         :checked="value"
         :disabled="disabled"
+        class="checkbox__element"
         type="checkbox"
         @change="onInput($event.target.checked)"
       />
 
-      <label class="checkbox--handle-box" :for="id">
+      <label class="checkbox__fill_box" :for="id">
         <svg viewBox="0 0 64 64">
           <path
             d="M60.6,12.4c-1.3-1.3-3.3-1.3-4.6,0L24.2,44.2c-0.8,0.8-2.3,0.8-3.2,0l-13-13c-1.3-1.3-3.3-1.3-4.6,0c-1.3,1.3-1.3,3.3,0,4.6
@@ -20,11 +21,11 @@ L18,50.4l0,0l0.4,0.4c1.2,1.2,2.7,1.7,4.2,1.7c1.5,0,3.1-0.6,4.2-1.7l0.4-0.4l0,0L6
         </svg>
       </label>
 
-      <label v-if="label" :for="id" class="checkbox--label" v-text="label" />
-
-      <!-- Description below input field -->
-      <p v-if="lowerDescription" class="input--description-below" v-html="lowerDescription"></p>
+      <label v-if="label" :for="id" class="checkbox__label" v-text="label" />
     </div>
+
+    <!-- Description below input field -->
+    <p v-if="lowerDescription" class="input__description_below" v-html="lowerDescription"></p>
   </div>
 </template>
 

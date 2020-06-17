@@ -1,46 +1,39 @@
-.divider--root {
-  // Don't fold margins
+$divider--color: 1px solid rgb(226, 226, 226);
+
+.divider {
   display: flex;
+  width: 100%;
+  height: 1px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 
-  .divider {
-    width: 100%;
-    height: 1px;
-    margin-top: var(--spacing24);
-    margin-bottom: var(--spacing24);
+  &:not(.divider--text) {
+    background-color: $divider--color;
+  }
 
-    &:not(.divider--with-text) {
-      background-color: var(--border);
+  &.divider--text {
+    align-items: center;
+    text-transform: uppercase;
+
+    > div:nth-of-type(2) {
+      flex: 0 1 1;
+      margin: 0 12px;
+
+      align-self: center;
+      text-align: center;
+
+      color: $divider--color;
+      font-size: 12px;
+      font-weight: 600;
     }
 
-    &.divider--compact {
-      margin-top: var(--spacing12);
-      margin-bottom: var(--spacing12);
-    }
+    > div:not(:nth-of-type(2)) {
+      flex-grow: 1;
+      height: 1px;
+      margin-top: 16px;
+      margin-bottom: 16px;
 
-    &.divider--with-text {
-      display: flex;
-      align-items: center;
-      text-transform: uppercase;
-
-      > div:nth-of-type(2) {
-        flex: 0 1 1;
-        margin: 0 var(--spacing12);
-
-        align-self: center;
-        text-align: center;
-
-        color: var(--gray200);
-        font-size: 12px;
-        font-weight: 600;
-      }
-      > div:not(:nth-of-type(2)) {
-        flex-grow: 1;
-        height: 1px;
-        margin-top: var(--spacing24);
-        margin-bottom: var(--spacing24);
-
-        background-color: var(--border);
-      }
+      background-color: $divider--color;
     }
   }
 }

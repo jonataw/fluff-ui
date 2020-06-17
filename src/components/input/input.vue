@@ -1,43 +1,52 @@
 <template>
-  <div class="input" :class="{ 'input--has-error': !!error }">
+  <div
+    class="input"
+    :class="{ 'input--error': !!error, 'input--inline': inline, [`input--size-${size}`]: true }"
+  >
     <!-- Input label -->
-    <label v-if="label" :for="id" class="input--label" v-text="label" />
+    <label v-if="label" :for="id" class="input__label" v-text="label" />
 
     <!-- Description above input field -->
-    <p v-if="upperDescription" class="input--description" v-text="upperDescription" />
+    <p v-if="upperDescription" class="input__description" v-text="upperDescription" />
 
-    <div class="input--html-element">
-      <input
-        :id="id"
-        :value="value"
-        :type="type || 'text'"
-        :disabled="disabled"
-        :placeholder="placeholder === undefined ? label : placeholder"
-        :autocomplete="autocomplete"
-        :autofocus="autofocus"
-        :readonly="readonly"
-        @input="onInput($event.target.value)"
-        @blur="onBlur"
-        @focus="$emit('focus')"
-        @keydown="$emit('keydown')"
-        @keyup="$emit('keyup')"
-        @keypress="$emit('keypress')"
-      />
+    <div class="input__outer">
+      <span v-if="prefix" class="input__prefix" v-html="prefix" />
 
-      <span v-if="error" class="input--error-icon">
-        <svg>
-          <path
-            d="M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z"
-          />
-        </svg>
-      </span>
+      <div class="input__inner">
+        <input
+          :id="id"
+          :value="value"
+          :type="type || 'text'"
+          :disabled="disabled"
+          :placeholder="placeholder === undefined ? label : placeholder"
+          :autocomplete="autocomplete"
+          :autofocus="autofocus"
+          :readonly="readonly"
+          class="input__element"
+          @input="onInput($event.target.value)"
+          @blur="onBlur"
+          @focus="$emit('focus')"
+          @keydown="$emit('keydown')"
+          @keyup="$emit('keyup')"
+          @keypress="$emit('keypress')"
+        />
+        <span v-if="error" class="input__error_icon">
+          <svg>
+            <path
+              d="M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z"
+            />
+          </svg>
+        </span>
+      </div>
+
+      <span v-if="suffix" class="input__suffix" v-html="suffix" />
     </div>
 
     <!-- Error -->
-    <span v-if="error" class="input--error">{{ error }}</span>
+    <span v-if="error" class="input__error">{{ error }}</span>
 
     <!-- Description below input field -->
-    <p v-if="lowerDescription" class="input--description-below" v-html="lowerDescription"></p>
+    <p v-if="lowerDescription" class="input__description_below" v-html="lowerDescription"></p>
   </div>
 </template>
 
@@ -59,12 +68,16 @@ export default class extends Vue {
   locError: string | null = null;
 
   /* Visuals */
-  @Prop() type?: InputType;
+  @Prop({ default: 'text' }) type?: InputType;
+  @Prop({ type: String, default: 'default' }) readonly size?: 'default' | 'small' | 'large';
   @Prop() label?: string;
   @Prop() description?: string;
   @Prop() descriptionAbove?: string;
   @Prop() descriptionBelow?: string;
   @Prop() placeholder?: string;
+  @Prop() prefix?: string;
+  @Prop() suffix?: string;
+  @Prop({ default: false }) inline?: boolean;
   @Prop() errors?: { [k: string]: string };
 
   /* Functional */
@@ -84,6 +97,7 @@ export default class extends Vue {
   }
 
   protected onInput(value: any) {
+    console.log('on input', value);
     if (this.disabled) {
       /* Do not allow input if input should be disabled */
       return;

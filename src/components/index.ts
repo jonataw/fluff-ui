@@ -7,3 +7,5 @@ export { default as FLInput } from './input/input.vue';
 export { default as FLLoading } from './loading/loading.vue';
 export { default as FLSelect } from './select/select.vue';
 export { default as FLTextarea } from './textarea/textarea.vue';
+export { default as FLDatepicker } from './datepicker/datepicker.vue';
+export { default as FLTimepicker } from './timepicker/timepicker.vue';

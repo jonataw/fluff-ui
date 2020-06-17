@@ -8,4 +8,12 @@
   margin: 32px 0;
   display: flex;
   column-gap: 8px;
+
+  @media screen and(max-width: 800px) {
+    display: block;
+  }
+}
+
+body {
+  line-height: 1.25;
 }

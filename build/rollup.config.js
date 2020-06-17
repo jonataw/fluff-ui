@@ -54,7 +54,8 @@ const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
   'vue',
-  'vue-property-decorator'
+  'vue-property-decorator',
+  'vue2-datepicker'
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -63,7 +64,8 @@ const globals = {
   // Provide global variable names to replace your external imports
   // eg. jquery: '$'
   vue: 'Vue',
-  'vue-property-decorator': 'vuePropertyDecorator'
+  'vue-property-decorator': 'vuePropertyDecorator',
+  'vue2-datepicker': 'vueDatepicker'
 };
 
 // Customize configs for individual targets

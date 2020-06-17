@@ -1,11 +1,9 @@
 <template>
-  <div class="form--root">
-    <form class="form" novalidate="true" @submit.prevent="onSubmit">
-      <div v-if="showError && form.error" class="form--error" v-text="form.error" />
+  <form class="form" :novalidate="!htmlValidate" @submit.prevent="onSubmit">
+    <div v-if="showError && form.error" class="form--error" v-text="form.error" />
 
-      <slot v-if="form" name="form" :form="form" />
-    </form>
-  </div>
+    <slot v-if="form" name="form" :form="form" />
+  </form>
 </template>
 
 <script lang="ts">
@@ -18,7 +16,8 @@ import FLIcon from '@/components/icon/icon.vue';
 })
 export default class extends Vue {
   @Prop({ type: String, required: true }) readonly name!: string;
-  @Prop({ type: Boolean, required: false, default: false }) readonly showError?: boolean;
+  @Prop({ type: Boolean, default: false }) readonly htmlValidate!: boolean;
+  @Prop({ type: Boolean, default: false }) readonly showError?: boolean;
 
   private form: Form | null = null;
 

@@ -6,45 +6,15 @@
   width: 100%;
   margin: 4px 0 12px 0;
 
-  .textarea--label {
-    /* Label */
-    line-height: 1.35;
-    display: flex;
-    font-weight: 500;
-    margin: 2px 0 0 0;
-    padding-bottom: 4px;
-  }
-
-  .textarea--description {
-    /* Above input field */
-    margin-bottom: 12px;
-    margin-top: 8px;
-  }
-
-  .textarea--description-below {
-    /* Below input field */
-    margin-top: 6px;
-    margin-bottom: 0;
-
-    font-size: 14px;
-    line-height: 22px;
-  }
-
-  .textarea--error {
-    display: block;
-    margin-top: 4px;
-    margin-bottom: 0;
-
-    font-size: 14px;
-    line-height: 22px;
-    color: $red;
-  }
-
-  .textarea--html-element {
+  .textarea__inner {
     position: relative;
     textarea {
+      min-width: 200px;
+      min-height: 50px;
       /* HTML Input */
       width: 100%;
+      max-width: 100%;
+
       margin: 0;
       padding: 12px;
 
@@ -70,7 +40,7 @@
       }
     }
 
-    .textarea--error-icon {
+    .textarea__error_icon {
       position: absolute;
       align-items: center;
       padding: 14px 14px;
@@ -86,10 +56,15 @@
     }
   }
 
-  /* Textarea-specific rules */
-  &.textarea {
-    textarea {
-      max-width: 100%;
+  &.input--size-large {
+    .textarea__element {
+      padding: 16px 12px;
+    }
+  }
+
+  &.input--size-small {
+    .textarea__element {
+      padding: 8px 8px;
     }
   }
 }

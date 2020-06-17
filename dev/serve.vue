@@ -1,15 +1,24 @@
 <template>
   <div id="app">
     <FLForm name="form" v-slot:form="{ form }">
+      <FLInput :size="size" :form="form" label="First name" type="text" v-model="f" />
+
+      <FLInput :size="size" :form="form" label="Last name" type="text" v-model="l" />
+
       <FLInput
+        :size="size"
         :form="form"
-        label="Hello world!"
+        label="Email"
         type="email"
-        v-model="a"
+        v-model="e"
         :errors="{ invalid_email_address: 'Invalid email address' }"
       />
 
+      <FLDatepicker :size="size" :form="form" label="Hello world!" type="email" v-model="a" />
+      <FLTimepicker :size="size" :form="form" label="Hello world!" type="email" v-model="c" />
+
       <FLCheckbox
+        id="a"
         :form="form"
         label="Hello world!"
         type="email"
@@ -18,8 +27,11 @@
       />
 
       <FLSelect
+        :size="size"
         :form="form"
         label="Hello world!"
+        description="This selection indicates what you want!"
+        description-below="This selection indicates what you want!"
         type="email"
         v-model="a"
         :options="[
@@ -39,6 +51,7 @@
       />
 
       <FLTextarea
+        :size="size"
         :form="form"
         label="Hello world!"
         type="email"
@@ -68,12 +81,9 @@
     </div>
 
     <div class="flex">
-      <FLButton disabled @click.native="t">Hello</FLButton>
-      <FLButton icon="gift" @click.native="t">Hello</FLButton>
-      <FLButton :loading="this.loading" @click.native="t">Hello</FLButton>
-      <FLButton icon="arrow-left" icon-align="right" :loading="this.loading" @click.native="t"
-        >Hello</FLButton
-      >
+      <FLButton size="small" icon="gift" @click="size = 'small'">Small</FLButton>
+      <FLButton @click="size = 'default'">Default</FLButton>
+      <FLButton size="large" @click="size = 'large'">Large</FLButton>
     </div>
 
     <div class="flex">
@@ -101,7 +111,12 @@ import './global.scss';
 @Component({})
 export default class extends Vue {
   loading = false;
+  f: string = '';
+  l: string = '';
+  e: string = '';
   a: string = '';
+  c: string = '';
+  size: string = '';
   b: boolean = false;
 
   t() {

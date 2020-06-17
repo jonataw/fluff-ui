@@ -1,5 +1,8 @@
 import _Vue, { PluginFunction } from 'vue';
 
+import Datepicker from 'vue2-datepicker';
+_Vue.use(Datepicker as any);
+
 // Import vue components
 import * as components from '@/components/index';
 

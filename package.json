@@ -1,6 +1,6 @@
 {
   "name": "fluff-ui",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "Fluff UI - A component library for Vue.js.",
   "author": {
     "email": "jonatan.wackstrom@gmail.com",
@@ -35,7 +35,10 @@
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue-client-only": "^2.0.0",
+    "vue2-datepicker": "^3.6.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.10.1",
@@ -45,6 +48,7 @@
     "@rollup/plugin-alias": "^2.2.0",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-replace": "^2.3.2",
+    "@types/vue2-datepicker": "^3.3.0",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
     "@vue/cli-plugin-babel": "^4.3.1",

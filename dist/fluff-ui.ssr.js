@@ -1,20 +1,4 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});var vuePropertyDecorator=require('vue-property-decorator');function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _classCallCheck(instance, Constructor) {
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopDefault(e){return(e&&(typeof e==='object')&&'default'in e)?e['default']:e}var _Vue=_interopDefault(require('vue')),Datepicker=_interopDefault(require('vue2-datepicker')),vuePropertyDecorator=require('vue-property-decorator');function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
@@ -315,46 +299,6 @@ var _class = (_dec = vuePropertyDecorator.Component({
         }
     }
     return script;
-}function createInjectorSSR(context) {
-    if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-    }
-    if (!context)
-        return () => { };
-    if (!('styles' in context)) {
-        context._styles = context._styles || {};
-        Object.defineProperty(context, 'styles', {
-            enumerable: true,
-            get: () => context._renderStyles(context._styles)
-        });
-        context._renderStyles = context._renderStyles || renderStyles;
-    }
-    return (id, style) => addStyle(id, style, context);
-}
-function addStyle(id, css, context) {
-    const group =  css.media || 'default' ;
-    const style = context._styles[group] || (context._styles[group] = { ids: [], css: '' });
-    if (!style.ids.includes(id)) {
-        style.media = css.media;
-        style.ids.push(id);
-        let code = css.source;
-        style.css += code + '\n';
-    }
-}
-function renderStyles(styles) {
-    let css = '';
-    for (const key in styles) {
-        const style = styles[key];
-        css +=
-            '<style data-vue-ssr-id="' +
-                Array.from(style.ids).join(' ') +
-                '"' +
-                (style.media ? ' media="' + style.media + '"' : '') +
-                '>' +
-                style.css +
-                '</style>';
-    }
-    return css;
 }/* script */
 var __vue_script__ = _class;
 /* template */
@@ -366,51 +310,53 @@ var __vue_render__ = function __vue_render__() {
 
   var _c = _vm._self._c || _h;
 
-  return _c('div', {
-    staticClass: "icon--root"
-  }, [_vm._ssrNode("<i" + _vm._ssrClass("icon", "icon-" + _vm.i) + " data-v-18110270></i>")]);
+  return _c('i', {
+    staticClass: "icon",
+    class: "icon-" + _vm.i
+  }, []);
 };
 
 var __vue_staticRenderFns__ = [];
 /* style */
 
-var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
-  if (!inject) return;
-  inject("data-v-18110270_0", {
-    source: ".icon-root[data-v-18110270]{display:inline-block}",
-    map: undefined,
-    media: undefined
-  });
-};
+var __vue_inject_styles__ = undefined;
 /* scoped */
 
-
-var __vue_scope_id__ = "data-v-18110270";
+var __vue_scope_id__ = undefined;
 /* module identifier */
 
-var __vue_module_identifier__ = "data-v-18110270";
+var __vue_module_identifier__ = "data-v-fba76b8e";
 /* functional template */
 
 var __vue_is_functional_template__ = false;
+/* style inject */
+
+/* style inject SSR */
+
 /* style inject shadow dom */
 
 var __vue_component__ = /*#__PURE__*/normalizeComponent({
   render: __vue_render__,
   staticRenderFns: __vue_staticRenderFns__
-}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, createInjectorSSR, undefined);var _dec$1, _dec2$1, _class2$1, _descriptor$1, _descriptor2, _temp$1;
+}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, undefined, undefined);var _dec$1, _dec2$1, _dec3, _class2$1, _class3$1, _descriptor$1, _descriptor2, _temp$1;
 
-var _class$1 = (_dec$1 = vuePropertyDecorator.Prop({
+var _class$1 = (_dec$1 = vuePropertyDecorator.Component({
+  name: 'FLLoading'
+}), _dec2$1 = vuePropertyDecorator.Prop({
   type: String,
   required: false
-}), _dec2$1 = vuePropertyDecorator.Prop(String), (_class2$1 = (_temp$1 = /*#__PURE__*/function (_Vue) {
-  _inherits(_class2, _Vue);
+}), _dec3 = vuePropertyDecorator.Prop({
+  type: String,
+  default: 'default'
+}), _dec$1(_class2$1 = (_class3$1 = (_temp$1 = /*#__PURE__*/function (_Vue) {
+  _inherits(_class3, _Vue);
 
-  var _super = _createSuper(_class2);
+  var _super = _createSuper(_class3);
 
-  function _class2() {
+  function _class3() {
     var _this;
 
-    _classCallCheck(this, _class2);
+    _classCallCheck(this, _class3);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
@@ -425,18 +371,18 @@ var _class$1 = (_dec$1 = vuePropertyDecorator.Prop({
     return _this;
   }
 
-  return _class2;
-}(vuePropertyDecorator.Vue), _temp$1), (_descriptor$1 = _applyDecoratedDescriptor(_class2$1.prototype, "color", [_dec$1], {
+  return _class3;
+}(vuePropertyDecorator.Vue), _temp$1), (_descriptor$1 = _applyDecoratedDescriptor(_class3$1.prototype, "color", [_dec2$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class2$1.prototype, "size", [_dec2$1], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class3$1.prototype, "size", [_dec3], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-})), _class2$1));/* script */
+})), _class3$1)) || _class2$1);/* script */
 var __vue_script__$1 = _class$1;
 /* template */
 
@@ -451,10 +397,7 @@ var __vue_render__$1 = function __vue_render__() {
 
   return _c('div', {
     staticClass: "loading",
-    class: (_obj = {}, _obj["loading--size-" + (_vm.size || 'default')] = true, _obj["loading--color-" + (_vm.color || 'default')] = true, _obj),
-    style: {
-      borderColor: _vm.color
-    }
+    class: (_obj = {}, _obj["loading--size-" + _vm.size] = true, _obj["loading--color-" + _vm.color] = true, _obj)
   }, []);
 };
 
@@ -467,7 +410,7 @@ var __vue_inject_styles__$1 = undefined;
 var __vue_scope_id__$1 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$1 = "data-v-562fc448";
+var __vue_module_identifier__$1 = "data-v-a72deb54";
 /* functional template */
 
 var __vue_is_functional_template__$1 = false;
@@ -480,7 +423,7 @@ var __vue_is_functional_template__$1 = false;
 var __vue_component__$1 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$1,
   staticRenderFns: __vue_staticRenderFns__$1
-}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);var _dec$2, _dec2$2, _dec3, _dec4, _dec5, _class2$2, _class3$1, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _temp$2;
+}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _temp$2;
 
 var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
   name: 'FLButton',
@@ -489,12 +432,15 @@ var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
     Loading: __vue_component__$1
   }
 }), _dec2$2 = vuePropertyDecorator.Prop({
-  type: [String, Object],
+  type: Boolean,
   default: false
-}), _dec3 = vuePropertyDecorator.Prop(String), _dec4 = vuePropertyDecorator.Prop(String), _dec5 = vuePropertyDecorator.Prop({
+}), _dec3$1 = vuePropertyDecorator.Prop({
+  type: String,
+  default: 'default'
+}), _dec4 = vuePropertyDecorator.Prop(String), _dec5 = vuePropertyDecorator.Prop(Boolean), _dec6 = vuePropertyDecorator.Prop({
   type: String,
   default: 'left'
-}), _dec$2(_class2$2 = (_class3$1 = (_temp$2 = /*#__PURE__*/function (_Vue) {
+}), _dec$2(_class2$2 = (_class3$2 = (_temp$2 = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
 
   var _super = _createSuper(_class3);
@@ -516,7 +462,9 @@ var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "icon", _descriptor3, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "iconAlign", _descriptor4, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "disabled", _descriptor4, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "iconAlign", _descriptor5, _assertThisInitialized(_this));
 
     return _this;
   }
@@ -535,27 +483,33 @@ var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
   }]);
 
   return _class3;
-}(vuePropertyDecorator.Vue), _temp$2), (_descriptor$2 = _applyDecoratedDescriptor(_class3$1.prototype, "loading", [_dec2$2], {
+}(vuePropertyDecorator.Vue), _temp$2), (_descriptor$2 = _applyDecoratedDescriptor(_class3$2.prototype, "loading", [_dec2$2], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor2$1 = _applyDecoratedDescriptor(_class3$1.prototype, "size", [_dec3], {
+}), _descriptor2$1 = _applyDecoratedDescriptor(_class3$2.prototype, "size", [_dec3$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class3$1.prototype, "icon", [_dec4], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class3$2.prototype, "icon", [_dec4], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class3$1.prototype, "iconAlign", [_dec5], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class3$2.prototype, "disabled", [_dec5], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-})), _class3$1)) || _class2$2);var __vue_script__$2 = _class$2;
+}), _descriptor5 = _applyDecoratedDescriptor(_class3$2.prototype, "iconAlign", [_dec6], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$2)) || _class2$2);/* script */
+var __vue_script__$2 = _class$2;
 /* template */
 
 var __vue_render__$2 = function __vue_render__() {
@@ -570,15 +524,27 @@ var __vue_render__$2 = function __vue_render__() {
   return _c('div', {
     staticClass: "button",
     class: (_obj = {
-      'button--loading-template': _vm.loading && _vm.loading.mode === 'add' && !_vm.icon,
-      'button--loading': _typeof(_vm.loading) === 'object' ? _vm.loading.loading : _vm.loading,
-      'button--no-text': _vm.hasTextContent
-    }, _obj["button--" + (_vm.size || 'default')] = true, _obj["button--icon-align-" + _vm.iconAlign] = true, _obj)
-  }, [_vm._ssrNode("<button class=\"button__element\">", "</button>", [(_typeof(_vm.loading) === 'object' ? _vm.loading.loading : _vm.loading) ? _vm._ssrNode("<div class=\"button__loading\">", "</div>", [_c('Loading')], 1) : _vm.icon ? _vm._ssrNode("<div class=\"button__icon\">", "</div>", [_c('Icon', {
+      'button--disabled': _vm.disabled,
+      'button--loading': _vm.loading,
+      'button--icon': !!_vm.icon,
+      'button--text': _vm.hasTextContent
+    }, _obj["button--size-" + _vm.size] = true, _obj["button--icon-align-" + _vm.iconAlign] = !!_vm.icon, _obj)
+  }, [_vm._ssrNode("<button" + _vm._ssrAttr("disabled", _vm.disabled) + " class=\"button__element\">", "</button>", [_c('transition', {
+    attrs: {
+      "name": "fade",
+      "mode": "out-in"
+    }
+  }, [_vm.loading ? _c('div', {
+    staticClass: "button__loading"
+  }, [_c('Loading', {
+    attrs: {
+      "size": 'button-' + _vm.size
+    }
+  })], 1) : _vm._e()]), _vm._ssrNode(" "), _vm.icon ? _vm._ssrNode("<div class=\"button__icon\">", "</div>", [_c('Icon', {
     attrs: {
       "i": _vm.icon
     }
-  })], 1) : _vm._e(), _vm._ssrNode(" "), _vm._ssrNode("<span class=\"button__text\">", "</span>", [_vm._t("default")], 2)], 2)]);
+  })], 1) : _vm._e(), _vm._ssrNode(" "), _vm.hasTextContent ? _vm._ssrNode("<span class=\"button__text\">", "</span>", [_vm._t("default")], 2) : _vm._e()], 2)]);
 };
 
 var __vue_staticRenderFns__$2 = [];
@@ -590,7 +556,7 @@ var __vue_inject_styles__$2 = undefined;
 var __vue_scope_id__$2 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$2 = "data-v-56e053d6";
+var __vue_module_identifier__$2 = "data-v-c703855a";
 /* functional template */
 
 var __vue_is_functional_template__$2 = false;
@@ -603,14 +569,21 @@ var __vue_is_functional_template__$2 = false;
 var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$2,
   staticRenderFns: __vue_staticRenderFns__$2
-}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var _dec$3, _dec2$3, _dec3$1, _dec4$1, _dec5$1, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _class2$3, _class3$2, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _temp$3;
+}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _temp$3;
 
 var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
   name: 'FLInput',
   components: {}
-}), _dec2$3 = vuePropertyDecorator.Prop(), _dec3$1 = vuePropertyDecorator.Prop(), _dec4$1 = vuePropertyDecorator.Prop({
+}), _dec2$3 = vuePropertyDecorator.Prop(), _dec3$2 = vuePropertyDecorator.Prop(), _dec4$1 = vuePropertyDecorator.Prop({
   required: true
-}), _dec5$1 = vuePropertyDecorator.Prop(), _dec6 = vuePropertyDecorator.Prop(), _dec7 = vuePropertyDecorator.Prop(), _dec8 = vuePropertyDecorator.Prop(), _dec9 = vuePropertyDecorator.Prop(), _dec10 = vuePropertyDecorator.Prop(), _dec11 = vuePropertyDecorator.Prop(), _dec12 = vuePropertyDecorator.Prop(), _dec13 = vuePropertyDecorator.Prop(), _dec14 = vuePropertyDecorator.Prop(), _dec15 = vuePropertyDecorator.Prop(), _dec16 = vuePropertyDecorator.Prop(Number), _dec$3(_class2$3 = (_class3$2 = (_temp$3 = /*#__PURE__*/function (_Vue) {
+}), _dec5$1 = vuePropertyDecorator.Prop({
+  default: 'text'
+}), _dec6$1 = vuePropertyDecorator.Prop({
+  type: String,
+  default: 'default'
+}), _dec7 = vuePropertyDecorator.Prop(), _dec8 = vuePropertyDecorator.Prop(), _dec9 = vuePropertyDecorator.Prop(), _dec10 = vuePropertyDecorator.Prop(), _dec11 = vuePropertyDecorator.Prop(), _dec12 = vuePropertyDecorator.Prop(), _dec13 = vuePropertyDecorator.Prop(), _dec14 = vuePropertyDecorator.Prop({
+  default: false
+}), _dec15 = vuePropertyDecorator.Prop(), _dec16 = vuePropertyDecorator.Prop(), _dec17 = vuePropertyDecorator.Prop(), _dec18 = vuePropertyDecorator.Prop(), _dec19 = vuePropertyDecorator.Prop(), _dec20 = vuePropertyDecorator.Prop(Number), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
 
   var _super = _createSuper(_class3);
@@ -636,27 +609,35 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "type", _descriptor4$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "label", _descriptor5, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "size", _descriptor5$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "description", _descriptor6, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "label", _descriptor6, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "descriptionAbove", _descriptor7, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "description", _descriptor7, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "descriptionBelow", _descriptor8, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "descriptionAbove", _descriptor8, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "placeholder", _descriptor9, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "descriptionBelow", _descriptor9, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "errors", _descriptor10, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "placeholder", _descriptor10, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "autocomplete", _descriptor11, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "prefix", _descriptor11, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "disabled", _descriptor12, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "suffix", _descriptor12, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "autofocus", _descriptor13, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "inline", _descriptor13, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "readonly", _descriptor14, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "errors", _descriptor14, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "stagger", _descriptor15, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "autocomplete", _descriptor15, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "disabled", _descriptor16, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "autofocus", _descriptor17, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "readonly", _descriptor18, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "stagger", _descriptor19, _assertThisInitialized(_this));
 
     _this.timeout = setTimeout(function () {}, 0);
     return _this;
@@ -666,6 +647,8 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
     key: "onInput",
     value: function onInput(value) {
       var _this2 = this;
+
+      console.log('on input', value);
 
       if (this.disabled) {
         /* Do not allow input if input should be disabled */
@@ -746,86 +729,108 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
   }]);
 
   return _class3;
-}(vuePropertyDecorator.Vue), _temp$3), (_descriptor$3 = _applyDecoratedDescriptor(_class3$2.prototype, "id", [_dec2$3], {
+}(vuePropertyDecorator.Vue), _temp$3), (_descriptor$3 = _applyDecoratedDescriptor(_class3$3.prototype, "id", [_dec2$3], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor2$2 = _applyDecoratedDescriptor(_class3$2.prototype, "form", [_dec3$1], {
+}), _descriptor2$2 = _applyDecoratedDescriptor(_class3$3.prototype, "form", [_dec3$2], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3$1 = _applyDecoratedDescriptor(_class3$2.prototype, "value", [_dec4$1], {
+}), _descriptor3$1 = _applyDecoratedDescriptor(_class3$3.prototype, "value", [_dec4$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor4$1 = _applyDecoratedDescriptor(_class3$2.prototype, "type", [_dec5$1], {
+}), _descriptor4$1 = _applyDecoratedDescriptor(_class3$3.prototype, "type", [_dec5$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor5 = _applyDecoratedDescriptor(_class3$2.prototype, "label", [_dec6], {
+}), _descriptor5$1 = _applyDecoratedDescriptor(_class3$3.prototype, "size", [_dec6$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor6 = _applyDecoratedDescriptor(_class3$2.prototype, "description", [_dec7], {
+}), _descriptor6 = _applyDecoratedDescriptor(_class3$3.prototype, "label", [_dec7], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class3$2.prototype, "descriptionAbove", [_dec8], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class3$3.prototype, "description", [_dec8], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor8 = _applyDecoratedDescriptor(_class3$2.prototype, "descriptionBelow", [_dec9], {
+}), _descriptor8 = _applyDecoratedDescriptor(_class3$3.prototype, "descriptionAbove", [_dec9], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor9 = _applyDecoratedDescriptor(_class3$2.prototype, "placeholder", [_dec10], {
+}), _descriptor9 = _applyDecoratedDescriptor(_class3$3.prototype, "descriptionBelow", [_dec10], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor10 = _applyDecoratedDescriptor(_class3$2.prototype, "errors", [_dec11], {
+}), _descriptor10 = _applyDecoratedDescriptor(_class3$3.prototype, "placeholder", [_dec11], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor11 = _applyDecoratedDescriptor(_class3$2.prototype, "autocomplete", [_dec12], {
+}), _descriptor11 = _applyDecoratedDescriptor(_class3$3.prototype, "prefix", [_dec12], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor12 = _applyDecoratedDescriptor(_class3$2.prototype, "disabled", [_dec13], {
+}), _descriptor12 = _applyDecoratedDescriptor(_class3$3.prototype, "suffix", [_dec13], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor13 = _applyDecoratedDescriptor(_class3$2.prototype, "autofocus", [_dec14], {
+}), _descriptor13 = _applyDecoratedDescriptor(_class3$3.prototype, "inline", [_dec14], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor14 = _applyDecoratedDescriptor(_class3$2.prototype, "readonly", [_dec15], {
+}), _descriptor14 = _applyDecoratedDescriptor(_class3$3.prototype, "errors", [_dec15], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor15 = _applyDecoratedDescriptor(_class3$2.prototype, "stagger", [_dec16], {
+}), _descriptor15 = _applyDecoratedDescriptor(_class3$3.prototype, "autocomplete", [_dec16], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-})), _class3$2)) || _class2$3);/* script */
+}), _descriptor16 = _applyDecoratedDescriptor(_class3$3.prototype, "disabled", [_dec17], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor17 = _applyDecoratedDescriptor(_class3$3.prototype, "autofocus", [_dec18], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor18 = _applyDecoratedDescriptor(_class3$3.prototype, "readonly", [_dec19], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor19 = _applyDecoratedDescriptor(_class3$3.prototype, "stagger", [_dec20], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$3)) || _class2$3);/* script */
 var __vue_script__$3 = _class$3;
 /* template */
 
 var __vue_render__$3 = function __vue_render__() {
+  var _obj;
+
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -834,10 +839,11 @@ var __vue_render__$3 = function __vue_render__() {
 
   return _c('div', {
     staticClass: "input",
-    class: {
-      'input--has-error': !!_vm.error
-    }
-  }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input--label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input--description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"input--html-element\"><input" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("type", _vm.type || 'text') + _vm._ssrAttr("disabled", _vm.disabled) + _vm._ssrAttr("placeholder", _vm.placeholder === undefined ? _vm.label : _vm.placeholder) + _vm._ssrAttr("autocomplete", _vm.autocomplete) + _vm._ssrAttr("autofocus", _vm.autofocus) + _vm._ssrAttr("readonly", _vm.readonly) + _vm._ssrAttr("value", _vm.value) + "> " + (_vm.error ? "<span class=\"input--error-icon\"><svg><path d=\"M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z\"></path></svg></span>" : "<!---->") + "</div> " + (_vm.error ? "<span class=\"input--error\">" + _vm._ssrEscape(_vm._s(_vm.error)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"input--description-below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
+    class: (_obj = {
+      'input--error': !!_vm.error,
+      'input--inline': _vm.inline
+    }, _obj["input--size-" + _vm.size] = true, _obj)
+  }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"input__outer\">" + (_vm.prefix ? "<span class=\"input__prefix\">" + _vm._s(_vm.prefix) + "</span>" : "<!---->") + " <div class=\"input__inner\"><input" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("type", _vm.type || 'text') + _vm._ssrAttr("disabled", _vm.disabled) + _vm._ssrAttr("placeholder", _vm.placeholder === undefined ? _vm.label : _vm.placeholder) + _vm._ssrAttr("autocomplete", _vm.autocomplete) + _vm._ssrAttr("autofocus", _vm.autofocus) + _vm._ssrAttr("readonly", _vm.readonly) + _vm._ssrAttr("value", _vm.value) + " class=\"input__element\"> " + (_vm.error ? "<span class=\"input__error_icon\"><svg><path d=\"M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z\"></path></svg></span>" : "<!---->") + "</div> " + (_vm.suffix ? "<span class=\"input__suffix\">" + _vm._s(_vm.suffix) + "</span>" : "<!---->") + "</div> " + (_vm.error ? "<span class=\"input__error\">" + _vm._ssrEscape(_vm._s(_vm.error)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
 };
 
 var __vue_staticRenderFns__$3 = [];
@@ -849,7 +855,7 @@ var __vue_inject_styles__$3 = undefined;
 var __vue_scope_id__$3 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$3 = "data-v-488d007c";
+var __vue_module_identifier__$3 = "data-v-727be72e";
 /* functional template */
 
 var __vue_is_functional_template__$3 = false;
@@ -893,11 +899,12 @@ var __vue_render__$4 = function __vue_render__() {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
-    staticClass: "checkbox--root"
-  }, [_vm._ssrNode((_vm.upperDescription ? "<p class=\"input--description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div" + _vm._ssrClass("checkbox", {
-    'input--has-error': !!_vm.error,
-    '--checked': _vm.value
-  }) + "><input" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + " type=\"checkbox\"" + _vm._ssrAttr("checked", _vm.value) + "> <label" + _vm._ssrAttr("for", _vm.id) + " class=\"checkbox--handle-box\"><svg viewBox=\"0 0 64 64\"><path d=\"M60.6,12.4c-1.3-1.3-3.3-1.3-4.6,0L24.2,44.2c-0.8,0.8-2.3,0.8-3.2,0l-13-13c-1.3-1.3-3.3-1.3-4.6,0c-1.3,1.3-1.3,3.3,0,4.6\nL18,50.4l0,0l0.4,0.4c1.2,1.2,2.7,1.7,4.2,1.7c1.5,0,3.1-0.6,4.2-1.7l0.4-0.4l0,0L60.6,17C61.8,15.8,61.8,13.7,60.6,12.4z\"></path></svg></label> " + (_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"checkbox--label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"input--description-below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->") + "</div>")]);
+    staticClass: "checkbox",
+    class: {
+      'checkbox--error': !!_vm.error,
+      'checkbox--checked': _vm.value
+    }
+  }, [_vm._ssrNode((_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"checkbox__inner\"><input" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + " type=\"checkbox\"" + _vm._ssrAttr("checked", _vm.value) + " class=\"checkbox__element\"> <label" + _vm._ssrAttr("for", _vm.id) + " class=\"checkbox__fill_box\"><svg viewBox=\"0 0 64 64\"><path d=\"M60.6,12.4c-1.3-1.3-3.3-1.3-4.6,0L24.2,44.2c-0.8,0.8-2.3,0.8-3.2,0l-13-13c-1.3-1.3-3.3-1.3-4.6,0c-1.3,1.3-1.3,3.3,0,4.6\nL18,50.4l0,0l0.4,0.4c1.2,1.2,2.7,1.7,4.2,1.7c1.5,0,3.1-0.6,4.2-1.7l0.4-0.4l0,0L60.6,17C61.8,15.8,61.8,13.7,60.6,12.4z\"></path></svg></label> " + (_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"checkbox__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + "</div> " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
 };
 
 var __vue_staticRenderFns__$4 = [];
@@ -909,7 +916,7 @@ var __vue_inject_styles__$4 = undefined;
 var __vue_scope_id__$4 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$4 = "data-v-517364d3";
+var __vue_module_identifier__$4 = "data-v-b0dca294";
 /* functional template */
 
 var __vue_is_functional_template__$4 = false;
@@ -922,15 +929,12 @@ var __vue_is_functional_template__$4 = false;
 var __vue_component__$4 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$4,
   staticRenderFns: __vue_staticRenderFns__$4
-}, __vue_inject_styles__$4, __vue_script__$4, __vue_scope_id__$4, __vue_is_functional_template__$4, __vue_module_identifier__$4, false, undefined, undefined, undefined);var _dec$5, _dec2$4, _dec3$2, _class2$5, _class3$3, _descriptor$4, _descriptor2$3, _temp$4;
+}, __vue_inject_styles__$4, __vue_script__$4, __vue_scope_id__$4, __vue_is_functional_template__$4, __vue_module_identifier__$4, false, undefined, undefined, undefined);var _dec$5, _dec2$4, _class2$5, _class3$4, _descriptor$4, _temp$4;
 
 var _class$5 = (_dec$5 = vuePropertyDecorator.Component({}), _dec2$4 = vuePropertyDecorator.Prop({
   type: String,
   required: false
-}), _dec3$2 = vuePropertyDecorator.Prop({
-  type: Boolean,
-  required: false
-}), _dec$5(_class2$5 = (_class3$3 = (_temp$4 = /*#__PURE__*/function (_Vue) {
+}), _dec$5(_class2$5 = (_class3$4 = (_temp$4 = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
 
   var _super = _createSuper(_class3);
@@ -948,23 +952,16 @@ var _class$5 = (_dec$5 = vuePropertyDecorator.Component({}), _dec2$4 = vueProper
 
     _initializerDefineProperty(_this, "text", _descriptor$4, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "compact", _descriptor2$3, _assertThisInitialized(_this));
-
     return _this;
   }
 
   return _class3;
-}(vuePropertyDecorator.Vue), _temp$4), (_descriptor$4 = _applyDecoratedDescriptor(_class3$3.prototype, "text", [_dec2$4], {
+}(vuePropertyDecorator.Vue), _temp$4), (_descriptor$4 = _applyDecoratedDescriptor(_class3$4.prototype, "text", [_dec2$4], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor2$3 = _applyDecoratedDescriptor(_class3$3.prototype, "compact", [_dec3$2], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-})), _class3$3)) || _class2$5);/* script */
+})), _class3$4)) || _class2$5);/* script */
 var __vue_script__$5 = _class$5;
 /* template */
 
@@ -975,11 +972,11 @@ var __vue_render__$5 = function __vue_render__() {
 
   var _c = _vm._self._c || _h;
 
-  return _c('div', {
-    staticClass: "divider--root"
-  }, [_vm._ssrNode(_vm.text ? "<div class=\"divider divider--with-text\"><div></div> <div>" + _vm._ssrEscape(_vm._s(_vm.text)) + "</div> <div></div></div>" : "<div" + _vm._ssrClass("divider", {
-    'divider--compact': _vm.compact
-  }) + "></div>")]);
+  return _vm.text ? _c('div', {
+    staticClass: "divider divider--text"
+  }, [_vm._ssrNode("<div></div> <div>" + _vm._ssrEscape(_vm._s(_vm.text)) + "</div> <div></div>")], 2) : _c('div', {
+    staticClass: "divider"
+  }, []);
 };
 
 var __vue_staticRenderFns__$5 = [];
@@ -991,7 +988,7 @@ var __vue_inject_styles__$5 = undefined;
 var __vue_scope_id__$5 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$5 = "data-v-4b51f8cb";
+var __vue_module_identifier__$5 = "data-v-9d99e3b4";
 /* functional template */
 
 var __vue_is_functional_template__$5 = false;
@@ -1004,7 +1001,7 @@ var __vue_is_functional_template__$5 = false;
 var __vue_component__$5 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$5,
   staticRenderFns: __vue_staticRenderFns__$5
-}, __vue_inject_styles__$5, __vue_script__$5, __vue_scope_id__$5, __vue_is_functional_template__$5, __vue_module_identifier__$5, false, undefined, undefined, undefined);var _dec$6, _dec2$5, _dec3$3, _class2$6, _class3$4, _descriptor$5, _descriptor2$4, _temp$5;
+}, __vue_inject_styles__$5, __vue_script__$5, __vue_scope_id__$5, __vue_is_functional_template__$5, __vue_module_identifier__$5, false, undefined, undefined, undefined);var _dec$6, _dec2$5, _dec3$3, _dec4$2, _class2$6, _class3$5, _descriptor$5, _descriptor2$3, _descriptor3$2, _temp$5;
 
 var _class$6 = (_dec$6 = vuePropertyDecorator.Component({
   name: 'FLForm',
@@ -1016,9 +1013,11 @@ var _class$6 = (_dec$6 = vuePropertyDecorator.Component({
   required: true
 }), _dec3$3 = vuePropertyDecorator.Prop({
   type: Boolean,
-  required: false,
   default: false
-}), _dec$6(_class2$6 = (_class3$4 = (_temp$5 = /*#__PURE__*/function (_Vue) {
+}), _dec4$2 = vuePropertyDecorator.Prop({
+  type: Boolean,
+  default: false
+}), _dec$6(_class2$6 = (_class3$5 = (_temp$5 = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
 
   var _super = _createSuper(_class3);
@@ -1036,7 +1035,9 @@ var _class$6 = (_dec$6 = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "name", _descriptor$5, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "showError", _descriptor2$4, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "htmlValidate", _descriptor2$3, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "showError", _descriptor3$2, _assertThisInitialized(_this));
 
     _this.form = null;
     return _this;
@@ -1080,17 +1081,62 @@ var _class$6 = (_dec$6 = vuePropertyDecorator.Component({
   }]);
 
   return _class3;
-}(vuePropertyDecorator.Vue), _temp$5), (_descriptor$5 = _applyDecoratedDescriptor(_class3$4.prototype, "name", [_dec2$5], {
+}(vuePropertyDecorator.Vue), _temp$5), (_descriptor$5 = _applyDecoratedDescriptor(_class3$5.prototype, "name", [_dec2$5], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor2$4 = _applyDecoratedDescriptor(_class3$4.prototype, "showError", [_dec3$3], {
+}), _descriptor2$3 = _applyDecoratedDescriptor(_class3$5.prototype, "htmlValidate", [_dec3$3], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-})), _class3$4)) || _class2$6);/* script */
+}), _descriptor3$2 = _applyDecoratedDescriptor(_class3$5.prototype, "showError", [_dec4$2], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$5)) || _class2$6);function createInjectorSSR(context) {
+    if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__;
+    }
+    if (!context)
+        return () => { };
+    if (!('styles' in context)) {
+        context._styles = context._styles || {};
+        Object.defineProperty(context, 'styles', {
+            enumerable: true,
+            get: () => context._renderStyles(context._styles)
+        });
+        context._renderStyles = context._renderStyles || renderStyles;
+    }
+    return (id, style) => addStyle(id, style, context);
+}
+function addStyle(id, css, context) {
+    const group =  css.media || 'default' ;
+    const style = context._styles[group] || (context._styles[group] = { ids: [], css: '' });
+    if (!style.ids.includes(id)) {
+        style.media = css.media;
+        style.ids.push(id);
+        let code = css.source;
+        style.css += code + '\n';
+    }
+}
+function renderStyles(styles) {
+    let css = '';
+    for (const key in styles) {
+        const style = styles[key];
+        css +=
+            '<style data-vue-ssr-id="' +
+                Array.from(style.ids).join(' ') +
+                '"' +
+                (style.media ? ' media="' + style.media + '"' : '') +
+                '>' +
+                style.css +
+                '</style>';
+    }
+    return css;
+}/* script */
 var __vue_script__$6 = _class$6;
 /* template */
 
@@ -1101,11 +1147,20 @@ var __vue_render__$6 = function __vue_render__() {
 
   var _c = _vm._self._c || _h;
 
-  return _c('div', {
-    staticClass: "form--root"
-  }, [_vm._ssrNode("<form novalidate=\"novalidate\" class=\"form\" data-v-6114e968>", "</form>", [_vm._ssrNode((_vm.showError && _vm.form.error ? "<div class=\"form--error\" data-v-6114e968>" + _vm._ssrEscape(_vm._s(_vm.form.error)) + "</div>" : "<!---->") + " "), _vm.form ? _vm._t("form", null, {
+  return _c('form', {
+    staticClass: "form",
+    attrs: {
+      "novalidate": !_vm.htmlValidate
+    },
+    on: {
+      "submit": function submit($event) {
+        $event.preventDefault();
+        return _vm.onSubmit($event);
+      }
+    }
+  }, [_vm._ssrNode((_vm.showError && _vm.form.error ? "<div class=\"form--error\" data-v-24b589a0>" + _vm._ssrEscape(_vm._s(_vm.form.error)) + "</div>" : "<!---->") + " "), _vm.form ? _vm._t("form", null, {
     "form": _vm.form
-  }) : _vm._e()], 2)]);
+  }) : _vm._e()], 2);
 };
 
 var __vue_staticRenderFns__$6 = [];
@@ -1113,8 +1168,8 @@ var __vue_staticRenderFns__$6 = [];
 
 var __vue_inject_styles__$6 = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-6114e968_0", {
-    source: ".form-error[data-v-6114e968]{display:flex;align-items:center}.form-error .icon--root[data-v-6114e968]{font-size:20px}.form-error>span[data-v-6114e968]{margin-left:6px}",
+  inject("data-v-24b589a0_0", {
+    source: ".form-error[data-v-24b589a0]{display:flex;align-items:center}.form-error .icon--root[data-v-24b589a0]{font-size:20px}.form-error>span[data-v-24b589a0]{margin-left:6px}",
     map: undefined,
     media: undefined
   });
@@ -1122,10 +1177,10 @@ var __vue_inject_styles__$6 = function __vue_inject_styles__(inject) {
 /* scoped */
 
 
-var __vue_scope_id__$6 = "data-v-6114e968";
+var __vue_scope_id__$6 = "data-v-24b589a0";
 /* module identifier */
 
-var __vue_module_identifier__$6 = "data-v-6114e968";
+var __vue_module_identifier__$6 = "data-v-24b589a0";
 /* functional template */
 
 var __vue_is_functional_template__$6 = false;
@@ -1134,7 +1189,7 @@ var __vue_is_functional_template__$6 = false;
 var __vue_component__$6 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$6,
   staticRenderFns: __vue_staticRenderFns__$6
-}, __vue_inject_styles__$6, __vue_script__$6, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, createInjectorSSR, undefined);var _dec$7, _dec2$6, _class2$7, _class3$5, _descriptor$6, _temp$6;
+}, __vue_inject_styles__$6, __vue_script__$6, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, createInjectorSSR, undefined);var _dec$7, _dec2$6, _class2$7, _class3$6, _descriptor$6, _temp$6;
 
 var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
   components: {
@@ -1143,7 +1198,7 @@ var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
 }), _dec2$6 = vuePropertyDecorator.Prop({
   type: Array,
   required: true
-}), _dec$7(_class2$7 = (_class3$5 = (_temp$6 = /*#__PURE__*/function (_Input) {
+}), _dec$7(_class2$7 = (_class3$6 = (_temp$6 = /*#__PURE__*/function (_Input) {
   _inherits(_class3, _Input);
 
   var _super = _createSuper(_class3);
@@ -1188,16 +1243,18 @@ var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
   }]);
 
   return _class3;
-}(__vue_component__$3), _temp$6), (_descriptor$6 = _applyDecoratedDescriptor(_class3$5.prototype, "options", [_dec2$6], {
+}(__vue_component__$3), _temp$6), (_descriptor$6 = _applyDecoratedDescriptor(_class3$6.prototype, "options", [_dec2$6], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-})), _class3$5)) || _class2$7);/* script */
+})), _class3$6)) || _class2$7);/* script */
 var __vue_script__$7 = _class$7;
 /* template */
 
 var __vue_render__$7 = function __vue_render__() {
+  var _obj;
+
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -1205,14 +1262,16 @@ var __vue_render__$7 = function __vue_render__() {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
-    staticClass: "select--root"
-  }, [_vm._ssrNode("<div" + _vm._ssrClass("select", {
-    'select--has-error': !!_vm.error
-  }) + ">" + (_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"select--label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"select--description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"select--html-element\"><select" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + _vm._ssrAttr("autofocus", _vm.autofocus) + _vm._ssrAttr("readonly", _vm.readonly) + _vm._ssrAttr("value", _vm.value) + ">" + _vm._ssrList(_vm.options, function (option, i) {
-    return "<option" + _vm._ssrAttr("value", option.value) + _vm._ssrClass("select--option", {
-      '--is-selected': option.value === _vm.value
+    staticClass: "select",
+    class: (_obj = {
+      'input--error': !!_vm.error,
+      'input--inline': _vm.inline
+    }, _obj["input--size-" + _vm.size] = true, _obj)
+  }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"select__inner\"><select" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + _vm._ssrAttr("autofocus", _vm.autofocus) + _vm._ssrAttr("readonly", _vm.readonly) + _vm._ssrAttr("value", _vm.value) + " class=\"select__element\">" + _vm._ssrList(_vm.options, function (option, i) {
+    return "<option" + _vm._ssrAttr("value", option.value) + _vm._ssrClass("select__option", {
+      'select__option--selected': option.value === _vm.value
     }) + ">" + _vm._ssrEscape(_vm._s(option.text)) + "</option>";
-  }) + "</select> " + (_vm.error ? "<span class=\"select--error-icon\"><svg><path d=\"M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z\"></path></svg></span>" : "<!---->") + " <span class=\"select--icon\"><svg><path d=\"M11.9,10c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4L9,15.7c-0.4,0.4-1,0.4-1.4,0l-4.3-4.3c-0.4-0.4-0.4-1,0-1.4\ns1-0.4,1.4,0l3.6,3.6C8.3,13.6,11.9,10,11.9,10z M11.9,6L8.3,2.4L4.7,6c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l4.3-4.3\nc0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z\"></path></svg></span></div> " + (_vm.error ? "<span class=\"select--error\">" + _vm._ssrEscape(_vm._s(_vm.error)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"select--description-below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->") + "</div>")]);
+  }) + "</select> " + (_vm.error ? "<span class=\"select__error_icon\"><svg><path d=\"M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z\"></path></svg></span>" : "<!---->") + " <span class=\"select__icon\"><div style=\"height: 16px;\"><svg><path d=\"M11.9,10c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4L9,15.7c-0.4,0.4-1,0.4-1.4,0l-4.3-4.3c-0.4-0.4-0.4-1,0-1.4\ns1-0.4,1.4,0l3.6,3.6C8.3,13.6,11.9,10,11.9,10z M11.9,6L8.3,2.4L4.7,6c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l4.3-4.3\nc0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z\"></path></svg></div></span></div> " + (_vm.error ? "<span class=\"input__error\">" + _vm._ssrEscape(_vm._s(_vm.error)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
 };
 
 var __vue_staticRenderFns__$7 = [];
@@ -1224,7 +1283,7 @@ var __vue_inject_styles__$7 = undefined;
 var __vue_scope_id__$7 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$7 = "data-v-6cdc0afa";
+var __vue_module_identifier__$7 = "data-v-250b4160";
 /* functional template */
 
 var __vue_is_functional_template__$7 = false;
@@ -1258,6 +1317,8 @@ var __vue_script__$8 = _class$8;
 /* template */
 
 var __vue_render__$8 = function __vue_render__() {
+  var _obj;
+
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -1265,10 +1326,11 @@ var __vue_render__$8 = function __vue_render__() {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
-    staticClass: "textarea--root"
-  }, [_vm._ssrNode("<div" + _vm._ssrClass("textarea", {
-    'textarea--has-error': !!_vm.error
-  }) + ">" + (_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"textarea--label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"textarea--description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"textarea--html-element\"><textarea" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + _vm._ssrAttr("placeholder", _vm.placeholder === undefined ? _vm.label : _vm.placeholder) + _vm._ssrAttr("autocomplete", _vm.autocomplete) + _vm._ssrAttr("autofocus", _vm.autofocus) + _vm._ssrAttr("readonly", _vm.readonly) + _vm._ssrAttr("value", _vm.value) + "></textarea></div> " + (_vm.error ? "<span class=\"textarea--error\">" + _vm._ssrEscape(_vm._s(_vm.error)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"textarea--description-below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->") + "</div>")]);
+    staticClass: "textarea",
+    class: (_obj = {
+      'input--error': !!_vm.error
+    }, _obj["input--size-" + _vm.size] = true, _obj)
+  }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"textarea__inner\"><textarea" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + _vm._ssrAttr("placeholder", _vm.placeholder === undefined ? _vm.label : _vm.placeholder) + _vm._ssrAttr("autocomplete", _vm.autocomplete) + _vm._ssrAttr("autofocus", _vm.autofocus) + _vm._ssrAttr("readonly", _vm.readonly) + _vm._ssrAttr("value", _vm.value) + " class=\"textarea__element\"></textarea></div> " + (_vm.error ? "<span class=\"input__error\">" + _vm._ssrEscape(_vm._s(_vm.error)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
 };
 
 var __vue_staticRenderFns__$8 = [];
@@ -1280,7 +1342,7 @@ var __vue_inject_styles__$8 = undefined;
 var __vue_scope_id__$8 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$8 = "data-v-c2cee1a8";
+var __vue_module_identifier__$8 = "data-v-4ce585ac";
 /* functional template */
 
 var __vue_is_functional_template__$8 = false;
@@ -1293,7 +1355,211 @@ var __vue_is_functional_template__$8 = false;
 var __vue_component__$8 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$8,
   staticRenderFns: __vue_staticRenderFns__$8
-}, __vue_inject_styles__$8, __vue_script__$8, __vue_scope_id__$8, __vue_is_functional_template__$8, __vue_module_identifier__$8, false, undefined, undefined, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,FLButton: __vue_component__$2,FLCheckbox: __vue_component__$4,FLDivider: __vue_component__$5,FLForm: __vue_component__$6,FLIcon: __vue_component__,FLInput: __vue_component__$3,FLLoading: __vue_component__$1,FLSelect: __vue_component__$7,FLTextarea: __vue_component__$8});// eslint-disable-next-line @typescript-eslint/no-explicit-any
+}, __vue_inject_styles__$8, __vue_script__$8, __vue_scope_id__$8, __vue_is_functional_template__$8, __vue_module_identifier__$8, false, undefined, undefined, undefined);var _dec$9, _dec2$7, _class2$9, _class3$7, _descriptor$7, _temp$7;
+
+var _class$9 = (_dec$9 = vuePropertyDecorator.Component({
+  components: {
+    Icon: __vue_component__
+  }
+}), _dec2$7 = vuePropertyDecorator.Prop({
+  default: 'D MMM, YYYY'
+}), _dec$9(_class2$9 = (_class3$7 = (_temp$7 = /*#__PURE__*/function (_Input) {
+  _inherits(_class3, _Input);
+
+  var _super = _createSuper(_class3);
+
+  function _class3() {
+    var _this;
+
+    _classCallCheck(this, _class3);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _initializerDefineProperty(_this, "format", _descriptor$7, _assertThisInitialized(_this));
+
+    return _this;
+  }
+
+  return _class3;
+}(__vue_component__$3), _temp$7), (_descriptor$7 = _applyDecoratedDescriptor(_class3$7.prototype, "format", [_dec2$7], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$7)) || _class2$9);/* script */
+var __vue_script__$9 = _class$9;
+/* template */
+
+var __vue_render__$9 = function __vue_render__() {
+  var _obj;
+
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "datepicker",
+    class: (_obj = {
+      'input--error': !!_vm.error,
+      'input--inline': _vm.inline
+    }, _obj["input--size-" + _vm.size] = true, _obj)
+  }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " "), _vm._ssrNode("<div class=\"datepicker__inner\">", "</div>", [_c('client-only', [_c('date-picker', {
+    staticClass: "datepicker__element",
+    attrs: {
+      "id": _vm.id,
+      "value": _vm.value,
+      "clearable": false,
+      "disabled": _vm.disabled,
+      "autofocus": _vm.autofocus,
+      "readonly": _vm.readonly,
+      "format": _vm.format
+    },
+    on: {
+      "input": _vm.onInput,
+      "blur": function blur($event) {
+        return _vm.$emit('blur');
+      },
+      "focus": function focus($event) {
+        return _vm.$emit('focus');
+      }
+    }
+  }, [_vm._t("icon-calendar")], 2)], 1), _vm._ssrNode(" " + (_vm.error ? "<span class=\"select__error_icon\"><svg><path d=\"M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z\"></path></svg></span>" : "<!---->") + " <span class=\"datepicker__icon\"><div style=\"height: 16px;\"><svg><path d=\"M11.9,10c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4L9,15.7c-0.4,0.4-1,0.4-1.4,0l-4.3-4.3c-0.4-0.4-0.4-1,0-1.4\ns1-0.4,1.4,0l3.6,3.6C8.3,13.6,11.9,10,11.9,10z M11.9,6L8.3,2.4L4.7,6c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l4.3-4.3\nc0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z\"></path></svg></div></span>")], 2), _vm._ssrNode(" " + (_vm.error ? "<span class=\"input__error\">" + _vm._ssrEscape(_vm._s(_vm.error)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))], 2);
+};
+
+var __vue_staticRenderFns__$9 = [];
+/* style */
+
+var __vue_inject_styles__$9 = undefined;
+/* scoped */
+
+var __vue_scope_id__$9 = undefined;
+/* module identifier */
+
+var __vue_module_identifier__$9 = "data-v-b00a9478";
+/* functional template */
+
+var __vue_is_functional_template__$9 = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+var __vue_component__$9 = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$9,
+  staticRenderFns: __vue_staticRenderFns__$9
+}, __vue_inject_styles__$9, __vue_script__$9, __vue_scope_id__$9, __vue_is_functional_template__$9, __vue_module_identifier__$9, false, undefined, undefined, undefined);var _dec$a, _dec2$8, _class2$a, _class3$8, _descriptor$8, _temp$8;
+
+var _class$a = (_dec$a = vuePropertyDecorator.Component({
+  components: {
+    Icon: __vue_component__
+  }
+}), _dec2$8 = vuePropertyDecorator.Prop({
+  default: 'HH:mm'
+}), _dec$a(_class2$a = (_class3$8 = (_temp$8 = /*#__PURE__*/function (_Input) {
+  _inherits(_class3, _Input);
+
+  var _super = _createSuper(_class3);
+
+  function _class3() {
+    var _this;
+
+    _classCallCheck(this, _class3);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _initializerDefineProperty(_this, "format", _descriptor$8, _assertThisInitialized(_this));
+
+    return _this;
+  }
+
+  return _class3;
+}(__vue_component__$3), _temp$8), (_descriptor$8 = _applyDecoratedDescriptor(_class3$8.prototype, "format", [_dec2$8], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$8)) || _class2$a);/* script */
+var __vue_script__$a = _class$a;
+/* template */
+
+var __vue_render__$a = function __vue_render__() {
+  var _obj;
+
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "timepicker",
+    class: (_obj = {
+      'input--error': !!_vm.error,
+      'input--inline': _vm.inline
+    }, _obj["input--size-" + _vm.size] = true, _obj)
+  }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " "), _vm._ssrNode("<div class=\"timepicker__inner\">", "</div>", [_c('client-only', [_c('date-picker', {
+    staticClass: "timepicker__element",
+    attrs: {
+      "id": _vm.id,
+      "value": _vm.value,
+      "clearable": false,
+      "disabled": _vm.disabled,
+      "autofocus": _vm.autofocus,
+      "readonly": _vm.readonly,
+      "type": "time",
+      "value-type": "timestamp",
+      "minute-step": 5,
+      "hour-step": 1,
+      "show-second": false,
+      "format": _vm.format
+    },
+    on: {
+      "input": _vm.onInput,
+      "blur": function blur($event) {
+        return _vm.$emit('blur');
+      },
+      "focus": function focus($event) {
+        return _vm.$emit('focus');
+      }
+    }
+  }, [_vm._t("icon-calendar")], 2)], 1), _vm._ssrNode(" " + (_vm.error ? "<span class=\"select__error_icon\"><svg><path d=\"M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z\"></path></svg></span>" : "<!---->") + " <span class=\"timepicker__icon\"><div style=\"height: 16px;\"><svg><path d=\"M11.9,10c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4L9,15.7c-0.4,0.4-1,0.4-1.4,0l-4.3-4.3c-0.4-0.4-0.4-1,0-1.4\ns1-0.4,1.4,0l3.6,3.6C8.3,13.6,11.9,10,11.9,10z M11.9,6L8.3,2.4L4.7,6c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l4.3-4.3\nc0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z\"></path></svg></div></span>")], 2), _vm._ssrNode(" " + (_vm.error ? "<span class=\"input__error\">" + _vm._ssrEscape(_vm._s(_vm.error)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))], 2);
+};
+
+var __vue_staticRenderFns__$a = [];
+/* style */
+
+var __vue_inject_styles__$a = undefined;
+/* scoped */
+
+var __vue_scope_id__$a = undefined;
+/* module identifier */
+
+var __vue_module_identifier__$a = "data-v-058fcb38";
+/* functional template */
+
+var __vue_is_functional_template__$a = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+var __vue_component__$a = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$a,
+  staticRenderFns: __vue_staticRenderFns__$a
+}, __vue_inject_styles__$a, __vue_script__$a, __vue_scope_id__$a, __vue_is_functional_template__$a, __vue_module_identifier__$a, false, undefined, undefined, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,FLButton: __vue_component__$2,FLCheckbox: __vue_component__$4,FLDivider: __vue_component__$5,FLForm: __vue_component__$6,FLIcon: __vue_component__,FLInput: __vue_component__$3,FLLoading: __vue_component__$1,FLSelect: __vue_component__$7,FLTextarea: __vue_component__$8,FLDatepicker: __vue_component__$9,FLTimepicker: __vue_component__$a});_Vue.use(Datepicker); // Import vue components
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 // install function executed by Vue.use()
 var install = function installFluffUi(Vue) {
@@ -1330,4 +1596,4 @@ var plugin = {
     GlobalVue.use(plugin);
   }
 } // Default export is library as a whole, registered via Vue.use()
-exports.FLButton=__vue_component__$2;exports.FLCheckbox=__vue_component__$4;exports.FLDivider=__vue_component__$5;exports.FLForm=__vue_component__$6;exports.FLIcon=__vue_component__;exports.FLInput=__vue_component__$3;exports.FLLoading=__vue_component__$1;exports.FLSelect=__vue_component__$7;exports.FLTextarea=__vue_component__$8;exports.default=plugin;
+exports.FLButton=__vue_component__$2;exports.FLCheckbox=__vue_component__$4;exports.FLDatepicker=__vue_component__$9;exports.FLDivider=__vue_component__$5;exports.FLForm=__vue_component__$6;exports.FLIcon=__vue_component__;exports.FLInput=__vue_component__$3;exports.FLLoading=__vue_component__$1;exports.FLSelect=__vue_component__$7;exports.FLTextarea=__vue_component__$8;exports.FLTimepicker=__vue_component__$a;exports.default=plugin;
