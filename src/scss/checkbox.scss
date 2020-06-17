@@ -1,0 +1,76 @@
+@import './form.scss';
+
+.checkbox {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 4px 0 12px 0;
+
+  .checkbox--label {
+    /* Label */
+    line-height: 1.35;
+    display: flex;
+    font-weight: 500;
+    margin: 2px 0 0 0;
+    padding-bottom: 4px;
+  }
+
+  &.checkbox {
+    display: inline-flex;
+    user-select: none;
+    .checkbox--label {
+      align-items: center;
+      padding: 2px 0;
+      margin: 0;
+      height: 100%;
+      cursor: pointer;
+      &:last-of-type {
+        padding-left: 6px;
+      }
+    }
+
+    .checkbox--handle-box {
+      display: flex;
+      justify-content: center;
+      box-shadow: $input--shadow;
+      border: $input--border;
+      min-height: 26px;
+      min-width: 26px;
+      max-height: 26px;
+      max-width: 26px;
+      position: relative;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      border-radius: var(--border-radius);
+      svg {
+        transition: all 0.1s ease;
+        fill: transparent;
+        width: 18px;
+      }
+    }
+
+    &:hover:not(.--checked) {
+      .checkbox--handle-box {
+        svg {
+          fill: var(--gray200);
+        }
+      }
+    }
+
+    input {
+      visibility: hidden;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      &:checked {
+        + .checkbox--handle-box {
+          background: $input--focus-border;
+          svg {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+}

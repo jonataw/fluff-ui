@@ -1,12 +1,12 @@
 @import './form.scss';
 
-.input {
+.textarea {
   display: block;
   position: relative;
   width: 100%;
   margin: 4px 0 12px 0;
 
-  .input--label {
+  .textarea--label {
     /* Label */
     line-height: 1.35;
     display: flex;
@@ -15,13 +15,13 @@
     padding-bottom: 4px;
   }
 
-  .input--description {
+  .textarea--description {
     /* Above input field */
     margin-bottom: 12px;
     margin-top: 8px;
   }
 
-  .input--description-below {
+  .textarea--description-below {
     /* Below input field */
     margin-top: 6px;
     margin-bottom: 0;
@@ -30,7 +30,7 @@
     line-height: 22px;
   }
 
-  .input--error {
+  .textarea--error {
     display: block;
     margin-top: 4px;
     margin-bottom: 0;
@@ -40,9 +40,9 @@
     color: $red;
   }
 
-  .input--html-element {
+  .textarea--html-element {
     position: relative;
-    input {
+    textarea {
       /* HTML Input */
       width: 100%;
       margin: 0;
@@ -70,7 +70,7 @@
       }
     }
 
-    .input--error-icon {
+    .textarea--error-icon {
       position: absolute;
       align-items: center;
       padding: 14px 14px;
@@ -83,6 +83,13 @@
         max-width: 18px;
         height: 100%;
       }
+    }
+  }
+
+  /* Textarea-specific rules */
+  &.textarea {
+    textarea {
+      max-width: 100%;
     }
   }
 }

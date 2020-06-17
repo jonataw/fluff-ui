@@ -1,19 +1,21 @@
 <template>
   <div
     class="loading"
-    :style="{ borderColor: color }"
     :class="{
-      [`loading--size-${size || 'default'}`]: true,
-      [`loading--color-${color || 'default'}`]: true
+      [`loading--size-${size}`]: true,
+      [`loading--color-${color}`]: true
     }"
   />
 </template>
 
 <script lang="ts">
-import { Vue, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
+@Component({
+  name: 'FLLoading'
+})
 export default class extends Vue {
   @Prop({ type: String, required: false }) readonly color?: string;
-  @Prop(String) readonly size?: 'default' | 'small' | 'large';
+  @Prop({ type: String, default: 'default' }) readonly size?: 'default' | 'small' | 'large';
 }
 </script>
