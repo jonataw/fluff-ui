@@ -12,7 +12,7 @@ module.exports = {
   rules: {
     'import/order': 'off',
     'arrow-parens': 'off',
-    'linebreak-style': ['error', 'unix'],
+    'linebreak-style': ['error', 'windows'],
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'vue/no-v-html': 'off',
     'vue/html-self-closing': 'off',
