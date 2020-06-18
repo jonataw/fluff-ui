@@ -10,7 +10,9 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
-@Component({})
+@Component({
+  name: 'FLDivider'
+})
 export default class extends Vue {
   @Prop({ type: String, required: false }) readonly text?: string;
 }

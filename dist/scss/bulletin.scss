@@ -1,0 +1,45 @@
+@import './_vars.scss';
+
+.bulletin {
+  width: 100%;
+  background-color: $primary-color;
+  color: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  line-height: 20px;
+
+  .bulletin__inner {
+    margin: 0 auto;
+    max-width: $bulletin-width;
+
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px;
+
+    .bulletin__chip {
+      + .bulletin__text {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .bulletin__dismiss {
+    opacity: 0.5;
+    cursor: pointer;
+    padding: 8px;
+    position: absolute;
+    right: 8px;
+    &:hover {
+      opacity: 0.75;
+    }
+    &:active {
+      opacity: 1;
+    }
+  }
+}

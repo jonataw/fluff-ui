@@ -1,5 +1,5 @@
 <template>
-  <i class="icon" :class="`icon-${i}`" />
+  <i class="icon" :class="`icon-${i}`" @click="$emit('click')" />
 </template>
 
 <script lang="ts">

@@ -38,6 +38,7 @@ import { Component } from 'vue-property-decorator';
 import Input from '../input/input.vue';
 
 @Component({
+  name: 'FLTextarea',
   components: {}
 })
 export default class extends Input {}

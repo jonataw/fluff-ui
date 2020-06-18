@@ -29,12 +29,14 @@ export default class extends Vue {
     this.form.childErrors = [];
     this.form.loading = true;
     this.$emit('submit', (callback: any) => {
-      if (callback.error && this.form) {
-        this.form.error = callback.error.type;
-        this.form.childErrors = callback.error.fields;
+      if (this.form) {
+        if (callback.error) {
+          this.form.error = callback.error.type;
+          this.form.childErrors = callback.error.fields;
+        }
+        this.form.loading = false;
       }
     });
-    this.form.loading = false;
   }
 
   public mounted(): void {
@@ -79,7 +81,7 @@ export interface Form {
 .form-error {
   display: flex;
   align-items: center;
-  .icon--root {
+  .icon {
     font-size: 20px;
   }
   > span {

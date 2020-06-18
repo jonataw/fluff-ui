@@ -18,3 +18,4 @@ export const FLSelect: VueConstructor<Vue>;
 export const FLTextarea: VueConstructor<Vue>;
 export const FLDatepicker: VueConstructor<Vue>;
 export const FLTimepicker: VueConstructor<Vue>;
+export const FLChip: VueConstructor<Vue>;

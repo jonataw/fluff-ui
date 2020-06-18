@@ -1,7 +1,9 @@
+@import './_vars.scss';
+@import '@/entry/../scss/main.scss';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 * {
-  font-family: 'Inter';
+  font-family: 'Inter', Arial;
 }
 
 .flex {
@@ -14,6 +16,27 @@
   }
 }
 
-body {
-  line-height: 1.25;
+.bulletin.bulletin--color-default {
+  background-color: rgb(226, 246, 236);
+  color: rgb(9, 117, 54);
+}
+
+.chip.chip--color-red {
+  background-color: rgb(248, 236, 236);
+  color: rgb(223, 23, 23);
+}
+
+.chip.chip--color-green {
+  background-color: rgb(226, 246, 236);
+  color: rgb(16, 189, 88);
+}
+
+.chip.chip--color-yellow {
+  background-color: rgb(245, 235, 228);
+  color: rgb(195, 75, 5);
+}
+
+.chip.chip--color-white {
+  background-color: rgb(18, 153, 86);
+  color: rgb(255, 255, 255);
 }

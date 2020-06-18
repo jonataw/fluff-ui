@@ -74,6 +74,7 @@ interface OptionItem {
 }
 
 @Component({
+  name: 'FLSelect',
   components: { Icon }
 })
 export default class extends Input {

@@ -23,7 +23,7 @@
           :autofocus="autofocus"
           :readonly="readonly"
           class="input__element"
-          @input="onInput($event.target.value)"
+          @input.prevent="onInput($event.target.value)"
           @blur="onBlur"
           @focus="$emit('focus')"
           @keydown="$emit('keydown')"
@@ -79,9 +79,12 @@ export default class extends Vue {
   @Prop() suffix?: string;
   @Prop({ default: false }) inline?: boolean;
   @Prop() errors?: { [k: string]: string };
+  @Prop() min?: number;
+  @Prop() max?: number;
 
   /* Functional */
-  @Prop() autocomplete?: boolean;
+  @Prop()
+  autocomplete?: boolean;
   @Prop() disabled?: boolean;
   @Prop() autofocus?: boolean;
   @Prop() readonly?: boolean;
@@ -97,14 +100,15 @@ export default class extends Vue {
   }
 
   protected onInput(value: any) {
-    console.log('on input', value);
     if (this.disabled) {
       /* Do not allow input if input should be disabled */
       return;
     }
 
     if (this.type === 'number') {
-      value = parseInt(value);
+      if (!isNaN(parseInt(value))) {
+        value = parseInt(value);
+      }
     }
 
     if (this.stagger) {
@@ -122,6 +126,18 @@ export default class extends Vue {
       if (this.value.length && !this.validateEmail(this.value)) {
         this.locError = 'invalid_email_address';
       } else {
+        this.locError = null;
+      }
+    } else if (this.type === 'number') {
+      if (!this.validateNumber(this.value)) {
+        this.locError = 'invalid_number';
+      } else {
+        if (this.max && this.value > this.max) {
+          'max_value_exceeed';
+        }
+        if (this.max && this.value > this.max) {
+          'min_value_subceeded';
+        }
         this.locError = null;
       }
     }
@@ -151,6 +167,10 @@ export default class extends Vue {
   private validateEmail(email: string | null): boolean {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+  }
+
+  private validateNumber(number: string): boolean {
+    return /^\d+$/.test(number);
   }
 }
 </script>

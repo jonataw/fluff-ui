@@ -67,6 +67,7 @@ import Input from '../input/input.vue';
 import Icon from '../icon/icon.vue';
 
 @Component({
+  name: 'FLTimepicker',
   components: { Icon }
 })
 export default class extends Input {

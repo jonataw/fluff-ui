@@ -1,0 +1,17 @@
+@import './_vars.scss';
+
+.chip {
+  border-radius: 32px;
+  background-color: $primary-color;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 2px 7px;
+
+  .chip__icon {
+    + .chip__text {
+      margin-left: 4px;
+    }
+  }
+}

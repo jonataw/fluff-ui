@@ -66,6 +66,7 @@ import Input from '../input/input.vue';
 import Icon from '../icon/icon.vue';
 
 @Component({
+  name: 'FLDatepicker',
   components: { Icon }
 })
 export default class extends Input {
