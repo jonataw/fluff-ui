@@ -22,7 +22,7 @@ export default class extends Vue {
   private form: Form | null = null;
 
   public onSubmit(): void {
-    if (!this.form) {
+    if (!this.form || (this.form && this.form.loading)) {
       return;
     }
     this.form.error = null;
