@@ -3,7 +3,7 @@
 .button {
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: flex-end;
   background: transparent;
   color: $button-color;
 

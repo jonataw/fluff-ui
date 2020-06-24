@@ -1,1 +1,1 @@
-.chip{border-radius:32px;background-color:#0fd160;color:#fff;display:inline-flex;align-items:center;font-size:14px;padding:2px 7px}.chip .chip__icon+.chip__text{margin-left:4px}
+.chip{border-radius:32px;background-color:#0fd160;color:#fff;display:inline-flex;align-items:center;font-size:14px;padding:2px 7px;line-height:1.25}.chip .chip__icon+.chip__text{margin-left:4px}

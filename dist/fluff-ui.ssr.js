@@ -428,7 +428,7 @@ var __vue_is_functional_template__$1 = false;
 var __vue_component__$1 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$1,
   staticRenderFns: __vue_staticRenderFns__$1
-}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _temp$2;
+}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _dec7, _dec8, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _temp$2;
 
 var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
   name: 'FLButton',
@@ -442,7 +442,13 @@ var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
 }), _dec3$1 = vuePropertyDecorator.Prop({
   type: String,
   default: 'default'
-}), _dec4 = vuePropertyDecorator.Prop(String), _dec5 = vuePropertyDecorator.Prop(Boolean), _dec6 = vuePropertyDecorator.Prop({
+}), _dec4 = vuePropertyDecorator.Prop({
+  type: String,
+  default: 'default'
+}), _dec5 = vuePropertyDecorator.Prop({
+  type: String,
+  default: 'submit'
+}), _dec6 = vuePropertyDecorator.Prop(String), _dec7 = vuePropertyDecorator.Prop(Boolean), _dec8 = vuePropertyDecorator.Prop({
   type: String,
   default: 'left'
 }), _dec$2(_class2$2 = (_class3$2 = (_temp$2 = /*#__PURE__*/function (_Vue) {
@@ -465,11 +471,15 @@ var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "size", _descriptor2$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "icon", _descriptor3, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "color", _descriptor3, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "disabled", _descriptor4, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "type", _descriptor4, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "iconAlign", _descriptor5, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "icon", _descriptor5, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "disabled", _descriptor6, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "iconAlign", _descriptor7, _assertThisInitialized(_this));
 
     return _this;
   }
@@ -498,17 +508,27 @@ var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class3$2.prototype, "icon", [_dec4], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class3$2.prototype, "color", [_dec4], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class3$2.prototype, "disabled", [_dec5], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class3$2.prototype, "type", [_dec5], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor5 = _applyDecoratedDescriptor(_class3$2.prototype, "iconAlign", [_dec6], {
+}), _descriptor5 = _applyDecoratedDescriptor(_class3$2.prototype, "icon", [_dec6], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor6 = _applyDecoratedDescriptor(_class3$2.prototype, "disabled", [_dec7], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor7 = _applyDecoratedDescriptor(_class3$2.prototype, "iconAlign", [_dec8], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -533,7 +553,7 @@ var __vue_render__$2 = function __vue_render__() {
       'button--loading': _vm.loading,
       'button--icon': !!_vm.icon,
       'button--text': _vm.hasTextContent
-    }, _obj["button--size-" + _vm.size] = true, _obj["button--icon-align-" + _vm.iconAlign] = !!_vm.icon, _obj)
+    }, _obj["button--size-" + _vm.size] = true, _obj["button--color-" + _vm.color] = true, _obj["button--icon-align-" + _vm.iconAlign] = !!_vm.icon, _obj)
   }, [_vm._ssrNode("<button" + _vm._ssrAttr("disabled", _vm.disabled) + " class=\"button__element\">", "</button>", [_c('transition', {
     attrs: {
       "name": "fade",
@@ -561,7 +581,7 @@ var __vue_inject_styles__$2 = undefined;
 var __vue_scope_id__$2 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$2 = "data-v-c703855a";
+var __vue_module_identifier__$2 = "data-v-17e2932c";
 /* functional template */
 
 var __vue_is_functional_template__$2 = false;
@@ -574,7 +594,7 @@ var __vue_is_functional_template__$2 = false;
 var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$2,
   staticRenderFns: __vue_staticRenderFns__$2
-}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _temp$3;
+}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _temp$3;
 
 var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
   name: 'FLInput',
@@ -586,7 +606,7 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
 }), _dec6$1 = vuePropertyDecorator.Prop({
   type: String,
   default: 'default'
-}), _dec7 = vuePropertyDecorator.Prop(), _dec8 = vuePropertyDecorator.Prop(), _dec9 = vuePropertyDecorator.Prop(), _dec10 = vuePropertyDecorator.Prop(), _dec11 = vuePropertyDecorator.Prop(), _dec12 = vuePropertyDecorator.Prop(), _dec13 = vuePropertyDecorator.Prop(), _dec14 = vuePropertyDecorator.Prop({
+}), _dec7$1 = vuePropertyDecorator.Prop(), _dec8$1 = vuePropertyDecorator.Prop(), _dec9 = vuePropertyDecorator.Prop(), _dec10 = vuePropertyDecorator.Prop(), _dec11 = vuePropertyDecorator.Prop(), _dec12 = vuePropertyDecorator.Prop(), _dec13 = vuePropertyDecorator.Prop(), _dec14 = vuePropertyDecorator.Prop({
   default: false
 }), _dec15 = vuePropertyDecorator.Prop(), _dec16 = vuePropertyDecorator.Prop(), _dec17 = vuePropertyDecorator.Prop(), _dec18 = vuePropertyDecorator.Prop(), _dec19 = vuePropertyDecorator.Prop(), _dec20 = vuePropertyDecorator.Prop(), _dec21 = vuePropertyDecorator.Prop(), _dec22 = vuePropertyDecorator.Prop(Number), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
@@ -616,9 +636,9 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "size", _descriptor5$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "label", _descriptor6, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "label", _descriptor6$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "description", _descriptor7, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "description", _descriptor7$1, _assertThisInitialized(_this));
 
     _initializerDefineProperty(_this, "descriptionAbove", _descriptor8, _assertThisInitialized(_this));
 
@@ -778,12 +798,12 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor6 = _applyDecoratedDescriptor(_class3$3.prototype, "label", [_dec7], {
+}), _descriptor6$1 = _applyDecoratedDescriptor(_class3$3.prototype, "label", [_dec7$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class3$3.prototype, "description", [_dec8], {
+}), _descriptor7$1 = _applyDecoratedDescriptor(_class3$3.prototype, "description", [_dec8$1], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1189,7 +1209,7 @@ var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
     value: function onSubmit() {
       var _this2 = this;
 
-      if (!this.form) {
+      if (!this.form || this.form && this.form.loading) {
         return;
       }
 
@@ -1302,7 +1322,7 @@ var __vue_render__$7 = function __vue_render__() {
         return _vm.onSubmit($event);
       }
     }
-  }, [_vm._ssrNode((_vm.showError && _vm.form.error ? "<div class=\"form--error\" data-v-6e154ed8>" + _vm._ssrEscape(_vm._s(_vm.form.error)) + "</div>" : "<!---->") + " "), _vm.form ? _vm._t("form", null, {
+  }, [_vm._ssrNode((_vm.showError && _vm.form.error ? "<div class=\"form--error\" data-v-5fe02276>" + _vm._ssrEscape(_vm._s(_vm.form.error)) + "</div>" : "<!---->") + " "), _vm.form ? _vm._t("form", null, {
     "form": _vm.form
   }) : _vm._e()], 2);
 };
@@ -1312,8 +1332,8 @@ var __vue_staticRenderFns__$7 = [];
 
 var __vue_inject_styles__$7 = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-6e154ed8_0", {
-    source: ".form-error[data-v-6e154ed8]{display:flex;align-items:center}.form-error .icon[data-v-6e154ed8]{font-size:20px}.form-error>span[data-v-6e154ed8]{margin-left:6px}",
+  inject("data-v-5fe02276_0", {
+    source: ".form-error[data-v-5fe02276]{display:flex;align-items:center}.form-error .icon[data-v-5fe02276]{font-size:20px}.form-error>span[data-v-5fe02276]{margin-left:6px}",
     map: undefined,
     media: undefined
   });
@@ -1321,10 +1341,10 @@ var __vue_inject_styles__$7 = function __vue_inject_styles__(inject) {
 /* scoped */
 
 
-var __vue_scope_id__$7 = "data-v-6e154ed8";
+var __vue_scope_id__$7 = "data-v-5fe02276";
 /* module identifier */
 
-var __vue_module_identifier__$7 = "data-v-6e154ed8";
+var __vue_module_identifier__$7 = "data-v-5fe02276";
 /* functional template */
 
 var __vue_is_functional_template__$7 = false;

@@ -7,6 +7,7 @@
       'button--icon': !!icon,
       'button--text': hasTextContent,
       [`button--size-${size}`]: true,
+      [`button--color-${color}`]: true,
       [`button--icon-align-${iconAlign}`]: !!icon
     }"
   >
@@ -36,6 +37,7 @@ import Loading from '../loading/loading.vue';
 export default class extends Vue {
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
   @Prop({ type: String, default: 'default' }) readonly size?: 'default' | 'small' | 'large';
+  @Prop({ type: String, default: 'default' }) readonly color?: 'default' | string;
   @Prop({ type: String, default: 'submit' }) readonly type?: 'submit' | 'button' | 'reset';
   @Prop(String) readonly icon?: string;
   @Prop(Boolean) readonly disabled?: boolean;

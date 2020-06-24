@@ -257,7 +257,7 @@ const __vue_component__$1 = /*#__PURE__*/normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$1
 }, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);
 
-var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _temp$2;
+var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _dec7, _dec8, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _temp$2;
 
 let _class$2 = (_dec$2 = Component({
   name: 'FLButton',
@@ -271,7 +271,13 @@ let _class$2 = (_dec$2 = Component({
 }), _dec3$1 = Prop({
   type: String,
   default: 'default'
-}), _dec4 = Prop(String), _dec5 = Prop(Boolean), _dec6 = Prop({
+}), _dec4 = Prop({
+  type: String,
+  default: 'default'
+}), _dec5 = Prop({
+  type: String,
+  default: 'submit'
+}), _dec6 = Prop(String), _dec7 = Prop(Boolean), _dec8 = Prop({
   type: String,
   default: 'left'
 }), _dec$2(_class2$2 = (_class3$2 = (_temp$2 = class _class3 extends Vue {
@@ -282,11 +288,15 @@ let _class$2 = (_dec$2 = Component({
 
     _initializerDefineProperty(this, "size", _descriptor2$1, this);
 
-    _initializerDefineProperty(this, "icon", _descriptor3, this);
+    _initializerDefineProperty(this, "color", _descriptor3, this);
 
-    _initializerDefineProperty(this, "disabled", _descriptor4, this);
+    _initializerDefineProperty(this, "type", _descriptor4, this);
 
-    _initializerDefineProperty(this, "iconAlign", _descriptor5, this);
+    _initializerDefineProperty(this, "icon", _descriptor5, this);
+
+    _initializerDefineProperty(this, "disabled", _descriptor6, this);
+
+    _initializerDefineProperty(this, "iconAlign", _descriptor7, this);
   }
 
   /**
@@ -308,17 +318,27 @@ let _class$2 = (_dec$2 = Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class3$2.prototype, "icon", [_dec4], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class3$2.prototype, "color", [_dec4], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class3$2.prototype, "disabled", [_dec5], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class3$2.prototype, "type", [_dec5], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor5 = _applyDecoratedDescriptor(_class3$2.prototype, "iconAlign", [_dec6], {
+}), _descriptor5 = _applyDecoratedDescriptor(_class3$2.prototype, "icon", [_dec6], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor6 = _applyDecoratedDescriptor(_class3$2.prototype, "disabled", [_dec7], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor7 = _applyDecoratedDescriptor(_class3$2.prototype, "iconAlign", [_dec8], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -345,7 +365,7 @@ var __vue_render__$2 = function () {
       'button--loading': _vm.loading,
       'button--icon': !!_vm.icon,
       'button--text': _vm.hasTextContent
-    }, _obj["button--size-" + _vm.size] = true, _obj["button--icon-align-" + _vm.iconAlign] = !!_vm.icon, _obj)
+    }, _obj["button--size-" + _vm.size] = true, _obj["button--color-" + _vm.color] = true, _obj["button--icon-align-" + _vm.iconAlign] = !!_vm.icon, _obj)
   }, [_c('button', {
     staticClass: "button__element",
     attrs: {
@@ -402,7 +422,7 @@ const __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$2
 }, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);
 
-var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _temp$3;
+var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _temp$3;
 
 let _class$3 = (_dec$3 = Component({
   name: 'FLInput',
@@ -414,7 +434,7 @@ let _class$3 = (_dec$3 = Component({
 }), _dec6$1 = Prop({
   type: String,
   default: 'default'
-}), _dec7 = Prop(), _dec8 = Prop(), _dec9 = Prop(), _dec10 = Prop(), _dec11 = Prop(), _dec12 = Prop(), _dec13 = Prop(), _dec14 = Prop({
+}), _dec7$1 = Prop(), _dec8$1 = Prop(), _dec9 = Prop(), _dec10 = Prop(), _dec11 = Prop(), _dec12 = Prop(), _dec13 = Prop(), _dec14 = Prop({
   default: false
 }), _dec15 = Prop(), _dec16 = Prop(), _dec17 = Prop(), _dec18 = Prop(), _dec19 = Prop(), _dec20 = Prop(), _dec21 = Prop(), _dec22 = Prop(Number), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = class _class3 extends Vue {
   constructor(...args) {
@@ -432,9 +452,9 @@ let _class$3 = (_dec$3 = Component({
 
     _initializerDefineProperty(this, "size", _descriptor5$1, this);
 
-    _initializerDefineProperty(this, "label", _descriptor6, this);
+    _initializerDefineProperty(this, "label", _descriptor6$1, this);
 
-    _initializerDefineProperty(this, "description", _descriptor7, this);
+    _initializerDefineProperty(this, "description", _descriptor7$1, this);
 
     _initializerDefineProperty(this, "descriptionAbove", _descriptor8, this);
 
@@ -577,12 +597,12 @@ let _class$3 = (_dec$3 = Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor6 = _applyDecoratedDescriptor(_class3$3.prototype, "label", [_dec7], {
+}), _descriptor6$1 = _applyDecoratedDescriptor(_class3$3.prototype, "label", [_dec7$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class3$3.prototype, "description", [_dec8], {
+}), _descriptor7$1 = _applyDecoratedDescriptor(_class3$3.prototype, "description", [_dec8$1], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1066,7 +1086,7 @@ let _class$7 = (_dec$7 = Component({
   }
 
   onSubmit() {
-    if (!this.form) {
+    if (!this.form || this.form && this.form.loading) {
       return;
     }
 
@@ -1205,8 +1225,8 @@ var __vue_staticRenderFns__$7 = [];
 
 const __vue_inject_styles__$7 = function (inject) {
   if (!inject) return;
-  inject("data-v-6e154ed8_0", {
-    source: ".form-error[data-v-6e154ed8]{display:flex;align-items:center}.form-error .icon[data-v-6e154ed8]{font-size:20px}.form-error>span[data-v-6e154ed8]{margin-left:6px}",
+  inject("data-v-5fe02276_0", {
+    source: ".form-error[data-v-5fe02276]{display:flex;align-items:center}.form-error .icon[data-v-5fe02276]{font-size:20px}.form-error>span[data-v-5fe02276]{margin-left:6px}",
     map: undefined,
     media: undefined
   });
@@ -1214,7 +1234,7 @@ const __vue_inject_styles__$7 = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$7 = "data-v-6e154ed8";
+const __vue_scope_id__$7 = "data-v-5fe02276";
 /* module identifier */
 
 const __vue_module_identifier__$7 = undefined;
