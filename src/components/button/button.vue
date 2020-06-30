@@ -11,7 +11,11 @@
       [`button--icon-align-${iconAlign}`]: !!icon
     }"
   >
-    <button class="button__element" @click="$emit('click')" :disabled="disabled">
+    <button
+      class="button__element"
+      @click="$emit('click')"
+      :disabled="disabled"
+    >
       <transition name="fade" mode="out-in">
         <div v-if="loading" class="button__loading">
           <Loading :size="'button-' + size"></Loading>
@@ -36,12 +40,22 @@ import Loading from '../loading/loading.vue';
 })
 export default class extends Vue {
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
-  @Prop({ type: String, default: 'default' }) readonly size?: 'default' | 'small' | 'large';
-  @Prop({ type: String, default: 'default' }) readonly color?: 'default' | string;
-  @Prop({ type: String, default: 'submit' }) readonly type?: 'submit' | 'button' | 'reset';
+  @Prop({ type: String, default: 'default' }) readonly size?:
+    | 'default'
+    | 'small'
+    | 'large';
+  @Prop({ type: String, default: 'default' }) readonly color?:
+    | 'default'
+    | string;
+  @Prop({ type: String, default: 'submit' }) readonly type?:
+    | 'submit'
+    | 'button'
+    | 'reset';
   @Prop(String) readonly icon?: string;
   @Prop(Boolean) readonly disabled?: boolean;
-  @Prop({ type: String, default: 'left' }) readonly iconAlign?: 'left' | 'right';
+  @Prop({ type: String, default: 'left' }) readonly iconAlign?:
+    | 'left'
+    | 'right';
 
   /**
    * Returns true if the button has text content.

@@ -6,8 +6,32 @@
     ></FLBulletin>
     <div id="app">
       <FLModal />
+      <FLToast />
 
       <a @click="$modal.open(modal.test)">Show modal</a>
+
+      <a
+        @click="
+          $toast.pop({
+            title: 'Hello world!',
+            text: 'This is a toast!',
+            options: { delay: 100000 },
+            icon: 'arrow-right'
+          })
+        "
+        >Pop toast!</a
+      >
+
+      <a
+        @click="
+          $toast.pop({
+            text: 'This is a toast!',
+            options: { delay: false },
+            chip: { text: 'Hi', icon: 'arrow-left' }
+          })
+        "
+        >Pop toast!</a
+      >
 
       <FLForm name="form" v-slot:form="{ form }">
         <h2>Chip</h2>

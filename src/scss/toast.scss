@@ -1,0 +1,75 @@
+@import './_vars.scss';
+.player-enter,
+.player-leave-to {
+  opacity: 0;
+}
+
+.player-enter {
+  transform: translateY(30%);
+}
+
+.player-leave-to {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.player-move {
+  transition: all 1.5s;
+}
+
+.player-leave-active {
+  position: absolute;
+}
+.toast_container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 32px;
+  z-index: 40;
+  max-width: 400px;
+  width: 100%;
+  .toast {
+    background-color: #fff;
+    box-shadow: $modal-shadow;
+    padding: 16px;
+    margin-bottom: 8px;
+    transition: all 1s;
+    display: inline-block;
+    align-items: center;
+
+    max-width: 400px;
+    width: 100%;
+    position: absolute;
+
+    &.toast--closeable {
+      cursor: pointer;
+    }
+
+    .toast__middle {
+      flex: 1;
+      margin: 0 8px;
+    }
+
+    .toast__title {
+      display: block;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+    .toast__text {
+      display: block;
+      margin: 0;
+    }
+
+    .toast__close_icon {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      padding: 8px;
+      cursor: pointer;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

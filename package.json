@@ -1,10 +1,6 @@
 {
   "name": "fluff-ui",
-<<<<<<< HEAD
-  "version": "1.0.17",
-=======
   "version": "1.0.14",
->>>>>>> e9bead1e1f4efab1fa6a0371332d09c447f9048a
   "description": "Fluff UI - A component library for Vue.js.",
   "author": {
     "email": "jonatan.wackstrom@gmail.com",

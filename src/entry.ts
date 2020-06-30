@@ -5,6 +5,7 @@ _Vue.use(Datepicker as any);
 
 // Import vue components
 import * as components from '@/components/index';
+import { ModalOptions, ToastOptions } from 'fluff-ui';
 
 // Define typescript interfaces for autoinstaller
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,12 +30,26 @@ function instance(Vue: typeof _Vue, config: any) {
   const EventBus = new Vue();
   Vue.prototype.$config = config || {};
   Vue.prototype.$bus = EventBus;
+  Vue.prototype.$toast = {
+    pop(toast: {
+      title: string;
+      text: string;
+      icon?: string;
+      chip?: { icon: string; color: string; text: string };
+      options: Partial<ToastOptions>;
+    }) {
+      Vue.prototype.$bus.$emit('pop_toast', toast);
+    },
+    close(index: number) {
+      Vue.prototype.$bus.$emit('close_toast', index);
+    }
+  };
   Vue.prototype.$modal = {
-    open(component: Component) {
-      Vue.prototype.$bus.$emit('open', component);
+    open(component: Component, data: any, options: Partial<ModalOptions>) {
+      Vue.prototype.$bus.$emit('open_modal', component, data, options);
     },
     close() {
-      Vue.prototype.$bus.$emit('close');
+      Vue.prototype.$bus.$emit('close_modal');
     }
   };
 }

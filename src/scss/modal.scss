@@ -1,7 +1,5 @@
 @import './_vars.scss';
 
-$modal_width: 580px;
-
 .modal {
   .modal__backdrop {
     position: fixed;
@@ -24,10 +22,19 @@ $modal_width: 580px;
     width: 100vw;
     height: 100vh;
     .modal__inner {
+      box-shadow: $modal-shadow;
       z-index: 30;
       background-color: #fff;
+      position: relative;
       width: 100%;
-      max-width: $modal_width;
+
+      .modal__close_icon {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        padding: 16px;
+        cursor: pointer;
+      }
     }
   }
 }
