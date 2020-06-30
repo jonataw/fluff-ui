@@ -1,4 +1,4 @@
-import _Vue, { PluginFunction } from 'vue';
+import _Vue, { PluginFunction, Component } from 'vue';
 
 import Datepicker from 'vue2-datepicker';
 _Vue.use(Datepicker as any);
@@ -11,15 +11,33 @@ import * as components from '@/components/index';
 interface InstallFunction extends PluginFunction<any> {
   installed?: boolean;
 }
-
 // install function executed by Vue.use()
-const install: InstallFunction = function installFluffUi(Vue: typeof _Vue) {
+const install: InstallFunction = function installFluffUi(
+  Vue: typeof _Vue,
+  config: any
+) {
   if (install.installed) return;
   install.installed = true;
+  instance(Vue, config);
+
   Object.entries(components).forEach(([componentName, component]) => {
     Vue.component(componentName, component);
   });
 };
+
+function instance(Vue: typeof _Vue, config: any) {
+  const EventBus = new Vue();
+  Vue.prototype.$config = config || {};
+  Vue.prototype.$bus = EventBus;
+  Vue.prototype.$modal = {
+    open(component: Component) {
+      Vue.prototype.$bus.$emit('open', component);
+    },
+    close() {
+      Vue.prototype.$bus.$emit('close');
+    }
+  };
+}
 
 // Create module definition for Vue.use()
 const plugin = {

@@ -1,4 +1,40 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopDefault(e){return(e&&(typeof e==='object')&&'default'in e)?e['default']:e}var _Vue=_interopDefault(require('vue')),Datepicker=_interopDefault(require('vue2-datepicker')),vuePropertyDecorator=require('vue-property-decorator');function _classCallCheck(instance, Constructor) {
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopDefault(e){return(e&&(typeof e==='object')&&'default'in e)?e['default']:e}var _Vue=_interopDefault(require('vue')),Datepicker=_interopDefault(require('vue2-datepicker')),vuePropertyDecorator=require('vue-property-decorator');function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
@@ -1865,13 +1901,112 @@ var __vue_is_functional_template__$c = false;
 var __vue_component__$c = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$c,
   staticRenderFns: __vue_staticRenderFns__$c
-}, __vue_inject_styles__$c, __vue_script__$c, __vue_scope_id__$c, __vue_is_functional_template__$c, __vue_module_identifier__$c, false, undefined, undefined, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,FLButton: __vue_component__$2,FLCheckbox: __vue_component__$4,FLChip: __vue_component__$5,FLDivider: __vue_component__$6,FLForm: __vue_component__$7,FLIcon: __vue_component__,FLInput: __vue_component__$3,FLLoading: __vue_component__$1,FLSelect: __vue_component__$8,FLTextarea: __vue_component__$9,FLDatepicker: __vue_component__$a,FLTimepicker: __vue_component__$b,FLBulletin: __vue_component__$c});_Vue.use(Datepicker); // Import vue components
+}, __vue_inject_styles__$c, __vue_script__$c, __vue_scope_id__$c, __vue_is_functional_template__$c, __vue_module_identifier__$c, false, undefined, undefined, undefined);var _dec$d, _class2$d, _temp$b;
+
+var _class$d = (_dec$d = vuePropertyDecorator.Component({
+  name: 'FLModal',
+  components: {}
+}), _dec$d(_class2$d = (_temp$b = /*#__PURE__*/function (_Vue) {
+  _inherits(_class2, _Vue);
+
+  var _super = _createSuper(_class2);
+
+  function _class2() {
+    var _this;
+
+    _classCallCheck(this, _class2);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+    _this.isVisible = false;
+    _this.component = null;
+    return _this;
+  }
+
+  _createClass(_class2, [{
+    key: "created",
+    value: function created() {
+      var _this2 = this;
+
+      this.$bus.$on('open', /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(component) {
+          var _require;
+
+          return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  console.log(_this2.$config.modalTemplateFolder);
+                  _this2.component = (_require = require("".concat(_this2.$config.modalTemplateFolder || '').concat(component, ".vue"))) === null || _require === void 0 ? void 0 : _require.default;
+                  _this2.isVisible = true;
+
+                case 3:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function (_x) {
+          return _ref.apply(this, arguments);
+        };
+      }());
+    }
+  }]);
+
+  return _class2;
+}(vuePropertyDecorator.Vue), _temp$b)) || _class2$d);/* script */
+var __vue_script__$d = _class$d;
+/* template */
+
+var __vue_render__$d = function __vue_render__() {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _vm.isVisible ? _c('div', {
+    staticClass: "modal"
+  }, [_c(_vm.component, {
+    tag: "component"
+  })], 1) : _vm._e();
+};
+
+var __vue_staticRenderFns__$d = [];
+/* style */
+
+var __vue_inject_styles__$d = undefined;
+/* scoped */
+
+var __vue_scope_id__$d = undefined;
+/* module identifier */
+
+var __vue_module_identifier__$d = "data-v-4f751110";
+/* functional template */
+
+var __vue_is_functional_template__$d = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+var __vue_component__$d = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$d,
+  staticRenderFns: __vue_staticRenderFns__$d
+}, __vue_inject_styles__$d, __vue_script__$d, __vue_scope_id__$d, __vue_is_functional_template__$d, __vue_module_identifier__$d, false, undefined, undefined, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,FLButton: __vue_component__$2,FLCheckbox: __vue_component__$4,FLChip: __vue_component__$5,FLDivider: __vue_component__$6,FLForm: __vue_component__$7,FLIcon: __vue_component__,FLInput: __vue_component__$3,FLLoading: __vue_component__$1,FLSelect: __vue_component__$8,FLTextarea: __vue_component__$9,FLDatepicker: __vue_component__$a,FLTimepicker: __vue_component__$b,FLBulletin: __vue_component__$c,FLModal: __vue_component__$d});_Vue.use(Datepicker); // Import vue components
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 // install function executed by Vue.use()
-var install = function installFluffUi(Vue) {
+var install = function installFluffUi(Vue, config) {
   if (install.installed) return;
   install.installed = true;
+  instance(Vue, config);
   Object.entries(components).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),
         componentName = _ref2[0],
@@ -1879,7 +2014,21 @@ var install = function installFluffUi(Vue) {
 
     Vue.component(componentName, component);
   });
-}; // Create module definition for Vue.use()
+};
+
+function instance(Vue, config) {
+  var EventBus = new Vue();
+  Vue.prototype.$config = config || {};
+  Vue.prototype.$bus = EventBus;
+  Vue.prototype.$modal = {
+    open: function open(component) {
+      Vue.prototype.$bus.$emit('open', component);
+    },
+    close: function close() {
+      Vue.prototype.$bus.$emit('close');
+    }
+  };
+} // Create module definition for Vue.use()
 
 
 var plugin = {
@@ -1903,4 +2052,4 @@ var plugin = {
     GlobalVue.use(plugin);
   }
 } // Default export is library as a whole, registered via Vue.use()
-exports.FLBulletin=__vue_component__$c;exports.FLButton=__vue_component__$2;exports.FLCheckbox=__vue_component__$4;exports.FLChip=__vue_component__$5;exports.FLDatepicker=__vue_component__$a;exports.FLDivider=__vue_component__$6;exports.FLForm=__vue_component__$7;exports.FLIcon=__vue_component__;exports.FLInput=__vue_component__$3;exports.FLLoading=__vue_component__$1;exports.FLSelect=__vue_component__$8;exports.FLTextarea=__vue_component__$9;exports.FLTimepicker=__vue_component__$b;exports.default=plugin;
+exports.FLBulletin=__vue_component__$c;exports.FLButton=__vue_component__$2;exports.FLCheckbox=__vue_component__$4;exports.FLChip=__vue_component__$5;exports.FLDatepicker=__vue_component__$a;exports.FLDivider=__vue_component__$6;exports.FLForm=__vue_component__$7;exports.FLIcon=__vue_component__;exports.FLInput=__vue_component__$3;exports.FLLoading=__vue_component__$1;exports.FLModal=__vue_component__$d;exports.FLSelect=__vue_component__$8;exports.FLTextarea=__vue_component__$9;exports.FLTimepicker=__vue_component__$b;exports.default=plugin;

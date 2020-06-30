@@ -1,9 +1,14 @@
 <template>
   <div>
     <FLBulletin :chip="{ color: 'white', text: 'News', icon: 'warning' }"
-      >New webinars available now! <a href="/">Register now <FLIcon i="arrow-right"/></a
+      >New webinars available now!
+      <a href="/">Register now <FLIcon i="arrow-right"/></a
     ></FLBulletin>
     <div id="app">
+      <FLModal />
+
+      <a @click="$modal.open(modal.test)">Show modal</a>
+
       <FLForm name="form" v-slot:form="{ form }">
         <h2>Chip</h2>
         <div class="flex">
@@ -14,9 +19,21 @@
         </div>
 
         <h2>Form</h2>
-        <FLInput :size="size" :form="form" label="First name" type="text" v-model="f" />
+        <FLInput
+          :size="size"
+          :form="form"
+          label="First name"
+          type="text"
+          v-model="f"
+        />
 
-        <FLInput :size="size" :form="form" label="Last name" type="text" v-model="l" />
+        <FLInput
+          :size="size"
+          :form="form"
+          label="Last name"
+          type="text"
+          v-model="l"
+        />
 
         <FLInput
           :size="size"
@@ -38,8 +55,20 @@
 
         {{ n }}
 
-        <FLDatepicker :size="size" :form="form" label="Hello world!" type="email" v-model="a" />
-        <FLTimepicker :size="size" :form="form" label="Hello world!" type="email" v-model="c" />
+        <FLDatepicker
+          :size="size"
+          :form="form"
+          label="Hello world!"
+          type="email"
+          v-model="a"
+        />
+        <FLTimepicker
+          :size="size"
+          :form="form"
+          label="Hello world!"
+          type="email"
+          v-model="c"
+        />
 
         <FLCheckbox
           id="a"
@@ -94,7 +123,9 @@
       <div class="flex">
         <FLButton size="small" @click.native="t">Hello</FLButton>
         <FLButton size="small" icon="gift" @click.native="t">Hello</FLButton>
-        <FLButton size="small" :loading="this.loading" @click.native="t">Hello</FLButton>
+        <FLButton size="small" :loading="this.loading" @click.native="t"
+          >Hello</FLButton
+        >
         <FLButton
           size="small"
           icon="arrow-left"
@@ -105,7 +136,9 @@
       </div>
 
       <div class="flex">
-        <FLButton size="small" icon="gift" @click="size = 'small'">Small</FLButton>
+        <FLButton size="small" icon="gift" @click="size = 'small'"
+          >Small</FLButton
+        >
         <FLButton @click="size = 'default'">Default</FLButton>
         <FLButton size="large" @click="size = 'large'">Large</FLButton>
       </div>
@@ -113,7 +146,9 @@
       <div class="flex">
         <FLButton size="large" @click.native="t">Hello</FLButton>
         <FLButton size="large" icon="gift" @click.native="t">Hello</FLButton>
-        <FLButton size="large" :loading="this.loading" @click.native="t">Hello</FLButton>
+        <FLButton size="large" :loading="this.loading" @click.native="t"
+          >Hello</FLButton
+        >
         <FLButton
           size="large"
           icon="arrow-left"
@@ -132,6 +167,8 @@ import { Component, Vue } from 'vue-property-decorator';
 import '@/entry/../fluff-icons/fluff-icons.scss';
 import './global.scss';
 
+import TestModal from './modal-templates/test-modal.vue';
+
 @Component({})
 export default class extends Vue {
   loading = false;
@@ -147,6 +184,10 @@ export default class extends Vue {
   t() {
     this.loading = !this.loading;
   }
+
+  public modal = {
+    test: TestModal
+  };
 }
 </script>
 

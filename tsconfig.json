@@ -18,11 +18,15 @@
     "baseUrl": ".",
     "types": [
       "node",
-      "vue"
+      "vue",
+      "webpack-env"
     ],
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "~/*": [
+        "dev/*"
       ]
     },
     "lib": [

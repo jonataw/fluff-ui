@@ -11,3 +11,4 @@ export { default as FLTextarea } from './textarea/textarea.vue';
 export { default as FLDatepicker } from './datepicker/datepicker.vue';
 export { default as FLTimepicker } from './timepicker/timepicker.vue';
 export { default as FLBulletin } from './bulletin/bulletin.vue';
+export { default as FLModal } from './modal/modal.vue';

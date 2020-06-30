@@ -1908,6 +1908,72 @@ const __vue_component__$c = /*#__PURE__*/normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$c
 }, __vue_inject_styles__$c, __vue_script__$c, __vue_scope_id__$c, __vue_is_functional_template__$c, __vue_module_identifier__$c, false, undefined, undefined, undefined);
 
+var _dec$d, _class2$d, _temp$b;
+
+let _class$d = (_dec$d = Component({
+  name: 'FLModal',
+  components: {}
+}), _dec$d(_class2$d = (_temp$b = class _class2 extends Vue {
+  constructor(...args) {
+    super(...args);
+    this.isVisible = false;
+    this.component = null;
+  }
+
+  created() {
+    this.$bus.$on('open', async component => {
+      var _require;
+
+      console.log(this.$config.modalTemplateFolder);
+      this.component = (_require = require(`${this.$config.modalTemplateFolder || ''}${component}.vue`)) === null || _require === void 0 ? void 0 : _require.default;
+      this.isVisible = true;
+    });
+  }
+
+}, _temp$b)) || _class2$d);
+
+/* script */
+const __vue_script__$d = _class$d;
+/* template */
+
+var __vue_render__$d = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _vm.isVisible ? _c('div', {
+    staticClass: "modal"
+  }, [_c(_vm.component, {
+    tag: "component"
+  })], 1) : _vm._e();
+};
+
+var __vue_staticRenderFns__$d = [];
+/* style */
+
+const __vue_inject_styles__$d = undefined;
+/* scoped */
+
+const __vue_scope_id__$d = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$d = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$d = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$d = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$d,
+  staticRenderFns: __vue_staticRenderFns__$d
+}, __vue_inject_styles__$d, __vue_script__$d, __vue_scope_id__$d, __vue_is_functional_template__$d, __vue_module_identifier__$d, false, undefined, undefined, undefined);
+
 var components = /*#__PURE__*/Object.freeze({
   __proto__: null,
   FLButton: __vue_component__$2,
@@ -1922,20 +1988,38 @@ var components = /*#__PURE__*/Object.freeze({
   FLTextarea: __vue_component__$9,
   FLDatepicker: __vue_component__$a,
   FLTimepicker: __vue_component__$b,
-  FLBulletin: __vue_component__$c
+  FLBulletin: __vue_component__$c,
+  FLModal: __vue_component__$d
 });
 
 _Vue.use(Datepicker); // Import vue components
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 // install function executed by Vue.use()
-const install = function installFluffUi(Vue) {
+const install = function installFluffUi(Vue, config) {
   if (install.installed) return;
   install.installed = true;
+  instance(Vue, config);
   Object.entries(components).forEach(([componentName, component]) => {
     Vue.component(componentName, component);
   });
-}; // Create module definition for Vue.use()
+};
+
+function instance(Vue, config) {
+  const EventBus = new Vue();
+  Vue.prototype.$config = config || {};
+  Vue.prototype.$bus = EventBus;
+  Vue.prototype.$modal = {
+    open(component) {
+      Vue.prototype.$bus.$emit('open', component);
+    },
+
+    close() {
+      Vue.prototype.$bus.$emit('close');
+    }
+
+  };
+} // Create module definition for Vue.use()
 
 
 const plugin = {
@@ -1943,4 +2027,4 @@ const plugin = {
 }; // To auto-install on non-es builds, when vue is found
 
 export default plugin;
-export { __vue_component__$c as FLBulletin, __vue_component__$2 as FLButton, __vue_component__$4 as FLCheckbox, __vue_component__$5 as FLChip, __vue_component__$a as FLDatepicker, __vue_component__$6 as FLDivider, __vue_component__$7 as FLForm, __vue_component__ as FLIcon, __vue_component__$3 as FLInput, __vue_component__$1 as FLLoading, __vue_component__$8 as FLSelect, __vue_component__$9 as FLTextarea, __vue_component__$b as FLTimepicker };
+export { __vue_component__$c as FLBulletin, __vue_component__$2 as FLButton, __vue_component__$4 as FLCheckbox, __vue_component__$5 as FLChip, __vue_component__$a as FLDatepicker, __vue_component__$6 as FLDivider, __vue_component__$7 as FLForm, __vue_component__ as FLIcon, __vue_component__$3 as FLInput, __vue_component__$1 as FLLoading, __vue_component__$d as FLModal, __vue_component__$8 as FLSelect, __vue_component__$9 as FLTextarea, __vue_component__$b as FLTimepicker };

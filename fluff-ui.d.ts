@@ -1,4 +1,4 @@
-import Vue, { PluginFunction, VueConstructor } from 'vue';
+import Vue, { PluginFunction, VueConstructor, Component } from 'vue';
 
 interface InstallFunction extends PluginFunction<any> {
   installed?: boolean;
@@ -19,3 +19,22 @@ export const FLTextarea: VueConstructor<Vue>;
 export const FLDatepicker: VueConstructor<Vue>;
 export const FLTimepicker: VueConstructor<Vue>;
 export const FLChip: VueConstructor<Vue>;
+export const FLModal: VueConstructor<Vue>;
+
+interface ModalMethods {
+  open(component: Component): void;
+  close(): void;
+}
+
+interface Bus {
+  $emit(event: string, ...args: any[]): Vue;
+  $on(event: string, ...args: any[]): Vue;
+}
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $bus: Bus;
+    $config: {};
+    $modal: ModalMethods;
+  }
+}
