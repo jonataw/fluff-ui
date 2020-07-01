@@ -152,8 +152,8 @@ var __vue_render__ = function () {
     staticClass: "icon",
     class: "icon-" + _vm.i,
     on: {
-      "click": function ($event) {
-        return _vm.$emit('click');
+      "click": function (e) {
+        return _vm.$emit('click', e);
       }
     }
   });
@@ -257,7 +257,7 @@ const __vue_component__$1 = /*#__PURE__*/normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$1
 }, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);
 
-var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _dec7, _dec8, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _temp$2;
+var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _temp$2;
 
 let _class$2 = (_dec$2 = Component({
   name: 'FLButton',
@@ -269,15 +269,18 @@ let _class$2 = (_dec$2 = Component({
   type: Boolean,
   default: false
 }), _dec3$1 = Prop({
-  type: String,
-  default: 'default'
+  type: Boolean,
+  default: false
 }), _dec4 = Prop({
   type: String,
   default: 'default'
 }), _dec5 = Prop({
   type: String,
+  default: 'default'
+}), _dec6 = Prop({
+  type: String,
   default: 'submit'
-}), _dec6 = Prop(String), _dec7 = Prop(Boolean), _dec8 = Prop({
+}), _dec7 = Prop(String), _dec8 = Prop(Boolean), _dec9 = Prop({
   type: String,
   default: 'left'
 }), _dec$2(_class2$2 = (_class3$2 = (_temp$2 = class _class3 extends Vue {
@@ -286,17 +289,19 @@ let _class$2 = (_dec$2 = Component({
 
     _initializerDefineProperty(this, "loading", _descriptor$2, this);
 
-    _initializerDefineProperty(this, "size", _descriptor2$1, this);
+    _initializerDefineProperty(this, "inline", _descriptor2$1, this);
 
-    _initializerDefineProperty(this, "color", _descriptor3, this);
+    _initializerDefineProperty(this, "size", _descriptor3, this);
 
-    _initializerDefineProperty(this, "type", _descriptor4, this);
+    _initializerDefineProperty(this, "color", _descriptor4, this);
 
-    _initializerDefineProperty(this, "icon", _descriptor5, this);
+    _initializerDefineProperty(this, "type", _descriptor5, this);
 
-    _initializerDefineProperty(this, "disabled", _descriptor6, this);
+    _initializerDefineProperty(this, "icon", _descriptor6, this);
 
-    _initializerDefineProperty(this, "iconAlign", _descriptor7, this);
+    _initializerDefineProperty(this, "disabled", _descriptor7, this);
+
+    _initializerDefineProperty(this, "iconAlign", _descriptor8, this);
   }
 
   /**
@@ -313,32 +318,37 @@ let _class$2 = (_dec$2 = Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor2$1 = _applyDecoratedDescriptor(_class3$2.prototype, "size", [_dec3$1], {
+}), _descriptor2$1 = _applyDecoratedDescriptor(_class3$2.prototype, "inline", [_dec3$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class3$2.prototype, "color", [_dec4], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class3$2.prototype, "size", [_dec4], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class3$2.prototype, "type", [_dec5], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class3$2.prototype, "color", [_dec5], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor5 = _applyDecoratedDescriptor(_class3$2.prototype, "icon", [_dec6], {
+}), _descriptor5 = _applyDecoratedDescriptor(_class3$2.prototype, "type", [_dec6], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor6 = _applyDecoratedDescriptor(_class3$2.prototype, "disabled", [_dec7], {
+}), _descriptor6 = _applyDecoratedDescriptor(_class3$2.prototype, "icon", [_dec7], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class3$2.prototype, "iconAlign", [_dec8], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class3$2.prototype, "disabled", [_dec8], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor8 = _applyDecoratedDescriptor(_class3$2.prototype, "iconAlign", [_dec9], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -361,6 +371,7 @@ var __vue_render__$2 = function () {
   return _c('div', {
     staticClass: "button",
     class: (_obj = {
+      'button--inline': _vm.inline,
       'button--disabled': _vm.disabled,
       'button--loading': _vm.loading,
       'button--icon': !!_vm.icon,
@@ -422,7 +433,7 @@ const __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$2
 }, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);
 
-var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _temp$3;
+var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9$1, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8$1, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _temp$3;
 
 let _class$3 = (_dec$3 = Component({
   name: 'FLInput',
@@ -434,7 +445,7 @@ let _class$3 = (_dec$3 = Component({
 }), _dec6$1 = Prop({
   type: String,
   default: 'default'
-}), _dec7$1 = Prop(), _dec8$1 = Prop(), _dec9 = Prop(), _dec10 = Prop(), _dec11 = Prop(), _dec12 = Prop(), _dec13 = Prop(), _dec14 = Prop({
+}), _dec7$1 = Prop(), _dec8$1 = Prop(), _dec9$1 = Prop(), _dec10 = Prop(), _dec11 = Prop(), _dec12 = Prop(), _dec13 = Prop(), _dec14 = Prop({
   default: false
 }), _dec15 = Prop(), _dec16 = Prop(), _dec17 = Prop(), _dec18 = Prop(), _dec19 = Prop(), _dec20 = Prop(), _dec21 = Prop(), _dec22 = Prop(Number), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = class _class3 extends Vue {
   constructor(...args) {
@@ -456,7 +467,7 @@ let _class$3 = (_dec$3 = Component({
 
     _initializerDefineProperty(this, "description", _descriptor7$1, this);
 
-    _initializerDefineProperty(this, "descriptionAbove", _descriptor8, this);
+    _initializerDefineProperty(this, "descriptionAbove", _descriptor8$1, this);
 
     _initializerDefineProperty(this, "descriptionBelow", _descriptor9, this);
 
@@ -607,7 +618,7 @@ let _class$3 = (_dec$3 = Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor8 = _applyDecoratedDescriptor(_class3$3.prototype, "descriptionAbove", [_dec9], {
+}), _descriptor8$1 = _applyDecoratedDescriptor(_class3$3.prototype, "descriptionAbove", [_dec9$1], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1525,15 +1536,33 @@ let _class$a = (_dec$a = Component({
     Icon: __vue_component__
   }
 }), _dec2$8 = Prop({
-  default: 'D MMM, YYYY'
+  type: Object
 }), _dec$a(_class2$a = (_class3$8 = (_temp$8 = class _class3 extends __vue_component__$3 {
   constructor(...args) {
     super(...args);
 
-    _initializerDefineProperty(this, "format", _descriptor$8, this);
+    _initializerDefineProperty(this, "options", _descriptor$8, this);
   }
 
-}, _temp$8), (_descriptor$8 = _applyDecoratedDescriptor(_class3$8.prototype, "format", [_dec2$8], {
+  get opts() {
+    return { ...{
+        editable: true,
+        multiple: false,
+        range: false,
+        language: '',
+        showWeekNumber: false,
+        rangeSeparator: ' > ',
+        defaultPanel: 'date',
+        format: 'D, MMM, YYYY',
+        headerFormat: 'D, MMM, YYYY',
+        defaultValue: new Date(),
+        valueType: 'format'
+      },
+      ...this.options
+    };
+  }
+
+}, _temp$8), (_descriptor$8 = _applyDecoratedDescriptor(_class3$8.prototype, "options", [_dec2$8], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1582,8 +1611,19 @@ var __vue_render__$a = function () {
       "clearable": false,
       "disabled": _vm.disabled,
       "autofocus": _vm.autofocus,
+      "placeholder": _vm.placeholder === undefined ? _vm.label : _vm.placeholder,
       "readonly": _vm.readonly,
-      "format": _vm.format
+      "format": _vm.opts.format,
+      "title-format": _vm.opts.headerFormat,
+      "range": _vm.opts.range,
+      "editable": _vm.opts.editable,
+      "multiple": _vm.opts.multiple,
+      "lang": _vm.opts.language,
+      "show-week-number": _vm.opts.showWeekNumber,
+      "range-separator": _vm.opts.rangeSeparator,
+      "default-panel": _vm.opts.defaultPanel,
+      "default-value": _vm.opts.defaultValue,
+      "value-type": _vm.opts.valueType
     },
     on: {
       "input": _vm.onInput,
@@ -1652,15 +1692,37 @@ let _class$b = (_dec$b = Component({
     Icon: __vue_component__
   }
 }), _dec2$9 = Prop({
-  default: 'HH:mm'
+  type: Object
 }), _dec$b(_class2$b = (_class3$9 = (_temp$9 = class _class3 extends __vue_component__$3 {
   constructor(...args) {
     super(...args);
 
-    _initializerDefineProperty(this, "format", _descriptor$9, this);
+    _initializerDefineProperty(this, "options", _descriptor$9, this);
   }
 
-}, _temp$9), (_descriptor$9 = _applyDecoratedDescriptor(_class3$9.prototype, "format", [_dec2$9], {
+  get opts() {
+    return { ...{
+        editable: true,
+        multiple: false,
+        hourStep: 1,
+        minuteStep: 5,
+        secondStep: 30,
+        showHour: true,
+        showMinute: true,
+        showSecond: false,
+        format: 'HH:mm',
+        showHeader: true,
+        headerFormat: 'HH:mm',
+        defaultValue: new Date(),
+        use12h: false,
+        valueType: 'format',
+        fixed: undefined
+      },
+      ...this.options
+    };
+  }
+
+}, _temp$9), (_descriptor$9 = _applyDecoratedDescriptor(_class3$9.prototype, "options", [_dec2$9], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1699,7 +1761,7 @@ var __vue_render__$b = function () {
     domProps: {
       "textContent": _vm._s(_vm.upperDescription)
     }
-  }) : _vm._e(), _vm._v(" "), _c('div', {
+  }) : _vm._e(), _vm._v("\n    " + _vm._s(_vm.opts) + "\n    "), _vm._v(" "), _c('div', {
     staticClass: "timepicker__inner"
   }, [_c('client-only', [_c('date-picker', {
     staticClass: "timepicker__element",
@@ -1709,13 +1771,25 @@ var __vue_render__$b = function () {
       "clearable": false,
       "disabled": _vm.disabled,
       "autofocus": _vm.autofocus,
+      "placeholder": _vm.placeholder === undefined ? _vm.label : _vm.placeholder,
       "readonly": _vm.readonly,
       "type": "time",
-      "value-type": "timestamp",
-      "minute-step": 5,
-      "hour-step": 1,
-      "show-second": false,
-      "format": _vm.format
+      "open": _vm.opts.open,
+      "editable": _vm.opts.editable,
+      "multiple": _vm.opts.multiple,
+      "hour-step": _vm.opts.hourStep,
+      "minute-step": _vm.opts.minuteStep,
+      "second-step": _vm.opts.secondStep,
+      "show-hour": _vm.opts.showHour,
+      "show-minute": _vm.opts.showMinute,
+      "show-second": _vm.opts.showSecond,
+      "format": _vm.opts.format,
+      "time-picker-options": _vm.opts.fixed,
+      "show-time-header": _vm.opts.showHeader,
+      "use12h": _vm.opts.use12h,
+      "time-title-format": _vm.opts.headerFormat,
+      "default-value": _vm.opts.defaultValue,
+      "value-type": _vm.opts.valueType
     },
     on: {
       "input": _vm.onInput,
@@ -1909,25 +1983,112 @@ const __vue_component__$c = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$c, __vue_script__$c, __vue_scope_id__$c, __vue_is_functional_template__$c, __vue_module_identifier__$c, false, undefined, undefined, undefined);
 
 var _dec$d, _class2$d, _temp$b;
+const defaultOptions = {
+  allowBodyScroll: false,
+  closeable: true,
+  width: 580
+};
 
 let _class$d = (_dec$d = Component({
   name: 'FLModal',
-  components: {}
+  components: {
+    Icon: __vue_component__
+  }
 }), _dec$d(_class2$d = (_temp$b = class _class2 extends Vue {
   constructor(...args) {
     super(...args);
-    this.isVisible = false;
     this.component = null;
+    this.data = null;
+    this.options = defaultOptions;
   }
 
   created() {
-    this.$bus.$on('open', async component => {
-      var _require;
+    this.$bus.$on('open_modal', (component, data, options) => {
+      if (typeof component === 'object') {
+        // Handle case where all arguments are passed as an object in the first argument.
+        options = component.options;
+        data = component.data;
+        component = component.component;
+      } // Set default options.
 
-      console.log(this.$config.modalTemplateFolder);
-      this.component = (_require = require(`${this.$config.modalTemplateFolder || ''}${component}.vue`)) === null || _require === void 0 ? void 0 : _require.default;
-      this.isVisible = true;
+
+      options = { ...defaultOptions,
+        ...this.$config.modal,
+        ...options
+      }; // TODO: if (component instanceof Vue) does not work here for some reason?
+
+      if (typeof component !== 'function') {
+        console.error(`$modal.open expects a component, got '${typeof component}'.`);
+      } else {
+        this.options = options;
+        this.component = component;
+        this.data = data;
+      }
+
+      if (!this.options.allowBodyScroll) {
+        // Restrict the body overflow.
+        this.restrictBodyOverflow();
+      }
     });
+    this.$bus.$on('close_modal', () => {
+      this.releaseBodyOverflow();
+      this.component = null;
+      this.data = null;
+    });
+  }
+
+  restrictBodyOverflow() {
+    if (!this.$isServer) {
+      const body = document.querySelector('body');
+
+      if (body) {
+        body.style.overflow = 'hidden';
+      }
+    }
+  }
+
+  releaseBodyOverflow() {
+    if (!this.$isServer) {
+      const body = document.querySelector('body');
+
+      if (body) {
+        body.style.removeProperty('overflow');
+      }
+    }
+  }
+
+  close(event) {
+    const close = () => this.$bus.$emit('close_modal');
+
+    const cl = event.target.classList;
+
+    if (!cl.contains('modal__outer') && !cl.contains('modal__close_icon')) {
+      return;
+    }
+
+    const closeable = this.options.closeable;
+
+    if (typeof closeable === 'boolean' && closeable) {
+      close();
+    } else if (typeof closeable === 'object') {
+      if (cl.contains('modal__outer') && closeable.backdrop) {
+        close();
+      }
+
+      if (cl.contains('modal__close_icon') && closeable.icon) {
+        close();
+      }
+    }
+  }
+
+  get width() {
+    const width = this.options.width;
+
+    if (typeof width === 'number') {
+      return width + 'px';
+    } else {
+      return width;
+    }
   }
 
 }, _temp$b)) || _class2$d);
@@ -1943,11 +2104,42 @@ var __vue_render__$d = function () {
 
   var _c = _vm._self._c || _h;
 
-  return _vm.isVisible ? _c('div', {
+  return _c('div', {
     staticClass: "modal"
-  }, [_c(_vm.component, {
-    tag: "component"
-  })], 1) : _vm._e();
+  }, [_c('transition', {
+    attrs: {
+      "name": "anim--modal_backdrop"
+    }
+  }, [!!_vm.component ? _c('div', {
+    staticClass: "modal__backdrop"
+  }) : _vm._e()]), _vm._v(" "), _c('transition', {
+    attrs: {
+      "name": "anim--modal"
+    }
+  }, [!!_vm.component ? _c('div', {
+    staticClass: "modal__outer",
+    on: {
+      "click": _vm.close
+    }
+  }, [_c('div', {
+    staticClass: "modal__inner",
+    style: {
+      maxWidth: _vm.width
+    }
+  }, [(typeof _vm.options.closeable === 'object' ? _vm.options.closeable.cross : _vm.options.closeable) ? _c('Icon', {
+    staticClass: "modal__close_icon",
+    attrs: {
+      "i": "cross"
+    },
+    on: {
+      "click": _vm.close
+    }
+  }) : _vm._e(), _vm._v(" "), _c(_vm.component, {
+    tag: "component",
+    attrs: {
+      "data": _vm.data
+    }
+  })], 1)]) : _vm._e()])], 1);
 };
 
 var __vue_staticRenderFns__$d = [];
@@ -1974,6 +2166,177 @@ const __vue_component__$d = /*#__PURE__*/normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$d
 }, __vue_inject_styles__$d, __vue_script__$d, __vue_scope_id__$d, __vue_is_functional_template__$d, __vue_module_identifier__$d, false, undefined, undefined, undefined);
 
+var _dec$e, _class2$e, _temp$c;
+const defaultOptions$1 = {
+  closeable: true,
+  delay: 5000,
+  showDelayProgress: true
+};
+
+let _class$e = (_dec$e = Component({
+  name: 'FLToast',
+  components: {
+    Chip: __vue_component__$5,
+    Icon: __vue_component__
+  }
+}), _dec$e(_class2$e = (_temp$c = class _class2 extends Vue {
+  constructor(...args) {
+    super(...args);
+    this.toasts = [];
+    this.id = 0;
+  }
+
+  created() {
+    this.$bus.$on('pop_toast', toast => {
+      const id = this.id++;
+      toast.options = { ...defaultOptions$1,
+        ...this.$config.toast,
+        ...toast.options
+      };
+      this.toasts.push({ ...toast,
+        id
+      });
+
+      if (toast.options.delay && typeof toast.options.delay === 'number') {
+        setTimeout(() => {
+          this.toasts = this.toasts.filter(_t => _t.id !== id);
+        }, toast.options.delay);
+      }
+    });
+    this.$bus.$on('close_toast', id => {
+      this.toasts = this.toasts.filter(_ => _.id !== id);
+    });
+  }
+
+  close(event, id) {
+    const toast = this.toasts.find(_t => _t.id === id);
+
+    if (!toast) {
+      return;
+    }
+
+    const close = () => this.$bus.$emit('close_toast', id);
+
+    const cl = event.target.classList;
+    const closeable = toast.options.closeable;
+
+    if (typeof closeable === 'boolean' && closeable) {
+      close();
+    } else if (typeof closeable === 'object') {
+      if (closeable.click) {
+        close();
+      }
+
+      if (cl.contains('toast__close_icon') && closeable.icon) {
+        close();
+      }
+    }
+  }
+
+}, _temp$c)) || _class2$e);
+
+/* script */
+const __vue_script__$e = _class$e;
+/* template */
+
+var __vue_render__$e = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "toast_container"
+  }, [_c('transition-group', {
+    attrs: {
+      "name": "list-complete"
+    }
+  }, _vm._l(_vm.toasts, function (toast) {
+    return _c('div', {
+      key: toast.id,
+      staticClass: "toast",
+      class: {
+        'toast--delay': !!toast.options.delay,
+        'toast--closeable': typeof toast.options.closeable === 'object' ? toast.options.closeable.click : toast.options.closeable
+      },
+      on: {
+        "click": function (e) {
+          return _vm.close(e, toast.id);
+        }
+      }
+    }, [_c('div', {
+      staticClass: "toast__inner"
+    }, [toast.chip ? _c('div', {
+      staticClass: "toast__chip"
+    }, [_c('Chip', {
+      attrs: {
+        "icon": toast.chip.icon,
+        "color": toast.chip.color
+      }
+    }, [_vm._v(_vm._s(toast.chip.text))])], 1) : _vm._e(), _vm._v(" "), toast.icon && !toast.chip ? _c('div', {
+      staticClass: "toast__icon"
+    }, [_c('Icon', {
+      attrs: {
+        "i": toast.icon
+      }
+    })], 1) : _vm._e(), _vm._v(" "), _c('div', {
+      staticClass: "toast__middle"
+    }, [toast.title ? _c('h4', {
+      staticClass: "toast__title",
+      domProps: {
+        "textContent": _vm._s(toast.title)
+      }
+    }) : _vm._e(), _vm._v(" "), _c('span', {
+      staticClass: "toast__text",
+      domProps: {
+        "textContent": _vm._s(toast.text)
+      }
+    })]), _vm._v(" "), (typeof toast.options.closeable === 'object' ? toast.options.closeable.icon : toast.options.closeable) ? _c('Icon', {
+      staticClass: "toast__close_icon",
+      attrs: {
+        "i": "cross"
+      },
+      on: {
+        "click": function (e) {
+          return _vm.close(e, toast.id);
+        }
+      }
+    }) : _vm._e(), _vm._v(" "), toast.options.showDelayProgress ? _c('div', {
+      staticClass: "toast__progress_background"
+    }, [_c('div', {
+      staticClass: "toast__progress",
+      style: {
+        'animation-duration': toast.options.delay + 'ms'
+      }
+    })]) : _vm._e()], 1)]);
+  }), 0)], 1);
+};
+
+var __vue_staticRenderFns__$e = [];
+/* style */
+
+const __vue_inject_styles__$e = undefined;
+/* scoped */
+
+const __vue_scope_id__$e = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$e = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$e = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$e = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$e,
+  staticRenderFns: __vue_staticRenderFns__$e
+}, __vue_inject_styles__$e, __vue_script__$e, __vue_scope_id__$e, __vue_is_functional_template__$e, __vue_module_identifier__$e, false, undefined, undefined, undefined);
+
 var components = /*#__PURE__*/Object.freeze({
   __proto__: null,
   FLButton: __vue_component__$2,
@@ -1989,11 +2352,11 @@ var components = /*#__PURE__*/Object.freeze({
   FLDatepicker: __vue_component__$a,
   FLTimepicker: __vue_component__$b,
   FLBulletin: __vue_component__$c,
-  FLModal: __vue_component__$d
+  FLModal: __vue_component__$d,
+  FLToast: __vue_component__$e
 });
 
 _Vue.use(Datepicker); // Import vue components
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 // install function executed by Vue.use()
 const install = function installFluffUi(Vue, config) {
@@ -2009,13 +2372,23 @@ function instance(Vue, config) {
   const EventBus = new Vue();
   Vue.prototype.$config = config || {};
   Vue.prototype.$bus = EventBus;
+  Vue.prototype.$toast = {
+    pop(toast) {
+      Vue.prototype.$bus.$emit('pop_toast', toast);
+    },
+
+    close(index) {
+      Vue.prototype.$bus.$emit('close_toast', index);
+    }
+
+  };
   Vue.prototype.$modal = {
-    open(component) {
-      Vue.prototype.$bus.$emit('open', component);
+    open(component, data, options) {
+      Vue.prototype.$bus.$emit('open_modal', component, data, options);
     },
 
     close() {
-      Vue.prototype.$bus.$emit('close');
+      Vue.prototype.$bus.$emit('close_modal');
     }
 
   };
@@ -2027,4 +2400,4 @@ const plugin = {
 }; // To auto-install on non-es builds, when vue is found
 
 export default plugin;
-export { __vue_component__$c as FLBulletin, __vue_component__$2 as FLButton, __vue_component__$4 as FLCheckbox, __vue_component__$5 as FLChip, __vue_component__$a as FLDatepicker, __vue_component__$6 as FLDivider, __vue_component__$7 as FLForm, __vue_component__ as FLIcon, __vue_component__$3 as FLInput, __vue_component__$1 as FLLoading, __vue_component__$d as FLModal, __vue_component__$8 as FLSelect, __vue_component__$9 as FLTextarea, __vue_component__$b as FLTimepicker };
+export { __vue_component__$c as FLBulletin, __vue_component__$2 as FLButton, __vue_component__$4 as FLCheckbox, __vue_component__$5 as FLChip, __vue_component__$a as FLDatepicker, __vue_component__$6 as FLDivider, __vue_component__$7 as FLForm, __vue_component__ as FLIcon, __vue_component__$3 as FLInput, __vue_component__$1 as FLLoading, __vue_component__$d as FLModal, __vue_component__$8 as FLSelect, __vue_component__$9 as FLTextarea, __vue_component__$b as FLTimepicker, __vue_component__$e as FLToast };

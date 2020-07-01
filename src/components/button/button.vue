@@ -2,6 +2,7 @@
   <div
     class="button"
     :class="{
+      'button--inline': inline,
       'button--disabled': disabled,
       'button--loading': loading,
       'button--icon': !!icon,
@@ -40,6 +41,7 @@ import Loading from '../loading/loading.vue';
 })
 export default class extends Vue {
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
+  @Prop({ type: Boolean, default: false }) readonly inline?: boolean;
   @Prop({ type: String, default: 'default' }) readonly size?:
     | 'default'
     | 'small'

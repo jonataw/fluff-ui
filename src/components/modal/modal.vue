@@ -60,18 +60,17 @@ export default class extends Vue {
           component = component.component;
         }
         // Set default options.
-        options = { ...defaultOptions, ...options };
+        options = { ...defaultOptions, ...this.$config.modal, ...options };
 
         // TODO: if (component instanceof Vue) does not work here for some reason?
         if (typeof component !== 'function') {
-          console.error(
+          return console.error(
             `$modal.open expects a component, got '${typeof component}'.`
           );
-        } else {
-          this.options = options;
-          this.component = component;
-          this.data = data;
         }
+        this.options = options;
+        this.component = component;
+        this.data = data;
 
         if (!this.options.allowBodyScroll) {
           // Restrict the body overflow.

@@ -1,13 +1,21 @@
 <template>
   <div
     class="datepicker"
-    :class="{ 'input--error': !!error, 'input--inline': inline, [`input--size-${size}`]: true }"
+    :class="{
+      'input--error': !!error,
+      'input--inline': inline,
+      [`input--size-${size}`]: true
+    }"
   >
     <!-- Select label -->
     <label v-if="label" :for="id" class="input__label" v-text="label" />
 
     <!-- Description above select field -->
-    <p v-if="upperDescription" class="input__description" v-text="upperDescription" />
+    <p
+      v-if="upperDescription"
+      class="input__description"
+      v-text="upperDescription"
+    />
 
     <!-- Needs this div wrapper here to keep icon inside the <select> field -->
     <div class="datepicker__inner">
@@ -18,9 +26,20 @@
           :clearable="false"
           :disabled="disabled"
           :autofocus="autofocus"
+          :placeholder="placeholder === undefined ? label : placeholder"
           :readonly="readonly"
           class="datepicker__element"
-          :format="format"
+          :format="opts.format"
+          :title-format="opts.headerFormat"
+          :range="opts.range"
+          :editable="opts.editable"
+          :multiple="opts.multiple"
+          :lang="opts.language"
+          :show-week-number="opts.showWeekNumber"
+          :range-separator="opts.rangeSeparator"
+          :default-panel="opts.defaultPanel"
+          :default-value="opts.defaultValue"
+          :value-type="opts.valueType"
           @input="onInput"
           @blur="$emit('blur')"
           @focus="$emit('focus')"
@@ -56,7 +75,11 @@
     <span v-if="error" class="input__error">{{ error }}</span>
 
     <!-- Description below select field -->
-    <p v-if="lowerDescription" class="input__description_below" v-html="lowerDescription"></p>
+    <p
+      v-if="lowerDescription"
+      class="input__description_below"
+      v-html="lowerDescription"
+    ></p>
   </div>
 </template>
 
@@ -70,6 +93,40 @@ import Icon from '../icon/icon.vue';
   components: { Icon }
 })
 export default class extends Input {
-  @Prop({ default: 'D MMM, YYYY' }) format?: string;
+  @Prop({
+    type: Object
+  })
+  options?: {
+    editable: boolean;
+    multiple: boolean;
+    range: boolean;
+    language: string;
+    showWeekNumber: false;
+    rangeSeparator: string;
+    defaultPanel: 'date' | 'month' | 'year';
+    format: string;
+    headerFormat: string;
+    defaultValue: Date;
+    valueType: 'date' | 'timestamp' | 'format' | string;
+  };
+
+  get opts() {
+    return {
+      ...{
+        editable: true,
+        multiple: false,
+        range: false,
+        language: '',
+        showWeekNumber: false,
+        rangeSeparator: ' > ',
+        defaultPanel: 'date',
+        format: 'D, MMM, YYYY',
+        headerFormat: 'D, MMM, YYYY',
+        defaultValue: new Date(),
+        valueType: 'format'
+      },
+      ...this.options
+    };
+  }
 }
 </script>

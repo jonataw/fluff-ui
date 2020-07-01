@@ -62,7 +62,8 @@
 
   &.input--error {
     .input__element,
-    .input__element:hover {
+    .input__element:hover,
+    .input__element:focus {
       border-color: $error-color;
     }
   }

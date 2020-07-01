@@ -1,37 +1,17 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopDefault(e){return(e&&(typeof e==='object')&&'default'in e)?e['default']:e}var _Vue=_interopDefault(require('vue')),Datepicker=_interopDefault(require('vue2-datepicker')),vuePropertyDecorator=require('vue-property-decorator');function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopDefault(e){return(e&&(typeof e==='object')&&'default'in e)?e['default']:e}var _Vue=_interopDefault(require('vue')),Datepicker=_interopDefault(require('vue2-datepicker')),vuePropertyDecorator=require('vue-property-decorator');function _typeof(obj) {
+  "@babel/helpers - typeof";
 
-  if (info.done) {
-    resolve(value);
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
   } else {
-    Promise.resolve(value).then(_next, _throw);
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
   }
-}
 
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
+  return _typeof(obj);
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -54,6 +34,55 @@ function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
   return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
 }
 
 function _inherits(subClass, superClass) {
@@ -350,8 +379,8 @@ var __vue_render__ = function __vue_render__() {
     staticClass: "icon",
     class: "icon-" + _vm.i,
     on: {
-      "click": function click($event) {
-        return _vm.$emit('click');
+      "click": function click(e) {
+        return _vm.$emit('click', e);
       }
     }
   }, []);
@@ -366,7 +395,7 @@ var __vue_inject_styles__ = undefined;
 var __vue_scope_id__ = undefined;
 /* module identifier */
 
-var __vue_module_identifier__ = "data-v-655bce78";
+var __vue_module_identifier__ = "data-v-6819a466";
 /* functional template */
 
 var __vue_is_functional_template__ = false;
@@ -464,7 +493,7 @@ var __vue_is_functional_template__$1 = false;
 var __vue_component__$1 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$1,
   staticRenderFns: __vue_staticRenderFns__$1
-}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _dec7, _dec8, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _temp$2;
+}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);var _dec$2, _dec2$2, _dec3$1, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class2$2, _class3$2, _descriptor$2, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _temp$2;
 
 var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
   name: 'FLButton',
@@ -476,15 +505,18 @@ var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
   type: Boolean,
   default: false
 }), _dec3$1 = vuePropertyDecorator.Prop({
-  type: String,
-  default: 'default'
+  type: Boolean,
+  default: false
 }), _dec4 = vuePropertyDecorator.Prop({
   type: String,
   default: 'default'
 }), _dec5 = vuePropertyDecorator.Prop({
   type: String,
+  default: 'default'
+}), _dec6 = vuePropertyDecorator.Prop({
+  type: String,
   default: 'submit'
-}), _dec6 = vuePropertyDecorator.Prop(String), _dec7 = vuePropertyDecorator.Prop(Boolean), _dec8 = vuePropertyDecorator.Prop({
+}), _dec7 = vuePropertyDecorator.Prop(String), _dec8 = vuePropertyDecorator.Prop(Boolean), _dec9 = vuePropertyDecorator.Prop({
   type: String,
   default: 'left'
 }), _dec$2(_class2$2 = (_class3$2 = (_temp$2 = /*#__PURE__*/function (_Vue) {
@@ -505,17 +537,19 @@ var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "loading", _descriptor$2, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "size", _descriptor2$1, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "inline", _descriptor2$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "color", _descriptor3, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "size", _descriptor3, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "type", _descriptor4, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "color", _descriptor4, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "icon", _descriptor5, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "type", _descriptor5, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "disabled", _descriptor6, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "icon", _descriptor6, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "iconAlign", _descriptor7, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "disabled", _descriptor7, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "iconAlign", _descriptor8, _assertThisInitialized(_this));
 
     return _this;
   }
@@ -539,32 +573,37 @@ var _class$2 = (_dec$2 = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor2$1 = _applyDecoratedDescriptor(_class3$2.prototype, "size", [_dec3$1], {
+}), _descriptor2$1 = _applyDecoratedDescriptor(_class3$2.prototype, "inline", [_dec3$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class3$2.prototype, "color", [_dec4], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class3$2.prototype, "size", [_dec4], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class3$2.prototype, "type", [_dec5], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class3$2.prototype, "color", [_dec5], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor5 = _applyDecoratedDescriptor(_class3$2.prototype, "icon", [_dec6], {
+}), _descriptor5 = _applyDecoratedDescriptor(_class3$2.prototype, "type", [_dec6], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor6 = _applyDecoratedDescriptor(_class3$2.prototype, "disabled", [_dec7], {
+}), _descriptor6 = _applyDecoratedDescriptor(_class3$2.prototype, "icon", [_dec7], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class3$2.prototype, "iconAlign", [_dec8], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class3$2.prototype, "disabled", [_dec8], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor8 = _applyDecoratedDescriptor(_class3$2.prototype, "iconAlign", [_dec9], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -585,6 +624,7 @@ var __vue_render__$2 = function __vue_render__() {
   return _c('div', {
     staticClass: "button",
     class: (_obj = {
+      'button--inline': _vm.inline,
       'button--disabled': _vm.disabled,
       'button--loading': _vm.loading,
       'button--icon': !!_vm.icon,
@@ -617,7 +657,7 @@ var __vue_inject_styles__$2 = undefined;
 var __vue_scope_id__$2 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$2 = "data-v-17e2932c";
+var __vue_module_identifier__$2 = "data-v-c99bb49a";
 /* functional template */
 
 var __vue_is_functional_template__$2 = false;
@@ -630,7 +670,7 @@ var __vue_is_functional_template__$2 = false;
 var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$2,
   staticRenderFns: __vue_staticRenderFns__$2
-}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _temp$3;
+}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9$1, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8$1, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _temp$3;
 
 var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
   name: 'FLInput',
@@ -642,7 +682,7 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
 }), _dec6$1 = vuePropertyDecorator.Prop({
   type: String,
   default: 'default'
-}), _dec7$1 = vuePropertyDecorator.Prop(), _dec8$1 = vuePropertyDecorator.Prop(), _dec9 = vuePropertyDecorator.Prop(), _dec10 = vuePropertyDecorator.Prop(), _dec11 = vuePropertyDecorator.Prop(), _dec12 = vuePropertyDecorator.Prop(), _dec13 = vuePropertyDecorator.Prop(), _dec14 = vuePropertyDecorator.Prop({
+}), _dec7$1 = vuePropertyDecorator.Prop(), _dec8$1 = vuePropertyDecorator.Prop(), _dec9$1 = vuePropertyDecorator.Prop(), _dec10 = vuePropertyDecorator.Prop(), _dec11 = vuePropertyDecorator.Prop(), _dec12 = vuePropertyDecorator.Prop(), _dec13 = vuePropertyDecorator.Prop(), _dec14 = vuePropertyDecorator.Prop({
   default: false
 }), _dec15 = vuePropertyDecorator.Prop(), _dec16 = vuePropertyDecorator.Prop(), _dec17 = vuePropertyDecorator.Prop(), _dec18 = vuePropertyDecorator.Prop(), _dec19 = vuePropertyDecorator.Prop(), _dec20 = vuePropertyDecorator.Prop(), _dec21 = vuePropertyDecorator.Prop(), _dec22 = vuePropertyDecorator.Prop(Number), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
@@ -676,7 +716,7 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "description", _descriptor7$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "descriptionAbove", _descriptor8, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "descriptionAbove", _descriptor8$1, _assertThisInitialized(_this));
 
     _initializerDefineProperty(_this, "descriptionBelow", _descriptor9, _assertThisInitialized(_this));
 
@@ -844,7 +884,7 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor8 = _applyDecoratedDescriptor(_class3$3.prototype, "descriptionAbove", [_dec9], {
+}), _descriptor8$1 = _applyDecoratedDescriptor(_class3$3.prototype, "descriptionAbove", [_dec9$1], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1565,7 +1605,7 @@ var _class$a = (_dec$a = vuePropertyDecorator.Component({
     Icon: __vue_component__
   }
 }), _dec2$8 = vuePropertyDecorator.Prop({
-  default: 'D MMM, YYYY'
+  type: Object
 }), _dec$a(_class2$a = (_class3$8 = (_temp$8 = /*#__PURE__*/function (_Input) {
   _inherits(_class3, _Input);
 
@@ -1582,13 +1622,32 @@ var _class$a = (_dec$a = vuePropertyDecorator.Component({
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _initializerDefineProperty(_this, "format", _descriptor$8, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "options", _descriptor$8, _assertThisInitialized(_this));
 
     return _this;
   }
 
+  _createClass(_class3, [{
+    key: "opts",
+    get: function get() {
+      return _objectSpread2(_objectSpread2({}, {
+        editable: true,
+        multiple: false,
+        range: false,
+        language: '',
+        showWeekNumber: false,
+        rangeSeparator: ' > ',
+        defaultPanel: 'date',
+        format: 'D, MMM, YYYY',
+        headerFormat: 'D, MMM, YYYY',
+        defaultValue: new Date(),
+        valueType: 'format'
+      }), this.options);
+    }
+  }]);
+
   return _class3;
-}(__vue_component__$3), _temp$8), (_descriptor$8 = _applyDecoratedDescriptor(_class3$8.prototype, "format", [_dec2$8], {
+}(__vue_component__$3), _temp$8), (_descriptor$8 = _applyDecoratedDescriptor(_class3$8.prototype, "options", [_dec2$8], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1620,8 +1679,19 @@ var __vue_render__$a = function __vue_render__() {
       "clearable": false,
       "disabled": _vm.disabled,
       "autofocus": _vm.autofocus,
+      "placeholder": _vm.placeholder === undefined ? _vm.label : _vm.placeholder,
       "readonly": _vm.readonly,
-      "format": _vm.format
+      "format": _vm.opts.format,
+      "title-format": _vm.opts.headerFormat,
+      "range": _vm.opts.range,
+      "editable": _vm.opts.editable,
+      "multiple": _vm.opts.multiple,
+      "lang": _vm.opts.language,
+      "show-week-number": _vm.opts.showWeekNumber,
+      "range-separator": _vm.opts.rangeSeparator,
+      "default-panel": _vm.opts.defaultPanel,
+      "default-value": _vm.opts.defaultValue,
+      "value-type": _vm.opts.valueType
     },
     on: {
       "input": _vm.onInput,
@@ -1644,7 +1714,7 @@ var __vue_inject_styles__$a = undefined;
 var __vue_scope_id__$a = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$a = "data-v-31d2775d";
+var __vue_module_identifier__$a = "data-v-6c13716f";
 /* functional template */
 
 var __vue_is_functional_template__$a = false;
@@ -1665,7 +1735,7 @@ var _class$b = (_dec$b = vuePropertyDecorator.Component({
     Icon: __vue_component__
   }
 }), _dec2$9 = vuePropertyDecorator.Prop({
-  default: 'HH:mm'
+  type: Object
 }), _dec$b(_class2$b = (_class3$9 = (_temp$9 = /*#__PURE__*/function (_Input) {
   _inherits(_class3, _Input);
 
@@ -1682,13 +1752,36 @@ var _class$b = (_dec$b = vuePropertyDecorator.Component({
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _initializerDefineProperty(_this, "format", _descriptor$9, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "options", _descriptor$9, _assertThisInitialized(_this));
 
     return _this;
   }
 
+  _createClass(_class3, [{
+    key: "opts",
+    get: function get() {
+      return _objectSpread2(_objectSpread2({}, {
+        editable: true,
+        multiple: false,
+        hourStep: 1,
+        minuteStep: 5,
+        secondStep: 30,
+        showHour: true,
+        showMinute: true,
+        showSecond: false,
+        format: 'HH:mm',
+        showHeader: true,
+        headerFormat: 'HH:mm',
+        defaultValue: new Date(),
+        use12h: false,
+        valueType: 'format',
+        fixed: undefined
+      }), this.options);
+    }
+  }]);
+
   return _class3;
-}(__vue_component__$3), _temp$9), (_descriptor$9 = _applyDecoratedDescriptor(_class3$9.prototype, "format", [_dec2$9], {
+}(__vue_component__$3), _temp$9), (_descriptor$9 = _applyDecoratedDescriptor(_class3$9.prototype, "options", [_dec2$9], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1712,7 +1805,7 @@ var __vue_render__$b = function __vue_render__() {
       'input--error': !!_vm.error,
       'input--inline': _vm.inline
     }, _obj["input--size-" + _vm.size] = true, _obj)
-  }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " "), _vm._ssrNode("<div class=\"timepicker__inner\">", "</div>", [_c('client-only', [_c('date-picker', {
+  }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + _vm._ssrEscape("\n    " + _vm._s(_vm.opts) + "\n    ") + " "), _vm._ssrNode("<div class=\"timepicker__inner\">", "</div>", [_c('client-only', [_c('date-picker', {
     staticClass: "timepicker__element",
     attrs: {
       "id": _vm.id,
@@ -1720,13 +1813,25 @@ var __vue_render__$b = function __vue_render__() {
       "clearable": false,
       "disabled": _vm.disabled,
       "autofocus": _vm.autofocus,
+      "placeholder": _vm.placeholder === undefined ? _vm.label : _vm.placeholder,
       "readonly": _vm.readonly,
       "type": "time",
-      "value-type": "timestamp",
-      "minute-step": 5,
-      "hour-step": 1,
-      "show-second": false,
-      "format": _vm.format
+      "open": _vm.opts.open,
+      "editable": _vm.opts.editable,
+      "multiple": _vm.opts.multiple,
+      "hour-step": _vm.opts.hourStep,
+      "minute-step": _vm.opts.minuteStep,
+      "second-step": _vm.opts.secondStep,
+      "show-hour": _vm.opts.showHour,
+      "show-minute": _vm.opts.showMinute,
+      "show-second": _vm.opts.showSecond,
+      "format": _vm.opts.format,
+      "time-picker-options": _vm.opts.fixed,
+      "show-time-header": _vm.opts.showHeader,
+      "use12h": _vm.opts.use12h,
+      "time-title-format": _vm.opts.headerFormat,
+      "default-value": _vm.opts.defaultValue,
+      "value-type": _vm.opts.valueType
     },
     on: {
       "input": _vm.onInput,
@@ -1749,7 +1854,7 @@ var __vue_inject_styles__$b = undefined;
 var __vue_scope_id__$b = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$b = "data-v-6908de31";
+var __vue_module_identifier__$b = "data-v-36df114b";
 /* functional template */
 
 var __vue_is_functional_template__$b = false;
@@ -1902,10 +2007,17 @@ var __vue_component__$c = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$c,
   staticRenderFns: __vue_staticRenderFns__$c
 }, __vue_inject_styles__$c, __vue_script__$c, __vue_scope_id__$c, __vue_is_functional_template__$c, __vue_module_identifier__$c, false, undefined, undefined, undefined);var _dec$d, _class2$d, _temp$b;
+var defaultOptions = {
+  allowBodyScroll: false,
+  closeable: true,
+  width: 580
+};
 
 var _class$d = (_dec$d = vuePropertyDecorator.Component({
   name: 'FLModal',
-  components: {}
+  components: {
+    Icon: __vue_component__
+  }
 }), _dec$d(_class2$d = (_temp$b = /*#__PURE__*/function (_Vue) {
   _inherits(_class2, _Vue);
 
@@ -1921,8 +2033,9 @@ var _class$d = (_dec$d = vuePropertyDecorator.Component({
     }
 
     _this = _super.call.apply(_super, [this].concat(args));
-    _this.isVisible = false;
     _this.component = null;
+    _this.data = null;
+    _this.options = defaultOptions;
     return _this;
   }
 
@@ -1931,36 +2044,103 @@ var _class$d = (_dec$d = vuePropertyDecorator.Component({
     value: function created() {
       var _this2 = this;
 
-      this.$bus.$on('open', /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(component) {
-          var _require;
+      this.$bus.$on('open_modal', function (component, data, options) {
+        if (_typeof(component) === 'object') {
+          // Handle case where all arguments are passed as an object in the first argument.
+          options = component.options;
+          data = component.data;
+          component = component.component;
+        } // Set default options.
 
-          return regeneratorRuntime.wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  console.log(_this2.$config.modalTemplateFolder);
-                  _this2.component = (_require = require("".concat(_this2.$config.modalTemplateFolder || '').concat(component, ".vue"))) === null || _require === void 0 ? void 0 : _require.default;
-                  _this2.isVisible = true;
 
-                case 3:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        }));
+        options = _objectSpread2(_objectSpread2(_objectSpread2({}, defaultOptions), _this2.$config.modal), options); // TODO: if (component instanceof Vue) does not work here for some reason?
 
-        return function (_x) {
-          return _ref.apply(this, arguments);
-        };
-      }());
+        if (typeof component !== 'function') {
+          console.error("$modal.open expects a component, got '".concat(_typeof(component), "'."));
+        } else {
+          _this2.options = options;
+          _this2.component = component;
+          _this2.data = data;
+        }
+
+        if (!_this2.options.allowBodyScroll) {
+          // Restrict the body overflow.
+          _this2.restrictBodyOverflow();
+        }
+      });
+      this.$bus.$on('close_modal', function () {
+        _this2.releaseBodyOverflow();
+
+        _this2.component = null;
+        _this2.data = null;
+      });
+    }
+  }, {
+    key: "restrictBodyOverflow",
+    value: function restrictBodyOverflow() {
+      if (!this.$isServer) {
+        var body = document.querySelector('body');
+
+        if (body) {
+          body.style.overflow = 'hidden';
+        }
+      }
+    }
+  }, {
+    key: "releaseBodyOverflow",
+    value: function releaseBodyOverflow() {
+      if (!this.$isServer) {
+        var body = document.querySelector('body');
+
+        if (body) {
+          body.style.removeProperty('overflow');
+        }
+      }
+    }
+  }, {
+    key: "close",
+    value: function close(event) {
+      var _this3 = this;
+
+      var close = function close() {
+        return _this3.$bus.$emit('close_modal');
+      };
+
+      var cl = event.target.classList;
+
+      if (!cl.contains('modal__outer') && !cl.contains('modal__close_icon')) {
+        return;
+      }
+
+      var closeable = this.options.closeable;
+
+      if (typeof closeable === 'boolean' && closeable) {
+        close();
+      } else if (_typeof(closeable) === 'object') {
+        if (cl.contains('modal__outer') && closeable.backdrop) {
+          close();
+        }
+
+        if (cl.contains('modal__close_icon') && closeable.icon) {
+          close();
+        }
+      }
+    }
+  }, {
+    key: "width",
+    get: function get() {
+      var width = this.options.width;
+
+      if (typeof width === 'number') {
+        return width + 'px';
+      } else {
+        return width;
+      }
     }
   }]);
 
   return _class2;
-}(vuePropertyDecorator.Vue), _temp$b)) || _class2$d);/* script */
-var __vue_script__$d = _class$d;
+}(vuePropertyDecorator.Vue), _temp$b)) || _class2$d);var __vue_script__$d = _class$d;
 /* template */
 
 var __vue_render__$d = function __vue_render__() {
@@ -1970,11 +2150,42 @@ var __vue_render__$d = function __vue_render__() {
 
   var _c = _vm._self._c || _h;
 
-  return _vm.isVisible ? _c('div', {
+  return _c('div', {
     staticClass: "modal"
-  }, [_c(_vm.component, {
-    tag: "component"
-  })], 1) : _vm._e();
+  }, [_c('transition', {
+    attrs: {
+      "name": "anim--modal_backdrop"
+    }
+  }, [!!_vm.component ? _c('div', {
+    staticClass: "modal__backdrop"
+  }) : _vm._e()]), _vm._ssrNode(" "), _c('transition', {
+    attrs: {
+      "name": "anim--modal"
+    }
+  }, [!!_vm.component ? _c('div', {
+    staticClass: "modal__outer",
+    on: {
+      "click": _vm.close
+    }
+  }, [_c('div', {
+    staticClass: "modal__inner",
+    style: {
+      maxWidth: _vm.width
+    }
+  }, [(_typeof(_vm.options.closeable) === 'object' ? _vm.options.closeable.cross : _vm.options.closeable) ? _c('Icon', {
+    staticClass: "modal__close_icon",
+    attrs: {
+      "i": "cross"
+    },
+    on: {
+      "click": _vm.close
+    }
+  }) : _vm._e(), _vm._v(" "), _c(_vm.component, {
+    tag: "component",
+    attrs: {
+      "data": _vm.data
+    }
+  })], 1)]) : _vm._e()])], 2);
 };
 
 var __vue_staticRenderFns__$d = [];
@@ -1986,7 +2197,7 @@ var __vue_inject_styles__$d = undefined;
 var __vue_scope_id__$d = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$d = "data-v-4f751110";
+var __vue_module_identifier__$d = "data-v-79278b1a";
 /* functional template */
 
 var __vue_is_functional_template__$d = false;
@@ -1999,8 +2210,201 @@ var __vue_is_functional_template__$d = false;
 var __vue_component__$d = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$d,
   staticRenderFns: __vue_staticRenderFns__$d
-}, __vue_inject_styles__$d, __vue_script__$d, __vue_scope_id__$d, __vue_is_functional_template__$d, __vue_module_identifier__$d, false, undefined, undefined, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,FLButton: __vue_component__$2,FLCheckbox: __vue_component__$4,FLChip: __vue_component__$5,FLDivider: __vue_component__$6,FLForm: __vue_component__$7,FLIcon: __vue_component__,FLInput: __vue_component__$3,FLLoading: __vue_component__$1,FLSelect: __vue_component__$8,FLTextarea: __vue_component__$9,FLDatepicker: __vue_component__$a,FLTimepicker: __vue_component__$b,FLBulletin: __vue_component__$c,FLModal: __vue_component__$d});_Vue.use(Datepicker); // Import vue components
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+}, __vue_inject_styles__$d, __vue_script__$d, __vue_scope_id__$d, __vue_is_functional_template__$d, __vue_module_identifier__$d, false, undefined, undefined, undefined);var _dec$e, _class2$e, _temp$c;
+var defaultOptions$1 = {
+  closeable: true,
+  delay: 5000,
+  showDelayProgress: true
+};
+
+var _class$e = (_dec$e = vuePropertyDecorator.Component({
+  name: 'FLToast',
+  components: {
+    Chip: __vue_component__$5,
+    Icon: __vue_component__
+  }
+}), _dec$e(_class2$e = (_temp$c = /*#__PURE__*/function (_Vue) {
+  _inherits(_class2, _Vue);
+
+  var _super = _createSuper(_class2);
+
+  function _class2() {
+    var _this;
+
+    _classCallCheck(this, _class2);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+    _this.toasts = [];
+    _this.id = 0;
+    return _this;
+  }
+
+  _createClass(_class2, [{
+    key: "created",
+    value: function created() {
+      var _this2 = this;
+
+      this.$bus.$on('pop_toast', function (toast) {
+        var id = _this2.id++;
+        toast.options = _objectSpread2(_objectSpread2(_objectSpread2({}, defaultOptions$1), _this2.$config.toast), toast.options);
+
+        _this2.toasts.push(_objectSpread2(_objectSpread2({}, toast), {}, {
+          id: id
+        }));
+
+        if (toast.options.delay && typeof toast.options.delay === 'number') {
+          setTimeout(function () {
+            _this2.toasts = _this2.toasts.filter(function (_t) {
+              return _t.id !== id;
+            });
+          }, toast.options.delay);
+        }
+      });
+      this.$bus.$on('close_toast', function (id) {
+        _this2.toasts = _this2.toasts.filter(function (_) {
+          return _.id !== id;
+        });
+      });
+    }
+  }, {
+    key: "close",
+    value: function close(event, id) {
+      var _this3 = this;
+
+      var toast = this.toasts.find(function (_t) {
+        return _t.id === id;
+      });
+
+      if (!toast) {
+        return;
+      }
+
+      var close = function close() {
+        return _this3.$bus.$emit('close_toast', id);
+      };
+
+      var cl = event.target.classList;
+      var closeable = toast.options.closeable;
+
+      if (typeof closeable === 'boolean' && closeable) {
+        close();
+      } else if (_typeof(closeable) === 'object') {
+        if (closeable.click) {
+          close();
+        }
+
+        if (cl.contains('toast__close_icon') && closeable.icon) {
+          close();
+        }
+      }
+    }
+  }]);
+
+  return _class2;
+}(vuePropertyDecorator.Vue), _temp$c)) || _class2$e);var __vue_script__$e = _class$e;
+/* template */
+
+var __vue_render__$e = function __vue_render__() {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "toast_container"
+  }, [_c('transition-group', {
+    attrs: {
+      "name": "list-complete"
+    }
+  }, _vm._l(_vm.toasts, function (toast) {
+    return _c('div', {
+      key: toast.id,
+      staticClass: "toast",
+      class: {
+        'toast--delay': !!toast.options.delay,
+        'toast--closeable': _typeof(toast.options.closeable) === 'object' ? toast.options.closeable.click : toast.options.closeable
+      },
+      on: {
+        "click": function click(e) {
+          return _vm.close(e, toast.id);
+        }
+      }
+    }, [_c('div', {
+      staticClass: "toast__inner"
+    }, [toast.chip ? _c('div', {
+      staticClass: "toast__chip"
+    }, [_c('Chip', {
+      attrs: {
+        "icon": toast.chip.icon,
+        "color": toast.chip.color
+      }
+    }, [_vm._v(_vm._s(toast.chip.text))])], 1) : _vm._e(), _vm._v(" "), toast.icon && !toast.chip ? _c('div', {
+      staticClass: "toast__icon"
+    }, [_c('Icon', {
+      attrs: {
+        "i": toast.icon
+      }
+    })], 1) : _vm._e(), _vm._v(" "), _c('div', {
+      staticClass: "toast__middle"
+    }, [toast.title ? _c('h4', {
+      staticClass: "toast__title",
+      domProps: {
+        "textContent": _vm._s(toast.title)
+      }
+    }) : _vm._e(), _vm._v(" "), _c('span', {
+      staticClass: "toast__text",
+      domProps: {
+        "textContent": _vm._s(toast.text)
+      }
+    })]), _vm._v(" "), (_typeof(toast.options.closeable) === 'object' ? toast.options.closeable.icon : toast.options.closeable) ? _c('Icon', {
+      staticClass: "toast__close_icon",
+      attrs: {
+        "i": "cross"
+      },
+      on: {
+        "click": function click(e) {
+          return _vm.close(e, toast.id);
+        }
+      }
+    }) : _vm._e(), _vm._v(" "), toast.options.showDelayProgress ? _c('div', {
+      staticClass: "toast__progress_background"
+    }, [_c('div', {
+      staticClass: "toast__progress",
+      style: {
+        'animation-duration': toast.options.delay + 'ms'
+      }
+    })]) : _vm._e()], 1)]);
+  }), 0)], 1);
+};
+
+var __vue_staticRenderFns__$e = [];
+/* style */
+
+var __vue_inject_styles__$e = undefined;
+/* scoped */
+
+var __vue_scope_id__$e = undefined;
+/* module identifier */
+
+var __vue_module_identifier__$e = "data-v-3da034d5";
+/* functional template */
+
+var __vue_is_functional_template__$e = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+var __vue_component__$e = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$e,
+  staticRenderFns: __vue_staticRenderFns__$e
+}, __vue_inject_styles__$e, __vue_script__$e, __vue_scope_id__$e, __vue_is_functional_template__$e, __vue_module_identifier__$e, false, undefined, undefined, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,FLButton: __vue_component__$2,FLCheckbox: __vue_component__$4,FLChip: __vue_component__$5,FLDivider: __vue_component__$6,FLForm: __vue_component__$7,FLIcon: __vue_component__,FLInput: __vue_component__$3,FLLoading: __vue_component__$1,FLSelect: __vue_component__$8,FLTextarea: __vue_component__$9,FLDatepicker: __vue_component__$a,FLTimepicker: __vue_component__$b,FLBulletin: __vue_component__$c,FLModal: __vue_component__$d,FLToast: __vue_component__$e});_Vue.use(Datepicker); // Import vue components
 
 // install function executed by Vue.use()
 var install = function installFluffUi(Vue, config) {
@@ -2020,12 +2424,20 @@ function instance(Vue, config) {
   var EventBus = new Vue();
   Vue.prototype.$config = config || {};
   Vue.prototype.$bus = EventBus;
+  Vue.prototype.$toast = {
+    pop: function pop(toast) {
+      Vue.prototype.$bus.$emit('pop_toast', toast);
+    },
+    close: function close(index) {
+      Vue.prototype.$bus.$emit('close_toast', index);
+    }
+  };
   Vue.prototype.$modal = {
-    open: function open(component) {
-      Vue.prototype.$bus.$emit('open', component);
+    open: function open(component, data, options) {
+      Vue.prototype.$bus.$emit('open_modal', component, data, options);
     },
     close: function close() {
-      Vue.prototype.$bus.$emit('close');
+      Vue.prototype.$bus.$emit('close_modal');
     }
   };
 } // Create module definition for Vue.use()
@@ -2052,4 +2464,4 @@ var plugin = {
     GlobalVue.use(plugin);
   }
 } // Default export is library as a whole, registered via Vue.use()
-exports.FLBulletin=__vue_component__$c;exports.FLButton=__vue_component__$2;exports.FLCheckbox=__vue_component__$4;exports.FLChip=__vue_component__$5;exports.FLDatepicker=__vue_component__$a;exports.FLDivider=__vue_component__$6;exports.FLForm=__vue_component__$7;exports.FLIcon=__vue_component__;exports.FLInput=__vue_component__$3;exports.FLLoading=__vue_component__$1;exports.FLModal=__vue_component__$d;exports.FLSelect=__vue_component__$8;exports.FLTextarea=__vue_component__$9;exports.FLTimepicker=__vue_component__$b;exports.default=plugin;
+exports.FLBulletin=__vue_component__$c;exports.FLButton=__vue_component__$2;exports.FLCheckbox=__vue_component__$4;exports.FLChip=__vue_component__$5;exports.FLDatepicker=__vue_component__$a;exports.FLDivider=__vue_component__$6;exports.FLForm=__vue_component__$7;exports.FLIcon=__vue_component__;exports.FLInput=__vue_component__$3;exports.FLLoading=__vue_component__$1;exports.FLModal=__vue_component__$d;exports.FLSelect=__vue_component__$8;exports.FLTextarea=__vue_component__$9;exports.FLTimepicker=__vue_component__$b;exports.FLToast=__vue_component__$e;exports.default=plugin;

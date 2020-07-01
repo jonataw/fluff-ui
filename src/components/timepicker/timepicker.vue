@@ -1,14 +1,22 @@
 <template>
   <div
     class="timepicker"
-    :class="{ 'input--error': !!error, 'input--inline': inline, [`input--size-${size}`]: true }"
+    :class="{
+      'input--error': !!error,
+      'input--inline': inline,
+      [`input--size-${size}`]: true
+    }"
   >
     <!-- Select label -->
     <label v-if="label" :for="id" class="input__label" v-text="label" />
 
     <!-- Description above select field -->
-    <p v-if="upperDescription" class="input__description" v-text="upperDescription" />
-
+    <p
+      v-if="upperDescription"
+      class="input__description"
+      v-text="upperDescription"
+    />
+    {{ opts }}
     <!-- Needs this div wrapper here to keep icon inside the <select> field -->
     <div class="timepicker__inner">
       <client-only>
@@ -18,14 +26,26 @@
           :clearable="false"
           :disabled="disabled"
           :autofocus="autofocus"
+          :placeholder="placeholder === undefined ? label : placeholder"
           :readonly="readonly"
           type="time"
-          value-type="timestamp"
           class="timepicker__element"
-          :minute-step="5"
-          :hour-step="1"
-          :show-second="false"
-          :format="format"
+          :open="opts.open"
+          :editable="opts.editable"
+          :multiple="opts.multiple"
+          :hour-step="opts.hourStep"
+          :minute-step="opts.minuteStep"
+          :second-step="opts.secondStep"
+          :show-hour="opts.showHour"
+          :show-minute="opts.showMinute"
+          :show-second="opts.showSecond"
+          :format="opts.format"
+          :time-picker-options="opts.fixed"
+          :show-time-header="opts.showHeader"
+          :use12h="opts.use12h"
+          :time-title-format="opts.headerFormat"
+          :default-value="opts.defaultValue"
+          :value-type="opts.valueType"
           @input="onInput"
           @blur="$emit('blur')"
           @focus="$emit('focus')"
@@ -57,7 +77,11 @@
     <span v-if="error" class="input__error">{{ error }}</span>
 
     <!-- Description below select field -->
-    <p v-if="lowerDescription" class="input__description_below" v-html="lowerDescription"></p>
+    <p
+      v-if="lowerDescription"
+      class="input__description_below"
+      v-html="lowerDescription"
+    ></p>
   </div>
 </template>
 
@@ -71,6 +95,48 @@ import Icon from '../icon/icon.vue';
   components: { Icon }
 })
 export default class extends Input {
-  @Prop({ default: 'HH:mm' }) format?: string;
+  @Prop({
+    type: Object
+  })
+  options?: {
+    editable: boolean;
+    multiple: boolean;
+    hourStep: number;
+    minuteStep: number;
+    secondStep: number;
+    showHour: boolean;
+    showMinute: boolean;
+    showSecond: boolean;
+    format: string;
+    showHeader: boolean;
+    headerFormat: boolean;
+    defaultValue: Date;
+    use12h: boolean;
+    valueType: 'date' | 'timestamp' | 'format' | string;
+    fixed: { start: string; step: string; end: string; format: string };
+  };
+
+  get opts() {
+    return {
+      ...{
+        editable: true,
+        multiple: false,
+        hourStep: 1,
+        minuteStep: 5,
+        secondStep: 30,
+        showHour: true,
+        showMinute: true,
+        showSecond: false,
+        format: 'HH:mm',
+        showHeader: true,
+        headerFormat: 'HH:mm',
+        defaultValue: new Date(),
+        use12h: false,
+        valueType: 'format',
+        fixed: undefined
+      },
+      ...this.options
+    };
+  }
 }
 </script>

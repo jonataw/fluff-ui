@@ -6,6 +6,13 @@
   background: transparent;
   color: $button-color;
 
+  &.button--inline {
+    .button__element {
+      width: auto;
+      display: inline-flex;
+    }
+  }
+
   &.button--size-small {
     .button__element {
       font-size: 15px;

@@ -27,3 +27,12 @@ $button-color--disabled: $button-color !default;
 $button-background--disabled: lighten($primary-color, 10%) !default;
 $button-background--hover: darken($primary-color, 5%) !default;
 $button-background--active: darken($primary-color, 10%) !default;
+
+// Modal
+$modal-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -2px #0000000d !default;
+
+// Toast
+$toast-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -2px #0000000d !default;
+$toast-progress: $loading-border !default;
+$toast-progress-background: $loading-border-background !default;
+

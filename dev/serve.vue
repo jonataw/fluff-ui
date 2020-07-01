@@ -8,29 +8,56 @@
       <FLModal />
       <FLToast />
 
-      <a @click="$modal.open(modal.test)">Show modal</a>
+      <h2>Modal</h2>
+      <a style="display:block" @click="$modal.open(modal.test)">Show modal</a>
+
+      <h2>Toast</h2>
 
       <a
+        style="display:block"
         @click="
           $toast.pop({
-            title: 'Hello world!',
-            text: 'This is a toast!',
-            options: { delay: 100000 },
-            icon: 'arrow-right'
+            text: 'I will disappear in 5000ms!',
+            options: { delay: 5000, showDelayProgress: false }
           })
         "
-        >Pop toast!</a
+        >Toast with text</a
+      >
+
+      <a
+        style="display:block"
+        @click="
+          $toast.pop({
+            text: 'I will disappear when the progress bar is full!',
+            options: { delay: 5000, showDelayProgress: true },
+            chip: { text: 'Bye!', color: 'red', icon: 'information' }
+          })
+        "
+        >Toast with delay progress</a
       >
 
       <a
         @click="
           $toast.pop({
-            text: 'This is a toast!',
-            options: { delay: false },
-            chip: { text: 'Hi', icon: 'arrow-left' }
+            text: 'I will not disappear until you dismiss me by clicking the ✕ icon!',
+            options: { delay: false, showDelayProgress: true },
+            icon: 'question'
           })
         "
-        >Pop toast!</a
+        >Toast with icon</a
+      >
+
+      <a
+        style="display:block"
+        @click="
+          $toast.pop({
+            title: 'Follow us?',
+            text: 'Tweet, tweet! I will not disappear until you click me!',
+            options: { delay: false, closeable: true },
+            chip: { text: 'Tweet', icon: 'twitter' }
+          })
+        "
+        >Toast with title and chip</a
       >
 
       <FLForm name="form" v-slot:form="{ form }">
@@ -77,13 +104,13 @@
           :restrict-to-number="true"
         />
 
-        {{ n }}
-
         <FLDatepicker
           :size="size"
           :form="form"
           label="Hello world!"
+          placeholder="A"
           type="email"
+          :options="{}"
           v-model="a"
         />
         <FLTimepicker
@@ -91,6 +118,10 @@
           :form="form"
           label="Hello world!"
           type="email"
+          :options="{
+            showSecond: false,
+            use12h: true
+          }"
           v-model="c"
         />
 
