@@ -2018,12 +2018,12 @@ let _class$d = (_dec$d = Component({
       }; // TODO: if (component instanceof Vue) does not work here for some reason?
 
       if (typeof component !== 'function') {
-        console.error(`$modal.open expects a component, got '${typeof component}'.`);
-      } else {
-        this.options = options;
-        this.component = component;
-        this.data = data;
+        return console.error(`$modal.open expects a component, got '${typeof component}'.`);
       }
+
+      this.options = options;
+      this.component = component;
+      this.data = data;
 
       if (!this.options.allowBodyScroll) {
         // Restrict the body overflow.

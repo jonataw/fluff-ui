@@ -2056,12 +2056,12 @@ var _class$d = (_dec$d = vuePropertyDecorator.Component({
         options = _objectSpread2(_objectSpread2(_objectSpread2({}, defaultOptions), _this2.$config.modal), options); // TODO: if (component instanceof Vue) does not work here for some reason?
 
         if (typeof component !== 'function') {
-          console.error("$modal.open expects a component, got '".concat(_typeof(component), "'."));
-        } else {
-          _this2.options = options;
-          _this2.component = component;
-          _this2.data = data;
+          return console.error("$modal.open expects a component, got '".concat(_typeof(component), "'."));
         }
+
+        _this2.options = options;
+        _this2.component = component;
+        _this2.data = data;
 
         if (!_this2.options.allowBodyScroll) {
           // Restrict the body overflow.
@@ -2197,7 +2197,7 @@ var __vue_inject_styles__$d = undefined;
 var __vue_scope_id__$d = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$d = "data-v-79278b1a";
+var __vue_module_identifier__$d = "data-v-5447de57";
 /* functional template */
 
 var __vue_is_functional_template__$d = false;

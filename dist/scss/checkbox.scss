@@ -64,4 +64,12 @@
       }
     }
   }
+
+  &.checkbox--error {
+    .checkbox__fill_box,
+    .checkbox__fill_box:hover,
+    .checkbox__fill_box:focus {
+      border-color: $error-color;
+    }
+  }
 }
