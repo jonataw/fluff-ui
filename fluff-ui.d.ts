@@ -97,11 +97,11 @@ export interface ToastOptions {
 }
 
 export interface Toast {
-  title: string;
-  text: string;
+  title?: string;
+  text?: string;
   icon?: string;
   chip?: { icon: string; color: string; text: string };
-  options: Partial<ToastOptions>;
+  options?: Partial<ToastOptions>;
 }
 
 export interface ToastMethods {
