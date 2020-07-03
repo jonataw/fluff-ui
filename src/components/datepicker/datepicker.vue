@@ -120,8 +120,8 @@ export default class extends Input {
         showWeekNumber: false,
         rangeSeparator: ' > ',
         defaultPanel: 'date',
-        format: 'D, MMM, YYYY',
-        headerFormat: 'D, MMM, YYYY',
+        format: 'D MMM, YYYY',
+        headerFormat: 'D MMM, YYYY',
         defaultValue: new Date(),
         valueType: 'format'
       },

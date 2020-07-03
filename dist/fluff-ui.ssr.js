@@ -971,7 +971,9 @@ var __vue_render__$3 = function __vue_render__() {
     staticClass: "input",
     class: (_obj = {
       'input--error': !!_vm.error,
-      'input--inline': _vm.inline
+      'input--inline': _vm.inline,
+      'input--has-prefix': !!_vm.prefix,
+      'input--has-suffix': !!_vm.suffix
     }, _obj["input--size-" + _vm.size] = true, _obj)
   }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"input__outer\">" + (_vm.prefix ? "<span class=\"input__prefix\">" + _vm._s(_vm.prefix) + "</span>" : "<!---->") + " <div class=\"input__inner\"><input" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("type", _vm.type || 'text') + _vm._ssrAttr("disabled", _vm.disabled) + _vm._ssrAttr("placeholder", _vm.placeholder === undefined ? _vm.label : _vm.placeholder) + _vm._ssrAttr("autocomplete", _vm.autocomplete) + _vm._ssrAttr("autofocus", _vm.autofocus) + _vm._ssrAttr("readonly", _vm.readonly) + _vm._ssrAttr("value", _vm.value) + " class=\"input__element\"> " + (_vm.error ? "<span class=\"input__error_icon\"><svg><path d=\"M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z\"></path></svg></span>" : "<!---->") + "</div> " + (_vm.suffix ? "<span class=\"input__suffix\">" + _vm._s(_vm.suffix) + "</span>" : "<!---->") + "</div> " + (_vm.error ? "<span class=\"input__error\">" + _vm._ssrEscape(_vm._s(_vm.error)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
 };
@@ -985,7 +987,7 @@ var __vue_inject_styles__$3 = undefined;
 var __vue_scope_id__$3 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$3 = "data-v-102338f1";
+var __vue_module_identifier__$3 = "data-v-16d63aa8";
 /* functional template */
 
 var __vue_is_functional_template__$3 = false;
@@ -1638,8 +1640,8 @@ var _class$a = (_dec$a = vuePropertyDecorator.Component({
         showWeekNumber: false,
         rangeSeparator: ' > ',
         defaultPanel: 'date',
-        format: 'D, MMM, YYYY',
-        headerFormat: 'D, MMM, YYYY',
+        format: 'D MMM, YYYY',
+        headerFormat: 'D MMM, YYYY',
         defaultValue: new Date(),
         valueType: 'format'
       }), this.options);
@@ -1714,7 +1716,7 @@ var __vue_inject_styles__$a = undefined;
 var __vue_scope_id__$a = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$a = "data-v-6c13716f";
+var __vue_module_identifier__$a = "data-v-6ab633c3";
 /* functional template */
 
 var __vue_is_functional_template__$a = false;
@@ -2056,12 +2058,12 @@ var _class$d = (_dec$d = vuePropertyDecorator.Component({
         options = _objectSpread2(_objectSpread2(_objectSpread2({}, defaultOptions), _this2.$config.modal), options); // TODO: if (component instanceof Vue) does not work here for some reason?
 
         if (typeof component !== 'function') {
-          console.error("$modal.open expects a component, got '".concat(_typeof(component), "'."));
-        } else {
-          _this2.options = options;
-          _this2.component = component;
-          _this2.data = data;
+          return console.error("$modal.open expects a component, got '".concat(_typeof(component), "'."));
         }
+
+        _this2.options = options;
+        _this2.component = component;
+        _this2.data = data;
 
         if (!_this2.options.allowBodyScroll) {
           // Restrict the body overflow.
@@ -2197,7 +2199,7 @@ var __vue_inject_styles__$d = undefined;
 var __vue_scope_id__$d = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$d = "data-v-79278b1a";
+var __vue_module_identifier__$d = "data-v-5447de57";
 /* functional template */
 
 var __vue_is_functional_template__$d = false;

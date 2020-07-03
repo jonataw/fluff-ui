@@ -707,7 +707,9 @@ var __vue_render__$3 = function () {
     staticClass: "input",
     class: (_obj = {
       'input--error': !!_vm.error,
-      'input--inline': _vm.inline
+      'input--inline': _vm.inline,
+      'input--has-prefix': !!_vm.prefix,
+      'input--has-suffix': !!_vm.suffix
     }, _obj["input--size-" + _vm.size] = true, _obj)
   }, [_vm.label ? _c('label', {
     staticClass: "input__label",
@@ -1553,8 +1555,8 @@ let _class$a = (_dec$a = Component({
         showWeekNumber: false,
         rangeSeparator: ' > ',
         defaultPanel: 'date',
-        format: 'D, MMM, YYYY',
-        headerFormat: 'D, MMM, YYYY',
+        format: 'D MMM, YYYY',
+        headerFormat: 'D MMM, YYYY',
         defaultValue: new Date(),
         valueType: 'format'
       },
@@ -2018,12 +2020,12 @@ let _class$d = (_dec$d = Component({
       }; // TODO: if (component instanceof Vue) does not work here for some reason?
 
       if (typeof component !== 'function') {
-        console.error(`$modal.open expects a component, got '${typeof component}'.`);
-      } else {
-        this.options = options;
-        this.component = component;
-        this.data = data;
+        return console.error(`$modal.open expects a component, got '${typeof component}'.`);
       }
+
+      this.options = options;
+      this.component = component;
+      this.data = data;
 
       if (!this.options.allowBodyScroll) {
         // Restrict the body overflow.

@@ -1,13 +1,23 @@
 <template>
   <div
     class="input"
-    :class="{ 'input--error': !!error, 'input--inline': inline, [`input--size-${size}`]: true }"
+    :class="{
+      'input--error': !!error,
+      'input--inline': inline,
+      'input--has-prefix': !!prefix,
+      'input--has-suffix': !!suffix,
+      [`input--size-${size}`]: true
+    }"
   >
     <!-- Input label -->
     <label v-if="label" :for="id" class="input__label" v-text="label" />
 
     <!-- Description above input field -->
-    <p v-if="upperDescription" class="input__description" v-text="upperDescription" />
+    <p
+      v-if="upperDescription"
+      class="input__description"
+      v-text="upperDescription"
+    />
 
     <div class="input__outer">
       <span v-if="prefix" class="input__prefix" v-html="prefix" />
@@ -46,7 +56,11 @@
     <span v-if="error" class="input__error">{{ error }}</span>
 
     <!-- Description below input field -->
-    <p v-if="lowerDescription" class="input__description_below" v-html="lowerDescription"></p>
+    <p
+      v-if="lowerDescription"
+      class="input__description_below"
+      v-html="lowerDescription"
+    ></p>
   </div>
 </template>
 
@@ -69,7 +83,10 @@ export default class extends Vue {
 
   /* Visuals */
   @Prop({ default: 'text' }) type?: InputType;
-  @Prop({ type: String, default: 'default' }) readonly size?: 'default' | 'small' | 'large';
+  @Prop({ type: String, default: 'default' }) readonly size?:
+    | 'default'
+    | 'small'
+    | 'large';
   @Prop() label?: string;
   @Prop() description?: string;
   @Prop() descriptionAbove?: string;
@@ -149,7 +166,9 @@ export default class extends Vue {
     if (this.locError) {
       error = this.locError;
     } else if (this.form && this.form.childErrors) {
-      const e = this.form.childErrors.find((error: any) => error.path === this.id);
+      const e = this.form.childErrors.find(
+        (error: any) => error.path === this.id
+      );
       if (e) {
         error = e.error;
       }

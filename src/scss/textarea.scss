@@ -8,12 +8,14 @@
   margin: 4px 0 12px 0;
 
   .textarea__inner {
+    height: 100%;
     position: relative;
     textarea {
       min-width: 200px;
       min-height: 50px;
       /* HTML Input */
       width: 100%;
+      height: 100%;
       max-width: 100%;
 
       margin: 0;
@@ -21,8 +23,9 @@
 
       box-shadow: $input-shadow;
 
-      border-radius: 3px;
+      border-radius: $border-radius;
       border: $input-border;
+
       &:disabled {
         color: $input-text--disabled;
       }

@@ -8,7 +8,29 @@
   margin: 4px 0 12px 0;
 
   .input__outer {
+    position: relative;
     display: flex;
+    align-items: stretch;
+
+    .input__prefix,
+    .input__suffix {
+      border: 1px solid $border-color;
+      display: flex;
+      align-items: center;
+      background-color: $border-color;
+      padding: 8px;
+
+      z-index: 1;
+
+      &.input__prefix {
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+      }
+      &.input__suffix {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+    }
   }
 
   .input__inner {
@@ -22,7 +44,7 @@
 
       box-shadow: $input-shadow;
 
-      border-radius: 3px;
+      border-radius: $border-radius;
       border: $input-border;
       &:disabled {
         color: $input-text--disabled;
@@ -62,7 +84,8 @@
 
   &.input--error {
     .input__element,
-    .input__element:hover {
+    .input__element:hover,
+    .input__element:focus {
       border-color: $error-color;
     }
   }
@@ -76,6 +99,20 @@
   &.input--size-small {
     .input__element {
       padding: 8px 8px;
+    }
+  }
+
+  &.input--has-prefix {
+    .input__element {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &.input--has-suffix {
+    .input__element {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 }

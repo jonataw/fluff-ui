@@ -39,7 +39,8 @@
       <a
         @click="
           $toast.pop({
-            text: 'I will not disappear until you dismiss me by clicking the ✕ icon!',
+            text:
+              'I will not disappear until you dismiss me by clicking the ✕ icon!',
             options: { delay: false, showDelayProgress: true },
             icon: 'question'
           })
@@ -98,10 +99,17 @@
         <FLInput
           :size="size"
           :form="form"
-          label="Only numbers!"
-          type="number"
+          label="Prefix"
+          prefix="https://"
           v-model="n"
-          :restrict-to-number="true"
+        />
+
+        <FLInput
+          :size="size"
+          :form="form"
+          label="Suffix"
+          suffix="€"
+          v-model="n"
         />
 
         <FLDatepicker

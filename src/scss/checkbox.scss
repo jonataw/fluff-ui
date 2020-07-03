@@ -33,7 +33,7 @@
       position: relative;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
-      border-radius: 3px;
+      border-radius: $border-radius;
       svg {
         fill: transparent;
         width: 18px;
