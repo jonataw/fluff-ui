@@ -2,7 +2,7 @@
   <div
     class="input"
     :class="{
-      'input--error': !!error,
+      'input--error': !!parsedError,
       'input--inline': inline,
       'input--has-prefix': !!prefix,
       'input--has-suffix': !!suffix,

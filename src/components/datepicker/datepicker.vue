@@ -2,7 +2,7 @@
   <div
     class="datepicker"
     :class="{
-      'input--error': !!error,
+      'input--error': !!parsedError,
       'input--inline': inline,
       [`input--size-${size}`]: true
     }"

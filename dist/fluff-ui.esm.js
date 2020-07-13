@@ -717,7 +717,7 @@ var __vue_render__$3 = function () {
   return _c('div', {
     staticClass: "input",
     class: (_obj = {
-      'input--error': !!_vm.error,
+      'input--error': !!_vm.parsedError,
       'input--inline': _vm.inline,
       'input--has-prefix': !!_vm.prefix,
       'input--has-suffix': !!_vm.suffix
@@ -845,7 +845,7 @@ var __vue_render__$4 = function () {
   return _c('div', {
     staticClass: "checkbox",
     class: {
-      'checkbox--error': !!_vm.error,
+      'checkbox--error': !!_vm.parsedError,
       'checkbox--checked': _vm.value
     }
   }, [_vm.upperDescription ? _c('p', {
@@ -1080,7 +1080,7 @@ const __vue_component__$6 = /*#__PURE__*/normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$6
 }, __vue_inject_styles__$6, __vue_script__$6, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, undefined, undefined);
 
-var _dec$7, _dec2$6, _dec3$4, _dec4$2, _class2$7, _class3$6, _descriptor$6, _descriptor2$4, _descriptor3$2, _temp$6;
+var _dec$7, _dec2$6, _dec3$4, _dec4$2, _dec5$2, _class2$7, _class3$6, _descriptor$6, _descriptor2$4, _descriptor3$2, _descriptor4$2, _temp$6;
 
 let _class$7 = (_dec$7 = Component({
   name: 'FLForm',
@@ -1096,6 +1096,9 @@ let _class$7 = (_dec$7 = Component({
 }), _dec4$2 = Prop({
   type: Boolean,
   default: false
+}), _dec5$2 = Prop({
+  type: Boolean,
+  default: false
 }), _dec$7(_class2$7 = (_class3$6 = (_temp$6 = class _class3 extends Vue {
   constructor(...args) {
     super(...args);
@@ -1104,7 +1107,9 @@ let _class$7 = (_dec$7 = Component({
 
     _initializerDefineProperty(this, "htmlValidate", _descriptor2$4, this);
 
-    _initializerDefineProperty(this, "showError", _descriptor3$2, this);
+    _initializerDefineProperty(this, "scrollToTop", _descriptor3$2, this);
+
+    _initializerDefineProperty(this, "showError", _descriptor4$2, this);
 
     this.form = null;
   }
@@ -1120,13 +1125,31 @@ let _class$7 = (_dec$7 = Component({
     this.$emit('submit', callback => {
       if (this.form) {
         if (callback.error) {
+          if (this.scrollToTop === true || typeof this.scrollToTop === 'object' && this.scrollToTop.error) {
+            this.scroll();
+          }
+
           this.form.error = callback.error.type;
           this.form.childErrors = callback.error.fields;
+        } else {
+          if (this.scrollToTop === true || typeof this.scrollToTop === 'object' && this.scrollToTop.complete) {
+            this.scroll();
+          }
         }
 
         this.form.loading = false;
       }
     });
+  }
+
+  scroll() {
+    if (this.element) {
+      window.scrollTo(0, this.element.offsetTop);
+    }
+  }
+
+  get element() {
+    return document.getElementById(this.name);
   }
 
   mounted() {
@@ -1152,7 +1175,12 @@ let _class$7 = (_dec$7 = Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3$2 = _applyDecoratedDescriptor(_class3$6.prototype, "showError", [_dec4$2], {
+}), _descriptor3$2 = _applyDecoratedDescriptor(_class3$6.prototype, "scrollToTop", [_dec4$2], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor4$2 = _applyDecoratedDescriptor(_class3$6.prototype, "showError", [_dec5$2], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1226,6 +1254,7 @@ var __vue_render__$7 = function () {
   return _c('form', {
     staticClass: "form",
     attrs: {
+      "id": _vm.name,
       "novalidate": !_vm.htmlValidate
     },
     on: {
@@ -1249,8 +1278,8 @@ var __vue_staticRenderFns__$7 = [];
 
 const __vue_inject_styles__$7 = function (inject) {
   if (!inject) return;
-  inject("data-v-5fe02276_0", {
-    source: ".form-error[data-v-5fe02276]{display:flex;align-items:center}.form-error .icon[data-v-5fe02276]{font-size:20px}.form-error>span[data-v-5fe02276]{margin-left:6px}",
+  inject("data-v-f5052898_0", {
+    source: ".form-error[data-v-f5052898]{display:flex;align-items:center}.form-error .icon[data-v-f5052898]{font-size:20px}.form-error>span[data-v-f5052898]{margin-left:6px}",
     map: undefined,
     media: undefined
   });
@@ -1258,7 +1287,7 @@ const __vue_inject_styles__$7 = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$7 = "data-v-5fe02276";
+const __vue_scope_id__$7 = "data-v-f5052898";
 /* module identifier */
 
 const __vue_module_identifier__$7 = undefined;
@@ -1334,7 +1363,7 @@ var __vue_render__$8 = function () {
   return _c('div', {
     staticClass: "select",
     class: (_obj = {
-      'input--error': !!_vm.error,
+      'input--error': !!_vm.parsedError,
       'input--inline': _vm.inline
     }, _obj["input--size-" + _vm.size] = true, _obj)
   }, [_vm.label ? _c('label', {
@@ -1459,7 +1488,7 @@ var __vue_render__$9 = function () {
   return _c('div', {
     staticClass: "textarea",
     class: (_obj = {
-      'input--error': !!_vm.error
+      'input--error': !!_vm.parsedError
     }, _obj["input--size-" + _vm.size] = true, _obj)
   }, [_vm.label ? _c('label', {
     staticClass: "input__label",
@@ -1598,7 +1627,7 @@ var __vue_render__$a = function () {
   return _c('div', {
     staticClass: "datepicker",
     class: (_obj = {
-      'input--error': !!_vm.error,
+      'input--error': !!_vm.parsedError,
       'input--inline': _vm.inline
     }, _obj["input--size-" + _vm.size] = true, _obj)
   }, [_vm.label ? _c('label', {
@@ -1758,7 +1787,7 @@ var __vue_render__$b = function () {
   return _c('div', {
     staticClass: "timepicker",
     class: (_obj = {
-      'input--error': !!_vm.error,
+      'input--error': !!_vm.parsedError,
       'input--inline': _vm.inline
     }, _obj["input--size-" + _vm.size] = true, _obj)
   }, [_vm.label ? _c('label', {

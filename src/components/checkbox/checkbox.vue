@@ -1,7 +1,14 @@
 <template>
-  <div class="checkbox" :class="{ 'checkbox--error': !!error, 'checkbox--checked': value }">
+  <div
+    class="checkbox"
+    :class="{ 'checkbox--error': !!parsedError, 'checkbox--checked': value }"
+  >
     <!-- Description above input field -->
-    <p v-if="upperDescription" class="input__description" v-text="upperDescription" />
+    <p
+      v-if="upperDescription"
+      class="input__description"
+      v-text="upperDescription"
+    />
     <div class="checkbox__inner">
       <input
         :id="id"
@@ -25,7 +32,11 @@ L18,50.4l0,0l0.4,0.4c1.2,1.2,2.7,1.7,4.2,1.7c1.5,0,3.1-0.6,4.2-1.7l0.4-0.4l0,0L6
     </div>
 
     <!-- Description below input field -->
-    <p v-if="lowerDescription" class="input__description_below" v-html="lowerDescription"></p>
+    <p
+      v-if="lowerDescription"
+      class="input__description_below"
+      v-html="lowerDescription"
+    ></p>
   </div>
 </template>
 

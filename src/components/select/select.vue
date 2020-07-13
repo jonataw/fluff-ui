@@ -1,13 +1,21 @@
 <template>
   <div
     class="select"
-    :class="{ 'input--error': !!error, 'input--inline': inline, [`input--size-${size}`]: true }"
+    :class="{
+      'input--error': !!parsedError,
+      'input--inline': inline,
+      [`input--size-${size}`]: true
+    }"
   >
     <!-- Select label -->
     <label v-if="label" :for="id" class="input__label" v-text="label" />
 
     <!-- Description above select field -->
-    <p v-if="upperDescription" class="input__description" v-text="upperDescription" />
+    <p
+      v-if="upperDescription"
+      class="input__description"
+      v-text="upperDescription"
+    />
 
     <!-- Needs this div wrapper here to keep icon inside the <select> field -->
     <div class="select__inner">
@@ -59,7 +67,11 @@ c0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z"
     <span v-if="parsedError" class="input__error">{{ parsedError }}</span>
 
     <!-- Description below select field -->
-    <p v-if="lowerDescription" class="input__description_below" v-html="lowerDescription"></p>
+    <p
+      v-if="lowerDescription"
+      class="input__description_below"
+      v-html="lowerDescription"
+    ></p>
   </div>
 </template>
 

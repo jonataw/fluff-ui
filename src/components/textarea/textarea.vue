@@ -1,10 +1,17 @@
 <template>
-  <div class="textarea" :class="{ 'input--error': !!error, [`input--size-${size}`]: true }">
+  <div
+    class="textarea"
+    :class="{ 'input--error': !!parsedError, [`input--size-${size}`]: true }"
+  >
     <!-- Textarea label -->
     <label v-if="label" :for="id" class="input__label" v-text="label" />
 
     <!-- Description above textarea field -->
-    <p v-if="upperDescription" class="input__description" v-text="upperDescription" />
+    <p
+      v-if="upperDescription"
+      class="input__description"
+      v-text="upperDescription"
+    />
 
     <div class="textarea__inner">
       <textarea
@@ -29,7 +36,11 @@
     <span v-if="parsedError" class="input__error">{{ parsedError }}</span>
 
     <!-- Description below textarea field -->
-    <p v-if="lowerDescription" class="input__description_below" v-html="lowerDescription"></p>
+    <p
+      v-if="lowerDescription"
+      class="input__description_below"
+      v-html="lowerDescription"
+    ></p>
   </div>
 </template>
 

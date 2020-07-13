@@ -981,7 +981,7 @@ var __vue_render__$3 = function __vue_render__() {
   return _c('div', {
     staticClass: "input",
     class: (_obj = {
-      'input--error': !!_vm.error,
+      'input--error': !!_vm.parsedError,
       'input--inline': _vm.inline,
       'input--has-prefix': !!_vm.prefix,
       'input--has-suffix': !!_vm.suffix
@@ -998,7 +998,7 @@ var __vue_inject_styles__$3 = undefined;
 var __vue_scope_id__$3 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$3 = "data-v-1d67fbae";
+var __vue_module_identifier__$3 = "data-v-afee7cc6";
 /* functional template */
 
 var __vue_is_functional_template__$3 = false;
@@ -1044,7 +1044,7 @@ var __vue_render__$4 = function __vue_render__() {
   return _c('div', {
     staticClass: "checkbox",
     class: {
-      'checkbox--error': !!_vm.error,
+      'checkbox--error': !!_vm.parsedError,
       'checkbox--checked': _vm.value
     }
   }, [_vm._ssrNode((_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"checkbox__inner\"><input" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + " type=\"checkbox\"" + _vm._ssrAttr("checked", _vm.value) + " class=\"checkbox__element\"> <label" + _vm._ssrAttr("for", _vm.id) + " class=\"checkbox__fill_box\"><svg viewBox=\"0 0 64 64\"><path d=\"M60.6,12.4c-1.3-1.3-3.3-1.3-4.6,0L24.2,44.2c-0.8,0.8-2.3,0.8-3.2,0l-13-13c-1.3-1.3-3.3-1.3-4.6,0c-1.3,1.3-1.3,3.3,0,4.6\nL18,50.4l0,0l0.4,0.4c1.2,1.2,2.7,1.7,4.2,1.7c1.5,0,3.1-0.6,4.2-1.7l0.4-0.4l0,0L60.6,17C61.8,15.8,61.8,13.7,60.6,12.4z\"></path></svg></label> " + (_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"checkbox__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + "</div> " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
@@ -1059,7 +1059,7 @@ var __vue_inject_styles__$4 = undefined;
 var __vue_scope_id__$4 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$4 = "data-v-b0dca294";
+var __vue_module_identifier__$4 = "data-v-530b06f0";
 /* functional template */
 
 var __vue_is_functional_template__$4 = false;
@@ -1251,7 +1251,7 @@ var __vue_is_functional_template__$6 = false;
 var __vue_component__$6 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$6,
   staticRenderFns: __vue_staticRenderFns__$6
-}, __vue_inject_styles__$6, __vue_script__$6, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, undefined, undefined);var _dec$7, _dec2$6, _dec3$4, _dec4$2, _class2$7, _class3$6, _descriptor$6, _descriptor2$4, _descriptor3$2, _temp$6;
+}, __vue_inject_styles__$6, __vue_script__$6, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, undefined, undefined);var _dec$7, _dec2$6, _dec3$4, _dec4$2, _dec5$2, _class2$7, _class3$6, _descriptor$6, _descriptor2$4, _descriptor3$2, _descriptor4$2, _temp$6;
 
 var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
   name: 'FLForm',
@@ -1265,6 +1265,9 @@ var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
   type: Boolean,
   default: false
 }), _dec4$2 = vuePropertyDecorator.Prop({
+  type: Boolean,
+  default: false
+}), _dec5$2 = vuePropertyDecorator.Prop({
   type: Boolean,
   default: false
 }), _dec$7(_class2$7 = (_class3$6 = (_temp$6 = /*#__PURE__*/function (_Vue) {
@@ -1287,7 +1290,9 @@ var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "htmlValidate", _descriptor2$4, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "showError", _descriptor3$2, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "scrollToTop", _descriptor3$2, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "showError", _descriptor4$2, _assertThisInitialized(_this));
 
     _this.form = null;
     return _this;
@@ -1308,13 +1313,28 @@ var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
       this.$emit('submit', function (callback) {
         if (_this2.form) {
           if (callback.error) {
+            if (_this2.scrollToTop === true || _typeof(_this2.scrollToTop) === 'object' && _this2.scrollToTop.error) {
+              _this2.scroll();
+            }
+
             _this2.form.error = callback.error.type;
             _this2.form.childErrors = callback.error.fields;
+          } else {
+            if (_this2.scrollToTop === true || _typeof(_this2.scrollToTop) === 'object' && _this2.scrollToTop.complete) {
+              _this2.scroll();
+            }
           }
 
           _this2.form.loading = false;
         }
       });
+    }
+  }, {
+    key: "scroll",
+    value: function scroll() {
+      if (this.element) {
+        window.scrollTo(0, this.element.offsetTop);
+      }
     }
   }, {
     key: "mounted",
@@ -1331,6 +1351,11 @@ var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
         childErrors: []
       };
     }
+  }, {
+    key: "element",
+    get: function get() {
+      return document.getElementById(this.name);
+    }
   }]);
 
   return _class3;
@@ -1344,7 +1369,12 @@ var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3$2 = _applyDecoratedDescriptor(_class3$6.prototype, "showError", [_dec4$2], {
+}), _descriptor3$2 = _applyDecoratedDescriptor(_class3$6.prototype, "scrollToTop", [_dec4$2], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor4$2 = _applyDecoratedDescriptor(_class3$6.prototype, "showError", [_dec5$2], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1403,6 +1433,7 @@ var __vue_render__$7 = function __vue_render__() {
   return _c('form', {
     staticClass: "form",
     attrs: {
+      "id": _vm.name,
       "novalidate": !_vm.htmlValidate
     },
     on: {
@@ -1411,7 +1442,7 @@ var __vue_render__$7 = function __vue_render__() {
         return _vm.onSubmit($event);
       }
     }
-  }, [_vm._ssrNode((_vm.showError && _vm.form.error ? "<div class=\"form--error\" data-v-5fe02276>" + _vm._ssrEscape(_vm._s(_vm.form.error)) + "</div>" : "<!---->") + " "), _vm.form ? _vm._t("form", null, {
+  }, [_vm._ssrNode((_vm.showError && _vm.form.error ? "<div class=\"form--error\" data-v-f5052898>" + _vm._ssrEscape(_vm._s(_vm.form.error)) + "</div>" : "<!---->") + " "), _vm.form ? _vm._t("form", null, {
     "form": _vm.form
   }) : _vm._e()], 2);
 };
@@ -1421,8 +1452,8 @@ var __vue_staticRenderFns__$7 = [];
 
 var __vue_inject_styles__$7 = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-5fe02276_0", {
-    source: ".form-error[data-v-5fe02276]{display:flex;align-items:center}.form-error .icon[data-v-5fe02276]{font-size:20px}.form-error>span[data-v-5fe02276]{margin-left:6px}",
+  inject("data-v-f5052898_0", {
+    source: ".form-error[data-v-f5052898]{display:flex;align-items:center}.form-error .icon[data-v-f5052898]{font-size:20px}.form-error>span[data-v-f5052898]{margin-left:6px}",
     map: undefined,
     media: undefined
   });
@@ -1430,10 +1461,10 @@ var __vue_inject_styles__$7 = function __vue_inject_styles__(inject) {
 /* scoped */
 
 
-var __vue_scope_id__$7 = "data-v-5fe02276";
+var __vue_scope_id__$7 = "data-v-f5052898";
 /* module identifier */
 
-var __vue_module_identifier__$7 = "data-v-5fe02276";
+var __vue_module_identifier__$7 = "data-v-f5052898";
 /* functional template */
 
 var __vue_is_functional_template__$7 = false;
@@ -1518,7 +1549,7 @@ var __vue_render__$8 = function __vue_render__() {
   return _c('div', {
     staticClass: "select",
     class: (_obj = {
-      'input--error': !!_vm.error,
+      'input--error': !!_vm.parsedError,
       'input--inline': _vm.inline
     }, _obj["input--size-" + _vm.size] = true, _obj)
   }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"select__inner\"><select" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + _vm._ssrAttr("autofocus", _vm.autofocus) + _vm._ssrAttr("readonly", _vm.readonly) + _vm._ssrAttr("value", _vm.value) + " class=\"select__element\">" + _vm._ssrList(_vm.options, function (option, i) {
@@ -1537,7 +1568,7 @@ var __vue_inject_styles__$8 = undefined;
 var __vue_scope_id__$8 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$8 = "data-v-71504944";
+var __vue_module_identifier__$8 = "data-v-4596a2b9";
 /* functional template */
 
 var __vue_is_functional_template__$8 = false;
@@ -1583,7 +1614,7 @@ var __vue_render__$9 = function __vue_render__() {
   return _c('div', {
     staticClass: "textarea",
     class: (_obj = {
-      'input--error': !!_vm.error
+      'input--error': !!_vm.parsedError
     }, _obj["input--size-" + _vm.size] = true, _obj)
   }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"textarea__inner\"><textarea" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + _vm._ssrAttr("placeholder", _vm.placeholder === undefined ? _vm.label : _vm.placeholder) + _vm._ssrAttr("autocomplete", _vm.autocomplete) + _vm._ssrAttr("autofocus", _vm.autofocus) + _vm._ssrAttr("readonly", _vm.readonly) + _vm._ssrAttr("value", _vm.value) + " class=\"textarea__element\"></textarea></div> " + (_vm.parsedError ? "<span class=\"input__error\">" + _vm._ssrEscape(_vm._s(_vm.parsedError)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
 };
@@ -1597,7 +1628,7 @@ var __vue_inject_styles__$9 = undefined;
 var __vue_scope_id__$9 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$9 = "data-v-48455090";
+var __vue_module_identifier__$9 = "data-v-6df7dec6";
 /* functional template */
 
 var __vue_is_functional_template__$9 = false;
@@ -1681,7 +1712,7 @@ var __vue_render__$a = function __vue_render__() {
   return _c('div', {
     staticClass: "datepicker",
     class: (_obj = {
-      'input--error': !!_vm.error,
+      'input--error': !!_vm.parsedError,
       'input--inline': _vm.inline
     }, _obj["input--size-" + _vm.size] = true, _obj)
   }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " "), _vm._ssrNode("<div class=\"datepicker__inner\">", "</div>", [_c('client-only', [_c('date-picker', {
@@ -1727,7 +1758,7 @@ var __vue_inject_styles__$a = undefined;
 var __vue_scope_id__$a = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$a = "data-v-84cebc3a";
+var __vue_module_identifier__$a = "data-v-50bd49d2";
 /* functional template */
 
 var __vue_is_functional_template__$a = false;
@@ -1815,7 +1846,7 @@ var __vue_render__$b = function __vue_render__() {
   return _c('div', {
     staticClass: "timepicker",
     class: (_obj = {
-      'input--error': !!_vm.error,
+      'input--error': !!_vm.parsedError,
       'input--inline': _vm.inline
     }, _obj["input--size-" + _vm.size] = true, _obj)
   }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " "), _vm._ssrNode("<div class=\"timepicker__inner\">", "</div>", [_c('client-only', [_c('date-picker', {
@@ -1867,7 +1898,7 @@ var __vue_inject_styles__$b = undefined;
 var __vue_scope_id__$b = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$b = "data-v-5d0e536a";
+var __vue_module_identifier__$b = "data-v-53253e08";
 /* functional template */
 
 var __vue_is_functional_template__$b = false;
