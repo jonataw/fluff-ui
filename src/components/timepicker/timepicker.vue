@@ -16,7 +16,7 @@
       class="input__description"
       v-text="upperDescription"
     />
-    {{ opts }}
+
     <!-- Needs this div wrapper here to keep icon inside the <select> field -->
     <div class="timepicker__inner">
       <client-only>
@@ -74,7 +74,7 @@
     </div>
 
     <!-- Error -->
-    <span v-if="error" class="input__error">{{ error }}</span>
+    <span v-if="parsedError" class="input__error">{{ parsedError }}</span>
 
     <!-- Description below select field -->
     <p

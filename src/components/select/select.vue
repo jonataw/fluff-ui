@@ -56,7 +56,7 @@ c0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z"
     </div>
 
     <!-- Error -->
-    <span v-if="error" class="input__error">{{ error }}</span>
+    <span v-if="parsedError" class="input__error">{{ parsedError }}</span>
 
     <!-- Description below select field -->
     <p v-if="lowerDescription" class="input__description_below" v-html="lowerDescription"></p>

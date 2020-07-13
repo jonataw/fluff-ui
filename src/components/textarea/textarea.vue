@@ -26,7 +26,7 @@
     </div>
 
     <!-- Error -->
-    <span v-if="error" class="input__error">{{ error }}</span>
+    <span v-if="parsedError" class="input__error">{{ parsedError }}</span>
 
     <!-- Description below textarea field -->
     <p v-if="lowerDescription" class="input__description_below" v-html="lowerDescription"></p>

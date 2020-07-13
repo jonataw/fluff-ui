@@ -53,7 +53,7 @@
     </div>
 
     <!-- Error -->
-    <span v-if="error" class="input__error">{{ error }}</span>
+    <span v-if="parsedError" class="input__error">{{ parsedError }}</span>
 
     <!-- Description below input field -->
     <p
@@ -95,6 +95,7 @@ export default class extends Vue {
   @Prop() prefix?: string;
   @Prop() suffix?: string;
   @Prop({ default: false }) inline?: boolean;
+  @Prop() error?: any;
   @Prop() errors?: { [k: string]: string };
   @Prop() min?: number;
   @Prop() max?: number;
@@ -161,8 +162,11 @@ export default class extends Vue {
     this.$emit('blur');
   }
 
-  public get error() {
+  public get parsedError() {
     let error: string | null = null;
+    if (this.error) {
+      return this.error;
+    }
     if (this.locError) {
       error = this.locError;
     } else if (this.form && this.form.childErrors) {

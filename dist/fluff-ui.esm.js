@@ -433,7 +433,7 @@ const __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$2
 }, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);
 
-var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9$1, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8$1, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _temp$3;
+var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9$1, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _dec23, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8$1, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _temp$3;
 
 let _class$3 = (_dec$3 = Component({
   name: 'FLInput',
@@ -447,7 +447,7 @@ let _class$3 = (_dec$3 = Component({
   default: 'default'
 }), _dec7$1 = Prop(), _dec8$1 = Prop(), _dec9$1 = Prop(), _dec10 = Prop(), _dec11 = Prop(), _dec12 = Prop(), _dec13 = Prop(), _dec14 = Prop({
   default: false
-}), _dec15 = Prop(), _dec16 = Prop(), _dec17 = Prop(), _dec18 = Prop(), _dec19 = Prop(), _dec20 = Prop(), _dec21 = Prop(), _dec22 = Prop(Number), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = class _class3 extends Vue {
+}), _dec15 = Prop(), _dec16 = Prop(), _dec17 = Prop(), _dec18 = Prop(), _dec19 = Prop(), _dec20 = Prop(), _dec21 = Prop(), _dec22 = Prop(), _dec23 = Prop(Number), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = class _class3 extends Vue {
   constructor(...args) {
     super(...args);
 
@@ -479,21 +479,23 @@ let _class$3 = (_dec$3 = Component({
 
     _initializerDefineProperty(this, "inline", _descriptor13, this);
 
-    _initializerDefineProperty(this, "errors", _descriptor14, this);
+    _initializerDefineProperty(this, "error", _descriptor14, this);
 
-    _initializerDefineProperty(this, "min", _descriptor15, this);
+    _initializerDefineProperty(this, "errors", _descriptor15, this);
 
-    _initializerDefineProperty(this, "max", _descriptor16, this);
+    _initializerDefineProperty(this, "min", _descriptor16, this);
 
-    _initializerDefineProperty(this, "autocomplete", _descriptor17, this);
+    _initializerDefineProperty(this, "max", _descriptor17, this);
 
-    _initializerDefineProperty(this, "disabled", _descriptor18, this);
+    _initializerDefineProperty(this, "autocomplete", _descriptor18, this);
 
-    _initializerDefineProperty(this, "autofocus", _descriptor19, this);
+    _initializerDefineProperty(this, "disabled", _descriptor19, this);
 
-    _initializerDefineProperty(this, "readonly", _descriptor20, this);
+    _initializerDefineProperty(this, "autofocus", _descriptor20, this);
 
-    _initializerDefineProperty(this, "stagger", _descriptor21, this);
+    _initializerDefineProperty(this, "readonly", _descriptor21, this);
+
+    _initializerDefineProperty(this, "stagger", _descriptor22, this);
 
     this.timeout = setTimeout(() => {}, 0);
   }
@@ -550,8 +552,12 @@ let _class$3 = (_dec$3 = Component({
     this.$emit('blur');
   }
 
-  get error() {
+  get parsedError() {
     let error = null;
+
+    if (this.error) {
+      return this.error;
+    }
 
     if (this.locError) {
       error = this.locError;
@@ -648,42 +654,47 @@ let _class$3 = (_dec$3 = Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor14 = _applyDecoratedDescriptor(_class3$3.prototype, "errors", [_dec15], {
+}), _descriptor14 = _applyDecoratedDescriptor(_class3$3.prototype, "error", [_dec15], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor15 = _applyDecoratedDescriptor(_class3$3.prototype, "min", [_dec16], {
+}), _descriptor15 = _applyDecoratedDescriptor(_class3$3.prototype, "errors", [_dec16], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor16 = _applyDecoratedDescriptor(_class3$3.prototype, "max", [_dec17], {
+}), _descriptor16 = _applyDecoratedDescriptor(_class3$3.prototype, "min", [_dec17], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor17 = _applyDecoratedDescriptor(_class3$3.prototype, "autocomplete", [_dec18], {
+}), _descriptor17 = _applyDecoratedDescriptor(_class3$3.prototype, "max", [_dec18], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor18 = _applyDecoratedDescriptor(_class3$3.prototype, "disabled", [_dec19], {
+}), _descriptor18 = _applyDecoratedDescriptor(_class3$3.prototype, "autocomplete", [_dec19], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor19 = _applyDecoratedDescriptor(_class3$3.prototype, "autofocus", [_dec20], {
+}), _descriptor19 = _applyDecoratedDescriptor(_class3$3.prototype, "disabled", [_dec20], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor20 = _applyDecoratedDescriptor(_class3$3.prototype, "readonly", [_dec21], {
+}), _descriptor20 = _applyDecoratedDescriptor(_class3$3.prototype, "autofocus", [_dec21], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor21 = _applyDecoratedDescriptor(_class3$3.prototype, "stagger", [_dec22], {
+}), _descriptor21 = _applyDecoratedDescriptor(_class3$3.prototype, "readonly", [_dec22], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor22 = _applyDecoratedDescriptor(_class3$3.prototype, "stagger", [_dec23], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -777,9 +788,9 @@ var __vue_render__$3 = function () {
     domProps: {
       "innerHTML": _vm._s(_vm.suffix)
     }
-  }) : _vm._e()]), _vm._v(" "), _vm.error ? _c('span', {
+  }) : _vm._e()]), _vm._v(" "), _vm.parsedError ? _c('span', {
     staticClass: "input__error"
-  }, [_vm._v(_vm._s(_vm.error))]) : _vm._e(), _vm._v(" "), _vm.lowerDescription ? _c('p', {
+  }, [_vm._v(_vm._s(_vm.parsedError))]) : _vm._e(), _vm._v(" "), _vm.lowerDescription ? _c('p', {
     staticClass: "input__description_below",
     domProps: {
       "innerHTML": _vm._s(_vm.lowerDescription)
@@ -1391,9 +1402,9 @@ var __vue_render__$8 = function () {
     attrs: {
       "d": "M11.9,10c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4L9,15.7c-0.4,0.4-1,0.4-1.4,0l-4.3-4.3c-0.4-0.4-0.4-1,0-1.4\ns1-0.4,1.4,0l3.6,3.6C8.3,13.6,11.9,10,11.9,10z M11.9,6L8.3,2.4L4.7,6c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l4.3-4.3\nc0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z"
     }
-  })])])])]), _vm._v(" "), _vm.error ? _c('span', {
+  })])])])]), _vm._v(" "), _vm.parsedError ? _c('span', {
     staticClass: "input__error"
-  }, [_vm._v(_vm._s(_vm.error))]) : _vm._e(), _vm._v(" "), _vm.lowerDescription ? _c('p', {
+  }, [_vm._v(_vm._s(_vm.parsedError))]) : _vm._e(), _vm._v(" "), _vm.lowerDescription ? _c('p', {
     staticClass: "input__description_below",
     domProps: {
       "innerHTML": _vm._s(_vm.lowerDescription)
@@ -1496,9 +1507,9 @@ var __vue_render__$9 = function () {
         return _vm.$emit('keypress');
       }
     }
-  })]), _vm._v(" "), _vm.error ? _c('span', {
+  })]), _vm._v(" "), _vm.parsedError ? _c('span', {
     staticClass: "input__error"
-  }, [_vm._v(_vm._s(_vm.error))]) : _vm._e(), _vm._v(" "), _vm.lowerDescription ? _c('p', {
+  }, [_vm._v(_vm._s(_vm.parsedError))]) : _vm._e(), _vm._v(" "), _vm.lowerDescription ? _c('p', {
     staticClass: "input__description_below",
     domProps: {
       "innerHTML": _vm._s(_vm.lowerDescription)
@@ -1652,9 +1663,9 @@ var __vue_render__$a = function () {
     attrs: {
       "d": "M13.1,1.5h-1.5V0.7c0-0.4-0.3-0.7-0.7-0.7c-0.4,0-0.7,0.3-0.7,0.7v0.7H5.8V0.7C5.8,0.3,5.5,0,5.1,0C4.7,0,4.4,0.3,4.4,0.7\n\tv0.7H2.9c-1.2,0-2.2,1-2.2,2.2v10.2c0,1.2,1,2.2,2.2,2.2h10.2c1.2,0,2.2-1,2.2-2.2V3.6C15.3,2.4,14.3,1.5,13.1,1.5z M2.9,2.9h1.5\n\tv0.7c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V2.9h4.4v0.7c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V2.9h1.5\n\tc0.4,0,0.7,0.3,0.7,0.7v2.2H2.2V3.6C2.2,3.2,2.5,2.9,2.9,2.9z M13.1,14.5H2.9c-0.4,0-0.7-0.3-0.7-0.7V7.3h11.6v6.5\n\tC13.8,14.2,13.5,14.5,13.1,14.5z"
     }
-  })])])])], 1), _vm._v(" "), _vm.error ? _c('span', {
+  })])])])], 1), _vm._v(" "), _vm.parsedError ? _c('span', {
     staticClass: "input__error"
-  }, [_vm._v(_vm._s(_vm.error))]) : _vm._e(), _vm._v(" "), _vm.lowerDescription ? _c('p', {
+  }, [_vm._v(_vm._s(_vm.parsedError))]) : _vm._e(), _vm._v(" "), _vm.lowerDescription ? _c('p', {
     staticClass: "input__description_below",
     domProps: {
       "innerHTML": _vm._s(_vm.lowerDescription)
@@ -1763,7 +1774,7 @@ var __vue_render__$b = function () {
     domProps: {
       "textContent": _vm._s(_vm.upperDescription)
     }
-  }) : _vm._e(), _vm._v("\n    " + _vm._s(_vm.opts) + "\n    "), _vm._v(" "), _c('div', {
+  }) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "timepicker__inner"
   }, [_c('client-only', [_c('date-picker', {
     staticClass: "timepicker__element",
@@ -1818,9 +1829,9 @@ var __vue_render__$b = function () {
     attrs: {
       "d": "M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M8,14.5c-3.6,0-6.5-2.9-6.5-6.5c0-3.6,2.9-6.5,6.5-6.5\n\tc3.6,0,6.5,2.9,6.5,6.5C14.5,11.6,11.6,14.5,8,14.5z M8.8,7.7l3,3l-1.1,1.1L7.3,8.3l0,0H7.2V3.4h1.5V7.7z"
     }
-  })])])])], 1), _vm._v(" "), _vm.error ? _c('span', {
+  })])])])], 1), _vm._v(" "), _vm.parsedError ? _c('span', {
     staticClass: "input__error"
-  }, [_vm._v(_vm._s(_vm.error))]) : _vm._e(), _vm._v(" "), _vm.lowerDescription ? _c('p', {
+  }, [_vm._v(_vm._s(_vm.parsedError))]) : _vm._e(), _vm._v(" "), _vm.lowerDescription ? _c('p', {
     staticClass: "input__description_below",
     domProps: {
       "innerHTML": _vm._s(_vm.lowerDescription)
