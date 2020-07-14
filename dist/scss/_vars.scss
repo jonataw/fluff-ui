@@ -1,6 +1,6 @@
 $error-color: rgb(214, 39, 77) !default;
 $text-color: #000 !default;
-$primary-color: rgb(15, 209, 96) !default;
+$primary-color: rgb(64, 66, 206) !default;
 
 $container-width: 1180px !default;
 $border-radius: 3px !default;
@@ -26,9 +26,9 @@ $bulletin-width: $container-width !default;
 $button-color: rgb(255, 255, 255) !default;
 $button-background: $primary-color !default;
 $button-color--disabled: $button-color !default;
-$button-background--disabled: lighten($primary-color, 10%) !default;
-$button-background--hover: darken($primary-color, 5%) !default;
-$button-background--active: darken($primary-color, 10%) !default;
+$button-background--disabled: rgb(122, 123, 214) !default;
+$button-background--hover: rgb(53, 55, 185) !default;
+$button-background--active: rgb(40, 42, 161) !default;
 
 // Modal
 $modal-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -2px #0000000d !default;

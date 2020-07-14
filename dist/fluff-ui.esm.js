@@ -1655,12 +1655,14 @@ var __vue_render__$a = function () {
       "autofocus": _vm.autofocus,
       "placeholder": _vm.placeholder === undefined ? _vm.label : _vm.placeholder,
       "readonly": _vm.readonly,
+      "type": "date",
       "format": _vm.opts.format,
       "title-format": _vm.opts.headerFormat,
       "range": _vm.opts.range,
       "editable": _vm.opts.editable,
       "multiple": _vm.opts.multiple,
       "lang": _vm.opts.language,
+      "disabled-date": _vm.opts.disabledDate,
       "show-week-number": _vm.opts.showWeekNumber,
       "range-separator": _vm.opts.rangeSeparator,
       "default-panel": _vm.opts.defaultPanel,
@@ -1819,6 +1821,8 @@ var __vue_render__$b = function () {
       "open": _vm.opts.open,
       "editable": _vm.opts.editable,
       "multiple": _vm.opts.multiple,
+      "lang": _vm.opts.language,
+      "disabled-time": _vm.opts.disabledTime,
       "hour-step": _vm.opts.hourStep,
       "minute-step": _vm.opts.minuteStep,
       "second-step": _vm.opts.secondStep,
@@ -2251,6 +2255,8 @@ let _class$e = (_dec$e = Component({
   }
 
   close(event, id) {
+    var _toast$options;
+
     const toast = this.toasts.find(_t => _t.id === id);
 
     if (!toast) {
@@ -2260,7 +2266,7 @@ let _class$e = (_dec$e = Component({
     const close = () => this.$bus.$emit('close_toast', id);
 
     const cl = event.target.classList;
-    const closeable = toast.options.closeable;
+    const closeable = (_toast$options = toast.options) === null || _toast$options === void 0 ? void 0 : _toast$options.closeable;
 
     if (typeof closeable === 'boolean' && closeable) {
       close();

@@ -7,17 +7,17 @@
       [`input--size-${size}`]: true
     }"
   >
-    <!-- Select label -->
+    <!-- Input label -->
     <label v-if="label" :for="id" class="input__label" v-text="label" />
 
-    <!-- Description above select field -->
+    <!-- Description above input field -->
     <p
       v-if="upperDescription"
       class="input__description"
       v-text="upperDescription"
     />
 
-    <!-- Needs this div wrapper here to keep icon inside the <select> field -->
+    <!-- Needs this div wrapper here to keep icon inside the <input> field -->
     <div class="timepicker__inner">
       <client-only>
         <date-picker
@@ -33,6 +33,8 @@
           :open="opts.open"
           :editable="opts.editable"
           :multiple="opts.multiple"
+          :lang="opts.language"
+          :disabled-time="opts.disabledTime"
           :hour-step="opts.hourStep"
           :minute-step="opts.minuteStep"
           :second-step="opts.secondStep"
@@ -76,7 +78,7 @@
     <!-- Error -->
     <span v-if="parsedError" class="input__error">{{ parsedError }}</span>
 
-    <!-- Description below select field -->
+    <!-- Description below timepicker field -->
     <p
       v-if="lowerDescription"
       class="input__description_below"

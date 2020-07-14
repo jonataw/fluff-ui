@@ -106,7 +106,7 @@ export default class extends Vue {
     }
     const close = () => this.$bus.$emit('close_toast', id);
     const cl: DOMTokenList = event.target.classList;
-    const closeable = toast.options.closeable;
+    const closeable = toast.options?.closeable;
     if (typeof closeable === 'boolean' && closeable) {
       close();
     } else if (typeof closeable === 'object') {

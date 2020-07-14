@@ -88,6 +88,19 @@
     }
   }
 
+  &.input--error {
+    .datepicker__element,
+    .timepicker__element,
+    .datepicker__element:hover,
+    .timepicker__element:hover,
+    .datepicker__element:focus,
+    .timepicker__element:focus {
+      input {
+        border-color: $error-color;
+      }
+    }
+  }
+
   &.input--size-large {
     .datepicker__inner,
     .timepicker__inner {

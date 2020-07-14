@@ -7,17 +7,17 @@
       [`input--size-${size}`]: true
     }"
   >
-    <!-- Select label -->
+    <!-- Datepicker label -->
     <label v-if="label" :for="id" class="input__label" v-text="label" />
 
-    <!-- Description above select field -->
+    <!-- Description above datepicker field -->
     <p
       v-if="upperDescription"
       class="input__description"
       v-text="upperDescription"
     />
 
-    <!-- Needs this div wrapper here to keep icon inside the <select> field -->
+    <!-- Needs this div wrapper here to keep icon inside the <datepicker> field -->
     <div class="datepicker__inner">
       <client-only>
         <date-picker
@@ -28,6 +28,7 @@
           :autofocus="autofocus"
           :placeholder="placeholder === undefined ? label : placeholder"
           :readonly="readonly"
+          type="date"
           class="datepicker__element"
           :format="opts.format"
           :title-format="opts.headerFormat"
@@ -35,6 +36,7 @@
           :editable="opts.editable"
           :multiple="opts.multiple"
           :lang="opts.language"
+          :disabled-date="opts.disabledDate"
           :show-week-number="opts.showWeekNumber"
           :range-separator="opts.rangeSeparator"
           :default-panel="opts.defaultPanel"
@@ -74,7 +76,7 @@
     <!-- Error -->
     <span v-if="parsedError" class="input__error">{{ parsedError }}</span>
 
-    <!-- Description below select field -->
+    <!-- Description below datepicker field -->
     <p
       v-if="lowerDescription"
       class="input__description_below"

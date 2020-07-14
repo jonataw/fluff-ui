@@ -1725,12 +1725,14 @@ var __vue_render__$a = function __vue_render__() {
       "autofocus": _vm.autofocus,
       "placeholder": _vm.placeholder === undefined ? _vm.label : _vm.placeholder,
       "readonly": _vm.readonly,
+      "type": "date",
       "format": _vm.opts.format,
       "title-format": _vm.opts.headerFormat,
       "range": _vm.opts.range,
       "editable": _vm.opts.editable,
       "multiple": _vm.opts.multiple,
       "lang": _vm.opts.language,
+      "disabled-date": _vm.opts.disabledDate,
       "show-week-number": _vm.opts.showWeekNumber,
       "range-separator": _vm.opts.rangeSeparator,
       "default-panel": _vm.opts.defaultPanel,
@@ -1758,7 +1760,7 @@ var __vue_inject_styles__$a = undefined;
 var __vue_scope_id__$a = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$a = "data-v-50bd49d2";
+var __vue_module_identifier__$a = "data-v-d219e8da";
 /* functional template */
 
 var __vue_is_functional_template__$a = false;
@@ -1863,6 +1865,8 @@ var __vue_render__$b = function __vue_render__() {
       "open": _vm.opts.open,
       "editable": _vm.opts.editable,
       "multiple": _vm.opts.multiple,
+      "lang": _vm.opts.language,
+      "disabled-time": _vm.opts.disabledTime,
       "hour-step": _vm.opts.hourStep,
       "minute-step": _vm.opts.minuteStep,
       "second-step": _vm.opts.secondStep,
@@ -1898,7 +1902,7 @@ var __vue_inject_styles__$b = undefined;
 var __vue_scope_id__$b = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$b = "data-v-53253e08";
+var __vue_module_identifier__$b = "data-v-02f99a0a";
 /* functional template */
 
 var __vue_is_functional_template__$b = false;
@@ -2317,7 +2321,8 @@ var _class$e = (_dec$e = vuePropertyDecorator.Component({
   }, {
     key: "close",
     value: function close(event, id) {
-      var _this3 = this;
+      var _this3 = this,
+          _toast$options;
 
       var toast = this.toasts.find(function (_t) {
         return _t.id === id;
@@ -2332,7 +2337,7 @@ var _class$e = (_dec$e = vuePropertyDecorator.Component({
       };
 
       var cl = event.target.classList;
-      var closeable = toast.options.closeable;
+      var closeable = (_toast$options = toast.options) === null || _toast$options === void 0 ? void 0 : _toast$options.closeable;
 
       if (typeof closeable === 'boolean' && closeable) {
         close();
@@ -2435,7 +2440,7 @@ var __vue_inject_styles__$e = undefined;
 var __vue_scope_id__$e = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$e = "data-v-3da034d5";
+var __vue_module_identifier__$e = "data-v-788ceaf0";
 /* functional template */
 
 var __vue_is_functional_template__$e = false;

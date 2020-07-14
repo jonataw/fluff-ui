@@ -118,7 +118,9 @@
           label="Hello world!"
           placeholder="A"
           type="email"
-          :options="{}"
+          :options="{
+            disabledDate: notBeforeTodayOrAfter30Days
+          }"
           v-model="a"
         />
         <FLTimepicker
@@ -246,6 +248,16 @@ export default class extends Vue {
 
   t() {
     this.loading = !this.loading;
+  }
+
+  notBeforeTodayOrAfter30Days(date: Date) {
+    const today = new Date();
+    const tomorrow = new Date(today.setDate(today.getDate() + 1));
+    tomorrow.setHours(0, 0, 0, 0);
+
+    return (
+      date < tomorrow || date > new Date(tomorrow.getTime() + 30 * 24 * 3600 * 1000)
+    );
   }
 
   public modal = {
