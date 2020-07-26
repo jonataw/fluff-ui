@@ -556,7 +556,7 @@ let _class$3 = (_dec$3 = Component({
     let error = null;
 
     if (this.error) {
-      return this.error;
+      error = this.error;
     }
 
     if (this.locError) {

@@ -827,7 +827,7 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
       var error = null;
 
       if (this.error) {
-        return this.error;
+        error = this.error;
       }
 
       if (this.locError) {
@@ -998,7 +998,7 @@ var __vue_inject_styles__$3 = undefined;
 var __vue_scope_id__$3 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$3 = "data-v-afee7cc6";
+var __vue_module_identifier__$3 = "data-v-4425e6f2";
 /* functional template */
 
 var __vue_is_functional_template__$3 = false;

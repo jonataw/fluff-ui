@@ -165,7 +165,7 @@ export default class extends Vue {
   public get parsedError() {
     let error: string | null = null;
     if (this.error) {
-      return this.error;
+      error = this.error;
     }
     if (this.locError) {
       error = this.locError;
