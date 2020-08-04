@@ -2,6 +2,55 @@ import _Vue from 'vue';
 import Datepicker from 'vue2-datepicker';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
 function _initializerDefineProperty(target, property, descriptor, context) {
   if (!descriptor) return;
   Object.defineProperty(target, property, {
@@ -1587,21 +1636,19 @@ let _class$a = (_dec$a = Component({
   }
 
   get opts() {
-    return { ...{
-        editable: true,
-        multiple: false,
-        range: false,
-        language: '',
-        showWeekNumber: false,
-        rangeSeparator: ' > ',
-        defaultPanel: 'date',
-        format: 'D MMM, YYYY',
-        headerFormat: 'D MMM, YYYY',
-        defaultValue: new Date(),
-        valueType: 'format'
-      },
-      ...this.options
-    };
+    return _objectSpread2(_objectSpread2({}, {
+      editable: true,
+      multiple: false,
+      range: false,
+      language: '',
+      showWeekNumber: false,
+      rangeSeparator: ' > ',
+      defaultPanel: 'date',
+      format: 'D MMM, YYYY',
+      headerFormat: 'D MMM, YYYY',
+      defaultValue: new Date(),
+      valueType: 'format'
+    }), this.options);
   }
 
 }, _temp$8), (_descriptor$8 = _applyDecoratedDescriptor(_class3$8.prototype, "options", [_dec2$8], {
@@ -1745,25 +1792,23 @@ let _class$b = (_dec$b = Component({
   }
 
   get opts() {
-    return { ...{
-        editable: true,
-        multiple: false,
-        hourStep: 1,
-        minuteStep: 5,
-        secondStep: 30,
-        showHour: true,
-        showMinute: true,
-        showSecond: false,
-        format: 'HH:mm',
-        showHeader: true,
-        headerFormat: 'HH:mm',
-        defaultValue: new Date(),
-        use12h: false,
-        valueType: 'format',
-        fixed: undefined
-      },
-      ...this.options
-    };
+    return _objectSpread2(_objectSpread2({}, {
+      editable: true,
+      multiple: false,
+      hourStep: 1,
+      minuteStep: 5,
+      secondStep: 30,
+      showHour: true,
+      showMinute: true,
+      showSecond: false,
+      format: 'HH:mm',
+      showHeader: true,
+      headerFormat: 'HH:mm',
+      defaultValue: new Date(),
+      use12h: false,
+      valueType: 'format',
+      fixed: undefined
+    }), this.options);
   }
 
 }, _temp$9), (_descriptor$9 = _applyDecoratedDescriptor(_class3$9.prototype, "options", [_dec2$9], {
@@ -2058,10 +2103,7 @@ let _class$d = (_dec$d = Component({
       } // Set default options.
 
 
-      options = { ...defaultOptions,
-        ...this.$config.modal,
-        ...options
-      }; // TODO: if (component instanceof Vue) does not work here for some reason?
+      options = _objectSpread2(_objectSpread2(_objectSpread2({}, defaultOptions), this.$config.modal), options); // TODO: if (component instanceof Vue) does not work here for some reason?
 
       if (typeof component !== 'function') {
         return console.error(`$modal.open expects a component, got '${typeof component}'.`);
@@ -2235,13 +2277,10 @@ let _class$e = (_dec$e = Component({
   created() {
     this.$bus.$on('pop_toast', toast => {
       const id = this.id++;
-      toast.options = { ...defaultOptions$1,
-        ...this.$config.toast,
-        ...toast.options
-      };
-      this.toasts.push({ ...toast,
+      toast.options = _objectSpread2(_objectSpread2(_objectSpread2({}, defaultOptions$1), this.$config.toast), toast.options);
+      this.toasts.push(_objectSpread2(_objectSpread2({}, toast), {}, {
         id
-      });
+      }));
 
       if (toast.options.delay && typeof toast.options.delay === 'number') {
         setTimeout(() => {
