@@ -19,7 +19,7 @@
     >
       <transition name="fade" mode="out-in">
         <div v-if="loading" class="button__loading">
-          <Loading :size="'button-' + size"></Loading>
+          <Loading :size="'button-' + size" color="button"></Loading>
         </div>
       </transition>
       <div v-if="icon" class="button__icon">

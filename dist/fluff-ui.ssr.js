@@ -414,7 +414,7 @@ var _class$1 = (_dec$1 = vuePropertyDecorator.Component({
   name: 'FLLoading'
 }), _dec2$1 = vuePropertyDecorator.Prop({
   type: String,
-  required: false
+  default: 'default'
 }), _dec3 = vuePropertyDecorator.Prop({
   type: String,
   default: 'default'
@@ -480,7 +480,7 @@ var __vue_inject_styles__$1 = undefined;
 var __vue_scope_id__$1 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$1 = "data-v-a72deb54";
+var __vue_module_identifier__$1 = "data-v-130a604c";
 /* functional template */
 
 var __vue_is_functional_template__$1 = false;
@@ -639,7 +639,8 @@ var __vue_render__$2 = function __vue_render__() {
     staticClass: "button__loading"
   }, [_c('Loading', {
     attrs: {
-      "size": 'button-' + _vm.size
+      "size": 'button-' + _vm.size,
+      "color": "button"
     }
   })], 1) : _vm._e()]), _vm._ssrNode(" "), _vm.icon ? _vm._ssrNode("<div class=\"button__icon\">", "</div>", [_c('Icon', {
     attrs: {
@@ -657,7 +658,7 @@ var __vue_inject_styles__$2 = undefined;
 var __vue_scope_id__$2 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$2 = "data-v-c99bb49a";
+var __vue_module_identifier__$2 = "data-v-2d67a21a";
 /* functional template */
 
 var __vue_is_functional_template__$2 = false;
@@ -670,21 +671,17 @@ var __vue_is_functional_template__$2 = false;
 var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$2,
   staticRenderFns: __vue_staticRenderFns__$2
-}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9$1, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _dec23, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8$1, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _temp$3;
+}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9$1, _dec10, _dec11, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8$1, _descriptor9, _descriptor10, _temp$3;
 
 var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
-  name: 'FLInput',
+  name: 'FLInputMixin',
   components: {}
 }), _dec2$3 = vuePropertyDecorator.Prop(), _dec3$2 = vuePropertyDecorator.Prop(), _dec4$1 = vuePropertyDecorator.Prop({
   required: true
 }), _dec5$1 = vuePropertyDecorator.Prop({
-  default: 'text'
-}), _dec6$1 = vuePropertyDecorator.Prop({
   type: String,
   default: 'default'
-}), _dec7$1 = vuePropertyDecorator.Prop(), _dec8$1 = vuePropertyDecorator.Prop(), _dec9$1 = vuePropertyDecorator.Prop(), _dec10 = vuePropertyDecorator.Prop(), _dec11 = vuePropertyDecorator.Prop(), _dec12 = vuePropertyDecorator.Prop(), _dec13 = vuePropertyDecorator.Prop(), _dec14 = vuePropertyDecorator.Prop({
-  default: false
-}), _dec15 = vuePropertyDecorator.Prop(), _dec16 = vuePropertyDecorator.Prop(), _dec17 = vuePropertyDecorator.Prop(), _dec18 = vuePropertyDecorator.Prop(), _dec19 = vuePropertyDecorator.Prop(), _dec20 = vuePropertyDecorator.Prop(), _dec21 = vuePropertyDecorator.Prop(), _dec22 = vuePropertyDecorator.Prop(), _dec23 = vuePropertyDecorator.Prop(Number), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = /*#__PURE__*/function (_Vue) {
+}), _dec6$1 = vuePropertyDecorator.Prop(), _dec7$1 = vuePropertyDecorator.Prop(), _dec8$1 = vuePropertyDecorator.Prop(), _dec9$1 = vuePropertyDecorator.Prop(), _dec10 = vuePropertyDecorator.Prop(), _dec11 = vuePropertyDecorator.Prop(), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
 
   var _super = _createSuper(_class3);
@@ -708,43 +705,685 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
 
     _this.locError = null;
 
-    _initializerDefineProperty(_this, "type", _descriptor4$1, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "size", _descriptor4$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "size", _descriptor5$1, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "label", _descriptor5$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "label", _descriptor6$1, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "error", _descriptor6$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "description", _descriptor7$1, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "errors", _descriptor7$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "descriptionAbove", _descriptor8$1, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "disabled", _descriptor8$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "descriptionBelow", _descriptor9, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "autofocus", _descriptor9, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "placeholder", _descriptor10, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "readonly", _descriptor10, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "prefix", _descriptor11, _assertThisInitialized(_this));
+    return _this;
+  }
 
-    _initializerDefineProperty(_this, "suffix", _descriptor12, _assertThisInitialized(_this));
+  _createClass(_class3, [{
+    key: "onInput",
+    value: function onInput(value) {
+      if (this.disabled) {
+        /* Do not allow input if input should be disabled */
+        return;
+      }
 
-    _initializerDefineProperty(_this, "inline", _descriptor13, _assertThisInitialized(_this));
+      this.$emit('input', value, this.id);
+    }
+  }, {
+    key: "onBlur",
+    value: function onBlur() {
+      this.$emit('blur');
+    }
+  }, {
+    key: "parsedError",
+    get: function get() {
+      var _this2 = this;
 
-    _initializerDefineProperty(_this, "error", _descriptor14, _assertThisInitialized(_this));
+      var error = null;
 
-    _initializerDefineProperty(_this, "errors", _descriptor15, _assertThisInitialized(_this));
+      if (this.error) {
+        error = this.error;
+      }
 
-    _initializerDefineProperty(_this, "min", _descriptor16, _assertThisInitialized(_this));
+      if (this.locError) {
+        error = this.locError;
+      } else if (this.form && this.form.childErrors) {
+        var e = this.form.childErrors.find(function (error) {
+          return error.path === _this2.id;
+        });
 
-    _initializerDefineProperty(_this, "max", _descriptor17, _assertThisInitialized(_this));
+        if (e) {
+          error = e.error;
+        }
+      }
 
-    _initializerDefineProperty(_this, "autocomplete", _descriptor18, _assertThisInitialized(_this));
+      if (error) {
+        if (this.errors && this.errors[error]) {
+          return this.errors[error];
+        } else {
+          return error;
+        }
+      }
 
-    _initializerDefineProperty(_this, "disabled", _descriptor19, _assertThisInitialized(_this));
+      return null;
+    }
+  }]);
 
-    _initializerDefineProperty(_this, "autofocus", _descriptor20, _assertThisInitialized(_this));
+  return _class3;
+}(vuePropertyDecorator.Vue), _temp$3), (_descriptor$3 = _applyDecoratedDescriptor(_class3$3.prototype, "id", [_dec2$3], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor2$2 = _applyDecoratedDescriptor(_class3$3.prototype, "form", [_dec3$2], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor3$1 = _applyDecoratedDescriptor(_class3$3.prototype, "value", [_dec4$1], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor4$1 = _applyDecoratedDescriptor(_class3$3.prototype, "size", [_dec5$1], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor5$1 = _applyDecoratedDescriptor(_class3$3.prototype, "label", [_dec6$1], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor6$1 = _applyDecoratedDescriptor(_class3$3.prototype, "error", [_dec7$1], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor7$1 = _applyDecoratedDescriptor(_class3$3.prototype, "errors", [_dec8$1], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor8$1 = _applyDecoratedDescriptor(_class3$3.prototype, "disabled", [_dec9$1], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor9 = _applyDecoratedDescriptor(_class3$3.prototype, "autofocus", [_dec10], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor10 = _applyDecoratedDescriptor(_class3$3.prototype, "readonly", [_dec11], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$3)) || _class2$3);/* script */
+var __vue_script__$3 = _class$3;
+/* template */
 
-    _initializerDefineProperty(_this, "readonly", _descriptor21, _assertThisInitialized(_this));
+/* style */
 
-    _initializerDefineProperty(_this, "stagger", _descriptor22, _assertThisInitialized(_this));
+var __vue_inject_styles__$3 = undefined;
+/* scoped */
+
+var __vue_scope_id__$3 = undefined;
+/* module identifier */
+
+var __vue_module_identifier__$3 = "data-v-2c9eca28";
+/* functional template */
+
+var __vue_is_functional_template__$3 = undefined;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+var __vue_component__$3 = /*#__PURE__*/normalizeComponent({}, __vue_inject_styles__$3, __vue_script__$3, __vue_scope_id__$3, __vue_is_functional_template__$3, __vue_module_identifier__$3, false, undefined, undefined, undefined);var _dec$4, _dec2$4, _dec3$3, _class2$4, _class3$4, _descriptor$4, _descriptor2$3, _temp$4;
+
+var _class$4 = (_dec$4 = vuePropertyDecorator.Component({
+  name: 'FLCheckbox',
+  components: {
+    Icon: __vue_component__
+  }
+}), _dec2$4 = vuePropertyDecorator.Prop(), _dec3$3 = vuePropertyDecorator.Prop(), _dec$4(_class2$4 = (_class3$4 = (_temp$4 = /*#__PURE__*/function (_Mixins) {
+  _inherits(_class3, _Mixins);
+
+  var _super = _createSuper(_class3);
+
+  function _class3() {
+    var _this;
+
+    _classCallCheck(this, _class3);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _initializerDefineProperty(_this, "description", _descriptor$4, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "descriptionBelow", _descriptor2$3, _assertThisInitialized(_this));
+
+    return _this;
+  }
+
+  _createClass(_class3, [{
+    key: "lowerDescription",
+    get: function get() {
+      return this.description || this.descriptionBelow;
+    }
+  }]);
+
+  return _class3;
+}(vuePropertyDecorator.Mixins(__vue_component__$3)), _temp$4), (_descriptor$4 = _applyDecoratedDescriptor(_class3$4.prototype, "description", [_dec2$4], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor2$3 = _applyDecoratedDescriptor(_class3$4.prototype, "descriptionBelow", [_dec3$3], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$4)) || _class2$4);/* script */
+var __vue_script__$4 = _class$4;
+/* template */
+
+var __vue_render__$3 = function __vue_render__() {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "checkbox",
+    class: {
+      'checkbox--error': !!_vm.parsedError,
+      'checkbox--checked': _vm.value
+    }
+  }, [_vm._ssrNode("<div class=\"checkbox__inner\"><input" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + " type=\"checkbox\"" + _vm._ssrAttr("checked", _vm.value) + " class=\"checkbox__element\"> <label" + _vm._ssrAttr("for", _vm.id) + " class=\"checkbox__fill_box\"><svg viewBox=\"0 0 64 64\"><path d=\"M60.6,12.4c-1.3-1.3-3.3-1.3-4.6,0L24.2,44.2c-0.8,0.8-2.3,0.8-3.2,0l-13-13c-1.3-1.3-3.3-1.3-4.6,0c-1.3,1.3-1.3,3.3,0,4.6\nL18,50.4l0,0l0.4,0.4c1.2,1.2,2.7,1.7,4.2,1.7c1.5,0,3.1-0.6,4.2-1.7l0.4-0.4l0,0L60.6,17C61.8,15.8,61.8,13.7,60.6,12.4z\"></path></svg></label> " + (_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"checkbox__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + "</div> " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
+};
+
+var __vue_staticRenderFns__$3 = [];
+/* style */
+
+var __vue_inject_styles__$4 = undefined;
+/* scoped */
+
+var __vue_scope_id__$4 = undefined;
+/* module identifier */
+
+var __vue_module_identifier__$4 = "data-v-7e7234ec";
+/* functional template */
+
+var __vue_is_functional_template__$4 = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+var __vue_component__$4 = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$3,
+  staticRenderFns: __vue_staticRenderFns__$3
+}, __vue_inject_styles__$4, __vue_script__$4, __vue_scope_id__$4, __vue_is_functional_template__$4, __vue_module_identifier__$4, false, undefined, undefined, undefined);var _dec$5, _dec2$5, _dec3$4, _class2$5, _class3$5, _descriptor$5, _descriptor2$4, _temp$5;
+
+var _class$5 = (_dec$5 = vuePropertyDecorator.Component({
+  name: 'FLChip',
+  components: {
+    Icon: __vue_component__
+  }
+}), _dec2$5 = vuePropertyDecorator.Prop({
+  type: String,
+  required: false
+}), _dec3$4 = vuePropertyDecorator.Prop({
+  type: String,
+  default: 'default'
+}), _dec$5(_class2$5 = (_class3$5 = (_temp$5 = /*#__PURE__*/function (_Vue) {
+  _inherits(_class3, _Vue);
+
+  var _super = _createSuper(_class3);
+
+  function _class3() {
+    var _this;
+
+    _classCallCheck(this, _class3);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _initializerDefineProperty(_this, "icon", _descriptor$5, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "color", _descriptor2$4, _assertThisInitialized(_this));
+
+    return _this;
+  }
+
+  _createClass(_class3, [{
+    key: "hasTextContent",
+
+    /**
+     * Returns true if the chip has text content.
+     *
+     * @returns {boolean}
+     */
+    get: function get() {
+      return !!this.$slots.default;
+    }
+  }]);
+
+  return _class3;
+}(vuePropertyDecorator.Vue), _temp$5), (_descriptor$5 = _applyDecoratedDescriptor(_class3$5.prototype, "icon", [_dec2$5], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor2$4 = _applyDecoratedDescriptor(_class3$5.prototype, "color", [_dec3$4], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$5)) || _class2$5);/* script */
+var __vue_script__$5 = _class$5;
+/* template */
+
+var __vue_render__$4 = function __vue_render__() {
+  var _obj;
+
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "chip",
+    class: (_obj = {}, _obj["chip--color-" + _vm.color] = true, _obj)
+  }, [_vm.icon ? _vm._ssrNode("<div class=\"chip__icon\">", "</div>", [_c('Icon', {
+    attrs: {
+      "i": _vm.icon
+    }
+  })], 1) : _vm._e(), _vm._ssrNode(" "), _vm.hasTextContent ? _vm._ssrNode("<span class=\"chip__text\">", "</span>", [_vm._t("default")], 2) : _vm._e()], 2);
+};
+
+var __vue_staticRenderFns__$4 = [];
+/* style */
+
+var __vue_inject_styles__$5 = undefined;
+/* scoped */
+
+var __vue_scope_id__$5 = undefined;
+/* module identifier */
+
+var __vue_module_identifier__$5 = "data-v-6c6c33fb";
+/* functional template */
+
+var __vue_is_functional_template__$5 = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+var __vue_component__$5 = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$4,
+  staticRenderFns: __vue_staticRenderFns__$4
+}, __vue_inject_styles__$5, __vue_script__$5, __vue_scope_id__$5, __vue_is_functional_template__$5, __vue_module_identifier__$5, false, undefined, undefined, undefined);var _dec$6, _dec2$6, _class2$6, _class3$6, _descriptor$6, _temp$6;
+
+var _class$6 = (_dec$6 = vuePropertyDecorator.Component({
+  name: 'FLDivider'
+}), _dec2$6 = vuePropertyDecorator.Prop({
+  type: String,
+  required: false
+}), _dec$6(_class2$6 = (_class3$6 = (_temp$6 = /*#__PURE__*/function (_Vue) {
+  _inherits(_class3, _Vue);
+
+  var _super = _createSuper(_class3);
+
+  function _class3() {
+    var _this;
+
+    _classCallCheck(this, _class3);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _initializerDefineProperty(_this, "text", _descriptor$6, _assertThisInitialized(_this));
+
+    return _this;
+  }
+
+  return _class3;
+}(vuePropertyDecorator.Vue), _temp$6), (_descriptor$6 = _applyDecoratedDescriptor(_class3$6.prototype, "text", [_dec2$6], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$6)) || _class2$6);/* script */
+var __vue_script__$6 = _class$6;
+/* template */
+
+var __vue_render__$5 = function __vue_render__() {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _vm.text ? _c('div', {
+    staticClass: "divider divider--text"
+  }, [_vm._ssrNode("<div></div> <div>" + _vm._ssrEscape(_vm._s(_vm.text)) + "</div> <div></div>")], 2) : _c('div', {
+    staticClass: "divider"
+  }, []);
+};
+
+var __vue_staticRenderFns__$5 = [];
+/* style */
+
+var __vue_inject_styles__$6 = undefined;
+/* scoped */
+
+var __vue_scope_id__$6 = undefined;
+/* module identifier */
+
+var __vue_module_identifier__$6 = "data-v-4a098918";
+/* functional template */
+
+var __vue_is_functional_template__$6 = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+var __vue_component__$6 = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$5,
+  staticRenderFns: __vue_staticRenderFns__$5
+}, __vue_inject_styles__$6, __vue_script__$6, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, undefined, undefined);var _dec$7, _dec2$7, _dec3$5, _dec4$2, _dec5$2, _class2$7, _class3$7, _descriptor$7, _descriptor2$5, _descriptor3$2, _descriptor4$2, _temp$7;
+
+var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
+  name: 'FLForm',
+  components: {
+    FLIcon: __vue_component__
+  }
+}), _dec2$7 = vuePropertyDecorator.Prop({
+  type: String,
+  required: true
+}), _dec3$5 = vuePropertyDecorator.Prop({
+  type: Boolean,
+  default: false
+}), _dec4$2 = vuePropertyDecorator.Prop({
+  type: Boolean,
+  default: false
+}), _dec5$2 = vuePropertyDecorator.Prop({
+  type: Boolean,
+  default: false
+}), _dec$7(_class2$7 = (_class3$7 = (_temp$7 = /*#__PURE__*/function (_Vue) {
+  _inherits(_class3, _Vue);
+
+  var _super = _createSuper(_class3);
+
+  function _class3() {
+    var _this;
+
+    _classCallCheck(this, _class3);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _initializerDefineProperty(_this, "name", _descriptor$7, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "htmlValidate", _descriptor2$5, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "scrollToTop", _descriptor3$2, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "showError", _descriptor4$2, _assertThisInitialized(_this));
+
+    _this.form = null;
+    return _this;
+  }
+
+  _createClass(_class3, [{
+    key: "onSubmit",
+    value: function onSubmit() {
+      var _this2 = this;
+
+      if (!this.form || this.form && this.form.loading) {
+        return;
+      }
+
+      this.form.error = null;
+      this.form.childErrors = [];
+      this.form.loading = true;
+      this.$emit('submit', function (callback) {
+        if (_this2.form) {
+          if (callback.error) {
+            if (_this2.scrollToTop === true || _typeof(_this2.scrollToTop) === 'object' && _this2.scrollToTop.error) {
+              _this2.scroll();
+            }
+
+            _this2.form.error = callback.error.type;
+            _this2.form.childErrors = callback.error.fields;
+          } else {
+            if (_this2.scrollToTop === true || _typeof(_this2.scrollToTop) === 'object' && _this2.scrollToTop.complete) {
+              _this2.scroll();
+            }
+          }
+
+          _this2.form.loading = false;
+        }
+      });
+    }
+  }, {
+    key: "scroll",
+    value: function scroll() {
+      if (this.element) {
+        window.scrollTo(0, this.element.offsetTop);
+      }
+    }
+  }, {
+    key: "mounted",
+    value: function mounted() {
+      this.form = this.generateForm();
+    }
+  }, {
+    key: "generateForm",
+    value: function generateForm() {
+      return {
+        loading: false,
+        done: false,
+        error: null,
+        childErrors: []
+      };
+    }
+  }, {
+    key: "element",
+    get: function get() {
+      return document.getElementById(this.name);
+    }
+  }]);
+
+  return _class3;
+}(vuePropertyDecorator.Vue), _temp$7), (_descriptor$7 = _applyDecoratedDescriptor(_class3$7.prototype, "name", [_dec2$7], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor2$5 = _applyDecoratedDescriptor(_class3$7.prototype, "htmlValidate", [_dec3$5], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor3$2 = _applyDecoratedDescriptor(_class3$7.prototype, "scrollToTop", [_dec4$2], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor4$2 = _applyDecoratedDescriptor(_class3$7.prototype, "showError", [_dec5$2], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$7)) || _class2$7);function createInjectorSSR(context) {
+    if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__;
+    }
+    if (!context)
+        return () => { };
+    if (!('styles' in context)) {
+        context._styles = context._styles || {};
+        Object.defineProperty(context, 'styles', {
+            enumerable: true,
+            get: () => context._renderStyles(context._styles)
+        });
+        context._renderStyles = context._renderStyles || renderStyles;
+    }
+    return (id, style) => addStyle(id, style, context);
+}
+function addStyle(id, css, context) {
+    const group =  css.media || 'default' ;
+    const style = context._styles[group] || (context._styles[group] = { ids: [], css: '' });
+    if (!style.ids.includes(id)) {
+        style.media = css.media;
+        style.ids.push(id);
+        let code = css.source;
+        style.css += code + '\n';
+    }
+}
+function renderStyles(styles) {
+    let css = '';
+    for (const key in styles) {
+        const style = styles[key];
+        css +=
+            '<style data-vue-ssr-id="' +
+                Array.from(style.ids).join(' ') +
+                '"' +
+                (style.media ? ' media="' + style.media + '"' : '') +
+                '>' +
+                style.css +
+                '</style>';
+    }
+    return css;
+}/* script */
+var __vue_script__$7 = _class$7;
+/* template */
+
+var __vue_render__$6 = function __vue_render__() {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('form', {
+    staticClass: "form",
+    attrs: {
+      "id": _vm.name,
+      "novalidate": !_vm.htmlValidate
+    },
+    on: {
+      "submit": function submit($event) {
+        $event.preventDefault();
+        return _vm.onSubmit($event);
+      }
+    }
+  }, [_vm._ssrNode((_vm.showError && _vm.form.error ? "<div class=\"form--error\" data-v-f5052898>" + _vm._ssrEscape(_vm._s(_vm.form.error)) + "</div>" : "<!---->") + " "), _vm.form ? _vm._t("form", null, {
+    "form": _vm.form
+  }) : _vm._e()], 2);
+};
+
+var __vue_staticRenderFns__$6 = [];
+/* style */
+
+var __vue_inject_styles__$7 = function __vue_inject_styles__(inject) {
+  if (!inject) return;
+  inject("data-v-f5052898_0", {
+    source: ".form-error[data-v-f5052898]{display:flex;align-items:center}.form-error .icon[data-v-f5052898]{font-size:20px}.form-error>span[data-v-f5052898]{margin-left:6px}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+var __vue_scope_id__$7 = "data-v-f5052898";
+/* module identifier */
+
+var __vue_module_identifier__$7 = "data-v-f5052898";
+/* functional template */
+
+var __vue_is_functional_template__$7 = false;
+/* style inject shadow dom */
+
+var __vue_component__$7 = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$6,
+  staticRenderFns: __vue_staticRenderFns__$6
+}, __vue_inject_styles__$7, __vue_script__$7, __vue_scope_id__$7, __vue_is_functional_template__$7, __vue_module_identifier__$7, false, undefined, createInjectorSSR, undefined);var _dec$8, _dec2$8, _dec3$6, _dec4$3, _dec5$3, _dec6$2, _dec7$2, _dec8$2, _dec9$2, _dec10$1, _dec11$1, _dec12, _dec13, _class2$8, _class3$8, _descriptor$8, _descriptor2$6, _descriptor3$3, _descriptor4$3, _descriptor5$2, _descriptor6$2, _descriptor7$2, _descriptor8$2, _descriptor9$1, _descriptor10$1, _descriptor11, _descriptor12, _temp$8;
+
+var _class$8 = (_dec$8 = vuePropertyDecorator.Component({
+  name: 'FLInput',
+  components: {}
+}), _dec2$8 = vuePropertyDecorator.Prop({
+  default: 'text'
+}), _dec3$6 = vuePropertyDecorator.Prop(), _dec4$3 = vuePropertyDecorator.Prop(), _dec5$3 = vuePropertyDecorator.Prop(), _dec6$2 = vuePropertyDecorator.Prop(), _dec7$2 = vuePropertyDecorator.Prop(), _dec8$2 = vuePropertyDecorator.Prop(), _dec9$2 = vuePropertyDecorator.Prop({
+  default: false
+}), _dec10$1 = vuePropertyDecorator.Prop(), _dec11$1 = vuePropertyDecorator.Prop(), _dec12 = vuePropertyDecorator.Prop(), _dec13 = vuePropertyDecorator.Prop(Number), _dec$8(_class2$8 = (_class3$8 = (_temp$8 = /*#__PURE__*/function (_Mixins) {
+  _inherits(_class3, _Mixins);
+
+  var _super = _createSuper(_class3);
+
+  function _class3() {
+    var _this;
+
+    _classCallCheck(this, _class3);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _initializerDefineProperty(_this, "type", _descriptor$8, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "description", _descriptor2$6, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "descriptionAbove", _descriptor3$3, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "descriptionBelow", _descriptor4$3, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "placeholder", _descriptor5$2, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "prefix", _descriptor6$2, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "suffix", _descriptor7$2, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "inline", _descriptor8$2, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "min", _descriptor9$1, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "max", _descriptor10$1, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "autocomplete", _descriptor11, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "stagger", _descriptor12, _assertThisInitialized(_this));
 
     _this.timeout = setTimeout(function () {}, 0);
     return _this;
@@ -819,157 +1458,74 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
     get: function get() {
       return this.descriptionBelow;
     }
-  }, {
-    key: "parsedError",
-    get: function get() {
-      var _this3 = this;
-
-      var error = null;
-
-      if (this.error) {
-        error = this.error;
-      }
-
-      if (this.locError) {
-        error = this.locError;
-      } else if (this.form && this.form.childErrors) {
-        var e = this.form.childErrors.find(function (error) {
-          return error.path === _this3.id;
-        });
-
-        if (e) {
-          error = e.error;
-        }
-      }
-
-      if (error) {
-        if (this.errors && this.errors[error]) {
-          return this.errors[error];
-        } else {
-          return error;
-        }
-      }
-
-      return null;
-    }
   }]);
 
   return _class3;
-}(vuePropertyDecorator.Vue), _temp$3), (_descriptor$3 = _applyDecoratedDescriptor(_class3$3.prototype, "id", [_dec2$3], {
+}(vuePropertyDecorator.Mixins(__vue_component__$3)), _temp$8), (_descriptor$8 = _applyDecoratedDescriptor(_class3$8.prototype, "type", [_dec2$8], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor2$2 = _applyDecoratedDescriptor(_class3$3.prototype, "form", [_dec3$2], {
+}), _descriptor2$6 = _applyDecoratedDescriptor(_class3$8.prototype, "description", [_dec3$6], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3$1 = _applyDecoratedDescriptor(_class3$3.prototype, "value", [_dec4$1], {
+}), _descriptor3$3 = _applyDecoratedDescriptor(_class3$8.prototype, "descriptionAbove", [_dec4$3], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor4$1 = _applyDecoratedDescriptor(_class3$3.prototype, "type", [_dec5$1], {
+}), _descriptor4$3 = _applyDecoratedDescriptor(_class3$8.prototype, "descriptionBelow", [_dec5$3], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor5$1 = _applyDecoratedDescriptor(_class3$3.prototype, "size", [_dec6$1], {
+}), _descriptor5$2 = _applyDecoratedDescriptor(_class3$8.prototype, "placeholder", [_dec6$2], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor6$1 = _applyDecoratedDescriptor(_class3$3.prototype, "label", [_dec7$1], {
+}), _descriptor6$2 = _applyDecoratedDescriptor(_class3$8.prototype, "prefix", [_dec7$2], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor7$1 = _applyDecoratedDescriptor(_class3$3.prototype, "description", [_dec8$1], {
+}), _descriptor7$2 = _applyDecoratedDescriptor(_class3$8.prototype, "suffix", [_dec8$2], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor8$1 = _applyDecoratedDescriptor(_class3$3.prototype, "descriptionAbove", [_dec9$1], {
+}), _descriptor8$2 = _applyDecoratedDescriptor(_class3$8.prototype, "inline", [_dec9$2], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor9 = _applyDecoratedDescriptor(_class3$3.prototype, "descriptionBelow", [_dec10], {
+}), _descriptor9$1 = _applyDecoratedDescriptor(_class3$8.prototype, "min", [_dec10$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor10 = _applyDecoratedDescriptor(_class3$3.prototype, "placeholder", [_dec11], {
+}), _descriptor10$1 = _applyDecoratedDescriptor(_class3$8.prototype, "max", [_dec11$1], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor11 = _applyDecoratedDescriptor(_class3$3.prototype, "prefix", [_dec12], {
+}), _descriptor11 = _applyDecoratedDescriptor(_class3$8.prototype, "autocomplete", [_dec12], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor12 = _applyDecoratedDescriptor(_class3$3.prototype, "suffix", [_dec13], {
+}), _descriptor12 = _applyDecoratedDescriptor(_class3$8.prototype, "stagger", [_dec13], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor13 = _applyDecoratedDescriptor(_class3$3.prototype, "inline", [_dec14], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor14 = _applyDecoratedDescriptor(_class3$3.prototype, "error", [_dec15], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor15 = _applyDecoratedDescriptor(_class3$3.prototype, "errors", [_dec16], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor16 = _applyDecoratedDescriptor(_class3$3.prototype, "min", [_dec17], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor17 = _applyDecoratedDescriptor(_class3$3.prototype, "max", [_dec18], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor18 = _applyDecoratedDescriptor(_class3$3.prototype, "autocomplete", [_dec19], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor19 = _applyDecoratedDescriptor(_class3$3.prototype, "disabled", [_dec20], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor20 = _applyDecoratedDescriptor(_class3$3.prototype, "autofocus", [_dec21], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor21 = _applyDecoratedDescriptor(_class3$3.prototype, "readonly", [_dec22], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor22 = _applyDecoratedDescriptor(_class3$3.prototype, "stagger", [_dec23], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-})), _class3$3)) || _class2$3);/* script */
-var __vue_script__$3 = _class$3;
+})), _class3$8)) || _class2$8);/* script */
+var __vue_script__$8 = _class$8;
 /* template */
 
-var __vue_render__$3 = function __vue_render__() {
+var __vue_render__$7 = function __vue_render__() {
   var _obj;
 
   var _vm = this;
@@ -989,502 +1545,40 @@ var __vue_render__$3 = function __vue_render__() {
   }, [_vm._ssrNode((_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"input__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + " " + (_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"input__outer\">" + (_vm.prefix ? "<span class=\"input__prefix\">" + _vm._s(_vm.prefix) + "</span>" : "<!---->") + " <div class=\"input__inner\"><input" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("type", _vm.type || 'text') + _vm._ssrAttr("disabled", _vm.disabled) + _vm._ssrAttr("placeholder", _vm.placeholder === undefined ? _vm.label : _vm.placeholder) + _vm._ssrAttr("autocomplete", _vm.autocomplete) + _vm._ssrAttr("autofocus", _vm.autofocus) + _vm._ssrAttr("readonly", _vm.readonly) + _vm._ssrAttr("value", _vm.value) + " class=\"input__element\"> " + (_vm.error ? "<span class=\"input__error_icon\"><svg><path d=\"M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z\"></path></svg></span>" : "<!---->") + "</div> " + (_vm.suffix ? "<span class=\"input__suffix\">" + _vm._s(_vm.suffix) + "</span>" : "<!---->") + "</div> " + (_vm.parsedError ? "<span class=\"input__error\">" + _vm._ssrEscape(_vm._s(_vm.parsedError)) + "</span>" : "<!---->") + " " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
 };
 
-var __vue_staticRenderFns__$3 = [];
-/* style */
-
-var __vue_inject_styles__$3 = undefined;
-/* scoped */
-
-var __vue_scope_id__$3 = undefined;
-/* module identifier */
-
-var __vue_module_identifier__$3 = "data-v-4425e6f2";
-/* functional template */
-
-var __vue_is_functional_template__$3 = false;
-/* style inject */
-
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-var __vue_component__$3 = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$3,
-  staticRenderFns: __vue_staticRenderFns__$3
-}, __vue_inject_styles__$3, __vue_script__$3, __vue_scope_id__$3, __vue_is_functional_template__$3, __vue_module_identifier__$3, false, undefined, undefined, undefined);var _dec$4, _class2$4;
-
-var _class$4 = (_dec$4 = vuePropertyDecorator.Component({
-  name: 'FLCheckbox',
-  components: {
-    Icon: __vue_component__
-  }
-}), _dec$4(_class2$4 = /*#__PURE__*/function (_Input) {
-  _inherits(_class2, _Input);
-
-  var _super = _createSuper(_class2);
-
-  function _class2() {
-    _classCallCheck(this, _class2);
-
-    return _super.apply(this, arguments);
-  }
-
-  return _class2;
-}(__vue_component__$3)) || _class2$4);/* script */
-var __vue_script__$4 = _class$4;
-/* template */
-
-var __vue_render__$4 = function __vue_render__() {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('div', {
-    staticClass: "checkbox",
-    class: {
-      'checkbox--error': !!_vm.parsedError,
-      'checkbox--checked': _vm.value
-    }
-  }, [_vm._ssrNode((_vm.upperDescription ? "<p class=\"input__description\">" + _vm._ssrEscape(_vm._s(_vm.upperDescription)) + "</p>" : "<!---->") + " <div class=\"checkbox__inner\"><input" + _vm._ssrAttr("id", _vm.id) + _vm._ssrAttr("disabled", _vm.disabled) + " type=\"checkbox\"" + _vm._ssrAttr("checked", _vm.value) + " class=\"checkbox__element\"> <label" + _vm._ssrAttr("for", _vm.id) + " class=\"checkbox__fill_box\"><svg viewBox=\"0 0 64 64\"><path d=\"M60.6,12.4c-1.3-1.3-3.3-1.3-4.6,0L24.2,44.2c-0.8,0.8-2.3,0.8-3.2,0l-13-13c-1.3-1.3-3.3-1.3-4.6,0c-1.3,1.3-1.3,3.3,0,4.6\nL18,50.4l0,0l0.4,0.4c1.2,1.2,2.7,1.7,4.2,1.7c1.5,0,3.1-0.6,4.2-1.7l0.4-0.4l0,0L60.6,17C61.8,15.8,61.8,13.7,60.6,12.4z\"></path></svg></label> " + (_vm.label ? "<label" + _vm._ssrAttr("for", _vm.id) + " class=\"checkbox__label\">" + _vm._ssrEscape(_vm._s(_vm.label)) + "</label>" : "<!---->") + "</div> " + (_vm.lowerDescription ? "<p class=\"input__description_below\">" + _vm._s(_vm.lowerDescription) + "</p>" : "<!---->"))]);
-};
-
-var __vue_staticRenderFns__$4 = [];
-/* style */
-
-var __vue_inject_styles__$4 = undefined;
-/* scoped */
-
-var __vue_scope_id__$4 = undefined;
-/* module identifier */
-
-var __vue_module_identifier__$4 = "data-v-530b06f0";
-/* functional template */
-
-var __vue_is_functional_template__$4 = false;
-/* style inject */
-
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-var __vue_component__$4 = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$4,
-  staticRenderFns: __vue_staticRenderFns__$4
-}, __vue_inject_styles__$4, __vue_script__$4, __vue_scope_id__$4, __vue_is_functional_template__$4, __vue_module_identifier__$4, false, undefined, undefined, undefined);var _dec$5, _dec2$4, _dec3$3, _class2$5, _class3$4, _descriptor$4, _descriptor2$3, _temp$4;
-
-var _class$5 = (_dec$5 = vuePropertyDecorator.Component({
-  name: 'FLChip',
-  components: {
-    Icon: __vue_component__
-  }
-}), _dec2$4 = vuePropertyDecorator.Prop({
-  type: String,
-  required: false
-}), _dec3$3 = vuePropertyDecorator.Prop({
-  type: String,
-  default: 'default'
-}), _dec$5(_class2$5 = (_class3$4 = (_temp$4 = /*#__PURE__*/function (_Vue) {
-  _inherits(_class3, _Vue);
-
-  var _super = _createSuper(_class3);
-
-  function _class3() {
-    var _this;
-
-    _classCallCheck(this, _class3);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _initializerDefineProperty(_this, "icon", _descriptor$4, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_this, "color", _descriptor2$3, _assertThisInitialized(_this));
-
-    return _this;
-  }
-
-  _createClass(_class3, [{
-    key: "hasTextContent",
-
-    /**
-     * Returns true if the chip has text content.
-     *
-     * @returns {boolean}
-     */
-    get: function get() {
-      return !!this.$slots.default;
-    }
-  }]);
-
-  return _class3;
-}(vuePropertyDecorator.Vue), _temp$4), (_descriptor$4 = _applyDecoratedDescriptor(_class3$4.prototype, "icon", [_dec2$4], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor2$3 = _applyDecoratedDescriptor(_class3$4.prototype, "color", [_dec3$3], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-})), _class3$4)) || _class2$5);/* script */
-var __vue_script__$5 = _class$5;
-/* template */
-
-var __vue_render__$5 = function __vue_render__() {
-  var _obj;
-
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('div', {
-    staticClass: "chip",
-    class: (_obj = {}, _obj["chip--color-" + _vm.color] = true, _obj)
-  }, [_vm.icon ? _vm._ssrNode("<div class=\"chip__icon\">", "</div>", [_c('Icon', {
-    attrs: {
-      "i": _vm.icon
-    }
-  })], 1) : _vm._e(), _vm._ssrNode(" "), _vm.hasTextContent ? _vm._ssrNode("<span class=\"chip__text\">", "</span>", [_vm._t("default")], 2) : _vm._e()], 2);
-};
-
-var __vue_staticRenderFns__$5 = [];
-/* style */
-
-var __vue_inject_styles__$5 = undefined;
-/* scoped */
-
-var __vue_scope_id__$5 = undefined;
-/* module identifier */
-
-var __vue_module_identifier__$5 = "data-v-6c6c33fb";
-/* functional template */
-
-var __vue_is_functional_template__$5 = false;
-/* style inject */
-
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-var __vue_component__$5 = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$5,
-  staticRenderFns: __vue_staticRenderFns__$5
-}, __vue_inject_styles__$5, __vue_script__$5, __vue_scope_id__$5, __vue_is_functional_template__$5, __vue_module_identifier__$5, false, undefined, undefined, undefined);var _dec$6, _dec2$5, _class2$6, _class3$5, _descriptor$5, _temp$5;
-
-var _class$6 = (_dec$6 = vuePropertyDecorator.Component({
-  name: 'FLDivider'
-}), _dec2$5 = vuePropertyDecorator.Prop({
-  type: String,
-  required: false
-}), _dec$6(_class2$6 = (_class3$5 = (_temp$5 = /*#__PURE__*/function (_Vue) {
-  _inherits(_class3, _Vue);
-
-  var _super = _createSuper(_class3);
-
-  function _class3() {
-    var _this;
-
-    _classCallCheck(this, _class3);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _initializerDefineProperty(_this, "text", _descriptor$5, _assertThisInitialized(_this));
-
-    return _this;
-  }
-
-  return _class3;
-}(vuePropertyDecorator.Vue), _temp$5), (_descriptor$5 = _applyDecoratedDescriptor(_class3$5.prototype, "text", [_dec2$5], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-})), _class3$5)) || _class2$6);/* script */
-var __vue_script__$6 = _class$6;
-/* template */
-
-var __vue_render__$6 = function __vue_render__() {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _vm.text ? _c('div', {
-    staticClass: "divider divider--text"
-  }, [_vm._ssrNode("<div></div> <div>" + _vm._ssrEscape(_vm._s(_vm.text)) + "</div> <div></div>")], 2) : _c('div', {
-    staticClass: "divider"
-  }, []);
-};
-
-var __vue_staticRenderFns__$6 = [];
-/* style */
-
-var __vue_inject_styles__$6 = undefined;
-/* scoped */
-
-var __vue_scope_id__$6 = undefined;
-/* module identifier */
-
-var __vue_module_identifier__$6 = "data-v-4a098918";
-/* functional template */
-
-var __vue_is_functional_template__$6 = false;
-/* style inject */
-
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-var __vue_component__$6 = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$6,
-  staticRenderFns: __vue_staticRenderFns__$6
-}, __vue_inject_styles__$6, __vue_script__$6, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, undefined, undefined);var _dec$7, _dec2$6, _dec3$4, _dec4$2, _dec5$2, _class2$7, _class3$6, _descriptor$6, _descriptor2$4, _descriptor3$2, _descriptor4$2, _temp$6;
-
-var _class$7 = (_dec$7 = vuePropertyDecorator.Component({
-  name: 'FLForm',
-  components: {
-    FLIcon: __vue_component__
-  }
-}), _dec2$6 = vuePropertyDecorator.Prop({
-  type: String,
-  required: true
-}), _dec3$4 = vuePropertyDecorator.Prop({
-  type: Boolean,
-  default: false
-}), _dec4$2 = vuePropertyDecorator.Prop({
-  type: Boolean,
-  default: false
-}), _dec5$2 = vuePropertyDecorator.Prop({
-  type: Boolean,
-  default: false
-}), _dec$7(_class2$7 = (_class3$6 = (_temp$6 = /*#__PURE__*/function (_Vue) {
-  _inherits(_class3, _Vue);
-
-  var _super = _createSuper(_class3);
-
-  function _class3() {
-    var _this;
-
-    _classCallCheck(this, _class3);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _initializerDefineProperty(_this, "name", _descriptor$6, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_this, "htmlValidate", _descriptor2$4, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_this, "scrollToTop", _descriptor3$2, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_this, "showError", _descriptor4$2, _assertThisInitialized(_this));
-
-    _this.form = null;
-    return _this;
-  }
-
-  _createClass(_class3, [{
-    key: "onSubmit",
-    value: function onSubmit() {
-      var _this2 = this;
-
-      if (!this.form || this.form && this.form.loading) {
-        return;
-      }
-
-      this.form.error = null;
-      this.form.childErrors = [];
-      this.form.loading = true;
-      this.$emit('submit', function (callback) {
-        if (_this2.form) {
-          if (callback.error) {
-            if (_this2.scrollToTop === true || _typeof(_this2.scrollToTop) === 'object' && _this2.scrollToTop.error) {
-              _this2.scroll();
-            }
-
-            _this2.form.error = callback.error.type;
-            _this2.form.childErrors = callback.error.fields;
-          } else {
-            if (_this2.scrollToTop === true || _typeof(_this2.scrollToTop) === 'object' && _this2.scrollToTop.complete) {
-              _this2.scroll();
-            }
-          }
-
-          _this2.form.loading = false;
-        }
-      });
-    }
-  }, {
-    key: "scroll",
-    value: function scroll() {
-      if (this.element) {
-        window.scrollTo(0, this.element.offsetTop);
-      }
-    }
-  }, {
-    key: "mounted",
-    value: function mounted() {
-      this.form = this.generateForm();
-    }
-  }, {
-    key: "generateForm",
-    value: function generateForm() {
-      return {
-        loading: false,
-        done: false,
-        error: null,
-        childErrors: []
-      };
-    }
-  }, {
-    key: "element",
-    get: function get() {
-      return document.getElementById(this.name);
-    }
-  }]);
-
-  return _class3;
-}(vuePropertyDecorator.Vue), _temp$6), (_descriptor$6 = _applyDecoratedDescriptor(_class3$6.prototype, "name", [_dec2$6], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor2$4 = _applyDecoratedDescriptor(_class3$6.prototype, "htmlValidate", [_dec3$4], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor3$2 = _applyDecoratedDescriptor(_class3$6.prototype, "scrollToTop", [_dec4$2], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor4$2 = _applyDecoratedDescriptor(_class3$6.prototype, "showError", [_dec5$2], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-})), _class3$6)) || _class2$7);function createInjectorSSR(context) {
-    if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-    }
-    if (!context)
-        return () => { };
-    if (!('styles' in context)) {
-        context._styles = context._styles || {};
-        Object.defineProperty(context, 'styles', {
-            enumerable: true,
-            get: () => context._renderStyles(context._styles)
-        });
-        context._renderStyles = context._renderStyles || renderStyles;
-    }
-    return (id, style) => addStyle(id, style, context);
-}
-function addStyle(id, css, context) {
-    const group =  css.media || 'default' ;
-    const style = context._styles[group] || (context._styles[group] = { ids: [], css: '' });
-    if (!style.ids.includes(id)) {
-        style.media = css.media;
-        style.ids.push(id);
-        let code = css.source;
-        style.css += code + '\n';
-    }
-}
-function renderStyles(styles) {
-    let css = '';
-    for (const key in styles) {
-        const style = styles[key];
-        css +=
-            '<style data-vue-ssr-id="' +
-                Array.from(style.ids).join(' ') +
-                '"' +
-                (style.media ? ' media="' + style.media + '"' : '') +
-                '>' +
-                style.css +
-                '</style>';
-    }
-    return css;
-}/* script */
-var __vue_script__$7 = _class$7;
-/* template */
-
-var __vue_render__$7 = function __vue_render__() {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('form', {
-    staticClass: "form",
-    attrs: {
-      "id": _vm.name,
-      "novalidate": !_vm.htmlValidate
-    },
-    on: {
-      "submit": function submit($event) {
-        $event.preventDefault();
-        return _vm.onSubmit($event);
-      }
-    }
-  }, [_vm._ssrNode((_vm.showError && _vm.form.error ? "<div class=\"form--error\" data-v-f5052898>" + _vm._ssrEscape(_vm._s(_vm.form.error)) + "</div>" : "<!---->") + " "), _vm.form ? _vm._t("form", null, {
-    "form": _vm.form
-  }) : _vm._e()], 2);
-};
-
 var __vue_staticRenderFns__$7 = [];
 /* style */
 
-var __vue_inject_styles__$7 = function __vue_inject_styles__(inject) {
-  if (!inject) return;
-  inject("data-v-f5052898_0", {
-    source: ".form-error[data-v-f5052898]{display:flex;align-items:center}.form-error .icon[data-v-f5052898]{font-size:20px}.form-error>span[data-v-f5052898]{margin-left:6px}",
-    map: undefined,
-    media: undefined
-  });
-};
+var __vue_inject_styles__$8 = undefined;
 /* scoped */
 
-
-var __vue_scope_id__$7 = "data-v-f5052898";
+var __vue_scope_id__$8 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$7 = "data-v-f5052898";
+var __vue_module_identifier__$8 = "data-v-f7300f60";
 /* functional template */
 
-var __vue_is_functional_template__$7 = false;
+var __vue_is_functional_template__$8 = false;
+/* style inject */
+
+/* style inject SSR */
+
 /* style inject shadow dom */
 
-var __vue_component__$7 = /*#__PURE__*/normalizeComponent({
+var __vue_component__$8 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$7,
   staticRenderFns: __vue_staticRenderFns__$7
-}, __vue_inject_styles__$7, __vue_script__$7, __vue_scope_id__$7, __vue_is_functional_template__$7, __vue_module_identifier__$7, false, undefined, createInjectorSSR, undefined);var _dec$8, _dec2$7, _class2$8, _class3$7, _descriptor$7, _temp$7;
+}, __vue_inject_styles__$8, __vue_script__$8, __vue_scope_id__$8, __vue_is_functional_template__$8, __vue_module_identifier__$8, false, undefined, undefined, undefined);var _dec$9, _dec2$9, _class2$9, _class3$9, _descriptor$9, _temp$9;
 
-var _class$8 = (_dec$8 = vuePropertyDecorator.Component({
+var _class$9 = (_dec$9 = vuePropertyDecorator.Component({
   name: 'FLSelect',
   components: {
     Icon: __vue_component__
   }
-}), _dec2$7 = vuePropertyDecorator.Prop({
+}), _dec2$9 = vuePropertyDecorator.Prop({
   type: Array,
   required: true
-}), _dec$8(_class2$8 = (_class3$7 = (_temp$7 = /*#__PURE__*/function (_Input) {
-  _inherits(_class3, _Input);
+}), _dec$9(_class2$9 = (_class3$9 = (_temp$9 = /*#__PURE__*/function (_Mixins) {
+  _inherits(_class3, _Mixins);
 
   var _super = _createSuper(_class3);
 
@@ -1499,7 +1593,7 @@ var _class$8 = (_dec$8 = vuePropertyDecorator.Component({
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _initializerDefineProperty(_this, "options", _descriptor$7, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "options", _descriptor$9, _assertThisInitialized(_this));
 
     return _this;
   }
@@ -1528,13 +1622,13 @@ var _class$8 = (_dec$8 = vuePropertyDecorator.Component({
   }]);
 
   return _class3;
-}(__vue_component__$3), _temp$7), (_descriptor$7 = _applyDecoratedDescriptor(_class3$7.prototype, "options", [_dec2$7], {
+}(vuePropertyDecorator.Mixins(__vue_component__$3)), _temp$9), (_descriptor$9 = _applyDecoratedDescriptor(_class3$9.prototype, "options", [_dec2$9], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-})), _class3$7)) || _class2$8);/* script */
-var __vue_script__$8 = _class$8;
+})), _class3$9)) || _class2$9);/* script */
+var __vue_script__$9 = _class$9;
 /* template */
 
 var __vue_render__$8 = function __vue_render__() {
@@ -1547,7 +1641,7 @@ var __vue_render__$8 = function __vue_render__() {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
-    staticClass: "select",
+    staticClass: "select dsa sda d s",
     class: (_obj = {
       'input--error': !!_vm.parsedError,
       'input--inline': _vm.inline
@@ -1562,44 +1656,73 @@ var __vue_render__$8 = function __vue_render__() {
 var __vue_staticRenderFns__$8 = [];
 /* style */
 
-var __vue_inject_styles__$8 = undefined;
+var __vue_inject_styles__$9 = undefined;
 /* scoped */
 
-var __vue_scope_id__$8 = undefined;
+var __vue_scope_id__$9 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$8 = "data-v-4596a2b9";
+var __vue_module_identifier__$9 = "data-v-09f2614c";
 /* functional template */
 
-var __vue_is_functional_template__$8 = false;
+var __vue_is_functional_template__$9 = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$8 = /*#__PURE__*/normalizeComponent({
+var __vue_component__$9 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$8,
   staticRenderFns: __vue_staticRenderFns__$8
-}, __vue_inject_styles__$8, __vue_script__$8, __vue_scope_id__$8, __vue_is_functional_template__$8, __vue_module_identifier__$8, false, undefined, undefined, undefined);var _dec$9, _class2$9;
+}, __vue_inject_styles__$9, __vue_script__$9, __vue_scope_id__$9, __vue_is_functional_template__$9, __vue_module_identifier__$9, false, undefined, undefined, undefined);var _dec$a, _dec2$a, _dec3$7, _dec4$4, _class2$a, _class3$a, _descriptor$a, _descriptor2$7, _descriptor3$4, _temp$a;
 
-var _class$9 = (_dec$9 = vuePropertyDecorator.Component({
+var _class$a = (_dec$a = vuePropertyDecorator.Component({
   name: 'FLTextarea',
   components: {}
-}), _dec$9(_class2$9 = /*#__PURE__*/function (_Input) {
-  _inherits(_class2, _Input);
+}), _dec2$a = vuePropertyDecorator.Prop(), _dec3$7 = vuePropertyDecorator.Prop(), _dec4$4 = vuePropertyDecorator.Prop(), _dec$a(_class2$a = (_class3$a = (_temp$a = /*#__PURE__*/function (_Mixins) {
+  _inherits(_class3, _Mixins);
 
-  var _super = _createSuper(_class2);
+  var _super = _createSuper(_class3);
 
-  function _class2() {
-    _classCallCheck(this, _class2);
+  function _class3() {
+    var _this;
 
-    return _super.apply(this, arguments);
+    _classCallCheck(this, _class3);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _initializerDefineProperty(_this, "description", _descriptor$a, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "descriptionAbove", _descriptor2$7, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "descriptionBelow", _descriptor3$4, _assertThisInitialized(_this));
+
+    return _this;
   }
 
-  return _class2;
-}(__vue_component__$3)) || _class2$9);/* script */
-var __vue_script__$9 = _class$9;
+  return _class3;
+}(vuePropertyDecorator.Mixins(__vue_component__$3)), _temp$a), (_descriptor$a = _applyDecoratedDescriptor(_class3$a.prototype, "description", [_dec2$a], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor2$7 = _applyDecoratedDescriptor(_class3$a.prototype, "descriptionAbove", [_dec3$7], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor3$4 = _applyDecoratedDescriptor(_class3$a.prototype, "descriptionBelow", [_dec4$4], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$a)) || _class2$a);/* script */
+var __vue_script__$a = _class$a;
 /* template */
 
 var __vue_render__$9 = function __vue_render__() {
@@ -1622,36 +1745,38 @@ var __vue_render__$9 = function __vue_render__() {
 var __vue_staticRenderFns__$9 = [];
 /* style */
 
-var __vue_inject_styles__$9 = undefined;
+var __vue_inject_styles__$a = undefined;
 /* scoped */
 
-var __vue_scope_id__$9 = undefined;
+var __vue_scope_id__$a = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$9 = "data-v-6df7dec6";
+var __vue_module_identifier__$a = "data-v-03947940";
 /* functional template */
 
-var __vue_is_functional_template__$9 = false;
+var __vue_is_functional_template__$a = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$9 = /*#__PURE__*/normalizeComponent({
+var __vue_component__$a = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$9,
   staticRenderFns: __vue_staticRenderFns__$9
-}, __vue_inject_styles__$9, __vue_script__$9, __vue_scope_id__$9, __vue_is_functional_template__$9, __vue_module_identifier__$9, false, undefined, undefined, undefined);var _dec$a, _dec2$8, _class2$a, _class3$8, _descriptor$8, _temp$8;
+}, __vue_inject_styles__$a, __vue_script__$a, __vue_scope_id__$a, __vue_is_functional_template__$a, __vue_module_identifier__$a, false, undefined, undefined, undefined);var _dec$b, _dec2$b, _dec3$8, _dec4$5, _dec5$4, _dec6$3, _dec7$3, _class2$b, _class3$b, _descriptor$b, _descriptor2$8, _descriptor3$5, _descriptor4$4, _descriptor5$3, _descriptor6$3, _temp$b;
 
-var _class$a = (_dec$a = vuePropertyDecorator.Component({
+var _class$b = (_dec$b = vuePropertyDecorator.Component({
   name: 'FLDatepicker',
   components: {
     Icon: __vue_component__
   }
-}), _dec2$8 = vuePropertyDecorator.Prop({
+}), _dec2$b = vuePropertyDecorator.Prop(), _dec3$8 = vuePropertyDecorator.Prop(), _dec4$5 = vuePropertyDecorator.Prop(), _dec5$4 = vuePropertyDecorator.Prop(), _dec6$3 = vuePropertyDecorator.Prop({
+  default: false
+}), _dec7$3 = vuePropertyDecorator.Prop({
   type: Object
-}), _dec$a(_class2$a = (_class3$8 = (_temp$8 = /*#__PURE__*/function (_Input) {
-  _inherits(_class3, _Input);
+}), _dec$b(_class2$b = (_class3$b = (_temp$b = /*#__PURE__*/function (_Mixins) {
+  _inherits(_class3, _Mixins);
 
   var _super = _createSuper(_class3);
 
@@ -1666,12 +1791,32 @@ var _class$a = (_dec$a = vuePropertyDecorator.Component({
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _initializerDefineProperty(_this, "options", _descriptor$8, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "description", _descriptor$b, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "descriptionAbove", _descriptor2$8, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "descriptionBelow", _descriptor3$5, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "placeholder", _descriptor4$4, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "inline", _descriptor5$3, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "options", _descriptor6$3, _assertThisInitialized(_this));
 
     return _this;
   }
 
   _createClass(_class3, [{
+    key: "upperDescription",
+    get: function get() {
+      return this.description || this.descriptionAbove;
+    }
+  }, {
+    key: "lowerDescription",
+    get: function get() {
+      return this.descriptionBelow;
+    }
+  }, {
     key: "opts",
     get: function get() {
       return _objectSpread2(_objectSpread2({}, {
@@ -1691,13 +1836,38 @@ var _class$a = (_dec$a = vuePropertyDecorator.Component({
   }]);
 
   return _class3;
-}(__vue_component__$3), _temp$8), (_descriptor$8 = _applyDecoratedDescriptor(_class3$8.prototype, "options", [_dec2$8], {
+}(vuePropertyDecorator.Mixins(__vue_component__$3)), _temp$b), (_descriptor$b = _applyDecoratedDescriptor(_class3$b.prototype, "description", [_dec2$b], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-})), _class3$8)) || _class2$a);/* script */
-var __vue_script__$a = _class$a;
+}), _descriptor2$8 = _applyDecoratedDescriptor(_class3$b.prototype, "descriptionAbove", [_dec3$8], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor3$5 = _applyDecoratedDescriptor(_class3$b.prototype, "descriptionBelow", [_dec4$5], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor4$4 = _applyDecoratedDescriptor(_class3$b.prototype, "placeholder", [_dec5$4], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor5$3 = _applyDecoratedDescriptor(_class3$b.prototype, "inline", [_dec6$3], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor6$3 = _applyDecoratedDescriptor(_class3$b.prototype, "options", [_dec7$3], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$b)) || _class2$b);/* script */
+var __vue_script__$b = _class$b;
 /* template */
 
 var __vue_render__$a = function __vue_render__() {
@@ -1754,36 +1924,38 @@ var __vue_render__$a = function __vue_render__() {
 var __vue_staticRenderFns__$a = [];
 /* style */
 
-var __vue_inject_styles__$a = undefined;
+var __vue_inject_styles__$b = undefined;
 /* scoped */
 
-var __vue_scope_id__$a = undefined;
+var __vue_scope_id__$b = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$a = "data-v-d219e8da";
+var __vue_module_identifier__$b = "data-v-0a8d2d15";
 /* functional template */
 
-var __vue_is_functional_template__$a = false;
+var __vue_is_functional_template__$b = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$a = /*#__PURE__*/normalizeComponent({
+var __vue_component__$b = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$a,
   staticRenderFns: __vue_staticRenderFns__$a
-}, __vue_inject_styles__$a, __vue_script__$a, __vue_scope_id__$a, __vue_is_functional_template__$a, __vue_module_identifier__$a, false, undefined, undefined, undefined);var _dec$b, _dec2$9, _class2$b, _class3$9, _descriptor$9, _temp$9;
+}, __vue_inject_styles__$b, __vue_script__$b, __vue_scope_id__$b, __vue_is_functional_template__$b, __vue_module_identifier__$b, false, undefined, undefined, undefined);var _dec$c, _dec2$c, _dec3$9, _dec4$6, _dec5$5, _dec6$4, _dec7$4, _class2$c, _class3$c, _descriptor$c, _descriptor2$9, _descriptor3$6, _descriptor4$5, _descriptor5$4, _descriptor6$4, _temp$c;
 
-var _class$b = (_dec$b = vuePropertyDecorator.Component({
+var _class$c = (_dec$c = vuePropertyDecorator.Component({
   name: 'FLTimepicker',
   components: {
     Icon: __vue_component__
   }
-}), _dec2$9 = vuePropertyDecorator.Prop({
+}), _dec2$c = vuePropertyDecorator.Prop(), _dec3$9 = vuePropertyDecorator.Prop(), _dec4$6 = vuePropertyDecorator.Prop(), _dec5$5 = vuePropertyDecorator.Prop(), _dec6$4 = vuePropertyDecorator.Prop({
+  default: false
+}), _dec7$4 = vuePropertyDecorator.Prop({
   type: Object
-}), _dec$b(_class2$b = (_class3$9 = (_temp$9 = /*#__PURE__*/function (_Input) {
-  _inherits(_class3, _Input);
+}), _dec$c(_class2$c = (_class3$c = (_temp$c = /*#__PURE__*/function (_Mixins) {
+  _inherits(_class3, _Mixins);
 
   var _super = _createSuper(_class3);
 
@@ -1798,12 +1970,32 @@ var _class$b = (_dec$b = vuePropertyDecorator.Component({
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _initializerDefineProperty(_this, "options", _descriptor$9, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "description", _descriptor$c, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "descriptionAbove", _descriptor2$9, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "descriptionBelow", _descriptor3$6, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "placeholder", _descriptor4$5, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "inline", _descriptor5$4, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "options", _descriptor6$4, _assertThisInitialized(_this));
 
     return _this;
   }
 
   _createClass(_class3, [{
+    key: "upperDescription",
+    get: function get() {
+      return this.description || this.descriptionAbove;
+    }
+  }, {
+    key: "lowerDescription",
+    get: function get() {
+      return this.descriptionBelow;
+    }
+  }, {
     key: "opts",
     get: function get() {
       return _objectSpread2(_objectSpread2({}, {
@@ -1827,13 +2019,38 @@ var _class$b = (_dec$b = vuePropertyDecorator.Component({
   }]);
 
   return _class3;
-}(__vue_component__$3), _temp$9), (_descriptor$9 = _applyDecoratedDescriptor(_class3$9.prototype, "options", [_dec2$9], {
+}(vuePropertyDecorator.Mixins(__vue_component__$3)), _temp$c), (_descriptor$c = _applyDecoratedDescriptor(_class3$c.prototype, "description", [_dec2$c], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-})), _class3$9)) || _class2$b);/* script */
-var __vue_script__$b = _class$b;
+}), _descriptor2$9 = _applyDecoratedDescriptor(_class3$c.prototype, "descriptionAbove", [_dec3$9], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor3$6 = _applyDecoratedDescriptor(_class3$c.prototype, "descriptionBelow", [_dec4$6], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor4$5 = _applyDecoratedDescriptor(_class3$c.prototype, "placeholder", [_dec5$5], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor5$4 = _applyDecoratedDescriptor(_class3$c.prototype, "inline", [_dec6$4], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor6$4 = _applyDecoratedDescriptor(_class3$c.prototype, "options", [_dec7$4], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+})), _class3$c)) || _class2$c);/* script */
+var __vue_script__$c = _class$c;
 /* template */
 
 var __vue_render__$b = function __vue_render__() {
@@ -1896,42 +2113,42 @@ var __vue_render__$b = function __vue_render__() {
 var __vue_staticRenderFns__$b = [];
 /* style */
 
-var __vue_inject_styles__$b = undefined;
+var __vue_inject_styles__$c = undefined;
 /* scoped */
 
-var __vue_scope_id__$b = undefined;
+var __vue_scope_id__$c = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$b = "data-v-02f99a0a";
+var __vue_module_identifier__$c = "data-v-0cf27b19";
 /* functional template */
 
-var __vue_is_functional_template__$b = false;
+var __vue_is_functional_template__$c = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$b = /*#__PURE__*/normalizeComponent({
+var __vue_component__$c = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$b,
   staticRenderFns: __vue_staticRenderFns__$b
-}, __vue_inject_styles__$b, __vue_script__$b, __vue_scope_id__$b, __vue_is_functional_template__$b, __vue_module_identifier__$b, false, undefined, undefined, undefined);var _dec$c, _dec2$a, _dec3$5, _dec4$3, _class2$c, _class3$a, _descriptor$a, _descriptor2$5, _descriptor3$3, _temp$a;
+}, __vue_inject_styles__$c, __vue_script__$c, __vue_scope_id__$c, __vue_is_functional_template__$c, __vue_module_identifier__$c, false, undefined, undefined, undefined);var _dec$d, _dec2$d, _dec3$a, _dec4$7, _class2$d, _class3$d, _descriptor$d, _descriptor2$a, _descriptor3$7, _temp$d;
 
-var _class$c = (_dec$c = vuePropertyDecorator.Component({
+var _class$d = (_dec$d = vuePropertyDecorator.Component({
   name: 'FLBulletin',
   components: {
     Chip: __vue_component__$5,
     Icon: __vue_component__
   }
-}), _dec2$a = vuePropertyDecorator.Prop({
+}), _dec2$d = vuePropertyDecorator.Prop({
   type: Object
-}), _dec3$5 = vuePropertyDecorator.Prop({
+}), _dec3$a = vuePropertyDecorator.Prop({
   type: String,
   default: 'default'
-}), _dec4$3 = vuePropertyDecorator.Prop({
+}), _dec4$7 = vuePropertyDecorator.Prop({
   type: Boolean,
   default: true
-}), _dec$c(_class2$c = (_class3$a = (_temp$a = /*#__PURE__*/function (_Vue) {
+}), _dec$d(_class2$d = (_class3$d = (_temp$d = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
 
   var _super = _createSuper(_class3);
@@ -1947,11 +2164,11 @@ var _class$c = (_dec$c = vuePropertyDecorator.Component({
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _initializerDefineProperty(_this, "chip", _descriptor$a, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "chip", _descriptor$d, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "color", _descriptor2$5, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "color", _descriptor2$a, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "dismissable", _descriptor3$3, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "dismissable", _descriptor3$7, _assertThisInitialized(_this));
 
     _this.cookie = 'bulletin-dismissed';
     _this.show = false;
@@ -1986,23 +2203,23 @@ var _class$c = (_dec$c = vuePropertyDecorator.Component({
   }]);
 
   return _class3;
-}(vuePropertyDecorator.Vue), _temp$a), (_descriptor$a = _applyDecoratedDescriptor(_class3$a.prototype, "chip", [_dec2$a], {
+}(vuePropertyDecorator.Vue), _temp$d), (_descriptor$d = _applyDecoratedDescriptor(_class3$d.prototype, "chip", [_dec2$d], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor2$5 = _applyDecoratedDescriptor(_class3$a.prototype, "color", [_dec3$5], {
+}), _descriptor2$a = _applyDecoratedDescriptor(_class3$d.prototype, "color", [_dec3$a], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3$3 = _applyDecoratedDescriptor(_class3$a.prototype, "dismissable", [_dec4$3], {
+}), _descriptor3$7 = _applyDecoratedDescriptor(_class3$d.prototype, "dismissable", [_dec4$7], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-})), _class3$a)) || _class2$c);/* script */
-var __vue_script__$c = _class$c;
+})), _class3$d)) || _class2$d);/* script */
+var __vue_script__$d = _class$d;
 /* template */
 
 var __vue_render__$c = function __vue_render__() {
@@ -2035,38 +2252,38 @@ var __vue_render__$c = function __vue_render__() {
 var __vue_staticRenderFns__$c = [];
 /* style */
 
-var __vue_inject_styles__$c = undefined;
+var __vue_inject_styles__$d = undefined;
 /* scoped */
 
-var __vue_scope_id__$c = undefined;
+var __vue_scope_id__$d = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$c = "data-v-27d988d8";
+var __vue_module_identifier__$d = "data-v-27d988d8";
 /* functional template */
 
-var __vue_is_functional_template__$c = false;
+var __vue_is_functional_template__$d = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$c = /*#__PURE__*/normalizeComponent({
+var __vue_component__$d = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$c,
   staticRenderFns: __vue_staticRenderFns__$c
-}, __vue_inject_styles__$c, __vue_script__$c, __vue_scope_id__$c, __vue_is_functional_template__$c, __vue_module_identifier__$c, false, undefined, undefined, undefined);var _dec$d, _class2$d, _temp$b;
+}, __vue_inject_styles__$d, __vue_script__$d, __vue_scope_id__$d, __vue_is_functional_template__$d, __vue_module_identifier__$d, false, undefined, undefined, undefined);var _dec$e, _class2$e, _temp$e;
 var defaultOptions = {
   allowBodyScroll: false,
   closeable: true,
   width: 580
 };
 
-var _class$d = (_dec$d = vuePropertyDecorator.Component({
+var _class$e = (_dec$e = vuePropertyDecorator.Component({
   name: 'FLModal',
   components: {
     Icon: __vue_component__
   }
-}), _dec$d(_class2$d = (_temp$b = /*#__PURE__*/function (_Vue) {
+}), _dec$e(_class2$e = (_temp$e = /*#__PURE__*/function (_Vue) {
   _inherits(_class2, _Vue);
 
   var _super = _createSuper(_class2);
@@ -2188,7 +2405,7 @@ var _class$d = (_dec$d = vuePropertyDecorator.Component({
   }]);
 
   return _class2;
-}(vuePropertyDecorator.Vue), _temp$b)) || _class2$d);var __vue_script__$d = _class$d;
+}(vuePropertyDecorator.Vue), _temp$e)) || _class2$e);var __vue_script__$e = _class$e;
 /* template */
 
 var __vue_render__$d = function __vue_render__() {
@@ -2239,39 +2456,39 @@ var __vue_render__$d = function __vue_render__() {
 var __vue_staticRenderFns__$d = [];
 /* style */
 
-var __vue_inject_styles__$d = undefined;
+var __vue_inject_styles__$e = undefined;
 /* scoped */
 
-var __vue_scope_id__$d = undefined;
+var __vue_scope_id__$e = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$d = "data-v-5447de57";
+var __vue_module_identifier__$e = "data-v-5447de57";
 /* functional template */
 
-var __vue_is_functional_template__$d = false;
+var __vue_is_functional_template__$e = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$d = /*#__PURE__*/normalizeComponent({
+var __vue_component__$e = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$d,
   staticRenderFns: __vue_staticRenderFns__$d
-}, __vue_inject_styles__$d, __vue_script__$d, __vue_scope_id__$d, __vue_is_functional_template__$d, __vue_module_identifier__$d, false, undefined, undefined, undefined);var _dec$e, _class2$e, _temp$c;
+}, __vue_inject_styles__$e, __vue_script__$e, __vue_scope_id__$e, __vue_is_functional_template__$e, __vue_module_identifier__$e, false, undefined, undefined, undefined);var _dec$f, _class2$f, _temp$f;
 var defaultOptions$1 = {
   closeable: true,
   delay: 5000,
   showDelayProgress: true
 };
 
-var _class$e = (_dec$e = vuePropertyDecorator.Component({
+var _class$f = (_dec$f = vuePropertyDecorator.Component({
   name: 'FLToast',
   components: {
     Chip: __vue_component__$5,
     Icon: __vue_component__
   }
-}), _dec$e(_class2$e = (_temp$c = /*#__PURE__*/function (_Vue) {
+}), _dec$f(_class2$f = (_temp$f = /*#__PURE__*/function (_Vue) {
   _inherits(_class2, _Vue);
 
   var _super = _createSuper(_class2);
@@ -2354,7 +2571,7 @@ var _class$e = (_dec$e = vuePropertyDecorator.Component({
   }]);
 
   return _class2;
-}(vuePropertyDecorator.Vue), _temp$c)) || _class2$e);var __vue_script__$e = _class$e;
+}(vuePropertyDecorator.Vue), _temp$f)) || _class2$f);var __vue_script__$f = _class$f;
 /* template */
 
 var __vue_render__$e = function __vue_render__() {
@@ -2434,26 +2651,26 @@ var __vue_render__$e = function __vue_render__() {
 var __vue_staticRenderFns__$e = [];
 /* style */
 
-var __vue_inject_styles__$e = undefined;
+var __vue_inject_styles__$f = undefined;
 /* scoped */
 
-var __vue_scope_id__$e = undefined;
+var __vue_scope_id__$f = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$e = "data-v-788ceaf0";
+var __vue_module_identifier__$f = "data-v-788ceaf0";
 /* functional template */
 
-var __vue_is_functional_template__$e = false;
+var __vue_is_functional_template__$f = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$e = /*#__PURE__*/normalizeComponent({
+var __vue_component__$f = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$e,
   staticRenderFns: __vue_staticRenderFns__$e
-}, __vue_inject_styles__$e, __vue_script__$e, __vue_scope_id__$e, __vue_is_functional_template__$e, __vue_module_identifier__$e, false, undefined, undefined, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,FLButton: __vue_component__$2,FLCheckbox: __vue_component__$4,FLChip: __vue_component__$5,FLDivider: __vue_component__$6,FLForm: __vue_component__$7,FLIcon: __vue_component__,FLInput: __vue_component__$3,FLLoading: __vue_component__$1,FLSelect: __vue_component__$8,FLTextarea: __vue_component__$9,FLDatepicker: __vue_component__$a,FLTimepicker: __vue_component__$b,FLBulletin: __vue_component__$c,FLModal: __vue_component__$d,FLToast: __vue_component__$e});_Vue.use(Datepicker); // Import vue components
+}, __vue_inject_styles__$f, __vue_script__$f, __vue_scope_id__$f, __vue_is_functional_template__$f, __vue_module_identifier__$f, false, undefined, undefined, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,FLButton: __vue_component__$2,FLCheckbox: __vue_component__$4,FLChip: __vue_component__$5,FLDivider: __vue_component__$6,FLForm: __vue_component__$7,FLIcon: __vue_component__,FLInput: __vue_component__$8,FLLoading: __vue_component__$1,FLSelect: __vue_component__$9,FLTextarea: __vue_component__$a,FLDatepicker: __vue_component__$b,FLTimepicker: __vue_component__$c,FLBulletin: __vue_component__$d,FLModal: __vue_component__$e,FLToast: __vue_component__$f});_Vue.use(Datepicker); // Import vue components
 
 // install function executed by Vue.use()
 var install = function installFluffUi(Vue, config) {
@@ -2513,4 +2730,4 @@ var plugin = {
     GlobalVue.use(plugin);
   }
 } // Default export is library as a whole, registered via Vue.use()
-exports.FLBulletin=__vue_component__$c;exports.FLButton=__vue_component__$2;exports.FLCheckbox=__vue_component__$4;exports.FLChip=__vue_component__$5;exports.FLDatepicker=__vue_component__$a;exports.FLDivider=__vue_component__$6;exports.FLForm=__vue_component__$7;exports.FLIcon=__vue_component__;exports.FLInput=__vue_component__$3;exports.FLLoading=__vue_component__$1;exports.FLModal=__vue_component__$d;exports.FLSelect=__vue_component__$8;exports.FLTextarea=__vue_component__$9;exports.FLTimepicker=__vue_component__$b;exports.FLToast=__vue_component__$e;exports.default=plugin;
+exports.FLBulletin=__vue_component__$d;exports.FLButton=__vue_component__$2;exports.FLCheckbox=__vue_component__$4;exports.FLChip=__vue_component__$5;exports.FLDatepicker=__vue_component__$b;exports.FLDivider=__vue_component__$6;exports.FLForm=__vue_component__$7;exports.FLIcon=__vue_component__;exports.FLInput=__vue_component__$8;exports.FLLoading=__vue_component__$1;exports.FLModal=__vue_component__$e;exports.FLSelect=__vue_component__$9;exports.FLTextarea=__vue_component__$a;exports.FLTimepicker=__vue_component__$c;exports.FLToast=__vue_component__$f;exports.default=plugin;

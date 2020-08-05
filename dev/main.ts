@@ -1,5 +1,5 @@
 import Vue, { VNode } from 'vue';
-import Dev from './serve.vue';
+import Main from './main.vue';
 
 import Fluff from '@/entry';
 Vue.use(Fluff, {
@@ -9,5 +9,5 @@ Vue.use(Fluff, {
 Vue.config.productionTip = false;
 
 new Vue({
-  render: (h): VNode => h(Dev)
+  render: (h): VNode => h(Main)
 }).$mount('#app');

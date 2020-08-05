@@ -88,15 +88,30 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop } from 'vue-property-decorator';
-import Input from '../input/input.vue';
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import Input from '../../mixins/input.vue';
 import Icon from '../icon/icon.vue';
 
 @Component({
   name: 'FLTimepicker',
   components: { Icon }
 })
-export default class extends Input {
+export default class extends Mixins(Input) {
+  @Prop() description?: string;
+  @Prop() descriptionAbove?: string;
+  @Prop() descriptionBelow?: string;
+  @Prop() placeholder?: string;
+  @Prop({ default: false }) inline?: boolean;
+  @Prop() autofocus?: boolean;
+
+  protected get upperDescription() {
+    return this.description || this.descriptionAbove;
+  }
+
+  protected get lowerDescription() {
+    return this.descriptionBelow;
+  }
+
   @Prop({
     type: Object
   })

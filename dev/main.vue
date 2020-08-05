@@ -1,10 +1,20 @@
 <template>
-  <div>
-    <FLBulletin :chip="{ color: 'white', text: 'News', icon: 'warning' }"
-      >New webinars available now!
-      <a href="/">Register now <FLIcon i="arrow-right"/></a
-    ></FLBulletin>
-    <div id="app">
+  <div id="app">
+    <Menu />
+
+    <main>
+      <Bulletin />
+      <Button />
+      <Checkbox />
+      <Chip />
+      <Icon />
+      <Input />
+      <Loading />
+      <Select />
+      <FLBulletin :chip="{ color: 'white', text: 'News', icon: 'warning' }"
+        >New webinars available now!
+        <a href="/">Register now <FLIcon i="arrow-right"/></a
+      ></FLBulletin>
       <FLModal />
       <FLToast />
 
@@ -223,7 +233,7 @@
           >Hello</FLButton
         >
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
@@ -232,9 +242,31 @@ import { Component, Vue } from 'vue-property-decorator';
 import '@/entry/../fluff-icons/fluff-icons.scss';
 import './global.scss';
 
+import Bulletin from './docs/bulletin.vue';
+import Button from './docs/button.vue';
+import Checkbox from './docs/checkbox.vue';
+import Chip from './docs/chip.vue';
+import Icon from './docs/icon.vue';
+import Input from './docs/input.vue';
+import Loading from './docs/loading.vue';
+import Select from './docs/select.vue';
+import Menu from './docs/helpers/menu.vue';
+
 import TestModal from './modal-templates/test-modal.vue';
 
-@Component({})
+@Component({
+  components: {
+    Bulletin,
+    Button,
+    Checkbox,
+    Chip,
+    Menu,
+    Icon,
+    Input,
+    Loading,
+    Select
+  }
+})
 export default class extends Vue {
   loading = false;
   f: string = '';
@@ -256,7 +288,8 @@ export default class extends Vue {
     tomorrow.setHours(0, 0, 0, 0);
 
     return (
-      date < tomorrow || date > new Date(tomorrow.getTime() + 30 * 24 * 3600 * 1000)
+      date < tomorrow ||
+      date > new Date(tomorrow.getTime() + 30 * 24 * 3600 * 1000)
     );
   }
 
@@ -268,9 +301,26 @@ export default class extends Vue {
 
 <style lang="scss">
 #app {
+  nav {
+    background-color: #f1f1f1;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    min-width: 200px;
+    margin-right: 16px;
+  }
+  main {
+    padding: 0 32px;
+    flex: 1;
+    width: 100%;
+    section {
+      padding: 32px 0;
+    }
+  }
+  display: flex;
+  align-items: flex-start;
   background-color: #fff;
   margin: 0 auto;
-  max-width: 800px;
-  padding: 32px;
+  max-width: 1280px;
 }
 </style>

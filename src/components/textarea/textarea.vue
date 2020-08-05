@@ -45,12 +45,17 @@
 </template>
 
 <script lang="ts">
-import { Component } from 'vue-property-decorator';
-import Input from '../input/input.vue';
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import Input from '../../mixins/input.vue';
 
 @Component({
   name: 'FLTextarea',
   components: {}
 })
-export default class extends Input {}
+export default class extends Mixins(Input) {
+  @Prop() description?: string;
+  @Prop() descriptionAbove?: string;
+  @Prop() descriptionBelow?: string;
+  @Prop() autofocus?: boolean;
+}
 </script>

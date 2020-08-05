@@ -65,8 +65,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
-import { Form } from '@/components/form/form.vue';
+import { Component, Mixins, Prop } from 'vue-property-decorator';
+import Input from '../../mixins/input.vue';
 
 export type InputType = 'text' | 'email' | 'number' | 'password';
 
@@ -74,20 +74,9 @@ export type InputType = 'text' | 'email' | 'number' | 'password';
   name: 'FLInput',
   components: {}
 })
-export default class extends Vue {
-  /* Main */
-  @Prop() id?: string;
-  @Prop() form?: Form;
-  @Prop({ required: true }) readonly value!: any;
-  locError: string | null = null;
-
+export default class extends Mixins(Input) {
   /* Visuals */
   @Prop({ default: 'text' }) type?: InputType;
-  @Prop({ type: String, default: 'default' }) readonly size?:
-    | 'default'
-    | 'small'
-    | 'large';
-  @Prop() label?: string;
   @Prop() description?: string;
   @Prop() descriptionAbove?: string;
   @Prop() descriptionBelow?: string;
@@ -95,17 +84,12 @@ export default class extends Vue {
   @Prop() prefix?: string;
   @Prop() suffix?: string;
   @Prop({ default: false }) inline?: boolean;
-  @Prop() error?: any;
-  @Prop() errors?: { [k: string]: string };
   @Prop() min?: number;
   @Prop() max?: number;
 
   /* Functional */
-  @Prop()
-  autocomplete?: boolean;
-  @Prop() disabled?: boolean;
+  @Prop() autocomplete?: boolean;
   @Prop() autofocus?: boolean;
-  @Prop() readonly?: boolean;
   @Prop(Number) stagger?: number;
   timeout = setTimeout(() => {}, 0);
 
@@ -160,31 +144,6 @@ export default class extends Vue {
       }
     }
     this.$emit('blur');
-  }
-
-  public get parsedError() {
-    let error: string | null = null;
-    if (this.error) {
-      error = this.error;
-    }
-    if (this.locError) {
-      error = this.locError;
-    } else if (this.form && this.form.childErrors) {
-      const e = this.form.childErrors.find(
-        (error: any) => error.path === this.id
-      );
-      if (e) {
-        error = e.error;
-      }
-    }
-    if (error) {
-      if (this.errors && this.errors[error]) {
-        return this.errors[error];
-      } else {
-        return error;
-      }
-    }
-    return null;
   }
 
   private validateEmail(email: string | null): boolean {
