@@ -1,6 +1,6 @@
 <template>
   <div
-    class="select dsa sda d s"
+    class="select"
     :class="{
       'input--error': !!parsedError,
       'input--inline': inline,

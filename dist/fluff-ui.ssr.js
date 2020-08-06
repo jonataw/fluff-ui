@@ -671,7 +671,7 @@ var __vue_is_functional_template__$2 = false;
 var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$2,
   staticRenderFns: __vue_staticRenderFns__$2
-}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9$1, _dec10, _dec11, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8$1, _descriptor9, _descriptor10, _temp$3;
+}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);var _dec$3, _dec2$3, _dec3$2, _dec4$1, _dec5$1, _dec6$1, _dec7$1, _dec8$1, _dec9$1, _dec10, _class2$3, _class3$3, _descriptor$3, _descriptor2$2, _descriptor3$1, _descriptor4$1, _descriptor5$1, _descriptor6$1, _descriptor7$1, _descriptor8$1, _descriptor9, _temp$3;
 
 var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
   name: 'FLInputMixin',
@@ -681,7 +681,7 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
 }), _dec5$1 = vuePropertyDecorator.Prop({
   type: String,
   default: 'default'
-}), _dec6$1 = vuePropertyDecorator.Prop(), _dec7$1 = vuePropertyDecorator.Prop(), _dec8$1 = vuePropertyDecorator.Prop(), _dec9$1 = vuePropertyDecorator.Prop(), _dec10 = vuePropertyDecorator.Prop(), _dec11 = vuePropertyDecorator.Prop(), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = /*#__PURE__*/function (_Vue) {
+}), _dec6$1 = vuePropertyDecorator.Prop(), _dec7$1 = vuePropertyDecorator.Prop(), _dec8$1 = vuePropertyDecorator.Prop(), _dec9$1 = vuePropertyDecorator.Prop(), _dec10 = vuePropertyDecorator.Prop(), _dec$3(_class2$3 = (_class3$3 = (_temp$3 = /*#__PURE__*/function (_Vue) {
   _inherits(_class3, _Vue);
 
   var _super = _createSuper(_class3);
@@ -715,9 +715,7 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "disabled", _descriptor8$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "autofocus", _descriptor9, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_this, "readonly", _descriptor10, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "readonly", _descriptor9, _assertThisInitialized(_this));
 
     return _this;
   }
@@ -813,12 +811,7 @@ var _class$3 = (_dec$3 = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor9 = _applyDecoratedDescriptor(_class3$3.prototype, "autofocus", [_dec10], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: null
-}), _descriptor10 = _applyDecoratedDescriptor(_class3$3.prototype, "readonly", [_dec11], {
+}), _descriptor9 = _applyDecoratedDescriptor(_class3$3.prototype, "readonly", [_dec10], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -835,7 +828,7 @@ var __vue_inject_styles__$3 = undefined;
 var __vue_scope_id__$3 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$3 = "data-v-2c9eca28";
+var __vue_module_identifier__$3 = "data-v-2364bcf4";
 /* functional template */
 
 var __vue_is_functional_template__$3 = undefined;
@@ -1336,7 +1329,7 @@ var __vue_is_functional_template__$7 = false;
 var __vue_component__$7 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$6,
   staticRenderFns: __vue_staticRenderFns__$6
-}, __vue_inject_styles__$7, __vue_script__$7, __vue_scope_id__$7, __vue_is_functional_template__$7, __vue_module_identifier__$7, false, undefined, createInjectorSSR, undefined);var _dec$8, _dec2$8, _dec3$6, _dec4$3, _dec5$3, _dec6$2, _dec7$2, _dec8$2, _dec9$2, _dec10$1, _dec11$1, _dec12, _dec13, _class2$8, _class3$8, _descriptor$8, _descriptor2$6, _descriptor3$3, _descriptor4$3, _descriptor5$2, _descriptor6$2, _descriptor7$2, _descriptor8$2, _descriptor9$1, _descriptor10$1, _descriptor11, _descriptor12, _temp$8;
+}, __vue_inject_styles__$7, __vue_script__$7, __vue_scope_id__$7, __vue_is_functional_template__$7, __vue_module_identifier__$7, false, undefined, createInjectorSSR, undefined);var _dec$8, _dec2$8, _dec3$6, _dec4$3, _dec5$3, _dec6$2, _dec7$2, _dec8$2, _dec9$2, _dec10$1, _dec11, _dec12, _dec13, _dec14, _class2$8, _class3$8, _descriptor$8, _descriptor2$6, _descriptor3$3, _descriptor4$3, _descriptor5$2, _descriptor6$2, _descriptor7$2, _descriptor8$2, _descriptor9$1, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _temp$8;
 
 var _class$8 = (_dec$8 = vuePropertyDecorator.Component({
   name: 'FLInput',
@@ -1345,7 +1338,7 @@ var _class$8 = (_dec$8 = vuePropertyDecorator.Component({
   default: 'text'
 }), _dec3$6 = vuePropertyDecorator.Prop(), _dec4$3 = vuePropertyDecorator.Prop(), _dec5$3 = vuePropertyDecorator.Prop(), _dec6$2 = vuePropertyDecorator.Prop(), _dec7$2 = vuePropertyDecorator.Prop(), _dec8$2 = vuePropertyDecorator.Prop(), _dec9$2 = vuePropertyDecorator.Prop({
   default: false
-}), _dec10$1 = vuePropertyDecorator.Prop(), _dec11$1 = vuePropertyDecorator.Prop(), _dec12 = vuePropertyDecorator.Prop(), _dec13 = vuePropertyDecorator.Prop(Number), _dec$8(_class2$8 = (_class3$8 = (_temp$8 = /*#__PURE__*/function (_Mixins) {
+}), _dec10$1 = vuePropertyDecorator.Prop(), _dec11 = vuePropertyDecorator.Prop(), _dec12 = vuePropertyDecorator.Prop(), _dec13 = vuePropertyDecorator.Prop(), _dec14 = vuePropertyDecorator.Prop(Number), _dec$8(_class2$8 = (_class3$8 = (_temp$8 = /*#__PURE__*/function (_Mixins) {
   _inherits(_class3, _Mixins);
 
   var _super = _createSuper(_class3);
@@ -1379,11 +1372,13 @@ var _class$8 = (_dec$8 = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "min", _descriptor9$1, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "max", _descriptor10$1, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "max", _descriptor10, _assertThisInitialized(_this));
 
     _initializerDefineProperty(_this, "autocomplete", _descriptor11, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "stagger", _descriptor12, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "autofocus", _descriptor12, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "stagger", _descriptor13, _assertThisInitialized(_this));
 
     _this.timeout = setTimeout(function () {}, 0);
     return _this;
@@ -1506,7 +1501,7 @@ var _class$8 = (_dec$8 = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor10$1 = _applyDecoratedDescriptor(_class3$8.prototype, "max", [_dec11$1], {
+}), _descriptor10 = _applyDecoratedDescriptor(_class3$8.prototype, "max", [_dec11], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1516,7 +1511,12 @@ var _class$8 = (_dec$8 = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor12 = _applyDecoratedDescriptor(_class3$8.prototype, "stagger", [_dec13], {
+}), _descriptor12 = _applyDecoratedDescriptor(_class3$8.prototype, "autofocus", [_dec13], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor13 = _applyDecoratedDescriptor(_class3$8.prototype, "stagger", [_dec14], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1554,7 +1554,7 @@ var __vue_inject_styles__$8 = undefined;
 var __vue_scope_id__$8 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$8 = "data-v-f7300f60";
+var __vue_module_identifier__$8 = "data-v-0aa238da";
 /* functional template */
 
 var __vue_is_functional_template__$8 = false;
@@ -1641,7 +1641,7 @@ var __vue_render__$8 = function __vue_render__() {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
-    staticClass: "select dsa sda d s",
+    staticClass: "select",
     class: (_obj = {
       'input--error': !!_vm.parsedError,
       'input--inline': _vm.inline
@@ -1662,7 +1662,7 @@ var __vue_inject_styles__$9 = undefined;
 var __vue_scope_id__$9 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$9 = "data-v-09f2614c";
+var __vue_module_identifier__$9 = "data-v-7da139be";
 /* functional template */
 
 var __vue_is_functional_template__$9 = false;
@@ -1675,12 +1675,12 @@ var __vue_is_functional_template__$9 = false;
 var __vue_component__$9 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$8,
   staticRenderFns: __vue_staticRenderFns__$8
-}, __vue_inject_styles__$9, __vue_script__$9, __vue_scope_id__$9, __vue_is_functional_template__$9, __vue_module_identifier__$9, false, undefined, undefined, undefined);var _dec$a, _dec2$a, _dec3$7, _dec4$4, _class2$a, _class3$a, _descriptor$a, _descriptor2$7, _descriptor3$4, _temp$a;
+}, __vue_inject_styles__$9, __vue_script__$9, __vue_scope_id__$9, __vue_is_functional_template__$9, __vue_module_identifier__$9, false, undefined, undefined, undefined);var _dec$a, _dec2$a, _dec3$7, _dec4$4, _dec5$4, _class2$a, _class3$a, _descriptor$a, _descriptor2$7, _descriptor3$4, _descriptor4$4, _temp$a;
 
 var _class$a = (_dec$a = vuePropertyDecorator.Component({
   name: 'FLTextarea',
   components: {}
-}), _dec2$a = vuePropertyDecorator.Prop(), _dec3$7 = vuePropertyDecorator.Prop(), _dec4$4 = vuePropertyDecorator.Prop(), _dec$a(_class2$a = (_class3$a = (_temp$a = /*#__PURE__*/function (_Mixins) {
+}), _dec2$a = vuePropertyDecorator.Prop(), _dec3$7 = vuePropertyDecorator.Prop(), _dec4$4 = vuePropertyDecorator.Prop(), _dec5$4 = vuePropertyDecorator.Prop(), _dec$a(_class2$a = (_class3$a = (_temp$a = /*#__PURE__*/function (_Mixins) {
   _inherits(_class3, _Mixins);
 
   var _super = _createSuper(_class3);
@@ -1702,6 +1702,8 @@ var _class$a = (_dec$a = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "descriptionBelow", _descriptor3$4, _assertThisInitialized(_this));
 
+    _initializerDefineProperty(_this, "autofocus", _descriptor4$4, _assertThisInitialized(_this));
+
     return _this;
   }
 
@@ -1717,6 +1719,11 @@ var _class$a = (_dec$a = vuePropertyDecorator.Component({
   writable: true,
   initializer: null
 }), _descriptor3$4 = _applyDecoratedDescriptor(_class3$a.prototype, "descriptionBelow", [_dec4$4], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor4$4 = _applyDecoratedDescriptor(_class3$a.prototype, "autofocus", [_dec5$4], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1751,7 +1758,7 @@ var __vue_inject_styles__$a = undefined;
 var __vue_scope_id__$a = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$a = "data-v-03947940";
+var __vue_module_identifier__$a = "data-v-a6119330";
 /* functional template */
 
 var __vue_is_functional_template__$a = false;
@@ -1764,16 +1771,16 @@ var __vue_is_functional_template__$a = false;
 var __vue_component__$a = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$9,
   staticRenderFns: __vue_staticRenderFns__$9
-}, __vue_inject_styles__$a, __vue_script__$a, __vue_scope_id__$a, __vue_is_functional_template__$a, __vue_module_identifier__$a, false, undefined, undefined, undefined);var _dec$b, _dec2$b, _dec3$8, _dec4$5, _dec5$4, _dec6$3, _dec7$3, _class2$b, _class3$b, _descriptor$b, _descriptor2$8, _descriptor3$5, _descriptor4$4, _descriptor5$3, _descriptor6$3, _temp$b;
+}, __vue_inject_styles__$a, __vue_script__$a, __vue_scope_id__$a, __vue_is_functional_template__$a, __vue_module_identifier__$a, false, undefined, undefined, undefined);var _dec$b, _dec2$b, _dec3$8, _dec4$5, _dec5$5, _dec6$3, _dec7$3, _dec8$3, _class2$b, _class3$b, _descriptor$b, _descriptor2$8, _descriptor3$5, _descriptor4$5, _descriptor5$3, _descriptor6$3, _descriptor7$3, _temp$b;
 
 var _class$b = (_dec$b = vuePropertyDecorator.Component({
   name: 'FLDatepicker',
   components: {
     Icon: __vue_component__
   }
-}), _dec2$b = vuePropertyDecorator.Prop(), _dec3$8 = vuePropertyDecorator.Prop(), _dec4$5 = vuePropertyDecorator.Prop(), _dec5$4 = vuePropertyDecorator.Prop(), _dec6$3 = vuePropertyDecorator.Prop({
+}), _dec2$b = vuePropertyDecorator.Prop(), _dec3$8 = vuePropertyDecorator.Prop(), _dec4$5 = vuePropertyDecorator.Prop(), _dec5$5 = vuePropertyDecorator.Prop(), _dec6$3 = vuePropertyDecorator.Prop({
   default: false
-}), _dec7$3 = vuePropertyDecorator.Prop({
+}), _dec7$3 = vuePropertyDecorator.Prop(), _dec8$3 = vuePropertyDecorator.Prop({
   type: Object
 }), _dec$b(_class2$b = (_class3$b = (_temp$b = /*#__PURE__*/function (_Mixins) {
   _inherits(_class3, _Mixins);
@@ -1797,11 +1804,13 @@ var _class$b = (_dec$b = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "descriptionBelow", _descriptor3$5, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "placeholder", _descriptor4$4, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "placeholder", _descriptor4$5, _assertThisInitialized(_this));
 
     _initializerDefineProperty(_this, "inline", _descriptor5$3, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "options", _descriptor6$3, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "autofocus", _descriptor6$3, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "options", _descriptor7$3, _assertThisInitialized(_this));
 
     return _this;
   }
@@ -1851,7 +1860,7 @@ var _class$b = (_dec$b = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor4$4 = _applyDecoratedDescriptor(_class3$b.prototype, "placeholder", [_dec5$4], {
+}), _descriptor4$5 = _applyDecoratedDescriptor(_class3$b.prototype, "placeholder", [_dec5$5], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1861,7 +1870,12 @@ var _class$b = (_dec$b = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor6$3 = _applyDecoratedDescriptor(_class3$b.prototype, "options", [_dec7$3], {
+}), _descriptor6$3 = _applyDecoratedDescriptor(_class3$b.prototype, "autofocus", [_dec7$3], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor7$3 = _applyDecoratedDescriptor(_class3$b.prototype, "options", [_dec8$3], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -1930,7 +1944,7 @@ var __vue_inject_styles__$b = undefined;
 var __vue_scope_id__$b = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$b = "data-v-0a8d2d15";
+var __vue_module_identifier__$b = "data-v-7ed1ce1d";
 /* functional template */
 
 var __vue_is_functional_template__$b = false;
@@ -1943,16 +1957,16 @@ var __vue_is_functional_template__$b = false;
 var __vue_component__$b = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$a,
   staticRenderFns: __vue_staticRenderFns__$a
-}, __vue_inject_styles__$b, __vue_script__$b, __vue_scope_id__$b, __vue_is_functional_template__$b, __vue_module_identifier__$b, false, undefined, undefined, undefined);var _dec$c, _dec2$c, _dec3$9, _dec4$6, _dec5$5, _dec6$4, _dec7$4, _class2$c, _class3$c, _descriptor$c, _descriptor2$9, _descriptor3$6, _descriptor4$5, _descriptor5$4, _descriptor6$4, _temp$c;
+}, __vue_inject_styles__$b, __vue_script__$b, __vue_scope_id__$b, __vue_is_functional_template__$b, __vue_module_identifier__$b, false, undefined, undefined, undefined);var _dec$c, _dec2$c, _dec3$9, _dec4$6, _dec5$6, _dec6$4, _dec7$4, _dec8$4, _class2$c, _class3$c, _descriptor$c, _descriptor2$9, _descriptor3$6, _descriptor4$6, _descriptor5$4, _descriptor6$4, _descriptor7$4, _temp$c;
 
 var _class$c = (_dec$c = vuePropertyDecorator.Component({
   name: 'FLTimepicker',
   components: {
     Icon: __vue_component__
   }
-}), _dec2$c = vuePropertyDecorator.Prop(), _dec3$9 = vuePropertyDecorator.Prop(), _dec4$6 = vuePropertyDecorator.Prop(), _dec5$5 = vuePropertyDecorator.Prop(), _dec6$4 = vuePropertyDecorator.Prop({
+}), _dec2$c = vuePropertyDecorator.Prop(), _dec3$9 = vuePropertyDecorator.Prop(), _dec4$6 = vuePropertyDecorator.Prop(), _dec5$6 = vuePropertyDecorator.Prop(), _dec6$4 = vuePropertyDecorator.Prop({
   default: false
-}), _dec7$4 = vuePropertyDecorator.Prop({
+}), _dec7$4 = vuePropertyDecorator.Prop(), _dec8$4 = vuePropertyDecorator.Prop({
   type: Object
 }), _dec$c(_class2$c = (_class3$c = (_temp$c = /*#__PURE__*/function (_Mixins) {
   _inherits(_class3, _Mixins);
@@ -1976,11 +1990,13 @@ var _class$c = (_dec$c = vuePropertyDecorator.Component({
 
     _initializerDefineProperty(_this, "descriptionBelow", _descriptor3$6, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "placeholder", _descriptor4$5, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "placeholder", _descriptor4$6, _assertThisInitialized(_this));
 
     _initializerDefineProperty(_this, "inline", _descriptor5$4, _assertThisInitialized(_this));
 
-    _initializerDefineProperty(_this, "options", _descriptor6$4, _assertThisInitialized(_this));
+    _initializerDefineProperty(_this, "autofocus", _descriptor6$4, _assertThisInitialized(_this));
+
+    _initializerDefineProperty(_this, "options", _descriptor7$4, _assertThisInitialized(_this));
 
     return _this;
   }
@@ -2034,7 +2050,7 @@ var _class$c = (_dec$c = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor4$5 = _applyDecoratedDescriptor(_class3$c.prototype, "placeholder", [_dec5$5], {
+}), _descriptor4$6 = _applyDecoratedDescriptor(_class3$c.prototype, "placeholder", [_dec5$6], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -2044,7 +2060,12 @@ var _class$c = (_dec$c = vuePropertyDecorator.Component({
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor6$4 = _applyDecoratedDescriptor(_class3$c.prototype, "options", [_dec7$4], {
+}), _descriptor6$4 = _applyDecoratedDescriptor(_class3$c.prototype, "autofocus", [_dec7$4], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor7$4 = _applyDecoratedDescriptor(_class3$c.prototype, "options", [_dec8$4], {
   configurable: true,
   enumerable: true,
   writable: true,
@@ -2119,7 +2140,7 @@ var __vue_inject_styles__$c = undefined;
 var __vue_scope_id__$c = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$c = "data-v-0cf27b19";
+var __vue_module_identifier__$c = "data-v-345dedde";
 /* functional template */
 
 var __vue_is_functional_template__$c = false;
