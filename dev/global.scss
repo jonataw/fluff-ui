@@ -7,12 +7,28 @@
   line-height: 1.25;
 }
 
+code {
+  background-color: #eee;
+  border-radius: 3px;
+  font-family: courier, monospace;
+  padding: 1px 4px;
+}
+
 p {
   line-height: 1.5;
 }
 
+h2 {
+  font-weight: 600;
+  font-size: 21px;
+}
+h3 {
+  font-weight: 600;
+  font-size: 18px;
+}
+
 .flex {
-  margin: 32px 0;
+  margin: 16px 0;
   display: flex;
   column-gap: 8px;
 
@@ -44,4 +60,13 @@ p {
 .chip.chip--color-white {
   background-color: rgb(18, 153, 86);
   color: rgb(255, 255, 255);
+}
+
+.button {
+  .loading.loading--color-button {
+    border-left-color: rgb(243, 243, 243);
+    border-top-color: rgb(243, 243, 243);
+    border-bottom-color: rgba(243, 243, 243, 0.25);
+    border-right-color: rgba(243, 243, 243, 0.25);
+  }
 }

@@ -15,6 +15,7 @@
       margin: 0;
       width: 100%;
       padding: 12px;
+      padding-right: 55px;
 
       cursor: pointer;
 
@@ -104,6 +105,7 @@
     .select__inner {
       .select__element {
         padding: 16px 12px;
+        padding-right: 55px;
       }
     }
   }
@@ -112,6 +114,7 @@
     .select__inner {
       .select__element {
         padding: 8px 12px;
+        padding-right: 55px;
         @-moz-document url-prefix() {
           padding-left: 4px !important;
         }

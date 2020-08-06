@@ -76,8 +76,8 @@ c0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z"
 </template>
 
 <script lang="ts">
-import { Component, Prop } from 'vue-property-decorator';
-import Input from '../input/input.vue';
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import Input from '../../mixins/input.vue';
 import Icon from '../icon/icon.vue';
 
 interface OptionItem {
@@ -89,7 +89,7 @@ interface OptionItem {
   name: 'FLSelect',
   components: { Icon }
 })
-export default class extends Input {
+export default class extends Mixins(Input) {
   @Prop({ type: Array, required: true }) readonly options!: OptionItem[];
 
   protected onInput(value: string | boolean | number | null) {

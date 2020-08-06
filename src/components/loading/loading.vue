@@ -15,7 +15,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
   name: 'FLLoading'
 })
 export default class extends Vue {
-  @Prop({ type: String, required: false }) readonly color?: string;
+  @Prop({ type: String, default: 'default' }) readonly color?: string;
   @Prop({ type: String, default: 'default' }) readonly size?: 'default' | 'small' | 'large';
 }
 </script>

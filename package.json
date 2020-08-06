@@ -1,6 +1,6 @@
 {
   "name": "fluff-ui",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "Fluff UI - A component library for Vue.js.",
   "author": {
     "email": "jonatan.wackstrom@gmail.com",
@@ -28,7 +28,7 @@
     "src/**/*.vue"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve dev/serve.ts",
+    "serve": "vue-cli-service serve dev/main.ts",
     "publish:npm": "npm run build && npm publish",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js && npm run build:css",
     "build:css": "node-sass --recursive -o dist src/scss/ --output-style compressed && ncp src/fluff-icons dist/ && ncp src/scss dist/scss && node-sass -o dist dist/fluff-icons.scss --output-style compressed && rimraf dist/fluff-icons.scss",
