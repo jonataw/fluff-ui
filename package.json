@@ -1,6 +1,6 @@
 {
   "name": "fluff-ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Fluff UI - A component library for Vue.js.",
   "author": {
     "email": "jonatan.wackstrom@gmail.com",
@@ -30,7 +30,7 @@
   "scripts": {
     "docs": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "publish:npm": "npm run build && npm publish",
+    "publish:npm": "npm i && npm run build && npm publish",
     "build": "rimraf dist && cross-env NODE_ENV=production rollup --config build/rollup.config.js && npm run build:css",
     "build:css": "ncp src/icons dist/ && ncp src/styles dist/styles && node build/ncp",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
