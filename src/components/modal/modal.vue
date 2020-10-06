@@ -25,15 +25,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { ModalOptions } from '../../../fluff-ui';
-import Icon from '@/components/icon/icon.vue';
+import { ModalOptions } from 'fluff-ui';
+import Icon from '../icon/icon.vue';
 
 const defaultOptions: ModalOptions = {
   allowBodyScroll: false,
   closeable: true,
   width: 580
 };
-
 @Component({
   name: 'FLModal',
   components: { Icon }
@@ -42,9 +41,9 @@ export default class extends Vue {
   component: typeof Component | null = null;
   data: any | null = null;
   options: ModalOptions = defaultOptions;
-
-  created() {
-    this.$bus.$on(
+  created(): void {
+    console.log(this);
+    this.$fluff.bus.$on(
       'open_modal',
       (
         component:
@@ -60,8 +59,11 @@ export default class extends Vue {
           component = component.component;
         }
         // Set default options.
-        options = { ...defaultOptions, ...this.$config.modal, ...options };
-
+        options = {
+          ...defaultOptions,
+          ...this.$fluff.config.modal,
+          ...options
+        };
         // TODO: if (component instanceof Vue) does not work here for some reason?
         if (typeof component !== 'function') {
           return console.error(
@@ -71,20 +73,18 @@ export default class extends Vue {
         this.options = options;
         this.component = component;
         this.data = data;
-
         if (!this.options.allowBodyScroll) {
           // Restrict the body overflow.
           this.restrictBodyOverflow();
         }
       }
     );
-    this.$bus.$on('close_modal', () => {
+    this.$fluff.bus.$on('close_modal', () => {
       this.releaseBodyOverflow();
       this.component = null;
       this.data = null;
     });
   }
-
   private restrictBodyOverflow(): void {
     if (!this.$isServer) {
       const body = document.querySelector('body');
@@ -93,7 +93,6 @@ export default class extends Vue {
       }
     }
   }
-
   private releaseBodyOverflow(): void {
     if (!this.$isServer) {
       const body = document.querySelector('body');
@@ -102,9 +101,10 @@ export default class extends Vue {
       }
     }
   }
-
-  close(event: any) {
-    const close = () => this.$bus.$emit('close_modal');
+  close(event: any): void {
+    const close = (): void => {
+      this.$fluff.bus.$emit('close_modal');
+    };
     const cl: DOMTokenList = event.target.classList;
     if (!cl.contains('modal__outer') && !cl.contains('modal__close_icon')) {
       return;
@@ -121,7 +121,6 @@ export default class extends Vue {
       }
     }
   }
-
   get width(): string {
     const width = this.options.width;
     if (typeof width === 'number') {

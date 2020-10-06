@@ -1,0 +1,73 @@
+
+.textarea {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 4px 0 12px 0;
+
+  .textarea__inner {
+    height: 100%;
+    position: relative;
+    textarea {
+      min-width: 200px;
+      min-height: 50px;
+      /* HTML Input */
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+
+      font-family: inherit;
+
+      margin: 0;
+      padding: 12px;
+
+      box-shadow: $shadow-input;
+
+      border-radius: $border-radius;
+      border: 1px solid $color-input-border;
+
+      &:disabled {
+        color: $color-input-text--disabled;
+      }
+
+      &::placeholder {
+        color: $color-input-text--placeholder;
+      }
+
+      &:hover {
+        border-color: $color-input-border--hover;
+      }
+
+      &:focus {
+        border-color: $color-input-border--focus;
+      }
+    }
+
+    .textarea__error_icon {
+      position: absolute;
+      align-items: center;
+      padding: 14px 14px;
+      max-width: 48px;
+      right: 0px;
+      top: 1px;
+      pointer-events: none;
+      svg {
+        fill: $color-error;
+        max-width: 18px;
+        height: 100%;
+      }
+    }
+  }
+
+  &.input--size-large {
+    .textarea__element {
+      padding: 16px 12px;
+    }
+  }
+
+  &.input--size-small {
+    .textarea__element {
+      padding: 8px 8px;
+    }
+  }
+}

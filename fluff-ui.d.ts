@@ -22,6 +22,17 @@ export const FLChip: VueConstructor<Vue>;
 export const FLModal: VueConstructor<Vue>;
 export const FLToast: VueConstructor<Vue>;
 
+export interface FormOptions {
+  /**
+   * The key of the error response that contains the response error type.
+   */
+  errorKey: string;
+
+  childErrorsKey: string;
+
+  childKey: string;
+}
+
 export interface ModalOptions {
   /**
    * Allows the <body> element to scroll while the modal is visible.
@@ -123,12 +134,18 @@ interface Bus {
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $bus: Bus;
-    $config: {
-      modal: ModalOptions;
-      toast: ToastOptions;
+    $fluff: {
+      bus: Bus;
+      config: {
+        modal: ModalOptions;
+        toast: ToastOptions;
+        form: FormOptions;
+      };
+      modal: ModalMethods;
+      toast: ToastMethods;
+      uuid: string;
+      autoBind(binds: string[], props: any): Record<string, any>;
+      autoListen(binds: string[], listeners: any): Record<string, any>;
     };
-    $modal: ModalMethods;
-    $toast: ToastMethods;
   }
 }

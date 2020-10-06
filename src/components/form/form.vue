@@ -1,9 +1,11 @@
 <template>
   <form
+    :ref="form.name"
+    :id="form.name"
     class="form"
-    :id="name"
-    :novalidate="!htmlValidate"
-    @submit.prevent="onSubmit"
+    v-bind="$fluff.autoBind(binds, $props)"
+    v-on="$fluff.autoListen(listeners, $listeners)"
+    @submit="onSubmit"
   >
     <div
       v-if="showError && form.error"
@@ -17,115 +19,137 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import FLIcon from '@/components/icon/icon.vue';
+
+export interface Form {
+  /**
+   * Form identifier. If this prop is omitted on form creation,
+   * a generated uuid will be used instead.
+   */
+  name: string;
+
+  /**
+   * Form is in loading state, awaiting server response.
+   */
+  loading: boolean;
+
+  /**
+   * Form has successfully been submitted.
+   */
+  completed: boolean;
+
+  error: string | null;
+  errors: ChildError[];
+}
+
+interface ChildError {
+  field: string;
+  error: string;
+}
 
 interface ScrollTopOptions {
   error: boolean;
   complete: boolean;
 }
 
+interface Callback {
+  error?: {
+    name: string;
+    details: ChildError[];
+  } | null;
+}
+
 @Component({
-  name: 'FLForm',
-  components: { FLIcon }
+  name: 'FLForm'
 })
 export default class extends Vue {
-  @Prop({ type: String, required: true }) readonly name!: string;
-  @Prop({ type: Boolean, default: false }) readonly htmlValidate!: boolean;
-  @Prop({ type: Boolean, default: false }) readonly scrollToTop!:
+  protected binds = ['name', 'method', 'action', 'enctype', 'target'];
+  protected listeners = ['submit'];
+  private form: Form;
+
+  @Prop({ type: String, required: false }) name?: string;
+
+  @Prop({ type: Boolean, default: false }) readonly scrollTopOptions!:
     | boolean
     | ScrollTopOptions;
+
   @Prop({ type: Boolean, default: false }) readonly showError?: boolean;
 
-  private form: Form | null = null;
+  @Prop({ type: String }) readonly method?: string;
+  @Prop({ type: String }) readonly action?: string;
+  @Prop({ type: String }) readonly enctype?: string;
+  @Prop({ type: String }) readonly target?: string;
 
-  public onSubmit(): void {
-    if (!this.form || (this.form && this.form.loading)) {
-      return;
+  public created(): void {
+    this.form = this.createFormObject();
+  }
+
+  /**
+   * Fired on submission of form.
+   */
+  private createFormObject(): Form {
+    return {
+      name: this.name || this.$fluff.uuid,
+      loading: false,
+      completed: false,
+      error: null,
+      errors: []
+    };
+  }
+
+  /**
+   * Fired on submission of form.
+   */
+  public onSubmit(event: Event): void {
+    if (!this.action) {
+      event.preventDefault();
     }
-    this.form.error = null;
-    this.form.childErrors = [];
+    if (this.form.loading) {
+      return; // Prevent submission if the form is already being submitted.
+    }
     this.form.loading = true;
-    this.$emit('submit', (callback: any) => {
-      if (this.form) {
-        if (callback.error) {
-          if (
-            this.scrollToTop === true ||
-            (typeof this.scrollToTop === 'object' && this.scrollToTop.error)
-          ) {
-            this.scroll();
-          }
-          this.form.error = callback.error.type;
-          this.form.childErrors = callback.error.fields;
-        } else {
-          if (
-            this.scrollToTop === true ||
-            (typeof this.scrollToTop === 'object' && this.scrollToTop.complete)
-          ) {
-            this.scroll();
-          }
-        }
-        this.form.loading = false;
+
+    // Remove main error and children errors.
+    this.form.error = null;
+    this.form.errors = [];
+
+    this.$emit('submit', event, (callback: Callback) => {
+      if (callback.error) {
+        this.form.error = callback.error.name; // <-- Allow change of "name" (config).
+        this.form.errors = callback.error.details; // <-- Allow change of "details" (config).
       }
+      this.scroll(callback);
+      this.form.loading = false;
     });
   }
 
-  private scroll(): void {
-    if (this.element) {
+  /**
+   * Handles the scroll to top after submission if the configuration option is set.
+   */
+  private scroll(callback: Callback): void {
+    const scroll = (): void => {
       window.scrollTo(0, this.element.offsetTop);
+    };
+    if (callback.error) {
+      if (
+        this.scrollTopOptions === true ||
+        (typeof this.scrollTopOptions === 'object' &&
+          this.scrollTopOptions.error)
+      ) {
+        scroll();
+      }
+    } else {
+      if (
+        this.scrollTopOptions === true ||
+        (typeof this.scrollTopOptions === 'object' &&
+          this.scrollTopOptions.complete)
+      ) {
+        scroll();
+      }
     }
   }
 
-  private get element(): HTMLElement | null {
-    return document.getElementById(this.name);
+  private get element(): HTMLElement {
+    return document.getElementById(this.form.name) as HTMLElement;
   }
-
-  public mounted(): void {
-    this.form = this.generateForm();
-  }
-
-  private generateForm(): Form {
-    return {
-      loading: false,
-      done: false,
-      error: null,
-      childErrors: []
-    };
-  }
-}
-
-type ChildError = {
-  path: string;
-  error: string | null;
-  message?: string;
-  value?: string;
-};
-
-/*type Error = {
-  name: string;
-  type: string;
-  message: string | null;
-  fields: Array<ChildError>;
-  statusCode: number;
-};*/
-
-export interface Form {
-  loading: boolean; // Form is in loading state, awaiting server response.
-  done: boolean; // Form has been submitted without error.
-
-  error: string | null;
-  childErrors: Array<ChildError>;
 }
 </script>
-
-<style lang="scss" scoped>
-.form-error {
-  display: flex;
-  align-items: center;
-  .icon {
-    font-size: 20px;
-  }
-  > span {
-    margin-left: 6px;
-  }
-}
-</style>

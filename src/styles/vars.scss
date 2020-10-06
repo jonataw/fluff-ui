@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+$border-radius: 4px !default;
+
+$color-error: #d6274d !default;
+$color-text: #000 !default;
+$color-default: #9172c2 !default;
+$color-default--disabled: lighten($color-default, 25%) !default;
+$color-body: #ffffff !default;
+$color-border: #e2e2e2 !default;
+
+$color-input-border: $color-border !default;
+$color-input-border--hover: darken($color-input-border, 10%) !default;
+$color-input-border--focus: $color-default !default;
+
+$color-input-text: $color-text !default;
+$color-input-text--placeholder: darken($color-border, 30%) !default;
+$color-input-text--disabled: lighten($color-input-text, 25%) !default;
+
+$color-checkbox-fill: $color-input-border--focus !default;
+$color-checkbox-fill--disabled: $color-default--disabled !default;
+
+$color-divider: $color-border !default;
+
+$color-loading: $color-default !default;
+$color-loading-background: lighten($color-loading, 25%) !default;
+
+$color-button-text: #fff !default;
+$color-button-background: $color-default !default;
+$color-button-background--disabled: $color-default--disabled !default;
+$color-button-background--hover: darken($color-button-background, 10%) !default;
+$color-button-background--active: darken(
+  $color-button-background--hover,
+  10%
+) !default;
+
+$color-toast-progress: $color-loading !default;
+$color-toast-progress-background: $color-loading-background !default;
+
+$shadow-input: inset 0 2px 4px 0 #ced1e033 !default;
+$shadow-modal: 0 10px 15px -3px #0000001a, 0 4px 6px -2px #0000000d !default;
+$shadow-toast: 0 10px 15px -3px #0000001a, 0 4px 6px -2px #0000000d !default;

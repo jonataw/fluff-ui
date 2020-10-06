@@ -2,7 +2,7 @@
   <div
     class="input"
     :class="{
-      'input--error': !!parsedError,
+      'input--error': hasError,
       'input--inline': inline,
       'input--has-prefix': !!prefix,
       'input--has-suffix': !!suffix,
@@ -14,9 +14,9 @@
 
     <!-- Description above input field -->
     <p
-      v-if="upperDescription"
+      v-if="descriptionAbove || description"
       class="input__description"
-      v-text="upperDescription"
+      v-text="descriptionAbove || description"
     />
 
     <div class="input__outer">
@@ -24,21 +24,14 @@
 
       <div class="input__inner">
         <input
-          :id="id"
-          :value="value"
-          :type="type || 'text'"
-          :disabled="disabled"
+          :ref="id"
           :placeholder="placeholder === undefined ? label : placeholder"
-          :autocomplete="autocomplete"
-          :autofocus="autofocus"
-          :readonly="readonly"
+          v-bind="$fluff.autoBind(binds, $props)"
+          v-on="$fluff.autoListen(listeners, $listeners)"
           class="input__element"
-          @input.prevent="onInput($event.target.value)"
+          @input.prevent="onInputM($event.target.value)"
           @blur="onBlur"
-          @focus="$emit('focus')"
-          @keydown="$emit('keydown')"
-          @keyup="$emit('keyup')"
-          @keypress="$emit('keypress')"
+          @focus="onFocus"
         />
         <span v-if="error" class="input__error_icon">
           <svg>
@@ -53,99 +46,55 @@
     </div>
 
     <!-- Error -->
-    <span v-if="parsedError" class="input__error">{{ parsedError }}</span>
+    <span v-if="hasError" class="input__error">{{ err }}</span>
 
     <!-- Description below input field -->
     <p
-      v-if="lowerDescription"
+      v-if="descriptionBelow"
       class="input__description_below"
-      v-html="lowerDescription"
+      v-html="descriptionBelow"
     ></p>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Mixins, Prop } from 'vue-property-decorator';
-import Input from '../../mixins/input.vue';
-
+import InputField from '../../mixins/input-field.vue';
 export type InputType = 'text' | 'email' | 'number' | 'password';
-
 @Component({
   name: 'FLInput',
   components: {}
 })
-export default class extends Mixins(Input) {
-  /* Visuals */
-  @Prop({ default: 'text' }) type?: InputType;
-  @Prop() description?: string;
-  @Prop() descriptionAbove?: string;
-  @Prop() descriptionBelow?: string;
-  @Prop() placeholder?: string;
-  @Prop() prefix?: string;
-  @Prop() suffix?: string;
-  @Prop({ default: false }) inline?: boolean;
-  @Prop() min?: number;
-  @Prop() max?: number;
+export default class extends Mixins(InputField) {
+  protected binds = [
+    'id',
+    'name',
+    'value',
+    'type',
+    'min',
+    'max',
+    'disabled',
+    'readonly',
+    'autocomplete',
+    'autofocus'
+  ];
+  protected listeners = ['blur', 'focus', 'input'];
 
-  /* Functional */
-  @Prop() autocomplete?: boolean;
-  @Prop() autofocus?: boolean;
-  @Prop(Number) stagger?: number;
-  timeout = setTimeout(() => {}, 0);
+  @Prop({ type: String, default: 'text' }) type?: InputType;
+  @Prop({ type: String }) placeholder?: string;
+  @Prop({ type: String }) prefix?: string;
+  @Prop({ type: String }) suffix?: string;
+  @Prop({ type: Boolean }) autocomplete?: boolean;
+  @Prop({ type: Number }) delayed?: number;
 
-  protected get upperDescription() {
-    return this.description || this.descriptionAbove;
+  protected onInputM(value: any): void {
+    this.onInput(value);
+    if (this.delayed) {
+      this.startDelay(value);
+    }
   }
 
-  protected get lowerDescription() {
-    return this.descriptionBelow;
-  }
-
-  protected onInput(value: any) {
-    if (this.disabled) {
-      /* Do not allow input if input should be disabled */
-      return;
-    }
-
-    if (this.type === 'number') {
-      if (!isNaN(parseInt(value))) {
-        value = parseInt(value);
-      }
-    }
-
-    if (this.stagger) {
-      clearTimeout(this.timeout);
-      this.timeout = setTimeout(() => {
-        this.$emit('staggered-input', value, this.id);
-      }, this.stagger);
-    }
-
-    this.$emit('input', value, this.id);
-  }
-
-  protected onBlur(): void {
-    if (this.type === 'email') {
-      if (this.value.length && !this.validateEmail(this.value)) {
-        this.locError = 'invalid_email_address';
-      } else {
-        this.locError = null;
-      }
-    } else if (this.type === 'number') {
-      if (!this.validateNumber(this.value)) {
-        this.locError = 'invalid_number';
-      } else {
-        if (this.max && this.value > this.max) {
-          'max_value_exceeed';
-        }
-        if (this.max && this.value > this.max) {
-          'min_value_subceeded';
-        }
-        this.locError = null;
-      }
-    }
-    this.$emit('blur');
-  }
-
+  /*
   private validateEmail(email: string | null): boolean {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
@@ -153,6 +102,15 @@ export default class extends Mixins(Input) {
 
   private validateNumber(number: string): boolean {
     return /^\d+$/.test(number);
+  }
+  */
+
+  private timeout = window.setTimeout(() => {}, 0);
+  private startDelay(value: any): void {
+    window.clearTimeout(this.timeout); // Reset the timeout.
+    this.timeout = window.setTimeout(() => {
+      this.$emit('input-delayed', value, this.id);
+    }, this.delayed);
   }
 }
 </script>

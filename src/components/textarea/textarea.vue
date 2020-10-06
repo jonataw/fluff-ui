@@ -1,34 +1,25 @@
 <template>
   <div
     class="textarea"
-    :class="{ 'input--error': !!parsedError, [`input--size-${size}`]: true }"
+    :class="{ 'input--error': hasError, [`input--size-${size}`]: true }"
   >
     <!-- Textarea label -->
     <label v-if="label" :for="id" class="input__label" v-text="label" />
 
     <!-- Description above textarea field -->
     <p
-      v-if="upperDescription"
+      v-if="descriptionAbove || description"
       class="input__description"
-      v-text="upperDescription"
+      v-text="descriptionAbove || description"
     />
 
     <div class="textarea__inner">
       <textarea
-        :id="id"
-        :value="value"
-        :disabled="disabled"
         :placeholder="placeholder === undefined ? label : placeholder"
-        :autocomplete="autocomplete"
-        :autofocus="autofocus"
-        :readonly="readonly"
         class="textarea__element"
+        v-bind="$fluff.autoBind(binds, $props)"
+        v-on="$fluff.autoListen(['input'], $listeners)"
         @input="onInput($event.target.value)"
-        @blur="onBlur"
-        @focus="$emit('focus')"
-        @keydown="$emit('keydown')"
-        @keyup="$emit('keyup')"
-        @keypress="$emit('keypress')"
       />
     </div>
 
@@ -37,9 +28,9 @@
 
     <!-- Description below textarea field -->
     <p
-      v-if="lowerDescription"
+      v-if="descriptionBelow"
       class="input__description_below"
-      v-html="lowerDescription"
+      v-html="descriptionBelow"
     ></p>
   </div>
 </template>
@@ -47,12 +38,21 @@
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
 import Input from '../../mixins/input.vue';
-
 @Component({
   name: 'FLTextarea',
   components: {}
 })
 export default class extends Mixins(Input) {
+  protected binds = [
+    'name',
+    'id',
+    'value',
+    'disabled',
+    'readonly',
+    'autofocus',
+    'autocomplete'
+  ];
+
   @Prop() description?: string;
   @Prop() descriptionAbove?: string;
   @Prop() descriptionBelow?: string;

@@ -25,6 +25,7 @@ module.exports = {
         asyncArrow: 'always'
       }
     ],
+    '@typescript-eslint/explicit-function-return-type': ['error'],
     quotes: ['error', 'single', { allowTemplateLiterals: true }],
     indent: ['error', 2, { SwitchCase: 1 }],
     semi: ['error', 'always']

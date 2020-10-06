@@ -1,0 +1,117 @@
+.button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+
+  &.button--inline {
+    .button__element {
+      width: auto;
+      display: inline-flex;
+    }
+  }
+
+  &.button--size-small {
+    .button__element {
+      font-size: 15px;
+      padding: 6px 12px;
+    }
+    &.button--icon-align-left {
+      .button__text {
+        padding-left: 8px;
+      }
+    }
+    &.button--icon-align-right {
+      .button__text {
+        padding-right: 8px;
+      }
+    }
+  }
+
+  &.button--size-default {
+    .button__element {
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+    &.button--icon-align-left {
+      .button__text {
+        padding-left: 8px;
+      }
+    }
+    &.button--icon-align-right {
+      .button__text {
+        padding-right: 8px;
+      }
+    }
+  }
+
+  &.button--size-large {
+    .button__element {
+      font-size: 18px;
+      padding: 14px 32px;
+    }
+    &.button--icon-align-left {
+      .button__text {
+        padding-left: 8px;
+      }
+    }
+    &.button--icon-align-right {
+      .button__text {
+        padding-right: 8px;
+      }
+    }
+  }
+
+  &.button--icon-align-right {
+    .button__element {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .button__text {
+    display: block;
+    font-weight: 400;
+  }
+
+  .button__loading {
+    position: absolute;
+  }
+
+  &.button--loading {
+    .button__text,
+    .button__icon {
+      opacity: 0;
+    }
+  }
+
+  .button__element {
+    // Resets
+    border: none;
+    font-family: inherit;
+
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    border-radius: $border-radius;
+
+    cursor: pointer;
+
+    line-height: 1;
+    background-color: $color-button-background;
+    color: $color-button-text;
+
+    &:hover {
+      background-color: $color-button-background--hover;
+    }
+
+    &:active {
+      background-color: $color-button-background--active;
+    }
+
+    &:disabled {
+      background-color: $color-button-background--disabled;
+      cursor: default;
+    }
+  }
+}

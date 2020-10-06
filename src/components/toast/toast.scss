@@ -1,0 +1,102 @@
+.anim--toast-enter,
+.anim--toast-leave-to {
+  opacity: 0;
+}
+.anim--toast-leave-active {
+  left: 0;
+  position: absolute;
+  transform: translateY(-10px);
+}
+
+.toast_container {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 40;
+  width: calc(100% - 64px);
+  max-width: 400px;
+  .toast {
+    box-shadow: $shadow-toast;
+    background-color: #fff;
+    transition: all 0.25s;
+    display: inline-flex;
+    margin-bottom: 12px;
+    width: 100%;
+    &.toast--closeable {
+      cursor: pointer;
+    }
+    .toast__progress_background {
+      display: none;
+    }
+    &.toast--delay {
+      .toast__inner {
+        position: relative;
+        .toast__progress_background {
+          position: absolute;
+          display: block;
+          background-color: rgb(214, 214, 214);
+          bottom: -3px;
+          left: 0;
+          height: 3px;
+          width: 100%;
+        }
+        .toast__progress {
+          position: absolute;
+          background-color: rgb(151, 151, 151);
+          width: 100%;
+          height: 100%;
+          animation: delay 3s linear;
+        }
+
+        @keyframes delay {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .toast__inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      position: relative;
+      padding: 16px;
+    }
+
+    .toast__chip,
+    .toast__icon {
+      display: inline-block;
+      margin-right: 16px;
+    }
+
+    .toast__middle {
+      padding-right: 24px;
+      flex: 1;
+    }
+
+    .toast__title {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+    .toast__text {
+      display: block;
+      margin: 0;
+    }
+
+    .toast__close_icon {
+      position: absolute;
+      top: 9px;
+      right: 9px;
+      padding: 8px;
+      cursor: pointer;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

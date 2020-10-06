@@ -1,6 +1,6 @@
 <template>
   <div class="toast_container">
-    <transition-group name="list-complete">
+    <transition-group name="anim--toast">
       <div
         v-for="toast in toasts"
         :key="toast.id"
@@ -55,20 +55,17 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Toast, ToastOptions } from '../../../fluff-ui';
-
-import Chip from '@/components/chip/chip.vue';
-import Icon from '@/components/icon/icon.vue';
+import Chip from '../chip/chip.vue';
+import Icon from '../icon/icon.vue';
 
 const defaultOptions: ToastOptions = {
   closeable: true,
   delay: 5000,
   showDelayProgress: true
 };
-
 interface ToastWithId extends Toast {
   id: number;
 }
-
 @Component({
   name: 'FLToast',
   components: { Chip, Icon }
@@ -76,17 +73,14 @@ interface ToastWithId extends Toast {
 export default class extends Vue {
   toasts: ToastWithId[] = [];
   id = 0;
-
-  created() {
-    this.$bus.$on('pop_toast', (toast: Toast) => {
+  created(): void {
+    this.$fluff.bus.$on('pop_toast', (toast: Toast) => {
       const id = this.id++;
-
       toast.options = {
         ...defaultOptions,
-        ...this.$config.toast,
+        ...this.$fluff.config.toast,
         ...toast.options
       };
-
       this.toasts.push({ ...toast, id });
       if (toast.options.delay && typeof toast.options.delay === 'number') {
         setTimeout(() => {
@@ -94,19 +88,23 @@ export default class extends Vue {
         }, toast.options.delay);
       }
     });
-    this.$bus.$on('close_toast', (id: number) => {
+    this.$fluff.bus.$on('close_toast', (id: number) => {
       this.toasts = this.toasts.filter(_ => _.id !== id);
     });
   }
-
-  close(event: any, id: number) {
+  close(event: any, id: number): void {
     const toast = this.toasts.find(_t => _t.id === id);
     if (!toast) {
       return;
     }
-    const close = () => this.$bus.$emit('close_toast', id);
+    const close = (): void => {
+      this.$fluff.bus.$emit('close_toast', id);
+    };
     const cl: DOMTokenList = event.target.classList;
-    const closeable = toast.options?.closeable;
+    let closeable;
+    if (toast.options) {
+      closeable = toast.options.closeable;
+    }
     if (typeof closeable === 'boolean' && closeable) {
       close();
     } else if (typeof closeable === 'object') {

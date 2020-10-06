@@ -1,0 +1,467 @@
+
+$namespace: 'ext__datepicker';
+
+.datepicker,
+.timepicker {
+  display: block;
+  position: relative;
+  margin: 4px 0 12px 0;
+  min-width: 100px;
+
+  .datepicker__inner,
+  .timepicker__inner {
+    position: relative;
+    .#{$namespace}-input {
+      /* HTML Input */
+      margin: 0;
+      width: 100%;
+      padding: 12px;
+
+      font-size: inherit;
+      font-family: inherit;
+
+      cursor: pointer;
+
+      box-shadow: $shadow-input;
+
+      border-radius: $border-radius;
+      border: 1px solid $color-input-border;
+
+      &:disabled {
+        color: $color-input-text--disabled;
+      }
+
+      &::placeholder {
+        color: $color-input-text--placeholder;
+      }
+
+      &:hover {
+        border-color: $color-input-border--hover;
+      }
+
+      &:focus {
+        border-color: $color-input-border--focus;
+      }
+    }
+
+    .datepicker__icon,
+    .timepicker__icon {
+      line-height: 1;
+      display: flex;
+      position: absolute;
+      align-items: center;
+      max-width: 48px;
+      padding: 0 16px 0 14px;
+      right: 0;
+      top: 1px;
+      height: calc(100% - 2px);
+      border-left: 1px solid $color-input-border;
+      pointer-events: none;
+      > div {
+        height: 16px;
+        svg {
+          fill: $color-input-text--placeholder;
+          max-width: 16px;
+          height: 100%;
+        }
+      }
+    }
+
+    .datepicker__error_icon,
+    .timepicker__error_icon {
+      @include input-error-icon();
+      right: 46px;
+    }
+  }
+
+  &.input--error {
+    .datepicker__element,
+    .timepicker__element,
+    .datepicker__element:hover,
+    .timepicker__element:hover,
+    .datepicker__element:focus,
+    .timepicker__element:focus {
+      input {
+        border-color: $color-error;
+      }
+    }
+  }
+
+  &.input--size-large {
+    .datepicker__inner,
+    .timepicker__inner {
+      .datepicker__element,
+      .timepicker__element {
+        input {
+          padding: 16px 12px;
+        }
+      }
+    }
+  }
+
+  &.input--size-small {
+    .datepicker__inner,
+    .timepicker__inner {
+      .datepicker__element,
+      .timepicker__element {
+        input {
+          padding: 8px 12px;
+        }
+      }
+    }
+  }
+}
+
+.#{$namespace}-datepicker-popup {
+  z-index: 1000;
+}
+
+.#{$namespace}-icon-calendar {
+  display: none !important;
+}
+
+.#{$namespace}-btn {
+  display: flex;
+  line-height: 0.5;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 500;
+  padding: 4px 15px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  color: $color-input-text--placeholder;
+  white-space: nowrap;
+  background-color: $color-body;
+  &:hover {
+    background-color: $color-input-border;
+    color: $color-text;
+  }
+}
+
+.#{$namespace}-btn-text {
+  line-height: inherit;
+  padding: 0 5px;
+}
+
+.#{$namespace}-datepicker-body {
+  border-radius: $border-radius;
+  box-shadow: $shadow-modal;
+  background-color: $color-body;
+  border: 1px solid $color-input-border;
+}
+
+.#{$namespace}-calendar {
+  box-shadow: none;
+  width: 290px;
+  padding: 12px 12px;
+
+  .#{$namespace}-calendar-header {
+    height: 30px;
+    line-height: 30px;
+
+    .#{$namespace}-calendar-header-label {
+      color: $color-input-text--placeholder;
+      font-weight: 500;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .#{$namespace}-btn-current-month {
+      padding: 0 5px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: 0;
+    }
+    .#{$namespace}-btn-current-year {
+      padding: 0 5px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .#{$namespace}-btn-icon-left,
+    .#{$namespace}-btn-icon-double-left {
+      float: left;
+      padding-right: 5px;
+      padding-left: 8px;
+      margin-right: 6px;
+      height: 32px;
+      i {
+        height: 100%; // Required for Webkit
+        position: relative;
+        top: 1px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+    }
+    .#{$namespace}-btn-icon-right,
+    .#{$namespace}-btn-icon-double-right {
+      float: right;
+      padding-right: 8px;
+      padding-left: 5px;
+      margin-left: 6px;
+      height: 32px;
+      i {
+        height: 100%; // Required for Webkit
+        position: relative;
+        top: 1px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+    }
+    .#{$namespace}-btn-icon-double-left {
+      padding-right: 2px;
+      padding-left: 8px;
+    }
+    .#{$namespace}-btn-icon-double-right {
+      padding-left: 2px;
+      padding-right: 8px;
+    }
+  }
+
+  .#{$namespace}-calendar-decade-separator {
+    margin: 0 8px;
+    &:after {
+      content: '—';
+    }
+  }
+
+  .#{$namespace}-calendar-content {
+    .#{$namespace}-table {
+      margin: 0;
+      margin-top: 16px;
+      text-align: center;
+
+      td,
+      th {
+        padding: 0;
+        height: 32px;
+        font-size: 12px;
+
+        > div {
+          display: inline;
+          padding: 1px 5px;
+        }
+      }
+
+      td {
+        cursor: pointer;
+        transition: all 0.1s ease;
+
+        &:hover:not(.ext__datepicker-week-number):not(.active) {
+          background-color: lighten($color-input-border--focus, 25%);
+        }
+
+        &.active {
+          color: $color-body;
+          background-color: $color-input-border--focus;
+        }
+
+        &.disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+
+        &.not-current-month {
+          opacity: 0.25;
+        }
+
+        &.in-range {
+          background-color: lighten($color-default--disabled, 7.5%);
+        }
+
+        &.#{$namespace}-week-number {
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  .#{$namespace}-week-number {
+    opacity: 0.5;
+  }
+
+  .#{$namespace}-calendar-week-mode {
+    .#{$namespace}-date-row {
+      cursor: pointer;
+      &:hover {
+        background-color: $color-input-border--hover;
+      }
+      &.#{$namespace}-active-week {
+        background-color: $color-input-border--hover;
+      }
+      .cell {
+        &:hover {
+          color: inherit;
+          background-color: transparent;
+        }
+        &.active {
+          color: inherit;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.#{$namespace}-time {
+  width: 256px;
+}
+
+.#{$namespace}-time-content {
+  height: 192px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.#{$namespace}-time-columns {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.#{$namespace}-time-column {
+  flex: 1;
+  position: relative;
+  border-left: 1px solid $color-input-border;
+  text-align: center;
+
+  &:first-child {
+    border-left: 0;
+    .#{$namespace}-time-item:first-of-type {
+      border-top-left-radius: $border-radius;
+    }
+  }
+  &:last-child {
+    .#{$namespace}-time-item:first-of-type {
+      border-top-right-radius: $border-radius;
+    }
+  }
+  .#{$namespace}-time-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    &::after {
+      content: '';
+      display: block;
+      height: 32 * 6px;
+    }
+  }
+  .#{$namespace}-time-item {
+    border-bottom: 1px solid rgb(223, 226, 229);
+    cursor: pointer;
+    font-size: 12px;
+    height: 32px;
+    line-height: 32px;
+    &:hover {
+      background-color: $color-default--disabled;
+    }
+    &.active {
+      color: $color-body;
+      background-color: $color-input-border--focus;
+    }
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+}
+
+.#{$namespace}-time-option {
+  cursor: pointer;
+  padding: 8px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  &:hover {
+    background-color: $color-input-border--hover;
+  }
+  &.active {
+    color: $color-body;
+    background-color: $color-input-border--focus;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.#{$namespace}-icon-left:before,
+.#{$namespace}-icon-right:before,
+.#{$namespace}-icon-double-left:before,
+.#{$namespace}-icon-double-right:before,
+.#{$namespace}-icon-double-left:after,
+.#{$namespace}-icon-double-right:after {
+  content: '';
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  vertical-align: middle;
+  border-style: solid;
+  border-color: currentColor;
+  border-width: 2px 0 0 2px;
+  border-radius: 1px;
+  box-sizing: border-box;
+  transform-origin: center;
+  transform: rotate(-45deg) scale(0.7);
+}
+
+.#{$namespace}-icon-double-left:after {
+  left: -4px;
+}
+
+.#{$namespace}-icon-double-right:before {
+  left: 4px;
+}
+
+.#{$namespace}-icon-right:before,
+.#{$namespace}-icon-double-right:before,
+.#{$namespace}-icon-double-right:after {
+  transform: rotate(135deg) scale(0.7);
+}
+
+.#{$namespace}-scrollbar {
+  height: 100%;
+  &:hover {
+    .#{$namespace}-scrollbar-track {
+      opacity: 1;
+    }
+  }
+}
+
+.#{$namespace}-scrollbar-wrap {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.#{$namespace}-scrollbar-track {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  width: 6px;
+  z-index: 1;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.24s ease-out;
+  .#{$namespace}-scrollbar-thumb {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: rgba(144, 147, 153, 0.3);
+    transition: background-color 0.3s;
+  }
+}
+
+.#{$namespace}-time-column .#{$namespace}-time-list::after {
+  height: 0;
+}

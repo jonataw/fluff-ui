@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import '../../../src/styles/common.scss';
+
+html,
+body {
+  font-size: 16px;
+  font-family: 'Inter' !important;
+}
+
+table {
+  // Make tables span the full container width.
+  display: table;
+  width: 100%;
+
+  // Align all text to the left.
+  text-align: left;
+}
+
+footer.page-edit,
+div.page-nav {
+  max-width: 1280px;
+}
+.theme-default-content:not(.custom) {
+  max-width: 1280px;
+  h1:first-child {
+    margin-top: 16px;
+  }
+  h2 {
+    padding-top: 32px;
+    margin-top: 32px;
+    margin-bottom: 20px;
+  }
+}

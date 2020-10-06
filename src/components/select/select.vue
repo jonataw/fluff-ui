@@ -2,33 +2,29 @@
   <div
     class="select"
     :class="{
-      'input--error': !!parsedError,
-      'input--inline': inline,
-      [`input--size-${size}`]: true
+      'select--error': hasError,
+      'select--inline': inline,
+      'select--disabled': disabled,
+      [`select--size-${size}`]: true
     }"
   >
     <!-- Select label -->
-    <label v-if="label" :for="id" class="input__label" v-text="label" />
+    <label v-if="label" :for="id" class="select__label" v-text="label" />
 
     <!-- Description above select field -->
     <p
-      v-if="upperDescription"
+      v-if="descriptionAbove || description"
       class="input__description"
-      v-text="upperDescription"
+      v-text="descriptionAbove || description"
     />
 
     <!-- Needs this div wrapper here to keep icon inside the <select> field -->
     <div class="select__inner">
       <select
-        :id="id"
-        :value="value"
-        :disabled="disabled"
-        :autofocus="autofocus"
-        :readonly="readonly"
         class="select__element"
-        @change="onInput($event.target.value)"
-        @blur="$emit('blur')"
-        @focus="$emit('focus')"
+        v-bind="$fluff.autoBind(binds, $props)"
+        v-on="$fluff.autoListen(['change'], $listeners)"
+        @change="onInputM($event.target.value)"
       >
         <option
           v-for="(option, i) in options"
@@ -64,35 +60,33 @@ c0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z"
     </div>
 
     <!-- Error -->
-    <span v-if="parsedError" class="input__error">{{ parsedError }}</span>
+    <span v-if="hasError" class="select__error">{{ err }}</span>
 
     <!-- Description below select field -->
     <p
-      v-if="lowerDescription"
+      v-if="descriptionBelow"
       class="input__description_below"
-      v-html="lowerDescription"
+      v-html="descriptionBelow"
     ></p>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
-import Input from '../../mixins/input.vue';
-import Icon from '../icon/icon.vue';
+import InputField from '../../mixins/input-field.vue';
 
 interface OptionItem {
   text: string;
   value: unknown;
 }
-
 @Component({
-  name: 'FLSelect',
-  components: { Icon }
+  name: 'FLSelect'
 })
-export default class extends Mixins(Input) {
+export default class extends Mixins(InputField) {
+  protected binds = ['name', 'id', 'value'];
   @Prop({ type: Array, required: true }) readonly options!: OptionItem[];
 
-  protected onInput(value: string | boolean | number | null) {
+  protected onInputM(value: string | boolean | number | null): void {
     if (this.disabled) {
       return;
     }
@@ -105,7 +99,7 @@ export default class extends Mixins(Input) {
     if (value === '') {
       value = null;
     }
-    this.$emit('input', value);
+    this.onInput(value);
   }
 }
 </script>

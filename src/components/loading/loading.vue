@@ -16,6 +16,9 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 })
 export default class extends Vue {
   @Prop({ type: String, default: 'default' }) readonly color?: string;
-  @Prop({ type: String, default: 'default' }) readonly size?: 'default' | 'small' | 'large';
+  @Prop({ type: String, default: 'default' }) readonly size?:
+    | 'default'
+    | 'small'
+    | 'large';
 }
 </script>

@@ -1,6 +1,6 @@
 {
   "name": "fluff-ui",
-  "version": "1.0.32",
+  "version": "1.1.0",
   "description": "Fluff UI - A component library for Vue.js.",
   "author": {
     "email": "jonatan.wackstrom@gmail.com",
@@ -28,23 +28,27 @@
     "src/**/*.vue"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve dev/main.ts",
+    "docs": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "publish:npm": "npm run build && npm publish",
-    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js && npm run build:css",
-    "build:css": "node-sass --recursive -o dist src/scss/ --output-style compressed && ncp src/fluff-icons dist/ && ncp src/scss dist/scss && node-sass -o dist dist/fluff-icons.scss --output-style compressed && rimraf dist/fluff-icons.scss",
+    "build": "rimraf dist && cross-env NODE_ENV=production rollup --config build/rollup.config.js && npm run build:css",
+    "build:css": "ncp src/icons dist/ && ncp src/styles dist/styles && node build/ncp",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {
+    "@types/uuid": "^8.3.0",
+    "uuid": "^8.3.1",
+    "vue-class-component": "^7.2.3",
     "vue-client-only": "^2.0.0",
+    "vue-property-decorator": "^8.5.0",
     "vue2-datepicker": "^3.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/plugin-proposal-decorators": "^7.10.1",
-    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.9.0",
     "@rollup/plugin-alias": "^2.2.0",
@@ -70,14 +74,15 @@
     "rollup-plugin-terser": "^5.3.0",
     "rollup-plugin-vue": "^5.1.6",
     "sass-loader": "^8.0.2",
-    "typescript": "^3.8.3",
-    "vue": "^2.6.11",
-    "vue-class-component": "^7.2.3",
-    "vue-property-decorator": "^8.5.0",
-    "vue-template-compiler": "^2.6.11"
+    "typescript": "^3.9.7",
+    "vue": "^2.6.12",
+    "vue-template-compiler": "^2.6.12",
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-typescript": "^0.3.1",
+    "vuepress-types": "^0.9.4"
   },
   "peerDependencies": {
-    "vue": "^2.6.11"
+    "vue": "^2.6.12"
   },
   "engines": {
     "node": ">=10"

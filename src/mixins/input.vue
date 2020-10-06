@@ -1,67 +1,92 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { Form } from '@/components/form/form.vue';
+import { Form } from '../components/form/form.vue';
 
 @Component({
   name: 'FLInputMixin',
   components: {}
 })
 export default class extends Vue {
-  /* Main */
-  @Prop() id?: string;
-  @Prop() form?: Form;
-  @Prop({ required: true }) readonly value!: any;
-  locError: string | null = null;
+  @Prop({ type: String }) readonly id?: string;
+  @Prop({ type: String }) readonly form?: Form;
+  @Prop({ type: String }) readonly name?: string;
+  @Prop() readonly value?: any;
 
-  /* Visuals */
+  @Prop({ type: String }) readonly label?: string;
   @Prop({ type: String, default: 'default' }) readonly size?:
     | 'default'
     | 'small'
     | 'large';
-  @Prop() label?: string;
-  @Prop() error?: any;
-  @Prop() errors?: { [k: string]: string };
 
-  /* Functional */
-  @Prop() disabled?: boolean;
-  @Prop() readonly?: boolean;
+  @Prop({ type: Boolean }) readonly disabled?: boolean;
+  @Prop({ type: Boolean }) readonly readonly?: boolean;
 
-  protected onInput(value: any) {
-    if (this.disabled) {
-      /* Do not allow input if input should be disabled */
-      return;
+  @Prop({ type: String }) readonly error?: string;
+  @Prop() readonly errorMessages?: { [k: string]: string };
+  @Prop({ type: Boolean, default: false }) readonly inline?: boolean;
+
+  // Aria
+  @Prop({ type: String }) readonly ariaLabel?: string;
+  @Prop({ type: String }) readonly ariaLabelledby?: string;
+
+  /**
+   * Fired on change of "value"-attribute.
+   */
+  protected onInput(value: any): void {
+    if (this.disabled || this.readonly) {
+      return; // Do not allow input if the element is disabled or readonly.
     }
-
-    this.$emit('input', value, this.id);
+    if (this.$options.name === 'FLCheckbox') {
+      this.$emit('change', value, this.id);
+    } else {
+      this.$emit('input', value, this.id);
+    }
   }
 
   protected onBlur(): void {
     this.$emit('blur');
   }
 
-  public get parsedError() {
-    let error: string | null = null;
+  protected onFocus(): void {
+    this.$emit('focus');
+  }
+
+  protected get hasError(): boolean {
+    return !!(this.error || this.err);
+  }
+
+  private getErrorMessage(error: string): string {
+    return this.errorMessages ? this.errorMessages[error] || error : error;
+  }
+
+  protected get err(): string | null {
     if (this.error) {
-      error = this.error;
+      return this.getErrorMessage(this.error);
+    } else if (this.form) {
+      const form = this.form;
+      const f = form.errors.find((e: any) => e.field === this.id);
+      return f ? f.error : null;
+    } else {
+      return null;
     }
-    if (this.locError) {
-      error = this.locError;
-    } else if (this.form && this.form.childErrors) {
-      const e = this.form.childErrors.find(
-        (error: any) => error.path === this.id
-      );
-      if (e) {
-        error = e.error;
-      }
-    }
-    if (error) {
-      if (this.errors && this.errors[error]) {
-        return this.errors[error];
-      } else {
-        return error;
-      }
-    }
-    return null;
+  }
+
+  // Exposed $ref methods.
+  // Can be called by using the "ref"-attribute on the component.
+
+  /**
+   * Returns the reference to this element.
+   */
+  private get ref(): any {
+    return this.$refs[this.id || 'input'] as any;
+  }
+
+  protected focus(): void {
+    this.ref.focus();
+  }
+
+  protected blur(): void {
+    this.ref.blur();
   }
 }
 </script>

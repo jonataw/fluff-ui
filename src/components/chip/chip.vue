@@ -9,8 +9,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-
-import Icon from '@/components/icon/icon.vue';
+import Icon from '../icon/icon.vue';
 
 @Component({
   name: 'FLChip',
@@ -19,7 +18,6 @@ import Icon from '@/components/icon/icon.vue';
 export default class extends Vue {
   @Prop({ type: String, required: false }) readonly icon?: string;
   @Prop({ type: String, default: 'default' }) readonly color?: string;
-
   /**
    * Returns true if the chip has text content.
    *

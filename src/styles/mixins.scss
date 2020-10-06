@@ -1,0 +1,17 @@
+@mixin input-error-icon {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  max-width: 48px;
+  padding: 0 16px 0 14px;
+  right: 0;
+  top: 1px;
+  height: calc(100% - 2px);
+  pointer-events: none;
+  svg {
+    fill: $color-error;
+    max-width: 16px;
+    max-height: 16px;
+    height: 100%;
+  }
+}

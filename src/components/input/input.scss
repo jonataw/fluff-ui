@@ -1,0 +1,148 @@
+
+.input__label {
+  /* Label */
+  line-height: 1.35;
+  display: flex;
+  font-weight: 500;
+  margin: 2px 0 0 0;
+  padding-bottom: 4px;
+}
+
+.input__description {
+  /* Above input field */
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 6px;
+  margin-top: 2px;
+}
+
+.input__description_below {
+  /* Below input field */
+  margin-top: 6px;
+  margin-bottom: 0;
+
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.input__error {
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 0;
+
+  font-size: 14px;
+  line-height: 22px;
+  color: $color-error;
+}
+
+.input {
+  display: block;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  margin: 4px 0 12px 0;
+
+  .input__outer {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+
+    .input__prefix,
+    .input__suffix {
+      white-space: nowrap;
+      border: 1px solid $color-border;
+      display: flex;
+      align-items: center;
+      background-color: $color-border;
+      padding: 8px 12px;
+
+      &.input__prefix {
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+      }
+      &.input__suffix {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+    }
+  }
+
+  .input__inner {
+    position: relative;
+    display: flex;
+    width: 100%;
+    .input__element {
+      /* HTML Input */
+      width: 100%;
+      margin: 0;
+      padding: 12px;
+
+      font-size: inherit;
+      font-family: inherit;
+
+      box-shadow: $shadow-input;
+
+      border-radius: $border-radius;
+      border: 1px solid $color-input-border;
+
+      &:disabled {
+        color: $color-input-text--disabled;
+      }
+
+      &::placeholder {
+        color: $color-input-text--placeholder;
+      }
+
+      &:hover {
+        border-color: $color-input-border--hover;
+      }
+
+      &:focus {
+        border-color: $color-input-border--focus;
+      }
+    }
+
+    .input__error_icon {
+      @include input-error-icon();
+    }
+  }
+
+  &.input--inline {
+    width: auto;
+    display: inline-block;
+  }
+
+  &.input--error {
+    .input__element,
+    .input__element:hover,
+    .input__element:focus {
+      border-color: $color-error;
+    }
+  }
+
+  &.input--size-large {
+    .input__element {
+      padding: 16px 12px;
+    }
+  }
+
+  &.input--size-small {
+    .input__element {
+      padding: 8px 8px;
+    }
+  }
+
+  &.input--has-prefix {
+    .input__element {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &.input--has-suffix {
+    .input__element {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
