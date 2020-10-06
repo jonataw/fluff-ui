@@ -4,11 +4,11 @@ A datepicker integrated into a standard input field. Uses [vue2-datepicker](http
 
 <br />
 
-<FLDatePicker v-model="date" label="Date" placeholder="Pick a date" format="MMM D YYYY" />
+<FLDatepicker v-model="date" label="Date" placeholder="Pick a date" format="MMM D YYYY" />
 
 <SourceCode>
 ```HTML
-<FLDatePicker
+<FLDatepicker
   v-model="date"
   label="Date"
   placeholder="Pick a date"
@@ -19,11 +19,11 @@ A datepicker integrated into a standard input field. Uses [vue2-datepicker](http
 
 ## Range
 
-<FLDatePicker v-model="date" label="Range" :range="true" format="MMM D YYYY" />
+<FLDatepicker v-model="date" label="Range" :range="true" format="MMM D YYYY" />
 
 <SourceCode>
 ```HTML
-<FLDatePicker v-model="date" label="Range" :range="true" format="MMM D YYYY" />
+<FLDatepicker v-model="date" label="Range" :range="true" format="MMM D YYYY" />
 ```
 </SourceCode>
 

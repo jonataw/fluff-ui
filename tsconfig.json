@@ -5,8 +5,6 @@
     "strict": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": false,
-    "declaration": true,
-    "declarationDir": "dist",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "importHelpers": true,

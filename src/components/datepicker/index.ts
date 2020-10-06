@@ -1,3 +1,3 @@
-import FLDatePicker from './datepicker.vue';
+import FLDatepicker from './datepicker.vue';
 
-export default FLDatePicker;
+export default FLDatepicker;

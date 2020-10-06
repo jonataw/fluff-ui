@@ -7,19 +7,20 @@ interface InstallFunction extends PluginFunction<any> {
 declare const FluffUi: { install: InstallFunction };
 export default FluffUi;
 
+export const FLBulletin: VueConstructor<Vue>;
 export const FLButton: VueConstructor<Vue>;
 export const FLCheckbox: VueConstructor<Vue>;
+export const FLChip: VueConstructor<Vue>;
+export const FLDatepicker: VueConstructor<Vue>;
 export const FLDivider: VueConstructor<Vue>;
 export const FLForm: VueConstructor<Vue>;
 export const FLIcon: VueConstructor<Vue>;
 export const FLInput: VueConstructor<Vue>;
 export const FLLoading: VueConstructor<Vue>;
+export const FLModal: VueConstructor<Vue>;
 export const FLSelect: VueConstructor<Vue>;
 export const FLTextarea: VueConstructor<Vue>;
-export const FLDatepicker: VueConstructor<Vue>;
 export const FLTimepicker: VueConstructor<Vue>;
-export const FLChip: VueConstructor<Vue>;
-export const FLModal: VueConstructor<Vue>;
 export const FLToast: VueConstructor<Vue>;
 
 export interface FormOptions {
