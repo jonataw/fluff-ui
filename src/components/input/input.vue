@@ -105,10 +105,10 @@ export default class extends Mixins(InputField) {
   }
   */
 
-  private timeout = window.setTimeout(() => {}, 0);
+  private timeout: any = setTimeout(() => {}, 0);
   private startDelay(value: any): void {
-    window.clearTimeout(this.timeout); // Reset the timeout.
-    this.timeout = window.setTimeout(() => {
+    clearTimeout(this.timeout); // Reset the timeout.
+    this.timeout = setTimeout(() => {
       this.$emit('input-delayed', value, this.id);
     }, this.delayed);
   }

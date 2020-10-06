@@ -127,7 +127,9 @@ export default class extends Vue {
    */
   private scroll(callback: Callback): void {
     const scroll = (): void => {
-      window.scrollTo(0, this.element.offsetTop);
+      if (typeof window !== 'undefined') {
+        window.scrollTo(0, this.element.offsetTop);
+      }
     };
     if (callback.error) {
       if (
