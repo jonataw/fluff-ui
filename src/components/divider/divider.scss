@@ -6,7 +6,7 @@
   margin-bottom: 16px;
 
   &:not(.divider--text) {
-    background-color: $color-divider;
+    background-color: var(--color-divider);
   }
 
   &.divider--text {
@@ -20,7 +20,7 @@
       align-self: center;
       text-align: center;
 
-      color: $color-divider;
+      color: var(--color-divider);
       font-size: 12px;
       font-weight: 600;
     }
@@ -31,7 +31,7 @@
       margin-top: 16px;
       margin-bottom: 16px;
 
-      background-color: $color-divider;
+      background-color: var(--color-divider);
     }
   }
 }

@@ -42,7 +42,6 @@ export default class extends Vue {
   data: any | null = null;
   options: ModalOptions = defaultOptions;
   created(): void {
-    console.log(this);
     this.$fluff.bus.$on(
       'open_modal',
       (

@@ -1,13 +1,12 @@
-
-$size--large: 48px;
-$size--default: 36px;
 $size--small: 24px;
+$size--default: 36px;
+$size--large: 48px;
 
 .loading {
-  border-left: 1px solid $color-loading;
-  border-top: 1px solid $color-loading;
-  border-bottom: 3px solid $color-loading-background;
-  border-right: 3px solid $color-loading-background;
+  border-left: 1px solid var(--color-loading);
+  border-top: 1px solid var(--color-loading);
+  border-bottom: 3px solid var(--color-loading-background);
+  border-right: 3px solid var(--color-loading-background);
 
   width: 20px;
   height: 20px;

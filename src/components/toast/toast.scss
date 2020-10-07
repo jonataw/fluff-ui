@@ -16,7 +16,7 @@
   width: calc(100% - 64px);
   max-width: 400px;
   .toast {
-    box-shadow: $shadow-toast;
+    box-shadow: var(--shadow-toast);
     background-color: #fff;
     transition: all 0.25s;
     display: inline-flex;

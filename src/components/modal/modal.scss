@@ -42,7 +42,7 @@
       max-height: calc(100vh - 32px);
       overflow: auto;
       margin: auto;
-      box-shadow: $shadow-modal;
+      box-shadow: var(--shadow-modal);
       z-index: 30;
       background-color: #fff;
       position: relative;

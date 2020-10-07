@@ -93,24 +93,24 @@
     align-items: center;
     position: relative;
     display: flex;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
 
     cursor: pointer;
 
     line-height: 1;
-    background-color: $color-button-background;
-    color: $color-button-text;
+    background-color: var(--color-button-background);
+    color: var(--color-button-text);
 
     &:hover {
-      background-color: $color-button-background--hover;
+      background-color: var(--color-button-background--hover);
     }
 
     &:active {
-      background-color: $color-button-background--active;
+      background-color: var(--color-button-background--active);
     }
 
     &:disabled {
-      background-color: $color-button-background--disabled;
+      background-color: var(--color-button-background--disabled);
       cursor: default;
     }
   }

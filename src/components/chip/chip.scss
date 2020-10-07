@@ -1,6 +1,6 @@
 .chip {
   border-radius: 32px;
-  background-color: $color-default;
+  background-color: var(--color-default);
   color: #fff;
   display: inline-flex;
   align-items: center;

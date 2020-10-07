@@ -9,7 +9,7 @@
   height: calc(100% - 2px);
   pointer-events: none;
   svg {
-    fill: $color-error;
+    fill: var(--color-error);
     max-width: 16px;
     max-height: 16px;
     height: 100%;
