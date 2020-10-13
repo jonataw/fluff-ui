@@ -8,7 +8,7 @@ import { Form } from '../components/form/form.vue';
 })
 export default class extends Vue {
   @Prop({ type: String }) readonly id?: string;
-  @Prop({ type: String }) readonly form?: Form;
+  @Prop() readonly form?: Form;
   @Prop({ type: String }) readonly name?: string;
   @Prop() readonly value?: any;
 
@@ -32,15 +32,16 @@ export default class extends Vue {
   /**
    * Fired on change of "value"-attribute.
    */
-  protected onInput(value: any): void {
+  protected onInput(event: Event, value?: any): void {
+    if (typeof value === 'undefined') {
+      value = (event.target as any)[
+        this.$options.name === 'FLCheckbox' ? 'checked' : 'value'
+      ];
+    }
     if (this.disabled || this.readonly) {
       return; // Do not allow input if the element is disabled or readonly.
     }
-    if (this.$options.name === 'FLCheckbox') {
-      this.$emit('change', value, this.id);
-    } else {
-      this.$emit('input', value, this.id);
-    }
+    this.$emit(event.type, value, event, this.id);
   }
 
   protected onBlur(): void {
@@ -64,11 +65,12 @@ export default class extends Vue {
       return this.getErrorMessage(this.error);
     } else if (this.form) {
       const form = this.form;
-      const f = form.errors.find((e: any) => e.field === this.id);
-      return f ? f.error : null;
-    } else {
-      return null;
+      if (form.errors && Array.isArray(form.errors)) {
+        const f = form.errors.find((e: any) => e.field === this.id);
+        return f ? this.getErrorMessage(f.error) : null;
+      }
     }
+    return null;
   }
 
   // Exposed $ref methods.

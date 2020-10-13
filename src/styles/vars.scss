@@ -12,6 +12,7 @@
   --color-input-border: var(--color-border);
   --color-input-border--hover: #c7c7c7;
   --color-input-border--focus: var(--color-default);
+  --color-input-border--disabled: var(--color-border);
   --color-input-text: var(--color-text);
   --color-input-text--placeholder: var(--color-input-border--hover);
   --color-input-text--disabled: var(--color-border);
@@ -25,6 +26,8 @@
   --color-button-background--disabled: var(--color-default--disabled);
   --color-button-background--hover: #967fbb;
   --color-button-background--active: #7961a0;
+
+  --color-datepicker-alternate-row: #f6f8fa;
 
   --color-toast-progress: var(--color-default);
   --color-toast-progress-background: var(--color-loading-background);

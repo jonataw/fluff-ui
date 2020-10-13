@@ -47,7 +47,7 @@ import Loading from '../loading/loading.vue';
 export default class extends Vue {
   @Prop({ type: String, default: 'default' }) readonly color?: string;
 
-  @Prop({ type: String }) readonly disabled?: boolean;
+  @Prop({ type: Boolean, default: false }) readonly disabled?: boolean;
 
   @Prop({ type: String }) readonly href?: string;
 

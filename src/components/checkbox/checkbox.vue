@@ -17,7 +17,7 @@
           class="checkbox__element"
           v-bind="$fluff.autoBind(binds, $props)"
           v-on="$fluff.autoListen(['change'], $listeners)"
-          @change="onInput($event.target.checked)"
+          @change="onInput"
         />
 
         <label class="checkbox__fill_box" :for="id">

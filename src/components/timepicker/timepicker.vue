@@ -1,6 +1,6 @@
 <template>
   <div
-    class="timepicker"
+    class="input input--timepicker"
     :class="{
       'input--error': hasError,
       'input--inline': inline,
@@ -18,21 +18,24 @@
     />
 
     <!-- Needs this div wrapper here to keep icon inside the <input> field -->
-    <div class="timepicker__inner">
+    <div class="input__inner">
       <client-only>
         <date-picker
           type="time"
           :clearable="false"
           :placeholder="placeholder === undefined ? label : placeholder"
           v-bind="$fluff.autoBind(binds, $props)"
-          class="timepicker__element"
+          :input-attr="{
+            class: 'input__element input__element--timepicker'
+          }"
           prefix-class="ext__datepicker"
           v-on="$fluff.autoListen(listeners, $listeners)"
           :show-hour="showHours"
           :show-minute="showMinutes"
           :show-second="showSeconds"
           :time-picker-options="timeOptions"
-          @input="onInput"
+          @change.prevent="onInput"
+          @input.prevent="onInput"
         >
         </date-picker>
       </client-only>
@@ -101,7 +104,7 @@ export default class extends Mixins(InputField) {
     'second-options',
     'use12h'
   ];
-  protected listeners = ['input'];
+  protected listeners = ['change', 'input'];
 
   @Prop({ type: String }) placeholder?: string;
   @Prop({ type: Function }) disabledTime?: (date: Date) => boolean;

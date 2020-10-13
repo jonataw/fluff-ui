@@ -29,11 +29,12 @@
           v-bind="$fluff.autoBind(binds, $props)"
           v-on="$fluff.autoListen(listeners, $listeners)"
           class="input__element"
-          @input.prevent="onInputM($event.target.value)"
+          @change.prevent="onInputM"
+          @input.prevent="onInputM"
           @blur="onBlur"
           @focus="onFocus"
         />
-        <span v-if="error" class="input__error_icon">
+        <span v-if="hasError" class="input__error_icon">
           <svg>
             <path
               d="M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z"
@@ -78,7 +79,7 @@ export default class extends Mixins(InputField) {
     'autocomplete',
     'autofocus'
   ];
-  protected listeners = ['blur', 'focus', 'input'];
+  protected listeners = ['blur', 'focus', 'change', 'input'];
 
   @Prop({ type: String, default: 'text' }) type?: InputType;
   @Prop({ type: String }) placeholder?: string;
@@ -87,10 +88,10 @@ export default class extends Mixins(InputField) {
   @Prop({ type: Boolean }) autocomplete?: boolean;
   @Prop({ type: Number }) delayed?: number;
 
-  protected onInputM(value: any): void {
-    this.onInput(value);
+  protected onInputM(event: Event): void {
+    this.onInput(event);
     if (this.delayed) {
-      this.startDelay(value);
+      this.startDelay(event);
     }
   }
 
@@ -105,11 +106,21 @@ export default class extends Mixins(InputField) {
   }
   */
 
-  private timeout: any = setTimeout(() => {}, 0);
-  private startDelay(value: any): void {
+  private timeout: any;
+
+  protected mounted(): void {
+    this.timeout = setTimeout(() => {}, 0);
+  }
+
+  private startDelay(event: Event): void {
     clearTimeout(this.timeout); // Reset the timeout.
     this.timeout = setTimeout(() => {
-      this.$emit('input-delayed', value, this.id);
+      this.$emit(
+        'input-delayed',
+        (event.target as HTMLInputElement).value,
+        event,
+        this.id
+      );
     }, this.delayed);
   }
 }

@@ -1,17 +1,17 @@
 <template>
   <div
-    class="select"
+    class="input input--select"
     :class="{
-      'select--error': hasError,
-      'select--inline': inline,
-      'select--disabled': disabled,
-      [`select--size-${size}`]: true
+      'input--error': hasError,
+      'input--inline': inline,
+      'input--disabled': disabled,
+      [`input--size-${size}`]: true
     }"
   >
     <!-- Select label -->
-    <label v-if="label" :for="id" class="select__label" v-text="label" />
+    <label v-if="label" :for="id" class="input__label" v-text="label" />
 
-    <!-- Description above select field -->
+    <!-- Description above input field -->
     <p
       v-if="descriptionAbove || description"
       class="input__description"
@@ -19,12 +19,13 @@
     />
 
     <!-- Needs this div wrapper here to keep icon inside the <select> field -->
-    <div class="select__inner">
+    <div class="input__inner">
       <select
-        class="select__element"
+        class="input__element input__element--select"
         v-bind="$fluff.autoBind(binds, $props)"
-        v-on="$fluff.autoListen(['change'], $listeners)"
-        @change="onInputM($event.target.value)"
+        v-on="$fluff.autoListen(['change', 'input'], $listeners)"
+        @change.prevent="onInputM"
+        @input.prevent="onInputM"
       >
         <option
           v-for="(option, i) in options"
@@ -38,7 +39,7 @@
         />
       </select>
 
-      <span v-if="error" class="select__error_icon">
+      <span v-if="hasError" class="input__error_icon input__error_icon--select">
         <svg>
           <path
             d="M8,0C3.6,0,0,3.6,0,8c0,4.4,3.6,8,8,8s8-3.6,8-8C16,3.6,12.4,0,8,0z M9,13.1H7V11H9V13.1z M9,9H7V2.9H9V9z"
@@ -60,9 +61,9 @@ c0.4-0.4,1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1,0,1.4C12.9,6.4,12.3,6.4,11.9,6z"
     </div>
 
     <!-- Error -->
-    <span v-if="hasError" class="select__error">{{ err }}</span>
+    <span v-if="hasError" class="input__error">{{ err }}</span>
 
-    <!-- Description below select field -->
+    <!-- Description below input field -->
     <p
       v-if="descriptionBelow"
       class="input__description_below"
@@ -86,20 +87,24 @@ export default class extends Mixins(InputField) {
   protected binds = ['name', 'id', 'value'];
   @Prop({ type: Array, required: true }) readonly options!: OptionItem[];
 
-  protected onInputM(value: string | boolean | number | null): void {
+  protected onInputM(event: Event): void {
     if (this.disabled) {
       return;
     }
+
+    let value = (event.target as HTMLInputElement).value,
+      parsed: any = value;
+
     if (value === 'false') {
-      value = false;
+      parsed = false;
     }
     if (value === 'true') {
-      value = true;
+      parsed = true;
     }
     if (value === '') {
-      value = null;
+      parsed = null;
     }
-    this.onInput(value);
+    this.onInput(event, parsed);
   }
 }
 </script>

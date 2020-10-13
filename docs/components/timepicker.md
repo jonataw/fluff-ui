@@ -4,11 +4,11 @@ A timepicker integrated into a standard input field. Uses [vue2-datepicker](http
 
 <br />
 
-<FLTimePicker v-model="date" label="Time" placeholder="Pick a time" format="HH:mm" :minute-step="5" />
+<FLTimepicker v-model="date" label="Time" placeholder="Pick a time" format="HH:mm" :minute-step="5" />
 
 <SourceCode>
 ```HTML
-<FLTimePicker
+<FLTimepicker
   v-model="date"
   label="Time"
   placeholder="Pick a time"

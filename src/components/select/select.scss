@@ -1,30 +1,8 @@
-
-.select {
-  display: block;
-  position: relative;
-  margin: 4px 0 12px 0;
-  min-width: 100px;
-
-  .select__inner {
-    position: relative;
-    .select__element {
-      font-family: revert;
-      /* HTML Input */
-      margin: 0;
-      width: 100%;
-      padding: 12px;
+.input.input--select {
+  .input__inner {
+    .input__element--select {
       padding-right: 55px;
-
-      font-family: inherit;
-      font-size: inherit;
-
       cursor: pointer;
-
-      box-shadow: var(--shadow-input);
-
-      border-radius: var(--border-radius);
-      border: 1px solid var(--color-input-border);
-
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -37,22 +15,6 @@
       .select__option {
         cursor: pointer;
         padding: 0;
-      }
-
-      &:disabled {
-        color: var(--color-input-text--disabled);
-      }
-
-      &::placeholder {
-        color: var(--color-input-text--placeholder);
-      }
-
-      &:hover {
-        border-color: var(--color-input-border--hover);
-      }
-
-      &:focus {
-        border-color: var(--color-input-border--focus);
       }
     }
 
@@ -75,51 +37,8 @@
       }
     }
 
-    .select__error_icon {
-      display: flex;
-      position: absolute;
-      align-items: center;
-      max-width: 48px;
-      padding: 0 16px 0 14px;
+    .input__error_icon--select {
       right: 46px;
-      top: 1px;
-      height: calc(100% - 2px);
-      pointer-events: none;
-      svg {
-        fill: var(--color-error);
-        max-width: 16px;
-        max-height: 16px;
-        height: 100%;
-      }
-    }
-  }
-
-  &.select--error {
-    .select__element,
-    .select__element:hover,
-    .select__element:focus {
-      border-color: var(--color-error);
-    }
-  }
-
-  &.select--size-large {
-    .select__inner {
-      .select__element {
-        padding: 16px 12px;
-        padding-right: 55px;
-      }
-    }
-  }
-
-  &.select--size-small {
-    .select__inner {
-      .select__element {
-        padding: 8px 12px;
-        padding-right: 55px;
-        @-moz-document url-prefix() {
-          padding-left: 4px !important;
-        }
-      }
     }
   }
 }

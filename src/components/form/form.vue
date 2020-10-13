@@ -9,7 +9,7 @@
   >
     <div
       v-if="showError && form.error"
-      class="form--error"
+      class="form__error"
       v-text="form.error"
     />
 
@@ -64,7 +64,7 @@ interface Callback {
 export default class extends Vue {
   protected binds = ['name', 'method', 'action', 'enctype', 'target'];
   protected listeners = ['submit'];
-  private form: Form;
+  private form: Form | null = null;
 
   @Prop({ type: String, required: false }) name?: string;
 
@@ -72,7 +72,7 @@ export default class extends Vue {
     | boolean
     | ScrollTopOptions;
 
-  @Prop({ type: Boolean, default: false }) readonly showError?: boolean;
+  @Prop({ type: Boolean, default: true }) readonly showError?: boolean;
 
   @Prop({ type: String }) readonly method?: string;
   @Prop({ type: String }) readonly action?: string;
@@ -100,11 +100,12 @@ export default class extends Vue {
    * Fired on submission of form.
    */
   public onSubmit(event: Event): void {
+    if (!this.form || this.form.loading) {
+      return; // Prevent submission if the form is already being submitted.
+    }
+
     if (!this.action) {
       event.preventDefault();
-    }
-    if (this.form.loading) {
-      return; // Prevent submission if the form is already being submitted.
     }
     this.form.loading = true;
 
@@ -113,6 +114,9 @@ export default class extends Vue {
     this.form.errors = [];
 
     this.$emit('submit', event, (callback: Callback) => {
+      if (!this.form) {
+        return;
+      }
       if (callback.error) {
         this.form.error = callback.error.name; // <-- Allow change of "name" (config).
         this.form.errors = callback.error.details; // <-- Allow change of "details" (config).
@@ -151,7 +155,7 @@ export default class extends Vue {
   }
 
   private get element(): HTMLElement {
-    return document.getElementById(this.form.name) as HTMLElement;
+    return document.getElementById((this.form as Form).name) as HTMLElement;
   }
 }
 </script>

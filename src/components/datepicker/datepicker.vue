@@ -1,6 +1,6 @@
 <template>
   <div
-    class="datepicker"
+    class="input input--datepicker"
     :class="{
       'input--error': hasError,
       'input--inline': inline,
@@ -18,20 +18,23 @@
     />
 
     <!-- Needs this div wrapper here to keep icon inside the <datepicker> field -->
-    <div class="datepicker__inner">
+    <div class="input__inner">
       <client-only>
         <date-picker
           type="date"
           :placeholder="placeholder === undefined ? label : placeholder"
           :clearable="false"
           v-bind="$fluff.autoBind(binds, $props)"
-          class="datepicker__element"
           prefix-class="ext__datepicker"
           v-on="$fluff.autoListen(listeners, $listeners)"
-          :input-attr="{ autofocus }"
+          :input-attr="{
+            autofocus,
+            class: 'input__element input__element--datepicker'
+          }"
           :partial-update="eager"
           :show-week-number="showWeekNumbers"
-          @input="onInput"
+          @change.prevent="onInput"
+          @input.prevent="onInput"
         >
         </date-picker>
       </client-only>

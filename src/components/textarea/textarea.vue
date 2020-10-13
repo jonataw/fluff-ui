@@ -1,6 +1,6 @@
 <template>
   <div
-    class="textarea"
+    class="input input--textarea"
     :class="{ 'input--error': hasError, [`input--size-${size}`]: true }"
   >
     <!-- Textarea label -->
@@ -13,13 +13,14 @@
       v-text="descriptionAbove || description"
     />
 
-    <div class="textarea__inner">
+    <div class="input__inner">
       <textarea
         :placeholder="placeholder === undefined ? label : placeholder"
-        class="textarea__element"
+        class="input__element input__element--textarea"
         v-bind="$fluff.autoBind(binds, $props)"
-        v-on="$fluff.autoListen(['input'], $listeners)"
-        @input="onInput($event.target.value)"
+        v-on="$fluff.autoListen(['change', 'input'], $listeners)"
+        @change.prevent="onInput"
+        @input.prevent="onInput"
       />
     </div>
 
@@ -37,12 +38,13 @@
 
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
-import Input from '../../mixins/input.vue';
+import InputField from '../../mixins/input-field.vue';
+
 @Component({
   name: 'FLTextarea',
   components: {}
 })
-export default class extends Mixins(Input) {
+export default class extends Mixins(InputField) {
   protected binds = [
     'name',
     'id',
@@ -50,12 +52,14 @@ export default class extends Mixins(Input) {
     'disabled',
     'readonly',
     'autofocus',
-    'autocomplete'
+    'autocomplete',
+    'cols',
+    'rows',
+    'wrap'
   ];
 
-  @Prop() description?: string;
-  @Prop() descriptionAbove?: string;
-  @Prop() descriptionBelow?: string;
-  @Prop() autofocus?: boolean;
+  @Prop({ type: Number }) cols?: number;
+  @Prop({ type: Number }) rows?: number;
+  @Prop({ type: String, default: 'soft' }) wrap?: 'soft' | 'hard';
 }
 </script>
