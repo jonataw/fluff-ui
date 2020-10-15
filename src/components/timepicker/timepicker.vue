@@ -95,6 +95,7 @@ export default class extends Mixins(InputField) {
     'autofocus',
     'disabled',
     'readonly',
+    'value-type',
     'format',
     'hour-step',
     'minute-step',
@@ -118,6 +119,7 @@ export default class extends Mixins(InputField) {
   @Prop({ type: Function }) disabledTime?: (date: Date) => boolean;
 
   @Prop({ type: String, default: 'HH:mm' }) format?: string;
+  @Prop({ type: String, default: 'date' }) valueType?: string;
 
   @Prop({ type: Number, default: 1 }) hourStep?: number;
   @Prop({ type: Number, default: 1 }) minuteStep?: number;

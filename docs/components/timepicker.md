@@ -6,6 +6,8 @@ A timepicker integrated into a standard input field. Uses [vue2-datepicker](http
 
 <FLTimepicker v-model="date" label="Time" placeholder="Pick a time" format="HH:mm" :minute-step="5" />
 
+Value: {{date}}
+
 <SourceCode>
 ```HTML
 <FLTimepicker
@@ -44,7 +46,7 @@ A timepicker integrated into a standard input field. Uses [vue2-datepicker](http
 | second-options    | `number[]`                                                       |           | Specifies which seconds are selectable.                                                                                          |
 | show-hours        | `boolean`                                                        | `true`    | Show the hours column.                                                                                                           |
 | show-minutes      | `boolean`                                                        | `true`    | Show the minutes column.                                                                                                         |
-| show-seconds      | `boolean`                                                        | `false`    | Show the seconds column.                                                                                                         |
+| show-seconds      | `boolean`                                                        | `false`   | Show the seconds column.                                                                                                         |
 | size              | `small | default | large | string`                               | `default` | Size of the input field.                                                                                                         |
 | time-options      | [TimeOptions](#time-options)                                     |           | Specifies a set range of selectable times.                                                                                       |
 | use12h            | `boolean`                                                        | `false`   | Use 12 hour clock.                                                                                                               |
