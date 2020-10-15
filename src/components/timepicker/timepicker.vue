@@ -34,8 +34,8 @@
           :show-minute="showMinutes"
           :show-second="showSeconds"
           :time-picker-options="timeOptions"
-          @change.prevent="onInput"
-          @input.prevent="onInput"
+          @change="onChangeM"
+          @input="onInputM"
         >
         </date-picker>
       </client-only>
@@ -105,6 +105,14 @@ export default class extends Mixins(InputField) {
     'use12h'
   ];
   protected listeners = ['change', 'input'];
+
+  protected onChangeM(value: any): void {
+    this.onInput({ type: 'change' } as any, value);
+  }
+
+  protected onInputM(value: any): void {
+    this.onInput({ type: 'input' } as any, value);
+  }
 
   @Prop({ type: String }) placeholder?: string;
   @Prop({ type: Function }) disabledTime?: (date: Date) => boolean;
