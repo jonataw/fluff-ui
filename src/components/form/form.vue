@@ -123,6 +123,7 @@ export default class extends Vue {
       }
       this.scroll(callback);
       this.form.loading = false;
+      this.form.completed = true;
     });
   }
 
