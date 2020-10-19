@@ -48,8 +48,8 @@ function instance(Vue: typeof _Vue, config: any): void {
     modal: {
       open(
         component: Component,
-        data: any,
-        options: Partial<ModalOptions>
+        data?: any,
+        options?: Partial<ModalOptions>
       ): void {
         Vue.prototype.$fluff.bus.$emit('open_modal', component, data, options);
       },
