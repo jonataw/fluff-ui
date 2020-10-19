@@ -120,10 +120,11 @@ export default class extends Vue {
       if (callback.error) {
         this.form.error = callback.error.name; // <-- Allow change of "name" (config).
         this.form.errors = callback.error.details; // <-- Allow change of "details" (config).
+      } else {
+        this.form.completed = true;
       }
       this.scroll(callback);
       this.form.loading = false;
-      this.form.completed = true;
     });
   }
 
