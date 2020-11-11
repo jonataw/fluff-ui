@@ -55,7 +55,7 @@ interface Callback {
   error?: {
     name: string;
     details: ChildError[];
-  } | null;
+  };
 }
 
 @Component({
@@ -113,7 +113,7 @@ export default class extends Vue {
     this.form.error = null;
     this.form.errors = [];
 
-    this.$emit('submit', event, (callback: Callback) => {
+    this.$emit('submit', event, (callback: Callback = {}) => {
       if (!this.form) {
         return;
       }
