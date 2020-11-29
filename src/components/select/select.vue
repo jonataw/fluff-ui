@@ -31,6 +31,7 @@
           v-for="(option, i) in options"
           :key="i"
           :value="option.value"
+          :disabled="option.disabled"
           class="select__option"
           :class="{
             'select__option--selected': option.value === value
@@ -79,6 +80,7 @@ import InputField from '../../mixins/input-field.vue';
 interface OptionItem {
   text: string;
   value: unknown;
+  disabled: boolean;
 }
 @Component({
   name: 'FLSelect'

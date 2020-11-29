@@ -35,6 +35,45 @@ The Select component represents an input control that provides a menu of options
 ```
 </SourceCode>
 
+## Placeholder
+
+<FLSelect v-model="color" :description-below="`You have selected '${color}'.`" :options="[
+  {
+    text: 'Select one...', value: null, disabled: true
+  },
+  {
+    text: 'Red', value: 'Red'
+  },
+  {
+    text: 'Green', value: 'Green'
+  },
+  {
+    text: 'Blue', value: 'Blue'
+  }
+]"/>
+
+<SourceCode>
+```HTML
+<FLSelect 
+  v-model="color"
+  :description-below="`You have selected '${color}'.`"
+  :options="[
+  {
+    text: 'Select one...', value: null, disabled: true
+  },
+  {
+    text: 'Red', value: 'Red'
+  },
+  {
+    text: 'Green', value: 'Green'
+  },
+  {
+    text: 'Blue', value: 'Blue'
+  }
+]"/>
+```
+</SourceCode>
+
 ## Props
 
 | Name              | Type                                  | Default   | Description                                                               |
@@ -52,7 +91,7 @@ The Select component represents an input control that provides a menu of options
 | id                | `string`                              |           | 'id' attribute.                                                           |
 | label             | `string`                              |           | Input label text.                                                         |
 | name              | `string`                              |           | 'name' attribute.                                                         |
-| options           | `Array<{ text: string; value: any }>` |           | Options of the select element.                                        |
+| options           | `Array<{ text: string; value: any }>` |           | Options of the select element.                                            |
 | size              | `small | default | large | string`    | `default` | Size of the input field.                                                  |
 | value / v-model   | `small | default | large | string`    | `default` | Value binding.                                                            |
 
@@ -68,5 +107,6 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({})
 export default class extends Vue {
   selected = 1;
+  color = null;
 }
 </script>
