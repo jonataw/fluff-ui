@@ -106,6 +106,9 @@ export default class extends Mixins(InputField) {
     if (value === '') {
       parsed = null;
     }
+    if (!isNaN(parseInt(value))) {
+      parsed = parseInt(value);
+    }
     this.onInput(event, parsed);
   }
 }
