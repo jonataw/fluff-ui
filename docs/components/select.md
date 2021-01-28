@@ -76,30 +76,38 @@ The Select component represents an input control that provides a menu of options
 
 ## Props
 
-| Name              | Type                                                     | Default   | Description                                                               |
-| ----------------- | -------------------------------------------------------- | --------- | ------------------------------------------------------------------------- |
-| aria-label        | `string`                                                 |           | 'aria-label' attribute.                                                   |
-| aria-labelledby   | `string`                                                 |           | 'aria-labelledby' attribute. The ID of the element that provides a label. |
-| autofocus         | `boolean`                                                |           | Focuses the input field automatically on render.                          |
-| description       | `string`                                                 |           | Alias for `description-above`.                                            |
-| description-above | `string`                                                 |           | Text to show above the input field.                                       |
-| description-below | `string`                                                 |           | Text to show below the input field.                                       |
-| disabled          | `boolean`                                                | `false`   | Disables the input field and disallows interaction.                       |
-| error             | `string`                                                 |           | Error message for this field. Overrides form-inherited errors.            |
-| error-messages    | `Record<string, string>`                                 |           | Custom error messages mapping for translations etc.                       |
-| form              | `Form`                                                   |           | Form object from [FLForm](/components/form) `v-slot:form="{ form }"`      |
-| id                | `string`                                                 |           | 'id' attribute.                                                           |
-| label             | `string`                                                 |           | Input label text.                                                         |
-| name              | `string`                                                 |           | 'name' attribute.                                                         |
-| options           | `Array<{ text: string; value: any; disabled: boolean }>` |           | Options of the select element.                                            |
-| size              | `small | default | large | string`                       | `default` | Size of the input field.                                                  |
-| value / v-model   | `small | default | large | string`                       | `default` | Value binding.                                                            |
+<div class="prop_table">
+
+| Name                       | Type                                                                  | Default          | Description                                                    |
+| -------------------------- | --------------------------------------------------------------------- | ---------------- | -------------------------------------------------------------- |
+| value / v-model<Required/> | <T>string</T> \| <T>number</T>                                        |                  | Value binding.                                                 |
+| aria-label                 | <T>string</T>                                                         |                  |                                                                |
+| aria-labelledby            | <T>string</T>                                                         |                  |                                                                |
+| autofocus                  | <T>boleaan</T>                                                        |                  | Focuses the input field automatically on render.               |
+| description                | <T>string</T>                                                         |                  | Alias for `description-above`.                                 |
+| description-above          | <T>string</T>                                                         |                  | Text to show above the input field.                            |
+| description-below          | <T>string</T>                                                         |                  | Text to show below the input field.                            |
+| disabled                   | <T>boleaan</T>                                                        | <T>false</T>     | Disables the input field.                                      |
+| error                      | <T>string</T>                                                         |                  | Error message for this field. Overrides form-inherited errors. |
+| error-messages             | <T>Record\<string, string></T>                                        |                  | Custom error messages mapping for translations etc.            |
+| form                       | <T>Form</T>                                                           |                  | Form object from [FLForm](/components/form).                   |
+| id                         | <T>string</T>                                                         |                  | `id` attribute.                                                |
+| label                      | <T>string</T>                                                         |                  | Label text.                                                    |
+| name                       | <T>string</T>                                                         |                  | `name` attribute.                                              |
+| options                    | <T>Array<{ text: string; value: any; disabled: boolean }></T>         |                  | Options of the select element.                                 |
+| size                       | <D>"small"</D> \| <D>"default"</D> \| <D>"large"</D> \| <T>string</T> | <D>"default"</D> | Size of the input field.                                       |
+
+</div>
 
 ## Events
 
-| Event | Arguments                                                                              | Description                                    |
-| ----- | -------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| input | `value` - The value the input was changed to.<br/>`id` - The id property of the input. | Emitted when the value is changed by the user. |
+<div class="event_table">
+
+| Event | Arguments                                                                                                                                                             | Description                                    |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| input | <Arg name="value" type="string \| number" description="The value the input was changed to." /><Arg name="id" type="string" description="id property of the input." /> | Emitted when the value is changed by the user. |
+
+</div>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';

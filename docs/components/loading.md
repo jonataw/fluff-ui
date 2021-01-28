@@ -30,9 +30,11 @@ The loading component represents a spinning loading icon.
 
 ## Props
 
-## Props
+<div class="prop_table">
 
-| Name  | Type                                      | Default   | Description                                                   |
-| ----- | ----------------------------------------- | --------- | ------------------------------------------------------------- |
-| color | string                                    | 'default' | Custom color. Requires the `loading--color-{color}` CSS rule. |
-| size  | 'small' \| 'default' \| 'large' \| string | 'default' | Loading icon size.                                            |
+| Name  | Type                                                                    | Default          | Description                                         |
+| ----- | ----------------------------------------------------------------------- | ---------------- | --------------------------------------------------- |
+| color | <T>string</T>                                                           | <D>"default"</D> | Sets the `loading--color-{color}` class on element. |
+| size  | <D>"small"</D> \| <D>"default"</D> \| <D>"default"</D> \| <T>string</T> | <D>"default"</D> | Size of loading icon.                               |
+
+</div>

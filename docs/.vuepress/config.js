@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Fluff UI 🐑',
+  title: 'Fluff UI',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -26,7 +26,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ['meta', { name: 'theme-color', content: '#9172c2' }],
+    ['meta', { name: 'theme-color', content: '#2e84f5' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     [
       'meta',

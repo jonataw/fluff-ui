@@ -4,13 +4,11 @@
 
 The Toast component is similar to a popup, but is usually used to show the user brief information.
 
-To use the toast, add the `<FLToast />` component close to the root of your document body. Then use the `$fluff.toast.pop(ToastOptions)` function to create a toast.
+<br />
 
-<FLButton @click="$fluff.toast.pop({
-title: 'You did it!',
-text: 'You created a toast.',
-icon: 'package'
-})">Pop Toast</FLButton>
+To use the toast, add the <D>\<FLToast /></D> component close to the root of your document body. Then use the <T>\$fluff.toast.pop(ToastOptions)</T> function to create a toast.
+
+<FLButton @click="pop">Pop Toast</FLButton>
 
 <SourceCode>
 ```HTML
@@ -28,14 +26,18 @@ icon: 'package'
 
 ## ToastOptions
 
-| Key                         | Type                                          | Description                                                                                                                           |
-| --------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| title                       | string                                        | Toast title.                                                                                                                          |
-| text                        | string                                        | Toast text.                                                                                                                           |
-| icon                        | string                                        | Toast icon.                                                                                                                           |
-| options.closeable\*         | boolean \| { click: boolean; icon: boolean; } | Determines if the toast can be closed by clicking it. 'click' - clicking the toast closes it. 'icon' - clicking the X icon closes it. |
-| options.delay\*             | number                                        | Milliseconds until the toast automatically closes.                                                                                    |
-| options.showDelayProgress\* | boolean                                       | Show the progress until the toast is automatically closed?                                                                            |
+<div class="props_table">
+
+| Key                         | Type                                                        | Description                                                                                                                           |
+| --------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| title                       | <T>string</T>                                               | Toast title.                                                                                                                          |
+| text                        | <T>string</T>                                               | Toast text.                                                                                                                           |
+| icon                        | <T>string</T>                                               | Toast icon.                                                                                                                           |
+| options.closeable\*         | <T>boolean</T> \| <T>{ click: boolean; icon: boolean; }</T> | Determines if the toast can be closed by clicking it. 'click' - clicking the toast closes it. 'icon' - clicking the X icon closes it. |
+| options.delay\*             | <T>number</T>                                               | Milliseconds until the toast automatically closes.                                                                                    |
+| options.showDelayProgress\* | <T>boolean</T>                                              | Show the progress until the toast is automatically closed?                                                                            |
+
+</div>
 
 \* Overrides the [GlobalOptions.toast](#globaloptions-toast) properties.
 
@@ -54,3 +56,17 @@ Vue.use(FluffUi, {
 })
 ```
 </SourceCode>
+
+<script>
+export default {
+  methods: {
+    pop() {
+      this.$fluff.toast.pop({
+        title: 'You did it!',
+        text: 'You created a toast.',
+        icon: 'package'
+      });
+    }
+  }
+}
+</script>

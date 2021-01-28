@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: https://jonatan.net/sheep.svg
 tagline: A component library for Vue.js
 actionText: Get Started →
 actionLink: /get-started/installation/

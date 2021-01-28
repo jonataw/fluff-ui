@@ -42,21 +42,29 @@ Simple form using the `action="form.html"` and `method="get"` attributes.
 
 ## Props
 
-| Name               | Type                                                                           | Default | Description                                                                                                 |
-| ------------------ | ------------------------------------------------------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------- |
-| action             | `string`                                                                       |         | The URL that processes the form submission.                                                                 |
-| enctype            | `application/x-www-form-urlencoded`<br/>`multipart/form-data`<br/>`text/plain` |         | MIME type of form submission. Requires method to be `post`.                                                 |
-| method             | `get | post`                                                                   |         | The HTTP method to submit the form with.                                                                    |
-| name               | `string`                                                                       |         | Used as 'id' attribute. If this property is omitted, a generated uuid will be assigned to the form instead. |
-| scroll-top-options | `{ error?: boolean, completed?: boolean }`<br/>`boolean`                       | `false` | Controls the scroll to top behaviour.                                                                       |
-| show-error         | `boolean`                                                                      | `true`  | If true, the form error will be shown above the form.                                                       |
-| target             | `string`                                                                       |         | Indicates where to display the response after submitting the form.                                          |
+<div class="prop_table">
+
+| Name               | Type                                                                                              | Default      | Description                                                                                                 |
+| ------------------ | ------------------------------------------------------------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------- |
+| action             | <D>"string"</D>                                                                                   |              | The URL that processes the form submission.                                                                 |
+| enctype            | <D>"application/x-www-form-urlencoded"</D> \| <D>"multipart/form-data"</D> \| <D>"text/plain"</D> |              | MIME type of form submission. Requires method to be <D>"post"</D>.                                          |
+| method             | <D>"get"</D> \| <D>"post"</D>                                                                     |              | The HTTP method to submit the form with.                                                                    |
+| name               | <D>"string"</D>                                                                                   |              | Used as 'id' attribute. If this property is omitted, a generated uuid will be assigned to the form instead. |
+| scroll-top-options | <T>ScrollTopOptions</T> \| <T>boolean</T>                                                         | <T>false</T> | Controls the scroll to top behaviour.                                                                       |
+| show-error         | <T>boolean</T>                                                                                    | <T>true</T>  | If true, the form error will be shown above the form.                                                       |
+| target             | <D>"string"</D>                                                                                   |              | Indicates where to display the response after submitting the form.                                          |
+
+</div>
 
 ## Events
 
-| Event  | Arguments                            | Description                         |
-| ------ | ------------------------------------ | ----------------------------------- |
-| submit | `callback` - Form response callback. | Emitted when the form is submitted. |
+<div class="event_table">
+
+| Event  | Arguments                                                                                                                                 | Description                         |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| submit | <Arg description="Form submit event." name="event" type="Event" /><Arg description="Callback trigger." name="callback" type="Function" /> | Emitted when the form is submitted. |
+
+</div>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';

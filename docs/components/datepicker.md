@@ -29,40 +29,48 @@ A datepicker integrated into a standard input field. Uses [vue2-datepicker](http
 
 ## Props
 
-| Name              | Type                                                             | Default      | Description                                                                                                                      |
-| ----------------- | ---------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| aria-label        | `string`                                                         |              | 'aria-label' attribute.                                                                                                          |
-| aria-labelledby   | `string`                                                         |              | 'aria-labelledby' attribute. The ID of the element that provides a label.                                                        |
-| autofocus         | `boolean`                                                        | `false`      | Focuses the input field automatically on render.                                                                                 |
-| confirm           | `boolean`                                                        | `false`      | Require the user to confirm their date selection.                                                                                |
-| default-panel     | `year | 'month`                                                  | `month`      | Determines the view that will be shown when opening the calendar.                                                                |
-| description       | `string`                                                         |              | Alias for `description-above`.                                                                                                   |
-| description-above | `string`                                                         |              | Text to show above the input field.                                                                                              |
-| description-below | `string`                                                         |              | Text to show below the input field.                                                                                              |
-| disabled          | `boolean`                                                        | `false`      | Disables the input field and disallows interaction.                                                                              |
-| eager             | `boolean`                                                        | `false`      | If `true`, updates the date value when selecting the year or month.                                                              |
-| error             | `string`                                                         |              | Error message for this field. Overrides form-inherited errors.                                                                   |
-| error-messages    | `Record<string, string>`                                         |              | Custom error messages mapping for translations etc.                                                                              |
-| form              | `Form`                                                           |              | Form object from [FLForm](/components/form) `v-slot:form="{ form }"`                                                             |
-| format            | [Format](/datepicker.html#format)                                | `YYYY-MM-DD` | The format of the date to be shown in the input field.                                                                           |
-| id                | `string`                                                         |              | 'id' attribute.                                                                                                                  |
-| label             | `string`                                                         |              | Input label text.                                                                                                                |
-| multiple          | `boolean`                                                        | `false`      | Allow selecting multiple dates.                                                                                                  |
-| name              | `string`                                                         |              | 'name' attribute.                                                                                                                |
-| open              | `boolean | null`                                                 | `null`       | Force calendar to be open or closed. If `null` or not defined, the input focus/blur events controls this property automatically. |
-| placeholder       | `string`                                                         |              | 'placeholder' attribute. If not specified, the label will be used as placeholder.                                                |
-| range             | `boolean`                                                        | `false`      | Sets the calendar in range mode, allowing selection of a start and end date.                                                     |
-| range-separator   | `string`                                                         | `—`          | String to separate the two selected dates in range mode.                                                                         |
-| show-week-numbers | `boolean`                                                        | `false`      | Shows the week numbers in calendar.                                                                                              |
-| size              | `small | default | large | string`                               | `default`    | Size of the input field.                                                                                                         |
-| value / v-model   | `small | default | large | string`                               |              | Value binding.                                                                                                                   |
-| value-type        | `date | timestamp | format` \| [Format](/datepicker.html#format) | `date`       | Data type of the binding value. If the value-type is `format`, it will inherit the format of the `format` property.              |
+<div class="props_table">
+
+| Name                       | Type                                                                                                   | Default             | Description                                                                                                            |
+| -------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| value / v-model<Required/> | <T>string</T>                                                                                          |                     | Value binding.                                                                                                         |
+| aria-label                 | <T>string</T>                                                                                          |                     |                                                                                                                        |
+| aria-labelledby            | <T>string</T>                                                                                          |                     |                                                                                                                        |
+| autofocus                  | <T>boleaan</T>                                                                                         | <T>false</T>        | Focuses the input field automatically on render.                                                                       |
+| confirm                    | <T>boleaan</T>                                                                                         | <T>false</T>        | Require the user to confirm their date selection.                                                                      |
+| default-panel              | <D>"year"</D> \| <D>"month"</D>                                                                        | <D>"month"</D>      | Determines the view that will be shown when opening the calendar.                                                      |
+| description                | <T>boleaan</T>                                                                                         |                     | Alias for `description-above`.                                                                                         |
+| description-above          | <T>string</T>                                                                                          |                     | Text to show above the input field.                                                                                    |
+| description-below          | <T>string</T>                                                                                          |                     | Text to show below the input field.                                                                                    |
+| disabled                   | <T>boleaan</T>                                                                                         | <T>false</T>        | Disables the input field.                                                                                              |
+| eager                      | <T>boleaan</T>                                                                                         | <T>false</T>        | If <T>true</T>, updates the date value when selecting the year or month.                                               |
+| error                      | <T>string</T>                                                                                          |                     | Error message for this field. Overrides form-inherited errors.                                                         |
+| error-messages             | <T>Record\<string, string></T>                                                                         |                     | Custom error messages mapping for translations etc.                                                                    |
+| form                       | <T>Form</T>                                                                                            |                     | Form object from [FLForm](/components/form).                                                                           |
+| format                     | [Format](/datepicker.html#format)                                                                      | <D>"YYYY-MM-DD"</D> | The format of the date to be shown in the input field.                                                                 |
+| id                         | <T>string</T>                                                                                          |                     | `id` attribute.                                                                                                        |
+| label                      | <T>string</T>                                                                                          |                     | Input label text.                                                                                                      |
+| multiple                   | <T>boleaan</T>                                                                                         | <T>false</T>        | Allow selecting multiple dates.                                                                                        |
+| name                       | <T>string</T>                                                                                          |                     | `name` attribute.                                                                                                      |
+| open                       | <T>boleaan</T> \| <T>null</T>                                                                          | <T>null</T>         | Force calendar to be open or closed. If <T>null</T>, the input focus/blur events controls this property automatically. |
+| placeholder                | <T>string</T>                                                                                          |                     | `placeholder` attribute. If not specified, the label will be used as placeholder.                                      |
+| range                      | <T>boleaan</T>                                                                                         | <T>false</T>        | Sets the calendar in range mode, allowing selection of a start and end date.                                           |
+| range-separator            | <T>string</T>                                                                                          | <D>"—"</D>          | String to separate the two selected dates in range mode.                                                               |
+| show-week-numbers          | <T>boleaan</T>                                                                                         | <T>false</T>        | Shows the week numbers in calendar.                                                                                    |
+| size                       | <D>"small"</D> \| <D>"default"</D> \| <D>"large"</D> \| <T>string</T>                                  | <D>"default"</D>    | Size of the input field.                                                                                               |
+| value-type                 | <D>"date"</D> \| <D>"timestamp"</D> \| <D>"format"</D> \| [Format](/components/datepicker.html#format) | <D>"date"</D>       | Data type of the binding value. If the value-type is `format`, it will inherit the format of the `format` property.    |
+
+</div>
 
 ## Events
 
-| Event | Arguments                                                                              | Description                                    |
-| ----- | -------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| input | `value` - The value the input was changed to.<br/>`id` - The id property of the input. | Emitted when the value is changed by the user. |
+<div class="event_table">
+
+| Event | Arguments                                                                                                                                                                                                          | Description                                    |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| input | <Arg name="value" type="?" description="The value the input was changed to. Value will be of the type specified in value-type property." /><Arg name="id" type="string" description="id property of the input." /> | Emitted when the value is changed by the user. |
+
+</div>
 
 ## Format
 

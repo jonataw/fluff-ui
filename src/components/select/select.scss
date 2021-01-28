@@ -8,11 +8,11 @@
       -moz-appearance: none;
       background-color: transparent;
       @-moz-document url-prefix() {
-        font-family: 'Inter';
-        padding-left: 8px !important;
+        padding-left: 8px;
       }
 
       .select__option {
+        font-family: revert;
         cursor: pointer;
         padding: 0;
       }

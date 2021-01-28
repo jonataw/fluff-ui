@@ -41,23 +41,31 @@ As most elements, the checkbox component allows a size prop. Fluff provides CSS 
 
 ## Props
 
-| Name            | Type                               | Default   | Description                                                               |
-| --------------- | ---------------------------------- | --------- | ------------------------------------------------------------------------- |
-| aria-label      | `string`                           |           | 'aria-label' attribute.                                                   |
-| aria-labelledby | `string`                           |           | 'aria-labelledby' attribute. The ID of the element that provides a label. |
-| disabled        | `boolean`                          | `false`   | Disables the checkbox and disallows interaction.                          |
-| form            | `Form`                             |           | Form object from [FLForm](/components/form) `v-slot:form="{ form }"`      |
-| id              | `string`                           |           | 'id' attribute for checkbox. Required to allow interaction.               |
-| label           | `string`                           |           | The checkbox label.                                                       |
-| name            | `string`                           |           | 'name' attribute for checkbox.                                            |
-| size            | `small | default | large | string` | `default` | Size of the checkbox.                                                     |
-| value / v-model | `small | default | large | string` | `default` | Value binding.                                                            |
+<div class="prop_table">
+
+| Name                       | Type                                                                    | Default          | Description                                    |
+| -------------------------- | ----------------------------------------------------------------------- | ---------------- | ---------------------------------------------- |
+| id<Required/>              | <T>string</T>                                                           |                  | `id` attribute. Required to allow interaction. |
+| value / v-model<Required/> | <T>boolean</T>                                                          |                  | Value binding.                                 |
+| aria-label                 | <T>string</T>                                                           |                  |                                                |
+| aria-labelledby            | <T>string</T>                                                           |                  |                                                |
+| disabled                   | <T>boolean</T>                                                          | <T>false</T>     | Disables the checkbox.                         |
+| form                       | <T>Form</T>                                                             |                  | Form object from [FLForm](/components/form).   |
+| label                      | <T>string</T>                                                           |                  |                                                |
+| name                       | <T>string</T>                                                           |                  |                                                |
+| size                       | <D>"small"</D> \| <D>"default"</D> \| <D>"default"</D> \| <T>string</T> | <D>"default"</D> | Size of the checkbox.                          |
+
+</div>
 
 ## Events
 
-| Event  | Arguments                                                                                          | Description                                    |
-| ------ | -------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| change | `value` - The value the checkbox was changed to. True or false.<br/>`id` - The id of the checkbox. | Emitted when the value is changed by the user. |
+<div class="event_table">
+
+| Event  | Arguments                                                                                                                                                          | Description                                    |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| change | <Arg name="value" type="boolean" description="The value the checkbox was changed to." /><Arg name="id" type="string" description="id property of the checkbox." /> | Emitted when the value is changed by the user. |
+
+</div>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';

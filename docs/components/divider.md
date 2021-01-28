@@ -26,9 +26,9 @@ An optional prop `text` can be passed to the divider component. The text will sh
 
 ## Props
 
-| Name | Type   | Default | Description   |
-| ---- | ------ | ------- | ------------- |
-| text | string |         | Text to show. |
+| Name | Type          | Default | Description   |
+| ---- | ------------- | ------- | ------------- |
+| text | <T>string</T> |         | Text to show. |
 
 <style lang="scss" scoped>
 .bulletin {
