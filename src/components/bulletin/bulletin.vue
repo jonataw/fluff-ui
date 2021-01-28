@@ -56,6 +56,7 @@ export default class extends Vue {
     if (this.dismissableCookie && !this.$isServer) {
       this.setCookie(this.dismissableCookie, '1');
     }
+    this.$emit('dismiss');
   }
 
   private setCookie(name: string, value: string): void {
