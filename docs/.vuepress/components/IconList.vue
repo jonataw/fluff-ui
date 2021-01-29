@@ -83,7 +83,11 @@ export default {
         'twitter',
         'users',
         'warning',
-        'wheel'
+        'wheel',
+        'youtube',
+        'trend-up',
+        'trend-down',
+        'star'
       ]
     };
   }

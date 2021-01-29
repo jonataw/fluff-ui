@@ -1,188 +1,267 @@
+$fluff-icons-font: "fluff-icons";
+
 @font-face {
-  font-family: 'fluff-icons';
-  src: url('./fluff-icons.eot?0bb44a83ca2bda9df4161d474a26b94b#iefix')
-      format('embedded-opentype'),
-    url('./fluff-icons.woff2?0bb44a83ca2bda9df4161d474a26b94b') format('woff2'),
-    url('./fluff-icons.woff?0bb44a83ca2bda9df4161d474a26b94b') format('woff');
+    font-family: $fluff-icons-font;
+    src: url("./fluff-icons.eot?ceea31751784b5f40ac5f9a4757bd839#iefix") format("embedded-opentype"),
+url("./fluff-icons.woff?ceea31751784b5f40ac5f9a4757bd839") format("woff"),
+url("./fluff-icons.woff2?ceea31751784b5f40ac5f9a4757bd839") format("woff2");
 }
 
-i[class^='icon-']:before,
-i[class*=' icon-']:before {
-  font-family: 'fluff-icons' !important;
-  font-style: normal;
-  font-weight: normal !important;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: fluff-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+$fluff-icons-map: (
+    "archive": "\f101",
+    "arrow-down": "\f102",
+    "arrow-left": "\f103",
+    "arrow-right": "\f104",
+    "arrow-up": "\f105",
+    "calendar": "\f106",
+    "chat": "\f107",
+    "check": "\f108",
+    "chevron-down": "\f109",
+    "chevron-left": "\f10a",
+    "chevron-right": "\f10b",
+    "chevron-up": "\f10c",
+    "cloud-down": "\f10d",
+    "cloud-download": "\f10e",
+    "cloud-up": "\f10f",
+    "cloud": "\f110",
+    "copy": "\f111",
+    "cross": "\f112",
+    "disks": "\f113",
+    "download": "\f114",
+    "edit": "\f115",
+    "external": "\f116",
+    "facebook-inverse": "\f117",
+    "facebook": "\f118",
+    "filter": "\f119",
+    "gift": "\f11a",
+    "help": "\f11b",
+    "home": "\f11c",
+    "information": "\f11d",
+    "internal": "\f11e",
+    "link": "\f11f",
+    "linkedin": "\f120",
+    "list": "\f121",
+    "location": "\f122",
+    "lock": "\f123",
+    "logout": "\f124",
+    "mail": "\f125",
+    "menu-horizontal": "\f126",
+    "menu-vertical": "\f127",
+    "menu": "\f128",
+    "minus": "\f129",
+    "navigation": "\f12a",
+    "nutshell": "\f12b",
+    "package": "\f12c",
+    "plus": "\f12d",
+    "refresh": "\f12e",
+    "search": "\f12f",
+    "security": "\f130",
+    "settings": "\f131",
+    "star": "\f132",
+    "statistics": "\f133",
+    "tag": "\f134",
+    "time": "\f135",
+    "trash": "\f136",
+    "trend-down": "\f137",
+    "trend-up": "\f138",
+    "twitter": "\f139",
+    "users": "\f13a",
+    "warning": "\f13b",
+    "wheel": "\f13c",
+    "youtube": "\f13d",
+);
 
 .icon-archive:before {
-  content: '\f101';
+    content: map-get($fluff-icons-map, "archive");
 }
 .icon-arrow-down:before {
-  content: '\f102';
+    content: map-get($fluff-icons-map, "arrow-down");
 }
 .icon-arrow-left:before {
-  content: '\f103';
+    content: map-get($fluff-icons-map, "arrow-left");
 }
 .icon-arrow-right:before {
-  content: '\f104';
+    content: map-get($fluff-icons-map, "arrow-right");
 }
 .icon-arrow-up:before {
-  content: '\f105';
+    content: map-get($fluff-icons-map, "arrow-up");
 }
 .icon-calendar:before {
-  content: '\f106';
+    content: map-get($fluff-icons-map, "calendar");
 }
 .icon-chat:before {
-  content: '\f107';
+    content: map-get($fluff-icons-map, "chat");
 }
 .icon-check:before {
-  content: '\f108';
+    content: map-get($fluff-icons-map, "check");
 }
 .icon-chevron-down:before {
-  content: '\f109';
+    content: map-get($fluff-icons-map, "chevron-down");
 }
 .icon-chevron-left:before {
-  content: '\f10a';
+    content: map-get($fluff-icons-map, "chevron-left");
 }
 .icon-chevron-right:before {
-  content: '\f10b';
+    content: map-get($fluff-icons-map, "chevron-right");
 }
 .icon-chevron-up:before {
-  content: '\f10c';
+    content: map-get($fluff-icons-map, "chevron-up");
+}
+.icon-cloud-down:before {
+    content: map-get($fluff-icons-map, "cloud-down");
 }
 .icon-cloud-download:before {
-  content: '\f10d';
+    content: map-get($fluff-icons-map, "cloud-download");
 }
 .icon-cloud-up:before {
-  content: '\f10e';
+    content: map-get($fluff-icons-map, "cloud-up");
 }
 .icon-cloud:before {
-  content: '\f10f';
+    content: map-get($fluff-icons-map, "cloud");
 }
 .icon-copy:before {
-  content: '\f110';
+    content: map-get($fluff-icons-map, "copy");
 }
 .icon-cross:before {
-  content: '\f111';
+    content: map-get($fluff-icons-map, "cross");
 }
 .icon-disks:before {
-  content: '\f112';
+    content: map-get($fluff-icons-map, "disks");
 }
 .icon-download:before {
-  content: '\f113';
+    content: map-get($fluff-icons-map, "download");
 }
 .icon-edit:before {
-  content: '\f114';
+    content: map-get($fluff-icons-map, "edit");
 }
 .icon-external:before {
-  content: '\f115';
+    content: map-get($fluff-icons-map, "external");
 }
 .icon-facebook-inverse:before {
-  content: '\f116';
+    content: map-get($fluff-icons-map, "facebook-inverse");
 }
 .icon-facebook:before {
-  content: '\f117';
+    content: map-get($fluff-icons-map, "facebook");
 }
 .icon-filter:before {
-  content: '\f118';
+    content: map-get($fluff-icons-map, "filter");
 }
 .icon-gift:before {
-  content: '\f119';
+    content: map-get($fluff-icons-map, "gift");
 }
 .icon-help:before {
-  content: '\f11a';
+    content: map-get($fluff-icons-map, "help");
 }
 .icon-home:before {
-  content: '\f11b';
+    content: map-get($fluff-icons-map, "home");
 }
 .icon-information:before {
-  content: '\f11c';
+    content: map-get($fluff-icons-map, "information");
 }
 .icon-internal:before {
-  content: '\f11d';
+    content: map-get($fluff-icons-map, "internal");
 }
 .icon-link:before {
-  content: '\f11e';
+    content: map-get($fluff-icons-map, "link");
 }
 .icon-linkedin:before {
-  content: '\f11f';
+    content: map-get($fluff-icons-map, "linkedin");
 }
 .icon-list:before {
-  content: '\f120';
+    content: map-get($fluff-icons-map, "list");
 }
 .icon-location:before {
-  content: '\f121';
+    content: map-get($fluff-icons-map, "location");
 }
 .icon-lock:before {
-  content: '\f122';
+    content: map-get($fluff-icons-map, "lock");
 }
 .icon-logout:before {
-  content: '\f123';
+    content: map-get($fluff-icons-map, "logout");
 }
 .icon-mail:before {
-  content: '\f124';
+    content: map-get($fluff-icons-map, "mail");
 }
 .icon-menu-horizontal:before {
-  content: '\f125';
+    content: map-get($fluff-icons-map, "menu-horizontal");
 }
 .icon-menu-vertical:before {
-  content: '\f126';
+    content: map-get($fluff-icons-map, "menu-vertical");
 }
 .icon-menu:before {
-  content: '\f127';
+    content: map-get($fluff-icons-map, "menu");
 }
 .icon-minus:before {
-  content: '\f128';
+    content: map-get($fluff-icons-map, "minus");
 }
 .icon-navigation:before {
-  content: '\f129';
+    content: map-get($fluff-icons-map, "navigation");
 }
 .icon-nutshell:before {
-  content: '\f12a';
+    content: map-get($fluff-icons-map, "nutshell");
 }
 .icon-package:before {
-  content: '\f12b';
+    content: map-get($fluff-icons-map, "package");
 }
 .icon-plus:before {
-  content: '\f12c';
+    content: map-get($fluff-icons-map, "plus");
 }
 .icon-refresh:before {
-  content: '\f12d';
+    content: map-get($fluff-icons-map, "refresh");
 }
 .icon-search:before {
-  content: '\f12e';
+    content: map-get($fluff-icons-map, "search");
 }
 .icon-security:before {
-  content: '\f12f';
+    content: map-get($fluff-icons-map, "security");
 }
 .icon-settings:before {
-  content: '\f130';
+    content: map-get($fluff-icons-map, "settings");
+}
+.icon-star:before {
+    content: map-get($fluff-icons-map, "star");
 }
 .icon-statistics:before {
-  content: '\f131';
+    content: map-get($fluff-icons-map, "statistics");
 }
 .icon-tag:before {
-  content: '\f132';
+    content: map-get($fluff-icons-map, "tag");
 }
 .icon-time:before {
-  content: '\f133';
+    content: map-get($fluff-icons-map, "time");
 }
 .icon-trash:before {
-  content: '\f134';
+    content: map-get($fluff-icons-map, "trash");
+}
+.icon-trend-down:before {
+    content: map-get($fluff-icons-map, "trend-down");
+}
+.icon-trend-up:before {
+    content: map-get($fluff-icons-map, "trend-up");
 }
 .icon-twitter:before {
-  content: '\f135';
+    content: map-get($fluff-icons-map, "twitter");
 }
 .icon-users:before {
-  content: '\f136';
+    content: map-get($fluff-icons-map, "users");
 }
 .icon-warning:before {
-  content: '\f137';
+    content: map-get($fluff-icons-map, "warning");
 }
 .icon-wheel:before {
-  content: '\f138';
+    content: map-get($fluff-icons-map, "wheel");
+}
+.icon-youtube:before {
+    content: map-get($fluff-icons-map, "youtube");
 }

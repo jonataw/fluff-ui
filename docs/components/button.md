@@ -109,7 +109,7 @@ Also works with `nuxt-link`.
 | size       | <D>"small"</D> \| <D>"default"</D> \| <D>"large"</D> \| <T>string</T>                         | <D>"default"</D> | Size of button.                                                                                                               |
 | tag        | <D>"a"</D> \| <D>"button"</D> \| <D>"input"</D> \| <D>"router-link"</D> \| <D>"nuxt-link"</D> | <D>"button"</D>  | Tag that will be used for button element.                                                                                     |
 | target     | <T>string</T>                                                                                 |                  | [target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) attribute. Requires `tag` to be <D>"a"</D>. |
-| to         | <T>string</T> \| <D>[Location](https://router.vuejs.org/api/#to)</D>                          |                  | \<router-link\> [to](https://router.vuejs.org/api/#to) prop. Required if `tag` is <D>"router-link"</D>.                             |
+| to         | <T>string</T> \| <D>[Location](https://router.vuejs.org/api/#to)</D>                          |                  | \<router-link\> [to](https://router.vuejs.org/api/#to) prop. Required if `tag` is <D>"router-link"</D>.                       |
 | type       | <D>"button"</D> \| <D>"submit"</D> \| <D>"reset"</D>                                          | <D>"button"</D>  | Button element [type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) attribute.                  |
 
 </div>
