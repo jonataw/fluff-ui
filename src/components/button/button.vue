@@ -19,7 +19,7 @@
       :type="type"
       :value="value"
       class="button__element"
-      @click="$emit('click')"
+      @click="onClick"
       :disabled="disabled"
     >
       <transition name="fade" mode="out-in">
@@ -92,6 +92,15 @@ export default class extends Vue {
    */
   protected get hasTextContent(): boolean {
     return !!this.$slots.default;
+  }
+
+  /**
+   * Fired on click of button.
+   */
+  protected onClick(): void {
+    if (!this.disabled) {
+      this.$emit('click');
+    }
   }
 }
 </script>

@@ -115,7 +115,7 @@
 
     &:disabled {
       background-color: var(--color-button-background--disabled);
-      cursor: default;
+      cursor: not-allowed;
     }
   }
 }
